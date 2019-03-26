@@ -1,0 +1,37 @@
+<div class="topnav" id="myTopnav">
+    <a href="#home" class="active" href="#">Acceuil</a>
+    <a class="nav-link"  routerLink ='/Vehicule' routerLinkActtive="active" >Véhicules</a>
+    <a class="nav-link"  >Entretien</a>
+    <a class="nav-link" >Depenses</a>
+    
+   <div>
+    <select #selectComposant (click)="goToComponent(selectComposant.value)">
+      <option  value="Autres">Autres</option>
+      <option routerLink="/Modele" value="Modele">Modele</option>
+      <option routerLink="/Marque" value="Marque">Marque</option>
+      <option routerLink="/TypeV" value="TypeV">Type de véhicule</option>
+      <option routerLink="/Chauffeur" value="Chauffeur">Chauffeur</option>
+      <option routerLink="/Affectation" value="Affectation">Affectation</option>
+      <option routerLink="/Boite" value="Boite">Type de boite</option>
+      <option routerLink="/Energie" value="Energie">Energie</option>
+      <option routerLink="/Contrat"value="Contrat">Contrat d'assurance</option>
+      <option routerLink="/Assurance" value="Assurance" >Assurance</option>
+    </select>
+  </div>
+
+  <div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Autres
+    </a>
+  
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" href="#">Modele</a>
+      <a class="dropdown-item" href="#">Marque</a>
+      <a class="dropdown-item" href="#">Type de véhicule</a>
+      <a class="dropdown-item" href="#">Chauffeurs</a>
+    </div>
+  </div>
+
+
+  
+  </div>

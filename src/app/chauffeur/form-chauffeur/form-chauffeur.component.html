@@ -1,0 +1,55 @@
+<br>
+<div class="row">
+  <div class="container">
+    <br>
+    <form (ngSubmit)="add()" formGroup="form">
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <br>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label id="matricule_ch">matricule:</label>
+                <input type="text" class="form-control" id="matricule_ch" formControlName="matricule_ch">
+                <p *ngIf="form.get('matricule_ch').invalid && form.get('matricule_ch').touched" style="color:red">nom
+                  est
+                  obligatoire !</p>
+              </div>
+              <div class="form-group col-md-3">
+                <label id="nom_ch">nom:</label>
+                <input type="text" class="form-control" id="nom_ch" formControlName="nom_ch">
+                <p *ngIf="form.get('nom_ch').invalid && form.get('nom_ch').touched" style="color:red">nom est
+                  obligatoire !</p>
+              </div>
+              <div class="form-group col-md-3">
+                <label id="prenom_ch">prenom:</label>
+                <input type="text" class="form-control" id="prenom_ch" formControlName="prenom_ch">
+                <p *ngIf="form.get('prenom_ch').invalid && form.get('prenom_ch').touched" style="color:red">prenom est
+                  obligatoire !</p>
+              </div>
+              <div class="form-group col-md-3">
+                <label id="tel_chauff">numero:</label>
+                <input type="tel" class="form-control" id="tel_chauff" formControlName="tel_chauff">
+                <p *ngIf="form.get('tel_chauff').invalid && form.get('tel_chauff').touched" style="color:red">num est
+                  obligatoire !</p>
+              </div>
+              <div class="form-group col-md-3">
+                <label id="adr_chauff">adresse:</label>
+                <input type="text" class="form-control" id="adr_chauff" formControlName="adr_chauff">
+                <p *ngIf="form.get('adr_chauff').invalid && form.get('adr_chauff').touched" style="color:red">adresse
+                  est obligatoire !</p>
+              </div>
+            </div>
+            <div class="form-group col-md-2">
+              <br>
+              <button type="submit" class="btn btn-success" [disabled]="!form.valid">Add</button>
+              <!--<button  type="button" class="btn btn-success"  [disabled]="!form.valid">Update</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <br><br>
+  </div>
+</div>

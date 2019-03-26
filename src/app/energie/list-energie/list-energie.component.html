@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="card">
+      <div class="card-body">
+    <h5 style="color:gray">Liste des energies</h5>
+    <br>
+    <table class="table">
+      <thead class="thead-light">
+        <th>identifiant</th>
+        <th>energie</th>
+      </thead>
+      <tr *ngFor="let energie of energie ;let i=index">
+        <td>{{energie?.id_energie}}</td>
+        <td>{{energie?.des_energie}}</td>
+      <!--  <td><button type="button" class="btn btn-success" (click)="edit(chauffeur.id_chauff)">Modifier</button></td> 
+        <td><button type="button" class="btn btn-info" [routerLink]="['/vehicule/info', vehicule?.id_immatriculation]">View</button></td> 
+        <td><button type="button" class="btn btn-danger" (click)="delete(chauffeur.id_chauff , i)">Supprimer</button></td>
+      -->
+      </tr>
+    </table>
+    </div>
+    </div>
+  </div>
+

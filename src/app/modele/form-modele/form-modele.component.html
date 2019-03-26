@@ -1,0 +1,22 @@
+<form class="form-group">
+    <div class="row">
+        <div class="form-group col-md-3 ">
+            <label for="marque">marque</label>
+            <select class="form-control" formControlName="marque_v">
+              <option *ngFor="let marque of marques" ngValue="marque_v">{{marque?.des_marque}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3 ">
+              <label for="modele">modele</label>
+              <input type="text" class="form-control" formControlName="des_modele" > 
+
+          </div>
+       
+      </div>
+    
+    <br>
+    <div>
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+      </div>
+  
+  </form>

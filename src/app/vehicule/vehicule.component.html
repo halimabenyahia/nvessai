@@ -1,0 +1,42 @@
+<div class="row" style="margin-top: 1%">
+    <div class="container"> <!-- espace al jneb-->
+    <!--  <h4 style="color:darkred">liste des véhicules</h4> -->
+      
+      <a routerLink="/Vehicule/addVehicule" style="margin-left: 85%">
+        <button  type="button" class="btn btn-dark" >ajouter un véhicule</button>
+      </a>
+    <br>
+    <br>
+        <a routerLink="/Vehicule/listVehicules" style="margin-left: 85%">
+          <button (click)="list()" type="button" class="btn btn-dark" >liste des vehicules</button>
+        </a>
+   
+      <hr>
+      <br   >
+  
+  <router-outlet></router-outlet>
+  <br>
+ <!--<app-vehicul-list></app-vehicul-list> -->
+  <div style="margin-bottom: 7%"></div>
+  </div>
+  </div>
+  
+
+
+<!--<div class="row" style="margin-top: 2%">
+  <div class="container">
+    <h4 style="color:darkred">Clubs Management</h4>
+    <hr>
+    
+    <div class="row">
+      <div class="col-md-7">
+        <app-vehicul-form></app-vehicul-form>
+      </div>
+      <div class="col-md-5">
+
+        <router-outlet></router-outlet>
+        <br>
+      </div>
+    </div>
+  </div>
+</div> -->
