@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EnergieService } from 'src/app/services/energie.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-list-energie',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListEnergieComponent implements OnInit {
 
-  constructor() { }
+  energies : any[] ;
+  constructor(private energieService : EnergieService) { }
 
   ngOnInit() {
+    this.energieService.getEnergie()
+    .subscribe((value: any[]) => {
+      this.energies = value;
+     console.log(this.energies)
+    })
   }
 
 }

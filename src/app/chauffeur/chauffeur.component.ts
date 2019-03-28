@@ -12,10 +12,9 @@ export class ChauffeurComponent implements OnInit {
   show = false ;
 
   ngOnInit() {
+    
   }
 
-  //changeAffiche(){
-    //this.show= !this.show ;
-  //}
+ 
 
 }

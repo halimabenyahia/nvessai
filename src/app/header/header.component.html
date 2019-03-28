@@ -1,4 +1,4 @@
-<div class="topnav" id="myTopnav">
+<!--<div class="topnav" id="myTopnav">
     <a href="#home" class="active" href="#">Acceuil</a>
     <a class="nav-link"  routerLink ='/Vehicule' routerLinkActtive="active" >Véhicules</a>
     <a class="nav-link"  >Entretien</a>
@@ -19,19 +19,70 @@
     </select>
   </div>
 
-  <div class="dropdown">
-    <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <div class="dropdown" [ngClass]="{'show':show}" >
+    <a class="btn btn-secondary dropdown-toggle" (click)="showMenu()" 
+    role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       Autres
     </a>
   
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <div class="dropdown-menu" [ngClass]="{'show':show}"  aria-labelledby="dropdownMenuLink">
       <a class="dropdown-item" href="#">Modele</a>
       <a class="dropdown-item" href="#">Marque</a>
       <a class="dropdown-item" href="#">Type de véhicule</a>
       <a class="dropdown-item" href="#">Chauffeurs</a>
     </div>
   </div>
-
-
   
   </div>
+  -->
+
+  <nav  class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Acceuil</a>
+    <button class="navbar-toggler" type="button" 
+            data-toggle="collapse" data-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink ='/Vehicule' routerLinkActtive="active" >
+            Véhicules <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Entretien</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" >Depense</a>
+        </li>
+        <li class="nav-item dropdown"  >
+          <a class="nav-link dropdown-toggle"  
+             id="navbarDropdown" role="button" data-toggle="dropdown" 
+             aria-haspopup="true" aria-expanded="false" (click)="showMenu()">
+            Autres
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" [ngClass]="{'show':show}">
+            <a class="dropdown-item" routerLink="/Modele" value="Modele">Modele</a>
+            <a class="dropdown-item" routerLink="/Marque" value="Marque">Marque</a>
+            <a class="dropdown-item" routerLink="/Chauffeur" value="Chauffeur">Chauffeur</a>
+            <a class="dropdown-item" routerLink="/TypeV" value="TypeV">Type de véhicule</a>
+            <a class="dropdown-item" routerLink="/Affectation" value="Affectation">Affectation</a>
+            <a class="dropdown-item" routerLink="/Boite" value="Boite">Type de boite</a>
+            <a class="dropdown-item" routerLink="/Energie" value="Energie">Energie</a>
+            <a class="dropdown-item" routerLink="/Assurance" value="Assurance">Assurance</a>
+            <a class="dropdown-item" routerLink="/Contrat"value="Contrat">Contrat d'assurance</a>
+          <!--  <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+           -->
+          </div> 
+          
+        </li>
+        
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>

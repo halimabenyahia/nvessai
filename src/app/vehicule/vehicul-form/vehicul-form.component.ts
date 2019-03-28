@@ -12,8 +12,7 @@ export class VehiculFormComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
 
-  constructor(private VehiculeServiceService:VehiculeServiceService ,
-    private router: Router) { 
+  constructor(private VehiculeService:VehiculeServiceService) { 
 
     
   }
@@ -47,6 +46,13 @@ export class VehiculFormComponent implements OnInit {
       'montant_vig': new FormControl(null, Validators.required)
     })
   }
+ // add(){
+  //  this.VehiculeService.addVehicule() ;
+ // }
+
+
+
+
   
  // add() {
    // this.VehiculeServiceService.addVehicule(this.form.value)

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiculeServiceService } from 'src/app/services/vehicule-service.service' ;
-import { BehaviorSubject, Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -14,20 +14,24 @@ export class VehiculListComponent implements OnInit {
 
   vehicules : any[];
   text: any;
-  public search: Subject<string> = new Subject<string>();
+  
 
   constructor( private VehiculeService:VehiculeServiceService,
-               private router: Router ) { }
+               private httpClient: HttpClient ) { }
 
   ngOnInit() {
-   // this.VehiculeServiceService.getAllVehicule()
-     // .subscribe((value: any[]) => {
-      //  this.vehicules = value;
-      // console.log(this.vehicules)
-     // })
-     // this.VehiculeServiceService.subscribe(value => {
-       // this.text =  value;
-    // });
+    this.VehiculeService.getAllVehicule().subscribe( 
+      (value :any[])=>
+      {this.vehicules=value;
+      console.log(this.vehicules)})
+      
+    //  (response) =>
+   // { console.log('response' , response )}, 
+   // ); 
+  }
+
+    listVehicule(){
+      this.VehiculeService.getAllVehicule()
     }
 
   //edit(id_immatriculation) {

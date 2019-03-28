@@ -5,24 +5,38 @@
     <br>
     <table class="table">
       <thead class="thead-light">
-        <th>identifiant</th>
+        <th>matricule</th>
         <th>nom</th>
         <th>prenom</th>
         <th>adresse</th>
         <th>numero</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </thead>
+      <tbody>
       <tr *ngFor="let chauffeur of chauffeurs ;let i=index">
-        <td>{{chauffeur?.id_chauff}}</td>
-        <td>{{chauffeur?.nom_chauff}}</td>
-        <td>{{chauffeur?.prenom_chauff}}</td>
-        <td>{{chauffeur?.adresse_chauff}}</td>
-        <td>{{chauffeur?.num_chauff}}</td>
-      <!--  <td><button type="button" class="btn btn-success" (click)="edit(chauffeur.id_chauff)">Modifier</button></td> 
-        <td><button type="button" class="btn btn-info" [routerLink]="['/vehicule/info', vehicule?.id_immatriculation]">View</button></td> 
-        <td><button type="button" class="btn btn-danger" (click)="delete(chauffeur.id_chauff , i)">Supprimer</button></td>
-      -->
+        <th>{{chauffeur?.matricule_ch}}</th>
+        <td>{{chauffeur?.nom_ch}}</td>
+        <td>{{chauffeur?.prenom_ch}}</td>
+        <td>{{chauffeur?.adr_chauff}}</td>
+        <td>{{chauffeur?.tel_chauff}}</td>
+        <td><button type="button" class="btn btn-success" >Modifier</button></td> 
+        <td><button type="button" class="btn btn-info" >View</button></td> 
+        <td><button type="button" class="btn btn-danger" >Supprimer</button></td>
+      
       </tr>
+    </tbody>
     </table>
     </div>
     </div>
   </div>
+
+
+<!--<div>
+  <label>hello</label>
+  <div *ngFor="let chauffeur of chauffeurs">
+  {{chauffeur|json}}
+</div>
+</div>
+-->

@@ -1,33 +1,40 @@
 <div class="row"  >
-    <div class="container ">
+    <div style="margin-right: 2%">
       <div class="card">
         <div class="card-body">
       <h5 style="color:gray">Liste des véhicules</h5>
       <br>
       <table class="table" >
         <thead class="thead-light">
+          <tr>
           <th>immatriculation</th>
           <th>date mise en circulation</th>
           <th>date d'acquisition</th>
           <th>cout d'achat</th>
           <th>compteur</th>
-          <th>num moteur</th>
-          <th>num fab</th>
+          <th>num moteur</th> 
+          <th>num fab</th> 
           <th>date deb taxe</th>
           <th>date fin taxe</th>
           <th>date deb vig</th>
           <th>date fin vig</th>
-          <th>montant vig</th>
           <th>date deb visit tech</th>
           <th>date fin visit tech</th>
+          <th>energie</th>
           <th></th>
           <th></th>
           <th></th>
+         
+         <!-- <th>Energie</th>
+          <th>Type boite</th>
+          <th>Type véhicule</th>
+          <th></th>-->
+        </tr>
         </thead>
-       <!-- <tr *ngFor="let vehicule of vehicules ;let i=index">
+        <tbody>
+        <tr *ngFor="let vehicule of vehicules ;let i=index">
           <td>{{vehicule?.id_immatriculation}}</td>
           <td>{{vehicule?.date_m_c}}</td>
-          <td>{{vehicule?.equipe?.nom_equipe}}</td> 
           <td>{{vehicule?.cout_achat}}</td>
           <td>{{vehicule?.compteur_v}}</td>
           <td>{{vehicule?.num_moteur}}</td>
@@ -39,12 +46,13 @@
           <td>{{vehicule?.montant_vig}}</td>
           <td>{{vehicule?.date_deb_visit_tech}}</td>
           <td>{{vehicule?.date_fin_visit_tech}}</td>
+          <td>{{vehicule?.energie_v?.des_energie}}</td>
+      <td><button type="button" class="btn btn-success" >Modifier</button></td>
+          <td><button type="button" class="btn btn-info" >View</button></td> 
+          <td><button type="button" class="btn btn-danger" >Supprimer</button></td>
           
-
-       <td><button type="button" class="btn btn-success" (click)="edit(vehicule.id_immatriculation)">Modifier</button></td>
-          <td><button type="button" class="btn btn-info" [routerLink]="['/vehicule/info', vehicule?.id_immatriculation]">View</button></td> 
-          <td><button type="button" class="btn btn-danger" (click)="delete(vehicule.id_immatriculation , i)">Supprimer</button></td>
-        </tr> -->
+        </tr> 
+      </tbody>
       </table> 
       </div>
       </div>

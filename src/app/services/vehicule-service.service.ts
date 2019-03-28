@@ -8,13 +8,17 @@ import { HttpClient } from '@angular/common/http';
 export class VehiculeServiceService {
 
   public vehicule : any[];
-  url = 'http://localhost:8080' ;
+  
 
   constructor(private httpClient: HttpClient ) { }
   
 
   public getAllVehicule() {
-    return this.httpClient.get<any[]>(this.url + '/vehicules')
+    return this.httpClient.get('http://localhost:8080' + '/vehicules');
+  }
+
+  public addVehicule(vehicule){
+    return this.httpClient.post('http://localhost:8080' + '/addVehicule' , vehicule , );
   }
 
  

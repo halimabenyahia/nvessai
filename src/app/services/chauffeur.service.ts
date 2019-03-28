@@ -7,14 +7,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ChauffeurService {
 
-  url='http://localhost:8080/Chauffeur'
-  public chauffeur : any[] ;
+  
+  public chauffeurs : any[] ;
 
   constructor( private http: HttpClient) { }
 
-  public getAllChauffeur() {
-    return this.http.get<any[]>(this.url + '/listChauffeur')
-     // .pipe(map(value => this.vehicule = value));
+ public getAllChauffeur() {
+   return this.http.get('http://localhost:8080' + '/chauffeurs') ;
 
   }
 

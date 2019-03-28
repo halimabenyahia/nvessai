@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  show = false;
   constructor(private router : Router) { }
 
   ngOnInit() {
@@ -18,5 +18,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(link) ;
 
   }
-
+showMenu() {
+  this.show = ! this.show;  
+}
 }
