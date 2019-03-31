@@ -30,10 +30,10 @@ import { ListTypeVComponent } from './type-v/list-type-v/list-type-v.component';
 import { ContratAssComponent } from './contrat-ass/contrat-ass.component';
 import { FormContratComponent } from './contrat-ass/form-contrat/form-contrat.component';
 import { ListContratComponent } from './contrat-ass/list-contrat/list-contrat.component';
+import { InfoChauffeurComponent } from './chauffeur/info-chauffeur/info-chauffeur.component';
 
 const routes: Routes = [
 
-  //{ path: '', redirectTo: '/vehicule', pathMatch: 'full' },
 
   {path:'Vehicule' , component : VehiculeComponent , children: [
     { path: '', redirectTo: '/Vehicule', pathMatch: 'full' },
@@ -46,7 +46,10 @@ const routes: Routes = [
     { path: '', redirectTo: '/Chauffeur', pathMatch: 'full' },
     { path: 'addChauffeur', component: FormChauffeurComponent },
     { path: 'editChauffeur', component: FormChauffeurComponent },
-    { path: 'listChauffeur', component: ListChauffeurComponent }]
+    { path: 'listChauffeur', component: ListChauffeurComponent},
+    { path : 'infoChauffeur' , component : InfoChauffeurComponent}
+    
+    ]
   },
 
   {path:'Boite'  , component : BoiteComponent , children : [

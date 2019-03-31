@@ -7,17 +7,25 @@
       <thead class="thead-light">
         <th>identifiant</th>
         <th>marque</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </thead>
-      <tr *ngFor="let marque of marque ;let i=index">
+      <tr *ngFor="let marque of marques ;let i=index">
         <td>{{marque?.id_marque}}</td>
         <td>{{marque?.des_marque}}</td>
-      <!--  <td><button type="button" class="btn btn-success" (click)="edit(chauffeur.id_chauff)">Modifier</button></td> 
-        <td><button type="button" class="btn btn-info" [routerLink]="['/vehicule/info', vehicule?.id_immatriculation]">View</button></td> 
-        <td><button type="button" class="btn btn-danger" (click)="delete(chauffeur.id_chauff , i)">Supprimer</button></td>
-      -->
+       <!-- <td>{{marque?.modele_m}}</td> -->
+     <td><button type="button" class="btn btn-success" >Modifier</button></td> 
+        <td><button type="button" class="btn btn-info" >View</button></td> 
+        <td><button type="button" class="btn btn-danger" >Supprimer</button></td>
       </tr>
     </table>
     </div>
     </div>
   </div>
 
+
+<!--<div *ngFor="let marque of marques">
+  {{marque|json}}
+</div>
+-->

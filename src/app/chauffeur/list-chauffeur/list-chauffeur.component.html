@@ -15,15 +15,15 @@
         <th></th>
       </thead>
       <tbody>
-      <tr *ngFor="let chauffeur of chauffeurs ;let i=index">
+      <tr *ngFor="let chauffeur of chauffeur ;let i=index">
         <th>{{chauffeur?.matricule_ch}}</th>
         <td>{{chauffeur?.nom_ch}}</td>
         <td>{{chauffeur?.prenom_ch}}</td>
         <td>{{chauffeur?.adr_chauff}}</td>
         <td>{{chauffeur?.tel_chauff}}</td>
         <td><button type="button" class="btn btn-success" >Modifier</button></td> 
-        <td><button type="button" class="btn btn-info" >View</button></td> 
-        <td><button type="button" class="btn btn-danger" >Supprimer</button></td>
+        <td><button type="button" class="btn btn-info" routerLink="/infoChauffeur" >View</button></td> 
+        <td><button type="button" class="btn btn-danger" (click)="delete(chauffeur.id_chauffeur,i) " >Supprimer</button></td>
       
       </tr>
     </tbody>
@@ -32,11 +32,3 @@
     </div>
   </div>
 
-
-<!--<div>
-  <label>hello</label>
-  <div *ngFor="let chauffeur of chauffeurs">
-  {{chauffeur|json}}
-</div>
-</div>
--->

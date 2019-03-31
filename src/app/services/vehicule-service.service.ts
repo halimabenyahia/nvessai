@@ -18,7 +18,7 @@ export class VehiculeServiceService {
   }
 
   public addVehicule(vehicule){
-    return this.httpClient.post('http://localhost:8080' + '/addVehicule' , vehicule , );
+    return this.httpClient.post('http://localhost:8080' + '/addVehicule' , vehicule );
   }
 
  

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModeleService } from 'src/app/services/modele.service';
 
 @Component({
   selector: 'app-list-modele',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListModeleComponent implements OnInit {
 
-  constructor() { }
+  modeles : any[] ;
+  constructor(private modeleService : ModeleService) { }
 
   ngOnInit() {
+    this.modeleService.getModeles()
+    .subscribe(
+      (value : any[]) =>
+      {
+        this.modeles=value ;
+        console.log(this.modeles) ;
+      }
+    );
   }
 
 }

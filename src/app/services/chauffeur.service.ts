@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Chauffeur } from '../entity/chauffeur';
 
 
 @Injectable({
@@ -8,14 +10,25 @@ import { HttpClient } from '@angular/common/http';
 export class ChauffeurService {
 
   
-  public chauffeurs : any[] ;
+  chauffeur : Chauffeur[] ;
 
   constructor( private http: HttpClient) { }
 
- public getAllChauffeur() {
+ public getAllChauffeur()  {
    return this.http.get('http://localhost:8080' + '/chauffeurs') ;
 
   }
+
+
+  public supprimer(id_chauffeur) {
+    return this.http.delete('http://localhost:8080' + '/deleteChauffeur/' + id_chauffeur);
+  }
+
+  public addChauffeur(chauffeur) : Observable<any> {
+    return this.http.post('http://localhost:8080' + '/addChauffeur', this.chauffeur);
+  }
+
+
 
  // public getByIdChauffeur(id_chauff){
   //  return this.http.get<any[]>(this.url + '/findById/' + id_chauff)
@@ -23,9 +36,7 @@ export class ChauffeurService {
 
   //}
 
-  //public addChauffeur(chauffeur) {
-   // return this.http.post(this.url + '/addChauffeur', chauffeur, { observe: 'response' });
-  //}
+  
 
   //public editChauffeur(chauffeur){
    // return this.http.put(this.url + '/editChauffeur' , chauffeur, { observe: 'response' })
@@ -33,9 +44,7 @@ export class ChauffeurService {
   //}
 
 
- // public deleteChauffeur(id_chauff) {
-  //  return this.http.delete(this.url + '/deleteChauffeur/' + id_chauff);
- // }
+  
 
 
 

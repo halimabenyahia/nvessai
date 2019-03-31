@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { VehiculeServiceService } from 'src/app/services/vehicule-service.service' ;
 import { Router } from '@angular/router';
+import { BoiteService } from 'src/app/services/boite.service';
+import { EnergieService } from 'src/app/services/energie.service';
+import { ChauffeurService } from 'src/app/services/chauffeur.service';
+import { AssuranceService } from 'src/app/services/assurance.service';
+import { ModeleService } from 'src/app/services/modele.service';
+import { MarqueService } from 'src/app/services/marque.service';
 
 @Component({
   selector: 'app-vehicul-form',
@@ -10,9 +16,24 @@ import { Router } from '@angular/router';
 })
 export class VehiculFormComponent implements OnInit {
 
+  vehicules : any[];
+  energies : any[];
+  boites : any[] ;
+  chauffeurs : any[];
+  assurances : any[];
+  modeles : any[];
+  
+  marques : any[];
+
   form: FormGroup = new FormGroup({});
 
-  constructor(private VehiculeService:VehiculeServiceService) { 
+  constructor(private VehiculeService:VehiculeServiceService,
+              private boiteService : BoiteService,
+              private energieService : EnergieService,
+              private chauffeurService : ChauffeurService,
+              private assuranceService : AssuranceService,
+              private modeleService : ModeleService,
+              private marqueService : MarqueService) { 
 
     
   }

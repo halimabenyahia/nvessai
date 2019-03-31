@@ -6,15 +6,25 @@
     <thead class="thead-light">
       <th>identifiant</th>
       <th>le type</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </thead>
     <tr *ngFor="let typeV of typeV ;let i=index">
       <td>{{typeV?.id_typeVehicule }}</td>
-      <td>{{typeV?.des_typeVehicule|titlecase}}</td>
-    <!--  <td><button type="button" class="btn btn-success" (click)="edit(chauffeur.id_chauff)">Modifier</button></td> 
-      <td><button type="button" class="btn btn-info" [routerLink]="['/vehicule/info', vehicule?.id_immatriculation]">View</button></td> 
-      <td><button type="button" class="btn btn-danger" (click)="delete(chauffeur.id_chauff , i)">Supprimer</button></td>
-    -->
+      <td>{{typeV?.des_typeVehicule}}</td>
+     <td><button type="button" class="btn btn-success" >Modifier</button></td> 
+      <td><button type="button" class="btn btn-info" >View</button></td> 
+      <td><button type="button" class="btn btn-danger" >Supprimer</button></td>
+    
     </tr>
   </table>
   </div>
   </div>
+
+
+<!--<div *ngFor="let type of typeV">
+  {{type|json}}
+
+</div>
+-->

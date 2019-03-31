@@ -51,6 +51,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,6 +102,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
   imports: [
     HttpClientModule,
     BrowserModule,
+  
     AppRoutingModule
   ],
   providers: [VehiculeServiceService],

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContratService } from 'src/app/services/contrat.service';
 
 @Component({
   selector: 'app-list-contrat',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListContratComponent implements OnInit {
 
-  constructor() { }
+  contrats : any[];
+  constructor(private contratService : ContratService) { }
 
   ngOnInit() {
+    this.contratService.getContratAss()
+    .subscribe(
+      (value : any[]) =>
+      {
+        this.contrats=value ;
+        console.log(this.contrats);
+      }
+    );
   }
 
 }

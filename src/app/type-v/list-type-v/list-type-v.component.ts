@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TypeVService } from 'src/app/services/type-v.service';
 
 @Component({
   selector: 'app-list-type-v',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListTypeVComponent implements OnInit {
 
-  constructor() { }
+  typeV : any[] ;
+  constructor(private typeVService : TypeVService) { }
 
   ngOnInit() {
+    this.typeVService.getTypeVehicule().subscribe(
+      (value : any[])=>
+      {this.typeV= value;
+      console.log(this.typeV)}
+    );
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChauffeurService } from 'src/app/services/chauffeur.service';
 import { HttpClient } from '@angular/common/http';
+import { Chauffeur } from 'src/app/entity/chauffeur';
 
 @Component({
   selector: 'app-list-chauffeur',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ListChauffeurComponent implements OnInit {
 
  
-  chauffeurs :any[] ;
+  chauffeur : Chauffeur[];
   constructor(private chauffeurService : ChauffeurService,
     private httpClient: HttpClient) { }
 
@@ -18,15 +19,19 @@ export class ListChauffeurComponent implements OnInit {
 
      this.chauffeurService.getAllChauffeur()
       .subscribe((value: any[]) => {
-        this.chauffeurs = value;
-       console.log(this.chauffeurs)
+        this.chauffeur = value;
+       console.log(this.chauffeur)
       })
-
-   // this.chauffeurService.getAllChauffeur().subscribe(
-    //  (response => 
-     //   {this.pages = response})
-   // { console.log('response' , response )},
-    //);
   }
+
+  delete(id_chauffeur,index){
+    this.chauffeurService.supprimer(id_chauffeur)
+    .subscribe(
+      value => {
+        console.log('chauffeur supprimé !');
+        this.chauffeurService.chauffeur.splice(index, 1);
+  }
+  );
+}
 
 }

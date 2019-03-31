@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AffectationService } from 'src/app/services/affectation.service';
 
 @Component({
   selector: 'app-list-affectation',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListAffectationComponent implements OnInit {
 
-  constructor() { }
+  affectations : any[] ;
+  constructor(private affectationService : AffectationService) { }
 
   ngOnInit() {
+    this.affectationService.getAffectation()
+    .subscribe(
+      (value : any[]) =>
+      {
+        this.affectations= value ;
+        console.log(this.affectations);
+      }
+    );
   }
 
 }

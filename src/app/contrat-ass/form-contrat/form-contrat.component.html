@@ -1,3 +1,55 @@
-<p [ngStyle]="{ 'color' : 'red'}">
-  form-contrat works!
-</p>
+<br>
+<div class="row">
+  <div class="container">
+    <br>
+    <form #formulaire formGroup="form">
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <br>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label id="montant_contrat">montant_contrat:</label>
+                <input type="text" class="form-control" id="matricule_ch" formControlName="montant_contrat">
+                <p *ngIf="form.get('montant_contrat').invalid && form.get('montant_contrat').touched" style="color:red">nom
+                  est
+                  obligatoire !</p>
+              </div>
+              <div class="form-group col-md-3">
+                <label id="date_deb_contrat">date_deb_contrat:</label>
+                <input type="text" class="form-control" id="date_deb_contrat" formControlName="date_deb_contrat">
+                <p *ngIf="form.get('date_deb_contrat').invalid && form.get('date_deb_contrat').touched" style="color:red">nom est
+                  obligatoire !</p>
+              </div>
+              <div class="form-group col-md-3">
+                <label id="date_fin_contrat">date_fin_contrat:</label>
+                <input type="text" class="form-control" id="date_fin_contrat" formControlName="date_fin_contrat">
+                <p *ngIf="form.get('date_fin_contrat').invalid && form.get('date_fin_contrat').touched" style="color:red">prenom est
+                  obligatoire !</p>
+              </div>
+              <div class="form-group col-md-3">
+                <label id="num_police">num_police:</label>
+                <input type="tel" class="form-control" id="num_police" formControlName="num_police">
+                <p *ngIf="form.get('num_police').invalid && form.get('num_police').touched" style="color:red">num est
+                  obligatoire !</p>
+              </div>
+              <div class="form-group col-md-3 ">
+                  <label for="assurance_c">assurance</label>
+                  <select class="form-control" formControlName="assurance_c" id="assurance_c">
+                    <option *ngFor="let assurance of assurance" ngValue="assurance_c">{{assurance?.compagnie_ass}}</option>
+                  </select>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+              <br>
+              <button type="submit" class="btn btn-success" [disabled]="!form.valid">Add</button>
+              <!--<button  type="button" class="btn btn-success"  [disabled]="!form.valid">Update</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <br><br>
+  </div>
+</div>
