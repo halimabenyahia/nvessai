@@ -29,7 +29,6 @@ export class FormChauffeurComponent implements OnInit {
   }
 
   add(formulaire : NgForm) {
-    console.log("msg");
     this.chauffeurService.addChauffeur(formulaire.value)
      .subscribe(
        (response) => {

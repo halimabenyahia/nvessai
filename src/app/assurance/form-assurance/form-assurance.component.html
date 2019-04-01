@@ -1,21 +1,21 @@
-<form class="form-group">
+<form #formulaire="ngForm">
     <div class="row">
       <div class="form-group col-sm-3">
         <label for="compagnie_ass">compagnie</label>
-        <input type="text" class="form-control" id="compagnie_ass" >
+        <input type="text" class="form-control" ngModel name="compagnie_ass" id="compagnie_ass" >
       </div>
       <div class="form-group col-sm-3">
           <label for="adr_assurance">adresse</label>
-          <input type="text" class="form-control" id="adr_assurance" >
+          <input type="text" class="form-control" ngModel name="adr_assurance" id="adr_assurance" >
         </div>
         <div class="form-group col-sm-3">
             <label for="tel_assurance">téléphone</label>
-            <input type="text" class="form-control" id="tel_assurance" >
+            <input type="text" class="form-control" ngModel name="tel_assurance" id="tel_assurance" >
           </div>
     </div>
     <br>
     <div>
-        <button type="submit" class="btn btn-success">Enregistrer</button>
+        <button type="submit" (click)="add(formulaire)" class="btn btn-success">Enregistrer</button>
       </div>
   
   </form>

@@ -1,13 +1,13 @@
-<form class="form-group">
+<form #formulaire="ngForm">
   <div class="row">
     <div class="form-group col-sm-3">
-      <label for="typeBoite">Type de boite</label>
-      <input type="text" class="form-control" id="des_boite" >
+      <label for="des_boite">Type de boite</label>
+      <input type="text" class="form-control" ngModel name="des_boite" id="des_boite" >
     </div>
   </div>
   <br>
   <div>
-      <button type="submit" class="btn btn-success">Enregistrer</button>
+      <button type="submit" (click)="add(formulaire)" class="btn btn-success">Enregistrer</button>
     </div>
 
 </form>

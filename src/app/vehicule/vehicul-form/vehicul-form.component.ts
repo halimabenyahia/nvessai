@@ -22,7 +22,6 @@ export class VehiculFormComponent implements OnInit {
   chauffeurs : any[];
   assurances : any[];
   modeles : any[];
-  
   marques : any[];
 
   form: FormGroup = new FormGroup({});

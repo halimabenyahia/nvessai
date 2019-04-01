@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { Affectation } from 'src/app/entity/affectation';
+import { AffectationService } from 'src/app/services/affectation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-affectation',
@@ -10,13 +13,28 @@ export class FormAffectationComponent implements OnInit {
 
 
   form: FormGroup= new FormGroup({})
-
-  constructor() { }
+  affectation : Affectation [];
+  constructor(private affectationService : AffectationService,
+              private router : Router) { }
 
   ngOnInit() {
     this.form=new FormGroup({
-      'des_affectation': new FormGroup(null, [Validators.required , Validators.maxLength(30) , Validators.pattern('^[az-AZ]')])
+      'des_affectation': new FormGroup(null, Validators.required )
     })
   }
+
+  add(formulaire : NgForm){
+    this.affectationService.addAffectation(formulaire.value).subscribe(
+      (response) =>
+      {
+      //  this.affectationService.affectation.push(respo);
+      this.form.reset();
+      this.router.navigate(['listAffectation']);
+    }
+    
+    );
+  }
+
+
 
 }

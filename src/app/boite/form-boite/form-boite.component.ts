@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
+import { FormGroup, Validators, NgForm } from '@angular/forms';
+import { BoiteService } from 'src/app/services/boite.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-boite',
@@ -10,12 +12,24 @@ export class FormBoiteComponent implements OnInit {
 
   form: FormGroup= new FormGroup({})
 
-  constructor() { }
+  constructor(private boiteService : BoiteService,
+              private router : Router) { }
 
   ngOnInit() {
     this.form=new FormGroup({
-      'des_boite': new FormGroup(null, [Validators.required , Validators.maxLength(15) , Validators.pattern('^[az-AZ]')] )
+      'des_boite': new FormGroup(null, Validators.required )
     })
+  }
+
+  add(formulaire : NgForm){
+    this.boiteService.addBoite(formulaire.value).subscribe(
+      (response) =>
+      {
+     // this.boiteService.boite.push(response);
+      this.form.reset();
+      this.router.navigate(['listBoite']);
+      }
+    );
   }
 
 }

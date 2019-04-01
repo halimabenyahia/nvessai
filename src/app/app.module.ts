@@ -48,6 +48,7 @@ import { FormContratComponent } from './contrat-ass/form-contrat/form-contrat.co
 import { ListContratComponent } from './contrat-ass/list-contrat/list-contrat.component';
 import { InfoContratComponent } from './contrat-ass/info-contrat/info-contrat.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -102,7 +103,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
   imports: [
     HttpClientModule,
     BrowserModule,
-  
+    FormsModule,
     AppRoutingModule
   ],
   providers: [VehiculeServiceService],

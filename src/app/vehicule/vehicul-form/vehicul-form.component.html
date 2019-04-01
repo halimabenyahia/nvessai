@@ -2,7 +2,7 @@
 <div class="row">
   <div >
     <br>
-    <form >
+    <form #form="ngForm" >
       <div class="col-md-12">
         <div class="panel panel-primary">
           <div class="panel-heading">
@@ -14,13 +14,13 @@
             <div class="row">
               <div class="form-group col-md-3">
                 <label for="id_immatriculation">immatriculation:</label>
-                <input type="text" class="form-control" formControlName="id_immatriculation">
+                <input type="text" class="form-control" ngModel name="id_immatriculation">
               <!--  <p *ngIf="form.get('id_immatriculation').invalid && form.get('id_immatriculation').touched" style="color:red">immatriculation obligatoire !</p>
               -->
               </div>
               <div class="form-group col-md-3">
                 <label for="marque_v">marque:</label>
-                <select class="form-control" formControlName="marque_v">
+                <select class="form-control" ngModel name="marque_v">
                     <option *ngFor="let marque of marques" ngValue="marque_v">{{marque?.des_marque}}</option>
                   </select>
                 
@@ -30,51 +30,51 @@
             
             <div class="form-group col-md-3 ">
                 <label for="modele_v">modele</label>
-                <select class="form-control" formControlName="modele_v">
+                <select class="form-control" ngModel name="modele_v">
                   <option *ngFor="let modele of modeles" ngValue="modele_v">{{modele?.des_modele}}</option>
                 </select>
               </div>
               <div class="form-group col-md-3">
                   <label for="date_m_c">date mise en circulation:</label>
-                  <input type="date" class="form-control" formControlName="date_m_c" id="date_m_c">
+                  <input type="date" class="form-control" ngModel name="date_m_c" id="date_m_c">
                   <!-- <p *ngIf="form.get('date_m_c').invalid && form.get('date_m_c').touched" style="color:red">date est
                         obligatoire !</p> -->
                 </div>
                 <div class="form-group col-md-3">
                     <label for="num_moteur">num_moteur:</label>
-                    <input type="text" class="form-control" formControlName="num_moteur" id="num_moteur">
+                    <input type="text" class="form-control" ngModel name="num_moteur" id="num_moteur">
                     <!-- <p *ngIf="form.get('num_moteur').invalid && form.get('num_moteur').touched" style="color:red">numero moteur
                             est obligatoire !</p> -->
                   </div>
                   <div class="form-group col-md-3">
                       <label for="date_acq">date d'acquisition:</label>
-                      <input type="date" class="form-control" formControlName="date_acq" id="date_acq">
+                      <input type="date" class="form-control" ngModel name="date_acq" id="date_acq">
                       <!-- <p *ngIf="form.get('date_acq').invalid && form.get('date_acq').touched" style="color:red">date est
                                 obligatoire !</p> -->
                     </div>
                     <div class="form-group col-md-3">
                         <label for="cout_achat">valeur d'acquisition:</label>
-                        <input min="10000" type="number" class="form-control" formControlName="cout_achat" id="cout_achat">
+                        <input min="10000" type="number" class="form-control" ngModel name="cout_achat" id="cout_achat">
                         <!-- <p *ngIf="form.get('cout_achat').invalid && form.get('cout_achat').touched" style="color:red">compteur
                                     est obligatoire !</p> -->
                       </div>
                       <div class="form-group col-md-3">
                           <label for="usr">Chauffeur:</label>
-                          <select class="form-control" formControlName="chauffeur">
+                          <select class="form-control" ngModel name="chauffeur">
                             <option *ngFor="let chauffeur of chauffeurs" ngValue="chauffeur">{{chauffeur?.id_chauff}}</option>
                           </select>
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="usr">boite:</label>
-                            <select class="form-control" formControlName="type_boite">
+                            <select class="form-control" ngModel name="type_boite">
                               <option *ngFor="let boite of boites" ngValue="type_boite">{{boite?.des_boite}}</option>
                             </select>
                           </div>
 
                           <div class="form-group col-md-3">
                               <label for="usr">energie:</label>
-                              <select class="form-control" formControlName="des_energie">
+                              <select class="form-control" ngModel name="des_energie">
                                 <option *ngFor="let energie of energies" ngValue="des_energie">{{energie?.des_energie}}</option>
                               </select>
                             </div>
@@ -86,36 +86,37 @@
               <div class="row">
                   <div class="form-group col-md-3 ">
                       <label for="compagnie_ass">compagnie</label>
-                      <select class="form-control" formControlName="compagnie_ass" id="compagnie_ass">
+                      <select class="form-control" ngModel name="compagnie_ass" id="compagnie_ass">
                         <option *ngFor="let assurance of assurances" ngValue="compagnie_ass">{{assurance?.compagnie_ass}}</option>
                       </select>
                     </div>
 
                     <div class="form-group col-md-3">
                         <label for="num_police">num police:</label>
-                        <input type="text" class="form-control" formControlName="num_police" id="num_police">
+                        <input type="text" class="form-control" ngModel name="num_police" id="num_police">
                         <!-- <p *ngIf="form.get('num_police').invalid && form.get('num_police').touched" style="color:red">numero 
                                     est obligatoire !</p> -->
                       </div>
 
                       <div class="form-group col-md-3">
                           <label for="date_deb_contrat">date debut contrat:</label>
-                          <input type="date" class="form-control" formControlName="date_deb_contrat" id="date_deb_contrat">
+                          <input type="date" class="form-control" ngModel name="date_deb_contrat" id="date_deb_contrat">
                           <!-- <p *ngIf="form.get('date_deb_contrat').invalid && form.get('date_deb_contrat').touched" style="color:red">date est
                                           obligatoire !</p> -->
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="date_fin_contrat">date fin contrat:</label>
-                            <input type="date" class="form-control" formControlName="date_fin_contrat" id="date_fin_contrat">
+                            <input type="date" class="form-control" ngModel name="date_fin_contrat" id="date_fin_contrat">
                             <!-- <p *ngIf="form.get('date_fin_contrat').invalid && form.get('date_fin_contrat').touched" style="color:red">date est
                                               obligatoire !</p> -->
                           </div>
                           <div class="form-group col-md-3">
                               <label for="montant_contrat">montant assurance:</label>
-                              <input type="number" class="form-control" formControlName="montant_contrat" id="montant_contrat">
-                              <p *ngIf="form.get('montant_contrat').invalid && form.get('montant_contrat').touched" style="color:red">montant
+                              <input type="number" class="form-control" ngModel name="montant_contrat" id="montant_contrat">
+                             <!-- <p *ngIf="form.get('montant_contrat').invalid && form.get('montant_contrat').touched" style="color:red">montant
                                 est obligatoire !</p>
+                                -->
                             </div>
 
               </div>
@@ -124,45 +125,46 @@
               <div class="row">
                   <div class="form-group col-md-3">
                       <label for="date_deb_visit_tech">date debut visite technique:</label>
-                      <input type="date" class="form-control" formControlName="date_deb_visit_tech" id="date_deb_visit_tech">
+                      <input type="date" class="form-control" ngModel name="date_deb_visit_tech" id="date_deb_visit_tech">
                       <!-- <p *ngIf="form.get('date_deb_visit_tech').invalid && form.get('date_deb_visit_tech').touched" style="color:red">date est
                                             obligatoire !</p> -->
                     </div>
                     <div class="form-group col-md-3">
                         <label for="date_fin_visit_tech">date fin visite technique:</label>
-                        <input type="date" class="form-control" formControlName="date_fin_visit_tech" id="date_fin_visit_tech">
+                        <input type="date" class="form-control" ngModel name="date_fin_visit_tech" id="date_fin_visit_tech">
                         <!-- <p *ngIf="form.get('date_fin_visit_tech').invalid && form.get('date_fin_visit_tech').touched" style="color:red">date est
                                                 obligatoire !</p> -->
                       </div>
 
                       <div class="form-group col-md-3">
                           <label for="montant_visit_tech">montant visite technique:</label>
-                          <input type="number" class="form-control" formControlName="montant_visit_tech" id="montant_visit_tech">
-                          <p *ngIf="form.get('montant_visit_tech').invalid && form.get('montant_visit_tech').touched" style="color:red">
+                          <input type="number" class="form-control" ngModel name="montant_visit_tech" id="montant_visit_tech">
+                         <!-- <p *ngIf="form.get('montant_visit_tech').invalid && form.get('montant_visit_tech').touched" style="color:red">
                             montant
                             est obligatoire !</p>
-                        </div>
+                          -->
+                          </div>
               </div>
               <h5 style="color:gray">Vignette</h5>
               <br>
               <div class="row">
                   <div class="form-group col-md-3">
                       <label for="date_deb_vig">date debut vignette:</label>
-                      <input type="date" class="form-control" formControlName="date_deb_vig" id="date_deb_vig">
+                      <input type="date" class="form-control" ngModel name="date_deb_vig" id="date_deb_vig">
                       <!-- <p *ngIf="form.get('date_deb_vig').invalid && form.get('date_deb_vig').touched" style="color:red">date est
                                                   obligatoire !</p> -->
                     </div>
                     <div class="form-group col-md-3">
                       <label for="date_fin_vig">date fin vignette:</label>
-                      <input type="date" class="form-control" formControlName="date_fin_vig" id="date_fin_vig">
+                      <input type="date" class="form-control" ngModel name="date_fin_vig" id="date_fin_vig">
                       <!-- <p *ngIf="form.get('date_fin_vig').invalid && form.get('date_fin_vig').touched" style="color:red">date est
                                                     obligatoire !</p> -->
                     </div>
                     <div class="form-group col-md-3">
                       <label for="montant_vig">montant vignette:</label>
-                      <input type="number" class="form-control" formControlName="montant_vig" id="montant_vig">
-                      <p *ngIf="form.get('montant_vig').invalid && form.get('montant_vig').touched" style="color:red">montant
-                        est obligatoire !</p>
+                      <input type="number" class="form-control" ngModel name="montant_vig" id="montant_vig">
+                     <!-- <p *ngIf="form.get('montant_vig').invalid && form.get('montant_vig').touched" style="color:red">montant
+                        est obligatoire !</p> -->
                     </div>
               </div>
               <div class="form-group col-md-2">

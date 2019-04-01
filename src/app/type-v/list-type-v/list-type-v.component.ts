@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TypeVService } from 'src/app/services/type-v.service';
+
+import { TypeVehiculeService } from 'src/app/services/type-vehicule.service';
 
 @Component({
   selector: 'app-list-type-v',
@@ -9,10 +10,10 @@ import { TypeVService } from 'src/app/services/type-v.service';
 export class ListTypeVComponent implements OnInit {
 
   typeV : any[] ;
-  constructor(private typeVService : TypeVService) { }
+  constructor(private typevehicule : TypeVehiculeService) { }
 
   ngOnInit() {
-    this.typeVService.getTypeVehicule().subscribe(
+    this.typevehicule.getTypeVehicule().subscribe(
       (value : any[])=>
       {this.typeV= value;
       console.log(this.typeV)}

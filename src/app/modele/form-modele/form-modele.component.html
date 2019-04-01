@@ -1,14 +1,14 @@
-<form class="form-group">
+<form #formulaire="ngForm">
     <div class="row">
         <div class="form-group col-md-3 ">
             <label for="marque">marque</label>
-            <select class="form-control" formControlName="marque_v">
+            <select class="form-control" ngModel name="marque_v">
               <option *ngFor="let marque of marques" ngValue="marque_v">{{marque?.des_marque}}</option>
             </select>
           </div>
           <div class="form-group col-md-3 ">
               <label for="modele">modele</label>
-              <input type="text" class="form-control" formControlName="des_modele" > 
+              <input type="text" class="form-control" ngModel name="des_modele" > 
 
           </div>
        
