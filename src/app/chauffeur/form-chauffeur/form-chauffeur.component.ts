@@ -29,16 +29,19 @@ export class FormChauffeurComponent implements OnInit {
   }
 
   add(formulaire : NgForm) {
+    console.log("msg");
     this.chauffeurService.addChauffeur(formulaire.value)
      .subscribe(
        (response) => {
         this.chauffeurService.chauffeur.push(response);
-       // this.form.reset();
-        this.router.navigate(['/listChauffeur']);
-      },
+        this.form.reset();
+        this.router.navigate(['listChauffeur']);
+      });
       (error) =>
-      {this.errorMessage=`probleme de connexion au serveur`}
-      );
+      {console.log(error);
+        this.errorMessage=`probleme de connexion au serveur`}
+     
   }
+
 
 }

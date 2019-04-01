@@ -11,6 +11,7 @@ export class ChauffeurService {
 
   
   chauffeur : Chauffeur[] ;
+  link ='http://localhost:8080/addChauffeur';
 
   constructor( private http: HttpClient) { }
 
@@ -20,12 +21,12 @@ export class ChauffeurService {
   }
 
 
-  public supprimer(id_chauffeur) {
-    return this.http.delete('http://localhost:8080' + '/deleteChauffeur/' + id_chauffeur);
+  public supprimer(id_chauffeur : number) {
+    return this.http.delete('http://localhost:8080' + '/deleteChauffeur/' + `/${id_chauffeur}`);
   }
 
   public addChauffeur(chauffeur) : Observable<any> {
-    return this.http.post('http://localhost:8080' + '/addChauffeur', this.chauffeur);
+    return this.http.post(this.link, chauffeur);
   }
 
 
@@ -39,7 +40,7 @@ export class ChauffeurService {
   
 
   //public editChauffeur(chauffeur){
-   // return this.http.put(this.url + '/editChauffeur' , chauffeur, { observe: 'response' })
+   // return this.http.put(this.url + '/editChauffeur' , chauffeur)
 
   //}
 
