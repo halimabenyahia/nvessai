@@ -18,4 +18,8 @@ export class BoiteService {
   public addBoite(boite){
     return this.http.post(this.link,boite);
   }
+
+  public supprimer(id_typeBoite : number){
+    return this.http.delete('http://localhost:8080' + '/deleteTypeBoite/' + `/${id_typeBoite}`) ;
+  }
 }

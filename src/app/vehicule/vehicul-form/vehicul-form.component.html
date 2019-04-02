@@ -2,13 +2,11 @@
 <div class="row">
   <div >
     <br>
-    <form #form="ngForm" >
+    <form #formulaire="ngForm" >
       <div class="col-md-12">
         <div class="panel panel-primary">
           <div class="panel-heading">
             <div class="panel-body">
-
-           
               <h5 style="color:gray">Ajouter un véhicule</h5>
               <br>
             <div class="row">
@@ -21,7 +19,7 @@
               <div class="form-group col-md-3">
                 <label for="marque_v">marque:</label>
                 <select class="form-control" ngModel name="marque_v">
-                    <option *ngFor="let marque of marques" ngValue="marque_v">{{marque?.des_marque}}</option>
+                    <option *ngFor="let marque of marque" >{{marque?.des_marque}}</option>
                   </select>
                 
               <!--  <p *ngIf="form.get('marque_v').invalid && form.get('marque_v').touched" style="color:red">Le prénom est obligatoire !</p>
@@ -31,7 +29,7 @@
             <div class="form-group col-md-3 ">
                 <label for="modele_v">modele</label>
                 <select class="form-control" ngModel name="modele_v">
-                  <option *ngFor="let modele of modeles" ngValue="modele_v">{{modele?.des_modele}}</option>
+                  <option *ngFor="let modele of modele" >{{modele?.des_modele}}</option>
                 </select>
               </div>
               <div class="form-group col-md-3">
@@ -59,23 +57,23 @@
                                     est obligatoire !</p> -->
                       </div>
                       <div class="form-group col-md-3">
-                          <label for="usr">Chauffeur:</label>
-                          <select class="form-control" ngModel name="chauffeur">
-                            <option *ngFor="let chauffeur of chauffeurs" ngValue="chauffeur">{{chauffeur?.id_chauff}}</option>
+                          <label for="chauffeur_v">Chauffeur:</label>
+                          <select class="form-control" ngModel name="chauffeur_v">
+                            <option *ngFor="let chauffeur of chauffeur" >{{chauffeur?.matricule_ch}}</option>
                           </select>
                         </div>
 
                         <div class="form-group col-md-3">
-                            <label for="usr">boite:</label>
+                            <label for="type_boite">boite:</label>
                             <select class="form-control" ngModel name="type_boite">
-                              <option *ngFor="let boite of boites" ngValue="type_boite">{{boite?.des_boite}}</option>
+                              <option *ngFor="let boite of boite" ngValue="type_boite">{{boite?.des_boite}}</option>
                             </select>
                           </div>
 
                           <div class="form-group col-md-3">
                               <label for="usr">energie:</label>
                               <select class="form-control" ngModel name="des_energie">
-                                <option *ngFor="let energie of energies" ngValue="des_energie">{{energie?.des_energie}}</option>
+                                <option *ngFor="let energie of energie" >{{energie?.des_energie}}</option>
                               </select>
                             </div>
                           </div>
@@ -84,13 +82,13 @@
                           <h5 style="color:gray">Assurance</h5>
               <br>
               <div class="row">
-                  <div class="form-group col-md-3 ">
+                <!--  <div class="form-group col-md-3 ">
                       <label for="compagnie_ass">compagnie</label>
                       <select class="form-control" ngModel name="compagnie_ass" id="compagnie_ass">
-                        <option *ngFor="let assurance of assurances" ngValue="compagnie_ass">{{assurance?.compagnie_ass}}</option>
+                        <option *ngFor="let assurance of assurances" >{{assurance?.compagnie_ass}}</option>
                       </select>
                     </div>
-
+-->
                     <div class="form-group col-md-3">
                         <label for="num_police">num police:</label>
                         <input type="text" class="form-control" ngModel name="num_police" id="num_police">
@@ -169,7 +167,7 @@
               </div>
               <div class="form-group col-md-2">
                 <br>
-                <button  type="submit" class="btn btn-success" >Add</button>
+                <button  type="submit" (click)="add(formulaire)" class="btn btn-success" >Add</button>
               </div>
             </div>
 

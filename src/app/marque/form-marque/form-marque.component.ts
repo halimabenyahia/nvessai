@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
+import { MarqueService } from 'src/app/services/marque.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-marque',
@@ -9,13 +11,24 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 export class FormMarqueComponent implements OnInit {
 
   form: FormGroup= new FormGroup({})
-  constructor() { }
+  constructor(private marqueService : MarqueService,
+              private router : Router) { }
 
   ngOnInit() {
     this.form=new FormGroup({
-      'des_marque': new FormControl(null, [Validators.required , Validators.maxLength(15) , Validators.pattern('^[az-AZ]')] )
+      'des_marque': new FormControl(null, Validators.required )
     })
+  }
 
+  add(formulaire : NgForm){
+    this.marqueService.addMarque(formulaire.value).subscribe(
+      (response) =>
+      {
+       // this.marqueService.marque.push(response);
+        this.form.reset();
+        this.router.navigate(['listMarque']);
+      }
+    );
 
   }
 

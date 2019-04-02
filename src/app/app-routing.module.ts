@@ -43,7 +43,7 @@ const routes: Routes = [
   },
 
   {path:'Chauffeur' , component : ChauffeurComponent , children: [
-    { path: '', redirectTo: '/Chauffeur', pathMatch: 'full' },
+   // { path: '', redirectTo: '/Chauffeur', pathMatch: 'full' },
     { path: 'addChauffeur', component: FormChauffeurComponent },
     { path: 'editChauffeur', component: FormChauffeurComponent },
     { path: 'listChauffeur', component: ListChauffeurComponent},

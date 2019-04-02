@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { VehiculeServiceService } from 'src/app/services/vehicule-service.service' ;
 import { Router } from '@angular/router';
-import { BoiteService } from 'src/app/services/boite.service';
-import { EnergieService } from 'src/app/services/energie.service';
-import { ChauffeurService } from 'src/app/services/chauffeur.service';
-import { AssuranceService } from 'src/app/services/assurance.service';
-import { ModeleService } from 'src/app/services/modele.service';
 import { MarqueService } from 'src/app/services/marque.service';
+import { ModeleService } from 'src/app/services/modele.service';
+import { Vehicule } from 'src/app/entity/vehicule';
+import { Marque } from 'src/app/entity/marque';
+import { Modele } from 'src/app/entity/modele';
+import { Chauffeur } from 'src/app/entity/chauffeur';
+import { Boite } from 'src/app/entity/boite';
+import { Energie } from 'src/app/entity/energie';
+
 
 @Component({
   selector: 'app-vehicul-form',
@@ -16,23 +19,21 @@ import { MarqueService } from 'src/app/services/marque.service';
 })
 export class VehiculFormComponent implements OnInit {
 
-  vehicules : any[];
-  energies : any[];
-  boites : any[] ;
-  chauffeurs : any[];
-  assurances : any[];
-  modeles : any[];
-  marques : any[];
+  
 
+  vehicule : Vehicule [] ;
+  marque :Marque[] ;
+  modele : Modele[] ;
+  chauffeur : Chauffeur[] ;
+  boite : Boite [] ;
+  energie : Energie [] ;
+  
   form: FormGroup = new FormGroup({});
 
   constructor(private VehiculeService:VehiculeServiceService,
-              private boiteService : BoiteService,
-              private energieService : EnergieService,
-              private chauffeurService : ChauffeurService,
-              private assuranceService : AssuranceService,
-              private modeleService : ModeleService,
-              private marqueService : MarqueService) { 
+              private router : Router,
+              private marqueService : MarqueService,
+              private modeleService : ModeleService) { 
 
     
   }
@@ -40,7 +41,7 @@ export class VehiculFormComponent implements OnInit {
   ngOnInit() {
 
     this.form = new FormGroup({
-      'id_immatriculation': new FormControl(null, [Validators.required , Validators.pattern('^[0-9]+tT-uU[0-9]'), Validators.max(9)]),
+      'id_immatriculation': new FormControl(null, Validators.required),
       'marque_v': new FormControl(null, Validators.required),
       'modele_v': new FormControl(null, Validators.required),
       'date_m_c': new FormControl(null, Validators.required),
@@ -66,21 +67,16 @@ export class VehiculFormComponent implements OnInit {
       'montant_vig': new FormControl(null, Validators.required)
     })
   }
- // add(){
-  //  this.VehiculeService.addVehicule() ;
- // }
+  add(formulaire : NgForm){
+    this.VehiculeService.addVehicule(formulaire.value).subscribe(
+      (response) =>
+      {
+       // this.VehiculeService.vehicule.push(response);
+       // this.form.reset() ;
+        this.router.navigate(['listVehicules']);
+      }
+    );
+ }
 
-
-
-
-  
- // add() {
-   // this.VehiculeServiceService.addVehicule(this.form.value)
-     // .subscribe(response => {
-      //  this.VehiculeServiceService.vehicule.push(response.body);
-       // this.form.reset();
-       // this.router.navigate(['Vehicule/addVehicule']);
-     // });
-  //}
 
 }

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Vehicule } from '../entity/vehicule';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -7,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class VehiculeServiceService {
 
-  public vehicule : any[];
+ vehicule : Vehicule[] ;
   
 
   constructor(private httpClient: HttpClient ) { }
@@ -17,8 +19,12 @@ export class VehiculeServiceService {
     return this.httpClient.get('http://localhost:8080' + '/vehicules');
   }
 
-  public addVehicule(vehicule){
+  public addVehicule(vehicule) : Observable<any>{
     return this.httpClient.post('http://localhost:8080' + '/addVehicule' , vehicule );
+  }
+
+  public deleteVehicule(id_immatriculation : string){
+    return this.httpClient.delete('http://localhost:8080' + '/deleteVehicule/' + `/${id_immatriculation}`);
   }
 
  

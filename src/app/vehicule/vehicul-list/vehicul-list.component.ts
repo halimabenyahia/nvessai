@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VehiculeServiceService } from 'src/app/services/vehicule-service.service' ;
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Vehicule } from 'src/app/entity/vehicule';
 
 
 
@@ -12,22 +13,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class VehiculListComponent implements OnInit {
 
-  vehicules : any[];
+  vehicules : Vehicule[] ;
   text: any;
   
 
   constructor( private VehiculeService:VehiculeServiceService,
-               private httpClient: HttpClient ) { }
+               private router : Router
+                ) { }
 
   ngOnInit() {
     this.VehiculeService.getAllVehicule().subscribe( 
       (value :any[])=>
       {this.vehicules=value;
-      console.log(this.vehicules)})
-      
-    //  (response) =>
-   // { console.log('response' , response )}, 
-   // ); 
+      console.log(this.vehicules)});
   }
 
     listVehicule(){
@@ -39,13 +37,13 @@ export class VehiculListComponent implements OnInit {
     //this.router.navigate(['edit', id_immatriculation]); //{ relativeTo: this.router });
   //}
 
- // delete(id_immatriculation, index) {
-   // this.VehiculeServiceService.deleteVehicule(id_immatriculation)
-    //  .subscribe(value => {
-     //   console.log('Véhicule supprimé !');
-       // this.VehiculeServiceService.vehicules.splice(index, 1);
-       // this.router.navigate(['players']);
-     // });
-  //}
+  delete(id_immatriculation, index) {
+    this.VehiculeService.deleteVehicule(id_immatriculation)
+     .subscribe(value => {
+        console.log('Véhicule supprimé !');
+      //  this.VehiculeService.vehicule.splice(index, 1);
+        this.router.navigate(['/listVehicules']);
+      });
+  }
 
 }

@@ -9,7 +9,7 @@
           <th>identifiant</th>
           <th>affectation</th>
           <th></th>
-          <th></th>
+          
           <th></th>
         </thead>
         <tr *ngFor="let affectation of affectations ;let i=index">
@@ -17,8 +17,8 @@
           <td>{{affectation?.des_affectation}}</td>
 
          <td><button type="button" class="btn btn-success" >Modifier</button></td>
-          <td><button type="button" class="btn btn-info" >View</button></td> 
-          <td><button type="button" class="btn btn-danger" >Supprimer</button></td>
+           
+          <td><button type="button" class="btn btn-danger" (click)="delete(affectation.id_affectation,i)" >Supprimer</button></td>
         </tr>
       </table>
       </div>

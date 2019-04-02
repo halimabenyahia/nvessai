@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AffectationService } from 'src/app/services/affectation.service';
+import { Affectation } from 'src/app/entity/affectation';
 
 @Component({
   selector: 'app-list-affectation',
@@ -8,7 +9,7 @@ import { AffectationService } from 'src/app/services/affectation.service';
 })
 export class ListAffectationComponent implements OnInit {
 
-  affectations : any[] ;
+  affectations : Affectation[] ;
   constructor(private affectationService : AffectationService) { }
 
   ngOnInit() {
@@ -22,4 +23,12 @@ export class ListAffectationComponent implements OnInit {
     );
   }
 
+  delete(id_affectation, index){
+    this.affectationService.supprimer(id_affectation).subscribe(
+      (value) => {
+        console.log('affectation supprimé !');
+        this.affectationService.affectation.splice(index , 1) ;
+  }
+  );
+}
 }

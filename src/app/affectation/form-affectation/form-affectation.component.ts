@@ -18,9 +18,9 @@ export class FormAffectationComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit() {
-    this.form=new FormGroup({
-      'des_affectation': new FormGroup(null, Validators.required )
-    })
+   // this.form=new FormGroup({
+    //  'des_affectation': new FormGroup(null, Validators.required )
+   // })
   }
 
   add(formulaire : NgForm){

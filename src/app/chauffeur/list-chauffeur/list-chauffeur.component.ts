@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChauffeurService } from 'src/app/services/chauffeur.service';
 import { HttpClient } from '@angular/common/http';
 import { Chauffeur } from 'src/app/entity/chauffeur';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-chauffeur',
@@ -12,8 +13,10 @@ export class ListChauffeurComponent implements OnInit {
 
  
   chauffeur : Chauffeur[];
+  link1 ;
   constructor(private chauffeurService : ChauffeurService,
-    private httpClient: HttpClient) { }
+              private httpClient: HttpClient,
+              private router : Router) { }
 
   ngOnInit() {
 
@@ -32,6 +35,11 @@ export class ListChauffeurComponent implements OnInit {
         this.chauffeurService.chauffeur.splice(index, 1);
   }
   );
+}
+
+gotoInfo(){
+  const link1='/infoChauffeur';
+  this.router.navigate(this.link1) ;
 }
 
 }

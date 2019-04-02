@@ -18,4 +18,8 @@ export class AffectationService {
   public addAffectation(affectation){
     return this.http.post(this.link, affectation) ;
   }
+
+  public supprimer(id_affectation : number){
+    return this.http.delete('http://localhost:8080' + '/deleteAffectation/' + `/${id_affectation}`)
+  }
 }
