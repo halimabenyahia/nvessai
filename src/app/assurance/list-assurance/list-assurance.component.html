@@ -16,9 +16,8 @@
         <td>{{assurance?.compagnie_ass}}</td>
         <td>{{assurance?.adr_assurance}}</td>
         <td>{{assurance?.tel_assurance}}</td>
-     <td><button type="button" class="btn btn-success" >Modifier</button></td> 
-        <td><button type="button" class="btn btn-info" >View</button></td> 
-        <td><button type="button" class="btn btn-danger" >Supprimer</button></td>
+     <td><button type="button" class="btn btn-success" (click)="edit(assurance.id_assurance)" >Modifier</button></td> 
+        <td><button type="button" class="btn btn-danger" (click)="delete(assurance.id_assurance)" >Supprimer</button></td>
       </tr>
     </table>
     </div>

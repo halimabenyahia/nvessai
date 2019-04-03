@@ -11,14 +11,12 @@
           <th>date mise en circulation</th>
           <th>date d'acquisition</th>
           <th>cout d'achat</th>
-         
           <th>energie</th>
           <th>type boite</th>
           <th>type vehicule</th>
           <th></th>
           <th></th>
           <th></th>
-         
         </tr>
         </thead>
         <tbody>
@@ -27,15 +25,12 @@
           <td>{{vehicule?.date_m_c}}</td>
           <td>{{vehicule?.date_acq}}</td>
           <td>{{vehicule?.cout_achat}}</td>
-          
           <td>{{vehicule?.energie_v?.des_energie}}</td>
-          <td>{{vehicule?.type_boite.des_boite}}</td>
-          <td>{{vehicule?.type_vehicule.des_typeVehicule}}</td>
+          <td>{{vehicule?.type_boite?.des_boite}}</td>
+          <td>{{vehicule?.type_vehicule?.des_typeVehicule}}</td>
                   
-      <td><button type="button" class="btn btn-success" >Modifier</button></td>
-          <td><button type="button" class="btn btn-info" >View</button></td> 
+      <td><button type="button" class="btn btn-success" (click)="edit(vehicule.id_immatriculation)" >Modifier</button></td>
           <td><button type="button" class="btn btn-danger" (click)="delete(vehicule.id_immatriculation,i)"  >Supprimer</button></td>
-          
         </tr> 
       </tbody>
       </table> 

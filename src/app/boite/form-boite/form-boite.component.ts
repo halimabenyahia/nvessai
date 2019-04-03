@@ -30,7 +30,7 @@ export class FormBoiteComponent implements OnInit {
      // this.boiteService.boite.push(response);
      // this.form.reset();
      const link='/listBoite';
-      this.router.navigate(this.link);
+      this.router.navigate(['Boite/listBoite']);
       }
     );
   }

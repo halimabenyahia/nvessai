@@ -9,6 +9,7 @@ export class EnergieService {
 
   link='http://localhost:8080/addEnergie';
   energie : Energie[];
+  link2='http://localhost:8080/deleteEnergie'
   constructor(private http:HttpClient) { }
 
   public getEnergie(){
@@ -17,6 +18,14 @@ export class EnergieService {
 
   public addEnergie(energie){
     return this.http.post(this.link,energie);
+  }
+
+  public supprimerEnergie(id_energie){
+    return this.http.delete(this.link2 +`/${id_energie}`);
+  }
+
+  public edit(energie){
+    return this.http.put('http://localhost:8080'+'/editEnergie',energie);
   }
 
 

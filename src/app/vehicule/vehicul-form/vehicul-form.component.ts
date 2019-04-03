@@ -19,61 +19,44 @@ import { Energie } from 'src/app/entity/energie';
 })
 export class VehiculFormComponent implements OnInit {
 
-  
-
   vehicule : Vehicule [] ;
   marque :Marque[] ;
   modele : Modele[] ;
-  chauffeur : Chauffeur[] ;
+  chauffeur : Chauffeur[]=[] ;
   boite : Boite [] ;
   energie : Energie [] ;
+  link ;
   
-  form: FormGroup = new FormGroup({});
-
   constructor(private VehiculeService:VehiculeServiceService,
               private router : Router,
               private marqueService : MarqueService,
               private modeleService : ModeleService) { 
-
-    
   }
 
-  ngOnInit() {
+  ngOnInit() {  
+    this.marqueService.getMarques().subscribe( 
+      (value :any[])=>
+      {this.marque=value;
+      console.log(this.marque)});
 
-    this.form = new FormGroup({
-      'id_immatriculation': new FormControl(null, Validators.required),
-      'marque_v': new FormControl(null, Validators.required),
-      'modele_v': new FormControl(null, Validators.required),
-      'date_m_c': new FormControl(null, Validators.required),
-      'num_moteur': new FormControl(null, Validators.required),
-      'date_acq': new FormControl(null, Validators.required),
-      'cout_achat': new FormControl(null, Validators.required),
-      'chauffeur': new FormControl(null, Validators.required),
-      'compteur_v': new FormControl(null, Validators.required),
-      'type_boite': new FormControl(null, Validators.required),
-      'des_energie': new FormControl(null, Validators.required),
-      'compagnie_ass': new FormControl(null, Validators.required),
-      'num_police': new FormControl(null, Validators.required),
-      'date_deb_contrat': new FormControl(null, Validators.required),
-      'date_fin_contrat': new FormControl(null, Validators.required),
-      'montant_contrat': new FormControl(null, Validators.required),
-      'date_visit_tech_deb': new FormControl(null, Validators.required),
-      'date_visit_tech_fin': new FormControl(null, Validators.required),
-      'date_deb_taxe': new FormControl(null, Validators.required),
-      'date_fin_taxe': new FormControl(null, Validators.required),
-      'montant_visit_tech': new FormControl(null, Validators.required),
-      'date_deb_vig': new FormControl(null, Validators.required),
-      'date_fin_vig': new FormControl(null, Validators.required),
-      'montant_vig': new FormControl(null, Validators.required)
-    })
+    this.modeleService.getModeles().subscribe(
+      (value : any[])=>
+      {
+        this.modele=value ;
+      }
+    );
+     
+   
   }
+  
   add(formulaire : NgForm){
     this.VehiculeService.addVehicule(formulaire.value).subscribe(
       (response) =>
       {
        // this.VehiculeService.vehicule.push(response);
        // this.form.reset() ;
-        this.router.navigate(['listVehicules']);
+       const link='listVehicules';
+        this.router.navigate(['Vehicule/listVehicules']);
       }
     );
  }

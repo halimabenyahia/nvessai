@@ -1,3 +1,52 @@
-<p>
-  info-chauffeur works!
-</p>
+<br>
+<div class="row">
+  <div class="container">
+    <br>
+    <form #formulaire="ngForm" >
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <br>
+            <h5>Détail chauffeur</h5>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label  id="matricule_ch">matricule:</label>
+                <input type="text" required class="form-control" id="matricule_ch" ngModel name="matricule_ch" >
+               
+              </div>
+              <div class="form-group col-md-3">
+                <label id="nom_ch">nom:</label>
+                <input minlength=3 required maxlength=15 pattern="[a-z]" type="text" class="form-control" id="nom_ch" ngModel name="nom_ch" >
+              
+              </div>
+              <div class="form-group col-md-3">
+                <label id="prenom_ch">prenom:</label>
+                <input minlength="3" required maxlength="15" type="text" class="form-control" id="prenom_ch" ngModel name= "prenom_ch">
+             
+              </div>
+              <div class="form-group col-md-3">
+                <label id="tel_chauff">numero:</label>
+                <input [maxLength]="8" required type="tel" class="form-control" id="tel_chauff" ngModel name="tel_chauff" >
+             
+              </div>
+              <div class="form-group col-md-3">
+                <label id="adr_chauff">adresse:</label>
+                <input type="text"  minlength="3" maxlength=15 class="form-control" id="adr_chauff" ngModel name="adr_chauff"  >
+              
+              </div>
+            </div>
+            <div class="form-group col-md-2">
+              <br>
+              <a routerLink="/Chauffeur/listChauffeur">
+              <button type="submit" class="btn btn-success" (click)="update()" >Enregistrer</button>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <br><br>
+  </div>
+</div>

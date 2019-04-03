@@ -14,9 +14,8 @@
       <tr *ngFor="let modele of modeles ;let i=index">
         <td>{{modele?.id_modele}}</td>
         <td>{{modele?.des_modele}}</td>
-     <td><button type="button" class="btn btn-success" >Modifier</button></td> 
-        <td><button type="button" class="btn btn-info" >View</button></td> 
-        <td><button type="button" class="btn btn-danger" >Supprimer</button></td>
+     <td><button type="button"  class="btn btn-success" (click)="edit(modele.id_modele)" >Modifier</button></td> 
+        <td><button type="button" (click)="delete(modele.id_modele)" class="btn btn-danger" >Supprimer</button></td>
    
       </tr>
     </table>

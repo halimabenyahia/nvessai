@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContratService } from 'src/app/services/contrat.service';
+import { ContratAssurance } from 'src/app/entity/contrat';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-contrat',
@@ -8,8 +10,9 @@ import { ContratService } from 'src/app/services/contrat.service';
 })
 export class ListContratComponent implements OnInit {
 
-  contrats : any[];
-  constructor(private contratService : ContratService) { }
+  contrats : ContratAssurance[];
+  constructor(private contratService : ContratService,
+              private router : Router) { }
 
   ngOnInit() {
     this.contratService.getContratAss()
@@ -18,6 +21,20 @@ export class ListContratComponent implements OnInit {
       {
         this.contrats=value ;
         console.log(this.contrats);
+      }
+    );
+  }
+
+  edit(id_contrat){
+    this.router.navigate(['Contrat/editContrat',id_contrat]);
+  }
+
+  delete(id_contrat){
+    this.contratService.supprimer(id_contrat).subscribe(
+      (response) =>
+      {
+        console.log("contrat supprimé");
+        this.router.navigate(['Contrat/listContrat']);
       }
     );
   }

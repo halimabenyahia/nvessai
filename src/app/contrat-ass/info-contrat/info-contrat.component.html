@@ -1,3 +1,47 @@
-<p>
-  info-contrat works!
-</p>
+<br>
+<div class="row">
+  <div class="container">
+    <br>
+    <form #formulaire="ngForm">
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <br>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label id="montant_contrat">montant_contrat:</label>
+                <input type="text" class="form-control" id="matricule_ch" ngModel name="montant_contrat">
+              </div>
+              <div class="form-group col-md-3">
+                <label id="date_deb_contrat">date_deb_contrat:</label>
+                <input type="date" class="form-control" id="date_deb_contrat" ngModel name="date_deb_contrat">
+              </div>
+              <div class="form-group col-md-3">
+                <label id="date_fin_contrat">date_fin_contrat:</label>
+                <input type="date" class="form-control" id="date_fin_contrat" ngModel name="date_fin_contrat">
+              </div>
+              <div class="form-group col-md-3">
+                <label id="num_police">num_police:</label>
+                <input type="tel" class="form-control" id="num_police" ngModel name="num_police">
+              </div>
+              <div class="form-group col-md-3 ">
+                  <label for="assurance_c">assurance</label>
+                  <select class="form-control" ngModel name="assurance_c" id="assurance_c">
+                    <option *ngFor="let assurance of assurance" ngValue="assurance_c">{{assurance?.compagnie_ass}}</option>
+                  </select>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+              <br>
+              <button type="submit" class="btn btn-success" (click)="modifier(formulaire)" >Add</button>
+              <!--<button  type="button" class="btn btn-success"  [disabled]="!form.valid">Update</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <br><br>
+  </div>
+</div>
+

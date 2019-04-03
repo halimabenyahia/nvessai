@@ -16,8 +16,7 @@
           <td>{{affectation?.id_affectation}}</td>
           <td>{{affectation?.des_affectation}}</td>
 
-         <td><button type="button" class="btn btn-success" >Modifier</button></td>
-           
+         <td><button type="button" class="btn btn-success" (click)="edit(affectation.id_affectation)" >Modifier</button></td>
           <td><button type="button" class="btn btn-danger" (click)="delete(affectation.id_affectation,i)" >Supprimer</button></td>
         </tr>
       </table>

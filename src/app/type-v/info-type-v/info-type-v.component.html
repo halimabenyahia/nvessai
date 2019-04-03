@@ -1,3 +1,17 @@
-<p>
-  info-type-v works!
-</p>
+<form #formulaire="ngForm">
+    <div class="row">
+          <div class="form-group col-md-3 ">
+              <label for="des_typeVehicule">type de véhicule</label>
+              <input type="text" class="form-control" ngModel name="des_typeVehicule" > 
+
+          </div>
+       
+      </div>
+    
+    <br>
+    <div>
+        <button type="submit" (click)="modifier(formulaire)" class="btn btn-success">Enregistrer</button>
+      </div>
+  
+  </form>
+

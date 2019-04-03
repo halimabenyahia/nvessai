@@ -28,8 +28,8 @@ export class FormAffectationComponent implements OnInit {
       (response) =>
       {
       //  this.affectationService.affectation.push(respo);
-      this.form.reset();
-      this.router.navigate(['listAffectation']);
+     // this.form.reset();
+      this.router.navigate(['Affectation/listAffectation']);
     }
     
     );

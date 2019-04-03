@@ -10,6 +10,7 @@ export class TypeVehiculeService {
 
   typeVehicule: TypeVehicule[];
   link='http://localhost:8080/addtypeVehicule' ;
+  link2='http://localhost:8080/deleteTypeVehicule/' ;
   constructor(private http : HttpClient) { }
 
   public getTypeVehicule(){
@@ -18,6 +19,14 @@ export class TypeVehiculeService {
 
   public addTypeV(typeVehicule) : Observable<any> {
     return this.http.post(this.link, typeVehicule);
+  }
+
+  public supprimerTypeV(id_typeVehicule){
+    return this.http.delete(this.link +`/${id_typeVehicule}`) ;
+  }
+
+  public edittypeVehicule(typeVehicule){
+    return this.http.put('http://localhost:8080'+'/editTypeVehicule' , typeVehicule) ;
   }
 
 

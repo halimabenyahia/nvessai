@@ -27,5 +27,9 @@ export class VehiculeServiceService {
     return this.httpClient.delete('http://localhost:8080' + '/deleteVehicule/' + `/${id_immatriculation}`);
   }
 
+  public editVehicule(vehicule) {
+    return this.httpClient.put('http://localhost:8080' + '/editVehicules' ,vehicule);
+  }
+
  
 }

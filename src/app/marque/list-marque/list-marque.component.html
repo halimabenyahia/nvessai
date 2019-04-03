@@ -15,17 +15,11 @@
         <td>{{marque?.id_marque}}</td>
         <td>{{marque?.des_marque}}</td>
        <!-- <td>{{marque?.modele_m}}</td> -->
-     <td><button type="button" class="btn btn-success" >Modifier</button></td> 
-        <td><button type="button" class="btn btn-info" >View</button></td> 
-        <td><button type="button" class="btn btn-danger" >Supprimer</button></td>
+     <td><button type="button" class="btn btn-success" (click)="edit(marque.id_marque)" >Modifier</button></td> 
+        <td><button type="button" (click)="delete(marque.id_marque)" class="btn btn-danger" >Supprimer</button></td>
       </tr>
     </table>
     </div>
     </div>
   </div>
 
-
-<!--<div *ngFor="let marque of marques">
-  {{marque|json}}
-</div>
--->

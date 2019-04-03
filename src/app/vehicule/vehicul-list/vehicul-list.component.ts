@@ -14,8 +14,7 @@ import { Vehicule } from 'src/app/entity/vehicule';
 export class VehiculListComponent implements OnInit {
 
   vehicules : Vehicule[] ;
-  text: any;
-  
+  link ;
 
   constructor( private VehiculeService:VehiculeServiceService,
                private router : Router
@@ -32,18 +31,18 @@ export class VehiculListComponent implements OnInit {
       this.VehiculeService.getAllVehicule()
     }
 
-  //edit(id_immatriculation) {
-   
-    //this.router.navigate(['edit', id_immatriculation]); //{ relativeTo: this.router });
-  //}
-
   delete(id_immatriculation, index) {
     this.VehiculeService.deleteVehicule(id_immatriculation)
      .subscribe(value => {
         console.log('Véhicule supprimé !');
       //  this.VehiculeService.vehicule.splice(index, 1);
-        this.router.navigate(['/listVehicules']);
+        this.router.navigate(['Vehicule/listVehicules']);
       });
+  }
+ 
+  edit(id_immatriculation){
+    const link='Vehicule/editVehicule';
+    this.router.navigate(['Vehicule/editVehicule',id_immatriculation]);
   }
 
 }

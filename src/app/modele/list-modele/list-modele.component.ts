@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModeleService } from 'src/app/services/modele.service';
+import { Modele } from 'src/app/entity/modele';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-modele',
@@ -8,8 +10,10 @@ import { ModeleService } from 'src/app/services/modele.service';
 })
 export class ListModeleComponent implements OnInit {
 
-  modeles : any[] ;
-  constructor(private modeleService : ModeleService) { }
+  modeles : Modele[] = [] ;
+  link ;
+  constructor(private modeleService : ModeleService,
+              private router : Router) { }
 
   ngOnInit() {
     this.modeleService.getModeles()
@@ -21,5 +25,22 @@ export class ListModeleComponent implements OnInit {
       }
     );
   }
+
+  delete(id_modele){
+    this.modeleService.supprimerModele(id_modele).subscribe(
+      (response) =>
+      {
+        console.log("modele supprimé") ;
+        const link ='listModele' ;
+        this.router.navigate(this.link) ;
+      }
+    );
+  }
+
+  edit(id_modele){
+    this.router.navigate(['Modele/editModele',id_modele]);
+  }
+
+
 
 }

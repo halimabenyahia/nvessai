@@ -11,19 +11,11 @@ import { Assurance } from 'src/app/entity/assurance';
 })
 export class FormContratComponent implements OnInit {
 
-  form: FormGroup= new FormGroup({})
   assurance : Assurance[];
   constructor(private contratService : ContratService,
               private router : Router) { }
 
   ngOnInit() {
-    this.form=new FormGroup({
-      'montant_contrat': new FormControl(null, Validators.required ),
-      'date_deb_contrat' : new FormControl(null,Validators.required ),
-      'date_fin_contrat' : new FormControl(null, Validators.required ),
-      'num_police': new FormControl(null, Validators.required)
-      
-    })
   }
 
   add(formulaire : NgForm) {
@@ -32,7 +24,7 @@ export class FormContratComponent implements OnInit {
       {
        // this.contratService.contratAss.push(response) ;
       //  this.form.reset() ;
-        this.router.navigate(['listContrat']);
+        this.router.navigate(['Contrat/listContrat']);
       }
     );
   }

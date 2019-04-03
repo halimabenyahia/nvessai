@@ -22,4 +22,9 @@ export class BoiteService {
   public supprimer(id_typeBoite : number){
     return this.http.delete('http://localhost:8080' + '/deleteTypeBoite/' + `/${id_typeBoite}`) ;
   }
+
+  public edit(boite){
+    return this.http.put('http://localhost:8080' + '/editTypeBoite' , boite);
+  }
+
 }

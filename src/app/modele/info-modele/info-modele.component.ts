@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModeleService } from 'src/app/services/modele.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-info-modele',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoModeleComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modeleService : ModeleService,
+              private router : Router) { }
 
   ngOnInit() {
+  }
+
+  modifier(formulaire){
+    this.modeleService.editModele(formulaire.value).subscribe(
+      (response) =>
+      {
+        console.log("modele modifié") ;
+        this.router.navigate(['Modele/listModele']);
+      }
+    );
+
   }
 
 }

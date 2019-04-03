@@ -18,5 +18,13 @@ export class AssuranceService {
     return this.http.post(this.link,assurance);
   }
 
+  public supprimer(id_assurance){
+   return this.http.delete('http://localhost:8080'+'/deleteAssurance' +`/${id_assurance}`);
+  }
+
+  public editAssurance(assurance){
+    return this.http.post('http://localhost:8080' + '/editAssurance' ,assurance);
+  }
+
 
 }

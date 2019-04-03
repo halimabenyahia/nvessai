@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MarqueService } from 'src/app/services/marque.service';
+import { Router } from '@angular/router';
+import { Marque } from 'src/app/entity/marque';
 
 @Component({
   selector: 'app-list-marque',
@@ -8,8 +10,10 @@ import { MarqueService } from 'src/app/services/marque.service';
 })
 export class ListMarqueComponent implements OnInit {
 
-  marques : any[] ;
-  constructor(private marqueService : MarqueService) { }
+  marques : Marque[]=[] ;
+  link ;
+  constructor(private marqueService : MarqueService,
+              private router : Router) { }
 
   ngOnInit() {
     this.marqueService.getMarques()
@@ -20,6 +24,21 @@ export class ListMarqueComponent implements OnInit {
         console.log(this.marques);
       }
     );
+  }
+
+  delete(id_marque){
+    this.marqueService.supprimerMarque(id_marque).subscribe(
+      (response) =>
+      {
+        console.log("marque supprimé ! ") ;
+        const link='listMarque';
+        this.router.navigate(this.link) ;
+      }
+    );
+  }
+
+  edit(id_marque){
+    this.router.navigate(['Marque/editMarque',id_marque]);
   }
 
 }

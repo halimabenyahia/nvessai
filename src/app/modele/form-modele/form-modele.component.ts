@@ -29,7 +29,7 @@ export class FormModeleComponent implements OnInit {
       {
        // this.modeleService.modele.push(response) ;
       //  this.formulaire.reset() ;
-        this.router.navigate(['listModele']);
+        this.router.navigate(['Modele/listModele']);
       }
     );
   }

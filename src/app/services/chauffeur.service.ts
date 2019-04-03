@@ -12,6 +12,7 @@ export class ChauffeurService {
   
   chauffeur : Chauffeur[] ;
   link ='http://localhost:8080/addChauffeur';
+  link2='http://localhost:8080/editChauffeur/' ;
 
   constructor( private http: HttpClient) { }
 
@@ -29,23 +30,9 @@ export class ChauffeurService {
     return this.http.post(this.link, chauffeur);
   }
 
-
-
- // public getByIdChauffeur(id_chauff){
-  //  return this.http.get<any[]>(this.url + '/findById/' + id_chauff)
-
-
-  //}
-
-  
-
-  //public editChauffeur(chauffeur){
-   // return this.http.put(this.url + '/editChauffeur' , chauffeur)
-
-  //}
-
-
-  
+  public edit(chauffeur){
+    return this.http.put(this.link2, chauffeur) ;
+  }
 
 
 

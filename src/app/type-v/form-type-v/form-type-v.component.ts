@@ -29,7 +29,7 @@ export class FormTypeVComponent implements OnInit {
       (response) =>
       {//this.typeVehiculeService.typeVehicule.push(response);
         this.form.reset();
-        this.router.navigate(['listTypeV']);}
+        this.router.navigate(['TypeV/listTypeV']);}
     
  // (error) =>
  // {console.log(error);

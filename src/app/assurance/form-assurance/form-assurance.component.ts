@@ -29,10 +29,12 @@ export class FormAssuranceComponent implements OnInit {
       (response) =>
       {
        // this.assuranceService.assurance.push(assurance);
-        this.form.reset();
-        this.router.navigate(['/listAssurance']) ;
+      //  this.form.reset();
+        this.router.navigate(['Assurance/listAssurance']) ;
       }
     );
   }
+
+  
 
 }

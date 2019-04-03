@@ -19,9 +19,8 @@
         <td>{{contrat?.date_deb_contrat}}</td>
         <td>{{contrat?.date_fin_contrat}}</td>
         <td>{{contrat?.num_police}}</td>
-        <td><button type="button" class="btn btn-success" >Modifier</button></td> 
-        <td><button type="button" class="btn btn-info" >View</button></td> 
-        <td><button type="button" class="btn btn-danger" >Supprimer</button></td>
+        <td><button type="button" class="btn btn-success" (click)="edit(contrat.id_contrat)" >Modifier</button></td> 
+        <td><button type="button" class="btn btn-danger" (click)="delete(contrat.id_contrat)" >Supprimer</button></td>
       
       </tr>
     </tbody>

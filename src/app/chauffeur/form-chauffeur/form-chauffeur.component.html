@@ -9,35 +9,29 @@
             <br>
             <div class="row">
               <div class="form-group col-md-3">
-                <label id="matricule_ch">matricule:</label>
-                <input type="text" class="form-control" id="matricule_ch" ngModel name="matricule_ch" >
-             <!--   <p *ngIf="form.get('matricule_ch').invalid && form.get('matricule_ch').touched" style="color:red">nom
-                  est
-                  obligatoire !</p>-->
+                <label  id="matricule_ch">matricule:</label>
+                <input type="text" required class="form-control" id="matricule_ch" ngModel name="matricule_ch" >
+               
               </div>
               <div class="form-group col-md-3">
                 <label id="nom_ch">nom:</label>
-                <input type="text" class="form-control" id="nom_ch" ngModel name="nom_ch" >
-              <!--  <p *ngIf="form.get('nom_ch').invalid && form.get('nom_ch').touched" style="color:red">nom est
-                  obligatoire !</p>-->
+                <input minlength=3 required maxlength=15 pattern="[a-z]" type="text" class="form-control" id="nom_ch" ngModel name="nom_ch" >
+              
               </div>
               <div class="form-group col-md-3">
                 <label id="prenom_ch">prenom:</label>
-                <input type="text" class="form-control" id="prenom_ch" ngModel name= "prenom_ch">
-              <!--  <p *ngIf="form.get('prenom_ch').invalid && form.get('prenom_ch').touched" style="color:red">prenom est
-                  obligatoire !</p> -->
+                <input minlength="3" required maxlength="15" type="text" class="form-control" id="prenom_ch" ngModel name= "prenom_ch">
+             
               </div>
               <div class="form-group col-md-3">
                 <label id="tel_chauff">numero:</label>
-                <input type="tel" class="form-control" id="tel_chauff" ngModel name="tel_chauff" >
-              <!--  <p *ngIf="form.get('tel_chauff').invalid && form.get('tel_chauff').touched" style="color:red">num est
-                  obligatoire !</p>-->
+                <input [maxLength]="8" required type="tel" class="form-control" id="tel_chauff" ngModel name="tel_chauff" >
+             
               </div>
               <div class="form-group col-md-3">
                 <label id="adr_chauff">adresse:</label>
-                <input type="text" class="form-control" id="adr_chauff" ngModel name="adr_chauff"  >
-              <!--  <p *ngIf="form.get('adr_chauff').invalid && form.get('adr_chauff').touched" style="color:red">adresse
-                  est obligatoire !</p>-->
+                <input type="text"  minlength="3" maxlength=15 class="form-control" id="adr_chauff" ngModel name="adr_chauff"  >
+              
               </div>
             </div>
             <div class="form-group col-md-2">

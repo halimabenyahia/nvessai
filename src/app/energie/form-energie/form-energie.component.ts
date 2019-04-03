@@ -25,8 +25,8 @@ export class FormEnergieComponent implements OnInit {
       (response) =>
       {
       //  this.energieService.energie.push(response);
-       this.form.reset();
-       this.router.navigate(['listEnergie']);
+      // this.form.reset();
+       this.router.navigate(['Energie/listEnergie']);
       }
     );
   }

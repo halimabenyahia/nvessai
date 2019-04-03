@@ -25,8 +25,8 @@ export class FormMarqueComponent implements OnInit {
       (response) =>
       {
        // this.marqueService.marque.push(response);
-        this.form.reset();
-        this.router.navigate(['listMarque']);
+       // this.form.reset();
+        this.router.navigate(['Marque/listMarque']);
       }
     );
 

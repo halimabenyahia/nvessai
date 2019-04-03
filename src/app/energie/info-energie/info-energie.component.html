@@ -1,3 +1,15 @@
-<p>
-  info-energie works!
-</p>
+<form #formulaire="ngForm">
+    <div class="row">
+          <div class="form-group col-md-3 ">
+              <label for="des_energie">energie</label>
+              <input type="text" class="form-control" ngModel name="des_energie" > 
+          </div>
+       
+      </div>
+    
+    <br>
+    <div>
+        <button type="submit" (click)="modifier(formulaire)" class="btn btn-success">Enregistrer</button>
+      </div>
+  
+  </form>

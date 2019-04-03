@@ -16,7 +16,15 @@ export class ContratService {
   }
 
   public addContrat(contratAss){
-    return this.http.post(this.link,contratAss) ;
+    return this.http.post('http://localhost:8080/addContrat',contratAss) ;
+  }
+
+  public supprimer(id_contrat){
+    return this.http.delete('http://localhost:8080'+'/deleteContratAss/'+ `/${id_contrat}`);
+  }
+
+  public editContrat(contrat){
+    return this.http.put('http://localhost:8080' + '/editcontrat/' , contrat);
   }
 
   

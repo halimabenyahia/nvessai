@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AffectationService } from 'src/app/services/affectation.service';
 import { Affectation } from 'src/app/entity/affectation';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-affectation',
@@ -10,7 +11,8 @@ import { Affectation } from 'src/app/entity/affectation';
 export class ListAffectationComponent implements OnInit {
 
   affectations : Affectation[] ;
-  constructor(private affectationService : AffectationService) { }
+  constructor(private affectationService : AffectationService,
+              private router : Router) { }
 
   ngOnInit() {
     this.affectationService.getAffectation()
@@ -27,8 +29,11 @@ export class ListAffectationComponent implements OnInit {
     this.affectationService.supprimer(id_affectation).subscribe(
       (value) => {
         console.log('affectation supprimé !');
-        this.affectationService.affectation.splice(index , 1) ;
+       // this.affectationService.affectation.splice(index , 1) ;
   }
   );
+}
+edit(id_affectation){
+  this.router.navigate(['Affectation/editAffectation',id_affectation]);
 }
 }

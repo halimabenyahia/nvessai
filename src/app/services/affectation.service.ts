@@ -22,4 +22,8 @@ export class AffectationService {
   public supprimer(id_affectation : number){
     return this.http.delete('http://localhost:8080' + '/deleteAffectation/' + `/${id_affectation}`)
   }
+
+  public editAffectation(affectation){
+    return this.http.post('http://localhost:8080'+ '/editAffectation' , affectation);
+  }
 }
