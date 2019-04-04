@@ -18,17 +18,12 @@ export class FormBoiteComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit() {
-   // this.form=new FormGroup({
-    //  'des_boite': new FormGroup(null, Validators.required )
-   // })
   }
 
   add(formulaire : NgForm){
     this.boiteService.addBoite(formulaire.value).subscribe(
       (response) =>
-      {
-     // this.boiteService.boite.push(response);
-     // this.form.reset();
+      {console.log("type boite ajouté") ;
      const link='/listBoite';
       this.router.navigate(['Boite/listBoite']);
       }

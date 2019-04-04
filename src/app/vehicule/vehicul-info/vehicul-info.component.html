@@ -7,13 +7,13 @@
           <div class="panel panel-primary">
             <div class="panel-heading">
               <div class="panel-body">
-                <h5 style="color:gray">Ajouter un véhicule</h5>
+                <h5 style="color:gray">Modifier un véhicule</h5>
                 <br>
               <div class="row">
                 <div class="form-group col-md-3">
                   <label for="id_immatriculation">immatriculation:</label>
                   <input  pattern="[1-9]{3}[tu]{2}[1-9]{4}" title="immatriculation doit etre 111tu1111" 
-                         type="text" class="form-control" ngModel name="id_immatriculation">
+                         type="text" class="form-control" [(ngModel)]="vehicule.id_immatriculation" name="id_immatriculation">
               
                 </div>
                 <div class="form-group col-md-3">
@@ -23,7 +23,7 @@
                     </select>
                   
                 </div>
-              
+            
               <div class="form-group col-md-3 ">
                   <label for="modele_v">modele</label>
                   <select class="form-control" ngModel name="modele_v">
@@ -75,13 +75,13 @@
                             <h5 style="color:gray">Assurance</h5>
                 <br>
                 <div class="row">
-                  <!--  <div class="form-group col-md-3 ">
+                    <div class="form-group col-md-3 ">
                         <label for="compagnie_ass">compagnie</label>
                         <select class="form-control" ngModel name="compagnie_ass" id="compagnie_ass">
-                          <option *ngFor="let assurance of assurances" >{{assurance?.compagnie_ass}}</option>
+                          <option *ngFor="let assurance of assurance" >{{assurance?.compagnie_ass}}</option>
                         </select>
                       </div>
-  -->
+  
                       <div class="form-group col-md-3">
                           <label for="num_police">num police:</label>
                           <input type="text" class="form-control" ngModel name="num_police" id="num_police">

@@ -17,19 +17,14 @@ export class FormAssuranceComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit() {
-    this.form=new FormGroup({
-      'compagnie_ass': new FormGroup(null, Validators.required ),
-      'adr_assurance': new FormGroup(null, Validators.required ),
-      'tel_assurance': new FormGroup(null, Validators.required )
-    });
+  
   }
 
   add(formulaire : NgForm){
     this.assuranceService.addAssurance(formulaire.value).subscribe(
       (response) =>
       {
-       // this.assuranceService.assurance.push(assurance);
-      //  this.form.reset();
+        console.log("assurance ajouté") ;
         this.router.navigate(['Assurance/listAssurance']) ;
       }
     );

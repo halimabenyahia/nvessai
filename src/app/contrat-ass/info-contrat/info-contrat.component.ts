@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ContratService } from 'src/app/services/contrat.service';
 import { Router } from '@angular/router';
+import { AssuranceService } from 'src/app/services/assurance.service';
+import { Assurance } from 'src/app/entity/assurance';
 
 @Component({
   selector: 'app-info-contrat',
@@ -9,10 +11,16 @@ import { Router } from '@angular/router';
 })
 export class InfoContratComponent implements OnInit {
 
+  assurance : Assurance[] ;
   constructor(private contratService: ContratService,
+              private assuranceService : AssuranceService,
               private router : Router) { }
 
   ngOnInit() {
+    this.assuranceService.getAssurrance().subscribe(
+      (value : any[])=>
+      {this.assurance=value;}
+    );
   }
 
   modifier(formulaire){

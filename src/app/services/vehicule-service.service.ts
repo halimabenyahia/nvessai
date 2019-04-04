@@ -24,11 +24,15 @@ export class VehiculeServiceService {
   }
 
   public deleteVehicule(id_immatriculation : string){
-    return this.httpClient.delete('http://localhost:8080' + '/deleteVehicule/' + `/${id_immatriculation}`);
+    return this.httpClient.delete('http://localhost:8080' + '/deleteVehicule' + `/${id_immatriculation}`);
   }
 
   public editVehicule(vehicule) {
     return this.httpClient.put('http://localhost:8080' + '/editVehicules' ,vehicule);
+  }
+
+  public getByIdVehicule(id_immatriculation){
+    return this.httpClient.get('http://localhost:8080' + '/vehiculeById' + `/${id_immatriculation}`);
   }
 
  

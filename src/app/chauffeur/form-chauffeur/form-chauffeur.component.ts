@@ -33,10 +33,8 @@ export class FormChauffeurComponent implements OnInit {
     this.chauffeurService.addChauffeur(formulaire.value)
      .subscribe(
        (response) => {
-       // this.chauffeurService.chauffeur.push(response);
-       // this.form.reset();
         const link='listChauffeur'; 
-        this.router.navigate(this.link);
+        this.router.navigate(['Chauffeur/listChauffeur']);
       });
       (error) =>
       {console.log(error);

@@ -9,8 +9,7 @@ import { Observable } from 'rxjs';
 export class MarqueService {
 
   marque : Marque[];
-  link='http://localhost:8080/addMarque' ;
-  link2='http://localhost:8080/deleteMarque/';
+
   constructor(private http : HttpClient) { }
 
   public getMarques(){
@@ -18,15 +17,19 @@ export class MarqueService {
   }
 
   public addMarque(marque) : Observable<any>{
-    return this.http.post(this.link,marque);
+    return this.http.post('http://localhost:8080/addMarque' ,marque);
   }
 
   public supprimerMarque(id_marque){
-    return this.http.delete(this.link2 + `/${id_marque}`);
+    return this.http.delete('http://localhost:8080/deleteMarque' + `/${id_marque}`);
   }
 
   public editMarque(marque){
     return this.http.put('http://localhost:8080' + '/editMarque' , marque);
+  }
+
+  public getMarquesById(id_marque){
+    return this.http.get('http://localhost:8080' + '/marqueById' +`/${id_marque}` );
   }
   
 }

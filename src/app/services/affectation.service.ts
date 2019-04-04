@@ -16,14 +16,18 @@ export class AffectationService {
   }
 
   public addAffectation(affectation){
-    return this.http.post(this.link, affectation) ;
+    return this.http.post('http://localhost:8080/addAffectation', affectation) ;
   }
 
   public supprimer(id_affectation : number){
-    return this.http.delete('http://localhost:8080' + '/deleteAffectation/' + `/${id_affectation}`)
+    return this.http.delete('http://localhost:8080' + '/deleteAffectation' + `/${id_affectation}`)
   }
 
   public editAffectation(affectation){
     return this.http.post('http://localhost:8080'+ '/editAffectation' , affectation);
+  }
+
+  public getAffectationById(id_affectation){
+    return this.http.get('http://localhost:8080' + '/affectationById' +`/${id_affectation}` );
   }
 }

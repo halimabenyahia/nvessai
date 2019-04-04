@@ -9,8 +9,7 @@ import { Observable } from 'rxjs';
 export class TypeVehiculeService {
 
   typeVehicule: TypeVehicule[];
-  link='http://localhost:8080/addtypeVehicule' ;
-  link2='http://localhost:8080/deleteTypeVehicule/' ;
+ 
   constructor(private http : HttpClient) { }
 
   public getTypeVehicule(){
@@ -18,11 +17,11 @@ export class TypeVehiculeService {
   }
 
   public addTypeV(typeVehicule) : Observable<any> {
-    return this.http.post(this.link, typeVehicule);
+    return this.http.post('http://localhost:8080/addtypeVehicule', typeVehicule);
   }
 
   public supprimerTypeV(id_typeVehicule){
-    return this.http.delete(this.link +`/${id_typeVehicule}`) ;
+    return this.http.delete('http://localhost:8080/deleteTypeVehicule'+`/${id_typeVehicule}`) ;
   }
 
   public edittypeVehicule(typeVehicule){

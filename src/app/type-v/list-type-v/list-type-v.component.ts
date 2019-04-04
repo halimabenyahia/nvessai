@@ -28,8 +28,8 @@ export class ListTypeVComponent implements OnInit {
     this.typevehiculeService.supprimerTypeV(id_typeVehicule).subscribe(
       (response) =>
       {
-        const link='listTypeV';
-        this.router.navigate(this.link) ;
+        console.log("type supprimé") ;
+        this.router.navigate(['TypeV/listTypeV']) ;
       }
     );
   }

@@ -26,11 +26,7 @@ export class FormAffectationComponent implements OnInit {
   add(formulaire : NgForm){
     this.affectationService.addAffectation(formulaire.value).subscribe(
       (response) =>
-      {
-      //  this.affectationService.affectation.push(respo);
-     // this.form.reset();
-      this.router.navigate(['Affectation/listAffectation']);
-    }
+      {this.router.navigate(['Affectation/listAffectation']);}
     
     );
   }

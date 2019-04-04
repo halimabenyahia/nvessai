@@ -20,7 +20,7 @@ export class InfoChauffeurComponent implements OnInit {
   }
 
   update(formulaire : NgForm) {
-    return this.chauffeurService.edit(formulaire.value).subscribe(
+    return this.chauffeurService.edit(formulaire).subscribe(
       (response) =>
       {
         console.log("chauffeur modifié");

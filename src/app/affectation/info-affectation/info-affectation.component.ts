@@ -11,12 +11,12 @@ import { NgForm } from '@angular/forms';
 })
 export class InfoAffectationComponent implements OnInit {
 
-  affectation : Affectation[] ;
+  affectation : Affectation[]=[] ;
   constructor(private affectationService : AffectationService,
               private router : Router) { }
 
   ngOnInit() {
-   // this.router
+   
   }
 
   modifier(formulaire : NgForm){

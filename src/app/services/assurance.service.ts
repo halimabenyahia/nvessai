@@ -15,7 +15,7 @@ export class AssuranceService {
     return this.http.get('http://localhost:8080' + '/Assurance');
   }
   public addAssurance(assurance){
-    return this.http.post(this.link,assurance);
+    return this.http.post('http://localhost:8080/addAssurance',assurance);
   }
 
   public supprimer(id_assurance){
@@ -24,6 +24,10 @@ export class AssuranceService {
 
   public editAssurance(assurance){
     return this.http.post('http://localhost:8080' + '/editAssurance' ,assurance);
+  }
+
+  public getAssuranceById(id_assurance){
+    return this.http.get('http://localhost:8080' + '/AssuranceByid' +`/${id_assurance}`);
   }
 
 

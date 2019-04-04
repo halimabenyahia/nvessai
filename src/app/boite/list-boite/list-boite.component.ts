@@ -31,7 +31,7 @@ export class ListBoiteComponent implements OnInit {
       {
         console.log("type boite supprimé") ;
         const link='listBoite' ;
-        this.router.navigate(this.link);
+        this.router.navigate(['Boite/listBoite']);
       }
     );
   }

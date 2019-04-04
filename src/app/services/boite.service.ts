@@ -16,7 +16,7 @@ export class BoiteService {
   }
 
   public addBoite(boite){
-    return this.http.post(this.link,boite);
+    return this.http.post('http://localhost:8080/addtypeBoite',boite);
   }
 
   public supprimer(id_typeBoite : number){
@@ -25,6 +25,10 @@ export class BoiteService {
 
   public edit(boite){
     return this.http.put('http://localhost:8080' + '/editTypeBoite' , boite);
+  }
+
+  public getTypeBoiteById(id_typeBoite){
+    return this.http.get('http://localhost:8080' + '/typeBoiteById' + `/${id_typeBoite}`);
   }
 
 }

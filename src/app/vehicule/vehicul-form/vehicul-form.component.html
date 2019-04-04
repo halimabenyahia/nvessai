@@ -27,9 +27,9 @@
               </div>
             
             <div class="form-group col-md-3 ">
-                <label for="des_modele">modele</label>
-                <select class="form-control" ngModel name="des_modele">
-                  <option *ngFor="let modele of modele" >{{modele?.des_modele}}</option>
+                <label for="id_modele">modele</label>
+                <select class="form-control" ngModel name="id_modele">
+                  <option *ngFor="let modele of modele" >{{modele?.id_modele}}</option>
                 </select>
               </div>
               <div class="form-group col-md-3">
@@ -77,16 +77,18 @@
                           <h5 style="color:gray">Assurance</h5>
               <br>
               <div class="row">
-                <!--  <div class="form-group col-md-3 ">
+                  <div class="form-group col-md-3 ">
                       <label for="compagnie_ass">compagnie</label>
                       <select class="form-control" ngModel name="compagnie_ass" id="compagnie_ass">
-                        <option *ngFor="let assurance of assurances" >{{assurance?.compagnie_ass}}</option>
+                        <option *ngFor="let assurance of assurance" >{{assurance?.compagnie_ass}}</option>
                       </select>
                     </div>
--->
+
                     <div class="form-group col-md-3">
                         <label for="num_police">num police:</label>
-                        <input type="text" class="form-control" ngModel name="num_police" id="num_police">
+                        <select class="form-control" ngModel name="num_police" id="num_police">
+                          <option *ngFor="let contrat of contrat" >{{contrat?.num_police}}</option>
+                        </select>
                       </div>
 
                       <div class="form-group col-md-3">

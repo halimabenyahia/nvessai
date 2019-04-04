@@ -27,9 +27,7 @@ export class VehiculListComponent implements OnInit {
       console.log(this.vehicules)});
   }
 
-    listVehicule(){
-      this.VehiculeService.getAllVehicule()
-    }
+  
 
   delete(id_immatriculation, index) {
     this.VehiculeService.deleteVehicule(id_immatriculation)
@@ -41,8 +39,8 @@ export class VehiculListComponent implements OnInit {
   }
  
   edit(id_immatriculation){
-    const link='Vehicule/editVehicule';
-    this.router.navigate(['Vehicule/editVehicule',id_immatriculation]);
+    const link='Vehicule/editVehicule/id_immatriculation';
+    this.router.navigate(['Vehicule/editVehicule/',id_immatriculation]);
   }
 
 }

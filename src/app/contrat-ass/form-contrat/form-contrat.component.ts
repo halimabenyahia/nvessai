@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { ContratService } from 'src/app/services/contrat.service';
 import { Router } from '@angular/router';
 import { Assurance } from 'src/app/entity/assurance';
+import { AssuranceService } from 'src/app/services/assurance.service';
 
 @Component({
   selector: 'app-form-contrat',
@@ -13,9 +14,14 @@ export class FormContratComponent implements OnInit {
 
   assurance : Assurance[];
   constructor(private contratService : ContratService,
+              private assuranceService : AssuranceService,
               private router : Router) { }
 
   ngOnInit() {
+    this.assuranceService.getAssurrance().subscribe(
+      (value : any[])=>
+      {this.assurance=value;}
+    );
   }
 
   add(formulaire : NgForm) {
