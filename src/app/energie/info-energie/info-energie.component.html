@@ -1,15 +1,15 @@
-<form #formulaire="ngForm">
+<form #formulaire="ngForm" *ngIf="energie">
     <div class="row">
           <div class="form-group col-md-3 ">
               <label for="des_energie">energie</label>
-              <input type="text" class="form-control" ngModel name="des_energie" > 
+              <input type="text" class="form-control" [(ngModel)]="energie.des_energie" name="des_energie" > 
           </div>
        
       </div>
     
     <br>
     <div>
-        <button type="submit" (click)="modifier(formulaire)" class="btn btn-success">Enregistrer</button>
+        <button type="submit" (click)="modifier()" class="btn btn-success">Enregistrer</button>
       </div>
   
   </form>

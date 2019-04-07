@@ -22,7 +22,7 @@ export class VehiculListComponent implements OnInit {
 
   ngOnInit() {
     this.VehiculeService.getAllVehicule().subscribe( 
-      (value :any[])=>
+      (value :any)=>
       {this.vehicules=value;
       console.log(this.vehicules)});
   }

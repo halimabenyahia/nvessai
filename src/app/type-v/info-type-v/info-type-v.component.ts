@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TypeVehiculeService } from 'src/app/services/type-vehicule.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { TypeVehicule } from 'src/app/entity/typeVehicule';
 
 @Component({
   selector: 'app-info-type-v',
@@ -9,14 +10,29 @@ import { Router } from '@angular/router';
 })
 export class InfoTypeVComponent implements OnInit {
 
+  typeVehicule : TypeVehicule ;
   constructor(private typeVService : TypeVehiculeService,
-              private router : Router) { }
+              private router : Router,
+              private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params) =>
+      {
+        console.log(params) ;
+        this.typeVService.getTypeVehiculeById(params.id).subscribe(
+          (typeVehicule : TypeVehicule) =>
+          {
+            this.typeVehicule=typeVehicule ;
+            console.log(typeVehicule) ;
+          }
+        );
+      }
+    );
   }
 
-  modifier(formulaire){
-    this.typeVService.edittypeVehicule(formulaire.value).subscribe(
+  modifier(typeVehicule){
+    this.typeVService.edittypeVehicule(typeVehicule).subscribe(
       (response) =>
       {
         console.log("type modifié");

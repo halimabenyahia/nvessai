@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MarqueService } from 'src/app/services/marque.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Marque } from 'src/app/entity/marque';
 
 @Component({
   selector: 'app-info-marque',
@@ -9,14 +10,29 @@ import { Router } from '@angular/router';
 })
 export class InfoMarqueComponent implements OnInit {
 
+  marque : Marque ;
   constructor(private marqueService : MarqueService,
-              private router : Router) { }
+              private router : Router,
+              private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params) =>
+      {
+        console.log(params) ;
+        this.marqueService.getMarquesById(params.id).subscribe(
+          (marque : Marque) =>
+          {
+            this.marque=marque ;
+            console.log(marque) ;
+          }
+        );
+      }
+    );
   }
 
-  modifier(formulaire){
-    this.marqueService.editMarque(formulaire.value).subscribe(
+  modifier(marque){
+    this.marqueService.editMarque(marque).subscribe(
       (response) =>
       {
         console.log("marque modifié") ;

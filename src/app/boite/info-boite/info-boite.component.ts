@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BoiteService } from 'src/app/services/boite.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Boite } from 'src/app/entity/boite';
 import { NgForm } from '@angular/forms';
 
@@ -11,15 +11,29 @@ import { NgForm } from '@angular/forms';
 })
 export class InfoBoiteComponent implements OnInit {
 
-  boite : Boite[] ;
+  boite : Boite ;
   constructor(private boiteService : BoiteService,
-              private router : Router) { }
+              private router : Router,
+              private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params) =>
+      {
+        console.log(params);
+        this.boiteService.getTypeBoiteById(params.id).subscribe(
+          (boite : Boite) => 
+          {
+            this.boite=boite ;
+            console.log(boite);
+          }
+        );
+      }
+    );
   }
 
-  modifier(formulaire : NgForm){
-    this.boiteService.edit(formulaire.value).subscribe(
+  modifier(boite : Boite){
+    this.boiteService.edit(boite).subscribe(
       (response) =>
       {
        console.log("boite modifié") ;

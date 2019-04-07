@@ -10,7 +10,7 @@ import { Chauffeur } from '../entity/chauffeur';
 export class ChauffeurService {
 
   
-  chauffeur : Chauffeur[] ;
+  chauffeur : Chauffeur ;
   link ='http://localhost:8080/addChauffeur';
   link2='http://localhost:8080/editChauffeur/' ;
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EnergieService } from 'src/app/services/energie.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Energie } from 'src/app/entity/energie';
 
 @Component({
   selector: 'app-info-energie',
@@ -9,14 +10,29 @@ import { Router } from '@angular/router';
 })
 export class InfoEnergieComponent implements OnInit {
 
+  energie : Energie ;
   constructor(private energieService : EnergieService,
-              private router : Router) { }
+              private router : Router,
+              private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params) =>
+      {
+        console.log(params) ;
+        this.energieService.getEnergieById(params.id).subscribe(
+          (energie : Energie) =>
+          {
+            this.energie=energie ;
+            console.log(energie) ;
+          }
+        );
+      }
+    );
   }
 
-  modifier(formulaire){
-   this.energieService.edit(formulaire.value).subscribe(
+  modifier(energie){
+   this.energieService.edit(energie).subscribe(
      (response) =>
      {
        console.log("energie modifié") ;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AssuranceService } from 'src/app/services/assurance.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Assurance } from 'src/app/entity/assurance';
 
 @Component({
@@ -11,15 +11,29 @@ import { Assurance } from 'src/app/entity/assurance';
 })
 export class InfoAssuranceComponent implements OnInit {
 
-  assurance : Assurance[];
+  assurance : Assurance;
   constructor(private assuranceService : AssuranceService,
-              private router : Router) { }
+              private router : Router,
+              private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params) =>
+      {
+        console.log(params) ;
+        this.assuranceService.getAssuranceById(params.id).subscribe(
+          (assurance : Assurance) => 
+          {
+            this.assurance=assurance;
+            console.log(assurance);
+          }
+        );
+      }
+    );
   }
 
-  modifier(formulaire : NgForm){
-    this.assuranceService.editAssurance(formulaire.value).subscribe(
+  modifier(assurance){
+    this.assuranceService.editAssurance(assurance).subscribe(
       (response) =>
       {
         console.log("assurance modifié") ;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AffectationService } from 'src/app/services/affectation.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Affectation } from 'src/app/entity/affectation';
 import { NgForm } from '@angular/forms';
 
@@ -11,16 +11,31 @@ import { NgForm } from '@angular/forms';
 })
 export class InfoAffectationComponent implements OnInit {
 
-  affectation : Affectation[]=[] ;
+  affectation : Affectation ;
   constructor(private affectationService : AffectationService,
-              private router : Router) { }
+              private router : Router,
+              private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params) =>
+      {
+        console.log(params) ;
+        this.affectationService.getAffectationById(params.id).subscribe(
+          (affectation : Affectation)=>
+          {
+            this.affectation=affectation ;
+            console.log(affectation) ;
+          }
+        );
+      }
+    );
+
    
   }
-
-  modifier(formulaire : NgForm){
-    this.affectationService.editAffectation(formulaire.value).subscribe(
+ 
+  modifier(affectation){
+    this.affectationService.editAffectation(affectation).subscribe(
       (response) =>
       {
         console.log("affectation modifié") ;

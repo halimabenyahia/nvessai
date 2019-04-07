@@ -1,8 +1,8 @@
-<form #formulaire="ngForm">
+<form #formulaire="ngForm" *ngIf="typeVehicule">
     <div class="row">
           <div class="form-group col-md-3 ">
               <label for="des_typeVehicule">type de véhicule</label>
-              <input type="text" class="form-control" ngModel name="des_typeVehicule" > 
+              <input type="text" class="form-control" [(ngModel)]="typeVehicule.des_typeVehicule" name="des_typeVehicule" > 
 
           </div>
        
@@ -10,7 +10,7 @@
     
     <br>
     <div>
-        <button type="submit" (click)="modifier(formulaire)" class="btn btn-success">Enregistrer</button>
+        <button type="submit" (click)="modifier()" class="btn btn-success">Enregistrer</button>
       </div>
   
   </form>

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ModeleService {
 
-  modele : Modele [] ;
+  modele : Modele ;
 
   constructor(private http : HttpClient) { }
 
@@ -24,7 +24,7 @@ export class ModeleService {
     return this.http.delete('http://localhost:8080/deleteModele' + `/${id_modele}`);
   }
 
-  public editModele(modele){
+  public editModele(modele : Modele){
     return this.http.put('http://localhost:8080' + '/editModele' , modele) ;
   }
 

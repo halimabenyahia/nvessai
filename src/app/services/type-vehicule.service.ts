@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class TypeVehiculeService {
 
-  typeVehicule: TypeVehicule[];
+  typeVehicule: TypeVehicule;
  
   constructor(private http : HttpClient) { }
 
@@ -27,6 +27,12 @@ export class TypeVehiculeService {
   public edittypeVehicule(typeVehicule){
     return this.http.put('http://localhost:8080'+'/editTypeVehicule' , typeVehicule) ;
   }
+
+  public getTypeVehiculeById(id_typeVehicule){
+    return this.http.get('http://localhost:8080' + '/typeVehiculeById' + `/${id_typeVehicule}`) ;
+  }
+
+
 
 
 }

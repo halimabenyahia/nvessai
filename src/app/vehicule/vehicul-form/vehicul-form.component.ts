@@ -26,14 +26,14 @@ import { Assurance } from 'src/app/entity/assurance';
 })
 export class VehiculFormComponent implements OnInit {
 
-  vehicule : Vehicule [] ;
-  marque :Marque[] ;
-  modele : Modele[] ;
-  chauffeur : Chauffeur[]=[] ;
-  boite : Boite [] ;
-  energie : Energie [] ;
-  contrat : ContratAssurance[];
-  assurance : Assurance[];
+  vehicule : Vehicule  ;
+  marque :Marque ;
+  modele : Modele ;
+  chauffeur : Chauffeur ;
+  boites : Boite  ;
+  energies : Energie ;
+  contrat : ContratAssurance;
+  assurance : Assurance;
   link ;
   
   constructor(private VehiculeService:VehiculeServiceService,
@@ -54,53 +54,60 @@ export class VehiculFormComponent implements OnInit {
       {console.log(params);}
     );
     this.marqueService.getMarques().subscribe( 
-      (value :any[])=>
-      {this.marque=value;
+      (marque : Marque)=>
+      {this.marque=marque;
       console.log(this.marque)});
 
     this.modeleService.getModeles().subscribe(
-      (value : any[])=>
+      (modele : Modele)=>
       {
-        this.modele=value ;
+        this.modele=modele ;
       }
     );
 
     this.chauffeurService.getAllChauffeur().subscribe(
-      (value : any[])=>
-      {this.chauffeur=value;}
+      (chauffeur : Chauffeur)=>
+      {this.chauffeur=chauffeur;}
     );
 
     this.boiteService.getTypeBoite().subscribe(
-      (value : any[])=>
-      {this.boite=value;}
+      (boite : Boite)=>
+      {this.boites=boite;}
     );
 
     this.energieService.getEnergie().subscribe(
-      (value : any[])=>
-      {this.energie=value;}
+      (energie : Energie)=>
+      {this.energies=energie;}
     );
 
     this.contratService.getContratAss().subscribe(
-      (value : any[])=>
-      {this.contrat=value;}
+      (contrat : ContratAssurance)=>
+      {this.contrat=contrat;}
     );
 
     this.assuranceService.getAssurrance().subscribe(
-      (value : any[])=>
-      {this.assurance=value;}
+      (assurance : Assurance)=>
+      {this.assurance=assurance;}
     );
      
     
   }
   
   add(formulaire : NgForm){
+   
+    let Vehicule=formulaire.value;
+   // console.log(Vehicule) ;
+    Vehicule.chauffeur_v=+Vehicule.chauffeur_v;
+    console.log(Vehicule) ;
     this.VehiculeService.addVehicule(formulaire.value).subscribe(
       (response) =>
       {
-       // this.VehiculeService.vehicule.push(response);
-       // this.form.reset() ;
-       const link='listVehicules';
-        this.router.navigate(['Vehicule/listVehicules']);
+        console.log(response);
+      // const link='listVehicules';
+      this.router.navigate(['Vehicule/listVehicules']);
+      },
+      (error)=> {
+         console.log(error);
       }
     );
  }

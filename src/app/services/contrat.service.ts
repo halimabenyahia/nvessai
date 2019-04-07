@@ -7,7 +7,7 @@ import { ContratAssurance } from '../entity/contrat';
 })
 export class ContratService {
 
-  contratAss : ContratAssurance[] ;
+  contratAss : ContratAssurance ;
   
   constructor(private http : HttpClient) { }
 
@@ -23,7 +23,7 @@ export class ContratService {
     return this.http.delete('http://localhost:8080'+'/deleteContratAss/'+ `/${id_contrat}`);
   }
 
-  public editContrat(contrat){
+  public editContrat(contrat : ContratAssurance){
     return this.http.put('http://localhost:8080' + '/editcontrat/' , contrat);
   }
 

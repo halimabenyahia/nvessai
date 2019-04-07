@@ -7,7 +7,7 @@ import { Boite } from '../entity/boite';
 })
 export class BoiteService {
 
-  boite : Boite [];
+  boite : Boite ;
   link='http://localhost:8080/addtypeBoite';
   constructor(private http :HttpClient) { }
 

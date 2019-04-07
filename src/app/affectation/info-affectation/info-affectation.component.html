@@ -1,18 +1,15 @@
-<form #formulaire="ngForm">
-    <h6>détail affectation</h6>
-  <div class="row">
-    
-    <div class="form-group col-sm-3">
-      <label for="des_affectation">Affectation</label>
-      <div class="col-md-6">
-        {{affectation?.des_affectation}} 
+<form #formulaire="ngForm" *ngIf="affectation">
+    <div class="row">
+      <div class="form-group col-sm-3">
+        <label for="des_affectation">Affectation</label>
+        <input type="text" pattern='[A-Za-z\\s]*'  class="form-control" 
+              [(ngModel)]="affectation.des_affectation" name="des_affectation" id="des_affectation" >
+              <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">affectation incorrecte!</p>
       </div>
-    <!--  <input type="text" class="form-control" ngModel name="des_affectation" id="des_affectation" > -->
     </div>
-  </div>
-  <br>
-  <div>
-      <button type="submit" (click)="modifier(formulaire.value)" class="btn btn-success">Enregistrer</button>
-    </div>
-
-</form>
+    <br>
+    <div>
+        <button type="submit" (click)="modifier()" class="btn btn-success">Enregistrer</button>
+      </div>
+   
+  </form>

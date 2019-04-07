@@ -25,78 +25,76 @@ import { Assurance } from 'src/app/entity/assurance';
 
 export class VehiculInfoComponent implements OnInit {
 
-  vehicule :Vehicule[] ;
-  marque :Marque[] ;
-  modele : Modele[] ;
-  chauffeur : Chauffeur[]=[] ;
-  boite : Boite [] ;
-  energie : Energie [] ;
-  contrat : ContratAssurance[];
-  assurance : Assurance[];
-  link ;
-  constructor(private vehicuelService : VehiculeServiceService,
-              private router : Router,
-              private marqueService : MarqueService,
-              private modeleService : ModeleService,
-              private chauffeurService : ChauffeurService,
-              private boiteService : BoiteService,
-              private energieService : EnergieService,
-              private contratService : ContratService,
-              private assuranceService : AssuranceService,
-              private activatedRoute : ActivatedRoute) { }
+  vehicule: Vehicule;
+  marque: Marque;
+  modele: Modele;
+  chauffeur: Chauffeur;
+  boite: Boite;
+  energie: Energie;
+  contrat: ContratAssurance;
+  assurance: Assurance;
+  link;
+  constructor(private vehicuelService: VehiculeServiceService,
+    private router: Router,
+    private marqueService: MarqueService,
+    private modeleService: ModeleService,
+    private chauffeurService: ChauffeurService,
+    private boiteService: BoiteService,
+    private energieService: EnergieService,
+    private contratService: ContratService,
+    private assuranceService: AssuranceService,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
-      (params)=>
-      {
-        this.vehicuelService.getByIdVehicule(params.id_immatriculation).subscribe(
-          (vehicule : any[])=>
-          {this.vehicule=vehicule;}
-        ) ;
+      (params) => {
+        console.log(params);
+
+        this.vehicuelService.getByIdVehicule(params.id).subscribe(
+          (vehicule: Vehicule) => {
+            this.vehicule = vehicule;
+            console.log(vehicule);
+          }
+        );
       }
     );
 
-    
-    this.marqueService.getMarques().subscribe( 
-      (value :any[])=>
-      {this.marque=value;
-      console.log(this.marque)});
+
+    this.marqueService.getMarques().subscribe(
+      (marque: Marque) => {
+      this.marque = marque;
+        console.log(this.marque)
+      });
 
     this.modeleService.getModeles().subscribe(
-      (value : any[])=>
-      {
-        this.modele=value ;
+      (modele : Modele) => {
+        this.modele = modele;
       }
     );
 
     this.chauffeurService.getAllChauffeur().subscribe(
-      (value : any[])=>
-      {this.chauffeur=value;}
+      (chauffeur : Chauffeur) => { this.chauffeur = chauffeur; }
     );
 
     this.boiteService.getTypeBoite().subscribe(
-      (value : any[])=>
-      {this.boite=value;}
+      (boite : Boite) => { this.boite = boite; }
     );
 
     this.energieService.getEnergie().subscribe(
-      (value : any[])=>
-      {this.energie=value;}
+      (energie : Energie) => { this.energie = energie; }
     );
 
     this.contratService.getContratAss().subscribe(
-      (value : any[])=>
-      {this.contrat=value;}
+      (contrat : ContratAssurance) => { this.contrat = contrat; }
     );
-     
-  }
- 
-  update(vehicule){
+
+  } 
+
+  update(vehicule) {
     this.vehicuelService.editVehicule(vehicule).subscribe(
-      (response) =>
-      {
-        console.log("vehicule modifié") ;
-       // const link='listVehicules';
+      (response) => {
+        console.log("vehicule modifié");
+        // const link='listVehicules';
         this.router.navigate(['Vehicule/listVehicules']);
       }
     );

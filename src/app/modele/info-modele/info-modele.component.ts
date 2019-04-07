@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModeleService } from 'src/app/services/modele.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Modele } from 'src/app/entity/modele';
 
 @Component({
   selector: 'app-info-modele',
@@ -9,14 +10,29 @@ import { Router } from '@angular/router';
 })
 export class InfoModeleComponent implements OnInit {
 
+  modele :Modele ;
   constructor(private modeleService : ModeleService,
-              private router : Router) { }
+              private router : Router,
+              private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params) =>
+      {
+        console.log(params) ;
+        this.modeleService.getModeleById(params.id).subscribe(
+          (modele : Modele) =>
+          {
+            this.modele=modele;
+            console.log(modele) ;
+          }
+        );
+      }
+    );
   }
 
-  modifier(formulaire){
-    this.modeleService.editModele(formulaire.value).subscribe(
+  modifier(modele){
+    this.modeleService.editModele(modele).subscribe(
       (response) =>
       {
         console.log("modele modifié") ;

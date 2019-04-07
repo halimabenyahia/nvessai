@@ -29,7 +29,7 @@
             <div class="form-group col-md-3 ">
                 <label for="id_modele">modele</label>
                 <select class="form-control" ngModel name="id_modele">
-                  <option *ngFor="let modele of modele" >{{modele?.id_modele}}</option>
+                  <option *ngFor="let modele of modele" >{{modele?.des_modele}}</option>
                 </select>
               </div>
               <div class="form-group col-md-3">
@@ -53,22 +53,27 @@
                       </div>
                       <div class="form-group col-md-3">
                           <label for="matricule_ch">Chauffeur:</label>
-                          <select class="form-control" ngModel name="matricule_ch">
-                            <option *ngFor="let chauffeur of chauffeur" >{{chauffeur?.matricule_ch}}</option>
+                          <select  class="form-control" ngModel name="chauffeur_v">
+                            <option  *ngFor="let chauffeur of chauffeur" value="{{chauffeur?.matricule_ch}}" >
+                              {{chauffeur?.matricule_ch}}</option>
                           </select>
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="des_boite">boite:</label>
                             <select class="form-control" ngModel name="des_boite">
-                              <option *ngFor="let boite of boite" ngValue="type_boite">{{boite?.des_boite}}</option>
+                              <option *ngFor="let boite of boites" ngValue="type_boite"
+                              value="{{boite.id_typeBoite}}"
+                              >{{boite?.des_boite}}</option>
                             </select>
                           </div>
 
                           <div class="form-group col-md-3">
                               <label for="des_energie">energie:</label>
                               <select class="form-control" ngModel name="des_energie">
-                                <option *ngFor="let energie of energie" >{{energie?.des_energie}}</option>
+                                <option *ngFor="let energie of energies" ngValue="energie_v"
+                                value="{{energie.id_energie}}" >
+                                {{energie?.des_energie}}</option>
                               </select>
                             </div>
                           </div>

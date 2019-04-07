@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class MarqueService {
 
-  marque : Marque[];
+  marque : Marque;
 
   constructor(private http : HttpClient) { }
 
@@ -24,11 +24,11 @@ export class MarqueService {
     return this.http.delete('http://localhost:8080/deleteMarque' + `/${id_marque}`);
   }
 
-  public editMarque(marque){
+  public editMarque(marque : Marque){
     return this.http.put('http://localhost:8080' + '/editMarque' , marque);
   }
 
-  public getMarquesById(id_marque){
+  public getMarquesById(id_marque : number){
     return this.http.get('http://localhost:8080' + '/marqueById' +`/${id_marque}` );
   }
   
