@@ -17,6 +17,10 @@ import { ContratAssurance } from 'src/app/entity/contrat';
 import { ContratService } from 'src/app/services/contrat.service';
 import { AssuranceService } from 'src/app/services/assurance.service';
 import { Assurance } from 'src/app/entity/assurance';
+import { TypeVehicule } from 'src/app/entity/typeVehicule';
+import { TypeVehiculeService } from 'src/app/services/type-vehicule.service';
+import { Affectation } from 'src/app/entity/affectation';
+import { AffectationService } from 'src/app/services/affectation.service';
 
 
 @Component({
@@ -34,6 +38,8 @@ export class VehiculFormComponent implements OnInit {
   energies : Energie ;
   contrat : ContratAssurance;
   assurance : Assurance;
+  typeVehicule : TypeVehicule ;
+  affectation : Affectation ;
   link ;
   
   constructor(private VehiculeService:VehiculeServiceService,
@@ -45,7 +51,9 @@ export class VehiculFormComponent implements OnInit {
               private energieService : EnergieService,
               private contratService : ContratService,
               private assuranceService : AssuranceService,
-              private activatedRoute : ActivatedRoute) { 
+              private activatedRoute : ActivatedRoute,
+              private typeVehiculeService : TypeVehiculeService,
+              private affectationService : AffectationService) { 
   }
 
   ngOnInit() {  
@@ -55,8 +63,7 @@ export class VehiculFormComponent implements OnInit {
     );
     this.marqueService.getMarques().subscribe( 
       (marque : Marque)=>
-      {this.marque=marque;
-      console.log(this.marque)});
+      {this.marque=marque;});
 
     this.modeleService.getModeles().subscribe(
       (modele : Modele)=>
@@ -88,6 +95,20 @@ export class VehiculFormComponent implements OnInit {
     this.assuranceService.getAssurrance().subscribe(
       (assurance : Assurance)=>
       {this.assurance=assurance;}
+    );
+
+    this.typeVehiculeService.getTypeVehicule().subscribe(
+      (typeVehicule : TypeVehicule) =>
+      {
+        this.typeVehicule=typeVehicule;
+      }
+    );
+
+    this.affectationService.getAffectation().subscribe(
+      (affectation : Affectation)=>
+      {
+        this.affectation=affectation;
+      }
     );
      
     
