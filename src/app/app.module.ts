@@ -49,6 +49,7 @@ import { ListContratComponent } from './contrat-ass/list-contrat/list-contrat.co
 import { InfoContratComponent } from './contrat-ass/info-contrat/info-contrat.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { FormsModule } from '@angular/forms';
+import { ChercherVehiculeComponent } from './vehicule/chercher-vehicule/chercher-vehicule.component';
 
 
 
@@ -99,6 +100,7 @@ import { FormsModule } from '@angular/forms';
     ListContratComponent,
     InfoContratComponent,
     AcceuilComponent,
+    ChercherVehiculeComponent,
   ],
   imports: [
     HttpClientModule,

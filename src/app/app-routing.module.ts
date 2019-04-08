@@ -40,6 +40,7 @@ import { InfoEnergieComponent } from './energie/info-energie/info-energie.compon
 import { InfoAffectationComponent } from './affectation/info-affectation/info-affectation.component';
 import { InfoTypeVComponent } from './type-v/info-type-v/info-type-v.component';
 import { InfoContratComponent } from './contrat-ass/info-contrat/info-contrat.component';
+import { ChercherVehiculeComponent } from './vehicule/chercher-vehicule/chercher-vehicule.component';
 
 const routes: Routes = [
 
@@ -48,7 +49,8 @@ const routes: Routes = [
     { path: '', redirectTo: '/Vehicule', pathMatch: 'full' },
     { path: 'addVehicule', component: VehiculFormComponent },
     { path: 'editVehicule/:id', component: VehiculInfoComponent },
-    { path: 'listVehicules', component: VehiculListComponent }]
+    { path: 'listVehicules', component: VehiculListComponent },
+    { path : 'chercherVehicule' , component : ChercherVehiculeComponent}]
   },
 
   {path:'Chauffeur' , component : ChauffeurComponent , children: [

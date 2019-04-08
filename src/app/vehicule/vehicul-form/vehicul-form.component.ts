@@ -97,12 +97,13 @@ export class VehiculFormComponent implements OnInit {
    
     let Vehicule=formulaire.value;
    // console.log(Vehicule) ;
-    Vehicule.chauffeur_v=+Vehicule.chauffeur_v;
+   // Vehicule.chauffeur_v=+Vehicule.chauffeur_v;
+   console.log('afficher') ;
     console.log(Vehicule) ;
     this.VehiculeService.addVehicule(formulaire.value).subscribe(
       (response) =>
       {
-        console.log(response);
+       // console.log(response);
       // const link='listVehicules';
       this.router.navigate(['Vehicule/listVehicules']);
       },

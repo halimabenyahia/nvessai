@@ -20,16 +20,16 @@
 
               <div class="form-group col-md-3">
                 <label for="des_marque">marque:</label>
-                <select class="form-control" ngModel name="des_marque">
-                    <option *ngFor="let marque of marque" >{{marque?.des_marque}}</option>
+                <select class="form-control" ngModel name="id_marque">
+                    <option *ngFor="let marque of marque" value="{{marque?.id_marque}}" >{{marque?.des_marque}}</option>
                   </select>
                 
               </div>
             
             <div class="form-group col-md-3 ">
                 <label for="id_modele">modele</label>
-                <select class="form-control" ngModel name="id_modele">
-                  <option *ngFor="let modele of modele" >{{modele?.des_modele}}</option>
+                <select class="form-control" ngModel name="modele">
+                  <option *ngFor="let modele of modele" >{{modele?.id_modele}}</option>
                 </select>
               </div>
               <div class="form-group col-md-3">
@@ -53,8 +53,8 @@
                       </div>
                       <div class="form-group col-md-3">
                           <label for="matricule_ch">Chauffeur:</label>
-                          <select  class="form-control" ngModel name="chauffeur_v">
-                            <option  *ngFor="let chauffeur of chauffeur" value="{{chauffeur?.matricule_ch}}" >
+                          <select  class="form-control" ngModel name="id_chauffeur" >
+                            <option  *ngFor="let chauffeur of chauffeur" value="{{chauffeur?.id_chauffeur}}" >
                               {{chauffeur?.matricule_ch}}</option>
                           </select>
                         </div>
