@@ -50,7 +50,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="cout_achat">valeur d'acquisition:</label>
-                        <input  type="number" step="0.01" value="0.00" class="form-control" ngModel name="cout_achat" id="cout_achat">
+                        <input  type="number"  class="form-control" ngModel name="cout_achat" id="cout_achat">
                       
                       </div>
 
@@ -74,7 +74,7 @@
                           <label for="matricule_ch">Chauffeur:</label>
                           <select  class="form-control" ngModel name="id_chauffeur" >
                             <option  *ngFor="let chauffeur of chauffeur" value="{{chauffeur?.id_chauffeur}}" >
-                              {{chauffeur?.matricule_ch}}</option>
+                              {{chauffeur?.nom_ch}}</option>
                           </select>
 
                         </div>

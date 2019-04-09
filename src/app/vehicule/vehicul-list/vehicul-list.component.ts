@@ -15,7 +15,8 @@ export class VehiculListComponent implements OnInit {
 
   vehicules : Vehicule[] ;
   link ;
-
+  page : number =0 ;
+  pages :Array<number>;
   constructor( private VehiculeService:VehiculeServiceService,
                private router : Router
                 ) { }
@@ -27,13 +28,17 @@ export class VehiculListComponent implements OnInit {
       console.log(this.vehicules)});
   }
 
+/*
+  SetPage(i,event){
+    this.page=i ;
+  }
+  */
   
 
   delete(id_immatriculation, index) {
     this.VehiculeService.deleteVehicule(id_immatriculation)
      .subscribe(value => {
         console.log('Véhicule supprimé !');
-      //  this.VehiculeService.vehicule.splice(index, 1);
         this.router.navigate(['Vehicule/listVehicules']);
       });
   }

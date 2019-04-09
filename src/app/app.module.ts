@@ -15,7 +15,6 @@ import { ModeleComponent } from './modele/modele.component';
 import { MarqueComponent } from './marque/marque.component';
 import { BoiteComponent } from './boite/boite.component';
 import { EnergieComponent } from './energie/energie.component';
-import { ContratAssComponent } from './contrat-ass/contrat-ass.component';
 import { AssuranceComponent } from './assurance/assurance.component';
 import { ChauffeurComponent } from './chauffeur/chauffeur.component';
 import { ListChauffeurComponent } from './chauffeur/list-chauffeur/list-chauffeur.component';
@@ -44,9 +43,6 @@ import { TypeVComponent } from './type-v/type-v.component';
 import { FormTypeVComponent } from './type-v/form-type-v/form-type-v.component';
 import { ListTypeVComponent } from './type-v/list-type-v/list-type-v.component';
 import { InfoTypeVComponent } from './type-v/info-type-v/info-type-v.component';
-import { FormContratComponent } from './contrat-ass/form-contrat/form-contrat.component';
-import { ListContratComponent } from './contrat-ass/list-contrat/list-contrat.component';
-import { InfoContratComponent } from './contrat-ass/info-contrat/info-contrat.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { FormsModule } from '@angular/forms';
 import { ChercherVehiculeComponent } from './vehicule/chercher-vehicule/chercher-vehicule.component';
@@ -67,7 +63,6 @@ import { ChercherVehiculeComponent } from './vehicule/chercher-vehicule/chercher
     MarqueComponent,
     BoiteComponent,
     EnergieComponent,
-    ContratAssComponent,
     AssuranceComponent,
     ChauffeurComponent,
     ListChauffeurComponent,
@@ -96,9 +91,6 @@ import { ChercherVehiculeComponent } from './vehicule/chercher-vehicule/chercher
     FormTypeVComponent,
     ListTypeVComponent,
     InfoTypeVComponent,
-    FormContratComponent,
-    ListContratComponent,
-    InfoContratComponent,
     AcceuilComponent,
     ChercherVehiculeComponent,
   ],
