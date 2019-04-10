@@ -2,7 +2,11 @@
     <div class="row">
           <div class="form-group col-md-3 ">
               <label for="des_typeVehicule">type de véhicule</label>
-              <input type="text" class="form-control" ngModel name="des_typeVehicule" > 
+              <input type="text" class="form-control" 
+                     ngModel name="des_typeVehicule"
+                     pattern='[A-Za-z\\s]*' minlength="3" maxlength="15" > 
+                     <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">
+                            type invalide  !</p> 
 
           </div>
        

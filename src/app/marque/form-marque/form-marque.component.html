@@ -2,7 +2,9 @@
     <div class="row">
       <div class="form-group col-sm-3">
         <label for="Marque">Marque</label>
-        <input type="text" class="form-control" ngModel name="des_marque" id="des_marque" >
+        <input type="text" class="form-control" pattern='[A-Za-z\\s]*' minlength="3" maxlength="15" ngModel name="des_marque" id="des_marque" >
+        <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">
+            marque invalide  !</p>
       </div>
     </div>
     <br>

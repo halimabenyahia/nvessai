@@ -2,7 +2,7 @@
   <div class="row">
     <div class="form-group col-sm-3">
       <label for="des_boite">Type de boite</label>
-      <input type="text" class="form-control" pattern='[A-Za-z\\s]*' ngModel name="des_boite" id="des_boite" >
+      <input type="text" class="form-control" pattern='[A-Za-z\\s]*' minlength="3" maxlength="15" ngModel name="des_boite" id="des_boite" >
       <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">type boite  incorrecte!</p>
     </div>
   </div>

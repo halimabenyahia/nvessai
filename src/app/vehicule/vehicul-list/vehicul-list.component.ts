@@ -13,7 +13,7 @@ import { Vehicule } from 'src/app/entity/vehicule';
 })
 export class VehiculListComponent implements OnInit {
 
-  vehicules : Vehicule[] ;
+  vehicules : Vehicule ;
   link ;
   page : number =0 ;
   pages :Array<number>;
@@ -28,24 +28,19 @@ export class VehiculListComponent implements OnInit {
       console.log(this.vehicules)});
   }
 
-/*
-  SetPage(i,event){
-    this.page=i ;
-  }
-  */
   
 
-  delete(id_immatriculation, index) {
-    this.VehiculeService.deleteVehicule(id_immatriculation)
+  delete(id_vehicule, index) {
+    this.VehiculeService.deleteVehicule(id_vehicule)
      .subscribe(value => {
         console.log('Véhicule supprimé !');
         this.router.navigate(['Vehicule/listVehicules']);
       });
   }
  
-  edit(id_immatriculation){
-    const link='Vehicule/editVehicule/id_immatriculation';
-    this.router.navigate(['Vehicule/editVehicule/',id_immatriculation]);
+  edit(id_vehicule){
+    const link='Vehicule/editVehicule/id_vehicule';
+    this.router.navigate(['Vehicule/editVehicule/',id_vehicule]);
   }
 
 }

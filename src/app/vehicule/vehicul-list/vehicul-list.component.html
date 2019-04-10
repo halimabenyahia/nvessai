@@ -21,7 +21,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let vehicule of vehicules ;let i=index">
-          <td>{{vehicule?.id_immatriculation}}</td>
+          <td>{{vehicule?.immatriculation}}</td>
           <td>{{vehicule?.chauffeur_v?.nom_ch}}</td>
           <td>{{vehicule?.cout_achat}}</td>
           <td>{{vehicule?.energie_v?.des_energie}}</td>
@@ -29,8 +29,8 @@
           <td>{{vehicule?.type_vehicule?.des_typeVehicule}}</td>
           <td>{{vehicule?.affectation_vehicule?.des_affectation}}</td>
                   
-      <td><button type="button" class="btn btn-success" (click)="edit(vehicule.id_immatriculation)" >Modifier</button></td>
-          <td><button type="button" class="btn btn-danger" (click)="delete(vehicule.id_immatriculation,i)"  >Supprimer</button></td>
+      <td><button type="button" class="btn btn-success" (click)="edit(vehicule.id_vehicule)" >Modifier</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="delete(vehicule.id_vehicule,i)"  >Supprimer</button></td>
         </tr> 
       </tbody>
       </table> 

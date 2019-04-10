@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class VehiculeServiceService {
 
- vehicule : Vehicule[] ;
+ vehicule : Vehicule ;
   
 
   constructor(private httpClient: HttpClient ) { }
@@ -23,16 +23,16 @@ export class VehiculeServiceService {
     return this.httpClient.post('http://localhost:8080' + '/addVehicule' , vehicule );
   }
 
-  public deleteVehicule(id_immatriculation : string){
-    return this.httpClient.delete('http://localhost:8080' + '/deleteVehicule' + `/${id_immatriculation}`);
+  public deleteVehicule(id_vehicule : string){
+    return this.httpClient.delete('http://localhost:8080' + '/deleteVehicule' + `/${id_vehicule}`);
   }
 
   public editVehicule(vehicule) {
     return this.httpClient.put('http://localhost:8080' + '/editVehicules' ,vehicule);
   }
 
-  public getByIdVehicule(id_immatriculation){
-    return this.httpClient.get('http://localhost:8080' + '/vehiculeById' + `/${id_immatriculation}`);
+  public getByIdVehicule(id_vehicule){
+    return this.httpClient.get('http://localhost:8080' + '/vehiculeById' + `/${id_vehicule}`);
   }
 
  

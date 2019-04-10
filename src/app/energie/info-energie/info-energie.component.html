@@ -2,7 +2,10 @@
     <div class="row">
           <div class="form-group col-md-3 ">
               <label for="des_energie">energie</label>
-              <input type="text" class="form-control" [(ngModel)]="energie.des_energie" name="des_energie" > 
+              <input type="text" class="form-control"
+                     [(ngModel)]="energie.des_energie" name="des_energie"
+                     pattern='[A-Za-z\\s]*' minlength="3" maxlength="15" >
+                     <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">energie incorrecte!</p> 
           </div>
        
       </div>
