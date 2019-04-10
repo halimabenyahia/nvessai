@@ -34,14 +34,13 @@ export class InfoChauffeurComponent implements OnInit {
   }
 
   update(chauffeur) {
-    this.chauffeurService.edit(chauffeur).subscribe(
-      (response) =>
-      {
-        console.log("chauffeur modifié");
-        //const lien='listChauffeur'
-        this.router.navigate(['Chauffeur/listChauffeur']) ;
-      }
-     );
-  }
+            this.chauffeurService.edit(chauffeur).subscribe(
+              (response) =>
+              {
+                console.log("chauffeur modifié");
+                this.router.navigate(['Chauffeur/listChauffeur']) ;
+              }
+             );
+          }
 
 }

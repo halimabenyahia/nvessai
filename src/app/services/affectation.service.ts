@@ -7,7 +7,7 @@ import { Affectation } from '../entity/affectation';
 })
 export class AffectationService {
 
-  affectation : Affectation [] ;
+  affectation : Affectation ;
   link ='http://localhost:8080/addAffectation' ;
   constructor(private http : HttpClient) { }
 
@@ -23,8 +23,8 @@ export class AffectationService {
     return this.http.delete('http://localhost:8080' + '/deleteAffectation' + `/${id_affectation}`)
   }
 
-  public editAffectation(affectation){
-    return this.http.post('http://localhost:8080'+ '/editAffectation' , affectation);
+  public edit(affectation){
+    return this.http.put('http://localhost:8080'+ '/editAffectation' , affectation);
   }
 
   public getAffectationById(id_affectation){

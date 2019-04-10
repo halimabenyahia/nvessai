@@ -13,8 +13,6 @@ import { Energie } from 'src/app/entity/energie';
 import { ChauffeurService } from 'src/app/services/chauffeur.service';
 import { BoiteService } from 'src/app/services/boite.service';
 import { EnergieService } from 'src/app/services/energie.service';
-import { ContratAssurance } from 'src/app/entity/contrat';
-import { ContratService } from 'src/app/services/contrat.service';
 import { AssuranceService } from 'src/app/services/assurance.service';
 import { Assurance } from 'src/app/entity/assurance';
 import { TypeVehicule } from 'src/app/entity/typeVehicule';
@@ -36,7 +34,6 @@ export class VehiculFormComponent implements OnInit {
   chauffeur : Chauffeur ;
   boites : Boite  ;
   energies : Energie ;
-  contrat : ContratAssurance;
   assurance : Assurance;
   typeVehicule : TypeVehicule ;
   affectation : Affectation ;
@@ -49,7 +46,6 @@ export class VehiculFormComponent implements OnInit {
               private chauffeurService : ChauffeurService,
               private boiteService : BoiteService,
               private energieService : EnergieService,
-              private contratService : ContratService,
               private assuranceService : AssuranceService,
               private activatedRoute : ActivatedRoute,
               private typeVehiculeService : TypeVehiculeService,
@@ -87,10 +83,6 @@ export class VehiculFormComponent implements OnInit {
       {this.energies=energie;}
     );
 
-    this.contratService.getContratAss().subscribe(
-      (contrat : ContratAssurance)=>
-      {this.contrat=contrat;}
-    );
 
     this.assuranceService.getAssurrance().subscribe(
       (assurance : Assurance)=>

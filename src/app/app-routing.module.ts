@@ -27,9 +27,6 @@ import { ListAffectationComponent } from './affectation/list-affectation/list-af
 import { TypeVComponent } from './type-v/type-v.component';
 import { FormTypeVComponent } from './type-v/form-type-v/form-type-v.component';
 import { ListTypeVComponent } from './type-v/list-type-v/list-type-v.component';
-import { ContratAssComponent } from './contrat-ass/contrat-ass.component';
-import { FormContratComponent } from './contrat-ass/form-contrat/form-contrat.component';
-import { ListContratComponent } from './contrat-ass/list-contrat/list-contrat.component';
 import { InfoChauffeurComponent } from './chauffeur/info-chauffeur/info-chauffeur.component';
 import { VehiculInfoComponent } from './vehicule/vehicul-info/vehicul-info.component';
 import { InfoBoiteComponent } from './boite/info-boite/info-boite.component';
@@ -39,7 +36,6 @@ import { InfoModeleComponent } from './modele/info-modele/info-modele.component'
 import { InfoEnergieComponent } from './energie/info-energie/info-energie.component';
 import { InfoAffectationComponent } from './affectation/info-affectation/info-affectation.component';
 import { InfoTypeVComponent } from './type-v/info-type-v/info-type-v.component';
-import { InfoContratComponent } from './contrat-ass/info-contrat/info-contrat.component';
 import { ChercherVehiculeComponent } from './vehicule/chercher-vehicule/chercher-vehicule.component';
 
 const routes: Routes = [
@@ -112,12 +108,6 @@ const routes: Routes = [
     { path : 'addTypeV' , component : FormTypeVComponent},
     { path : 'editTypeV/:id' , component : InfoTypeVComponent},
     { path : 'listTypeV' , component : ListTypeVComponent}
-  ]},
-  {path :'Contrat' , component : ContratAssComponent , children : [
-    { path :'' ,  redirectTo : '/Contrat' , pathMatch : 'full'},
-    { path : 'addContrat' , component : FormContratComponent},
-    { path : 'editContrat/:id' , component : InfoContratComponent},
-    { path : 'listContrat' , component : ListContratComponent}
   ]}
   
 ];

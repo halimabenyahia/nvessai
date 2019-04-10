@@ -24,7 +24,7 @@ export class MarqueService {
     return this.http.delete('http://localhost:8080/deleteMarque' + `/${id_marque}`);
   }
 
-  public editMarque(marque : Marque){
+  public editMarque(marque){
     return this.http.put('http://localhost:8080' + '/editMarque' , marque);
   }
 

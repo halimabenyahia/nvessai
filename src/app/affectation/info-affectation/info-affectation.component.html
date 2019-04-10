@@ -4,12 +4,11 @@
         <label for="des_affectation">Affectation</label>
         <input type="text" pattern='[A-Za-z\\s]*'  class="form-control" 
               [(ngModel)]="affectation.des_affectation" name="des_affectation" id="des_affectation" >
-              <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">affectation incorrecte!</p>
       </div>
     </div>
     <br>
     <div>
-        <button type="submit" (click)="modifier()" class="btn btn-success">Enregistrer</button>
+        <button type="submit" (click)="modifier(affectation)" class="btn btn-success">Enregistrer</button>
       </div>
    
   </form>

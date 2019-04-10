@@ -32,10 +32,10 @@ export class InfoAffectationComponent implements OnInit {
     );
 
    
-  }
+  } 
  
   modifier(affectation){
-    this.affectationService.editAffectation(affectation).subscribe(
+    this.affectationService.edit(affectation).subscribe(
       (response) =>
       {
         console.log("affectation modifié") ;

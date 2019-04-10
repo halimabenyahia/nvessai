@@ -2,7 +2,6 @@ import { TypeVehicule } from './typeVehicule';
 import { Boite } from './boite';
 import { Energie } from './energie';
 import { Affectation } from './affectation';
-import { ContratAssurance } from './contrat';
 import { Marque } from './marque';
 import { Chauffeur } from './chauffeur';
 import { Modele } from './modele';
@@ -43,7 +42,7 @@ export class Vehicule {
     constructor (id_immatriculation='' , date_m_c,date_acq , cout_achat=0,compteur=0,num_moteur='',num_fab='',date_deb_taxe,
     date_fin_taxe,montant_taxe=0,date_deb_vig,date_fin_vig,montant_vig=0,date_deb_visit_tech,date_fin_visit_tech,
     montant_visit_tech=0,type_vehicule=TypeVehicule,affectation_vehicule=Affectation,id_marque=0,id_chauffeur=0 ,
-    id_modele=0 ,id_typeBoite=0,id_energie=0,id_assurance=0 , id_typeVehicule=0 , id_affectation=0){
+    id_modele=0 ,id_typeBoite=0,id_energie=0,id_assurance=0 , id_typeVehicule=0 , id_affectation=0 ){
 
         this.id_immatriculation=id_immatriculation ;
         this.date_m_c=date_m_c ;

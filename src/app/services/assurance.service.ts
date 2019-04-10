@@ -23,7 +23,7 @@ export class AssuranceService {
   }
 
   public editAssurance(assurance){
-    return this.http.post('http://localhost:8080' + '/editAssurance' ,assurance);
+    return this.http.put('http://localhost:8080' + '/editAssurance' ,assurance);
   }
 
   public getAssuranceById(id_assurance){

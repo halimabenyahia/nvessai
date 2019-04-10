@@ -7,14 +7,12 @@ import { ModeleService } from 'src/app/services/modele.service';
 import { ChauffeurService } from 'src/app/services/chauffeur.service';
 import { BoiteService } from 'src/app/services/boite.service';
 import { EnergieService } from 'src/app/services/energie.service';
-import { ContratService } from 'src/app/services/contrat.service';
 import { AssuranceService } from 'src/app/services/assurance.service';
 import { Marque } from 'src/app/entity/marque';
 import { Modele } from 'src/app/entity/modele';
 import { Chauffeur } from 'src/app/entity/chauffeur';
 import { Boite } from 'src/app/entity/boite';
 import { Energie } from 'src/app/entity/energie';
-import { ContratAssurance } from 'src/app/entity/contrat';
 import { Assurance } from 'src/app/entity/assurance';
 
 @Component({
@@ -31,7 +29,6 @@ export class VehiculInfoComponent implements OnInit {
   chauffeur: Chauffeur;
   boite: Boite;
   energie: Energie;
-  contrat: ContratAssurance;
   assurance: Assurance;
   link;
   constructor(private vehicuelService: VehiculeServiceService,
@@ -41,7 +38,6 @@ export class VehiculInfoComponent implements OnInit {
     private chauffeurService: ChauffeurService,
     private boiteService: BoiteService,
     private energieService: EnergieService,
-    private contratService: ContratService,
     private assuranceService: AssuranceService,
     private activatedRoute: ActivatedRoute) { }
 
@@ -84,13 +80,9 @@ export class VehiculInfoComponent implements OnInit {
       (energie : Energie) => { this.energie = energie; }
     );
 
-    this.contratService.getContratAss().subscribe(
-      (contrat : ContratAssurance) => { this.contrat = contrat; }
-    );
-
   } 
 
-  update(vehicule) {
+  update(vehicule : Vehicule) {
     this.vehicuelService.editVehicule(vehicule).subscribe(
       (response) => {
         console.log("vehicule modifié");

@@ -32,7 +32,7 @@ export class InfoBoiteComponent implements OnInit {
     );
   }
 
-  modifier(boite : Boite){
+  modifier(boite){
     this.boiteService.edit(boite).subscribe(
       (response) =>
       {
