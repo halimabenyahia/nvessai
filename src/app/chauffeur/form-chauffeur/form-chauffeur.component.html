@@ -1,54 +1,109 @@
+<script language="Javascript">
+
+  function test() {
+    const isValidEmail = emailField.checkValidity();
+    if (isValidEmail) {
+      alert('Hello World!');
+    } else {
+      alert('No Hello World!');
+    }
+  }
+
+  function testTel(telnum) {
+    const isValidTel = telnum.checkValidity();
+    if (isValidTel) {
+      alert('valide');
+    } else {
+      alert('invalide');
+    }
+  }
+
+
+
+</script>
+
 <br>
 <div class="row">
   <div class="container">
     <br>
-    <form #formulaire="ngForm" >
+    <form #formulaire="ngForm">
       <div>
         <div class="card">
           <div class="card-body">
+            <h6>ajouter un chauffeur</h6>
             <br>
             <div class="row">
               <div class="form-group col-md-3">
-                <label  id="matricule_ch">matricule:</label>
-                <input type="text" required minlength="3" maxlength="8"  required class="form-control" id="matricule_ch" ngModel name="matricule_ch" >
-                
+                <label id="matricule_ch">matricule:</label>
+                <input type="text" minlength="1" maxlength="8" required class="form-control" id="matricule_ch"
+                  ngModel name="matricule_ch" #matricule="ngModel" pattern="[^A-Za-z0-9]+"
+                  onkeyup="const isValidmatr = matricule_ch.checkValidity()">
+                  <div *ngIf="!isValidmatr && matricule.touched" style="color:red" class="alert alert-light" role="alert">
+                     invalid
+                    </div>
+
+          
+
               </div>
               <div class="form-group col-md-3">
                 <label id="nom_ch">nom:</label>
-                <input minlength=3 required maxlength=15 pattern='[a-z]' type="text" class="form-control" 
-                       id="nom_ch" ngModel name="nom_ch" >
-                       
+                <input  required minlength="3" maxlength="20" pattern="[a-zA-Z]" type="text" class="form-control"
+                  id="nom_ch" ngModel name="nom_ch" #nom="ngModel"
+                  onkeyup="const isValidnom = nom_ch.checkValidity()">
+                  <div *ngIf="!isValidnom && nom.touched" style="color:red" class="alert alert-light" role="alert">
+                     nom invalide
+                    </div>
+
               </div>
               <div class="form-group col-md-3">
                 <label id="prenom_ch">prenom:</label>
-                <input minlength="3" required maxlength="15" pattern='[a-z]' type="text" 
-                       class="form-control" id="prenom_ch" ngModel name= "prenom_ch">
-             
+                <input minlength="3" maxlength=20 required pattern="/[a-zA-Z]/" type="text" class="form-control" id="prenom_ch"
+                  ngModel name="prenom_ch" #prenom="ngModel"
+                  onblur="const isValidprenom = prenom_ch.checkValidity()">
+                  <div *ngIf="!isValidprenom && prenom.touched" style="color:red" class="alert alert-light" role="alert">
+                     prenom invalide
+                    </div>
+                
               </div>
               <div class="form-group col-md-3">
                 <label id="tel_chauff">numero:</label>
-                <input max="8" min="8" required type="tel" pattern='[1-9]' class="form-control" id="tel_chauff" 
-                       ngModel name="tel_chauff" >
-             
+                <input maxlength="8" placeholder="99999999" required type="tel" pattern="\d*" class="form-control"
+                  id="tel_chauff" ngModel name="tel_chauff"  #telnum="ngModel"
+                  onblur="const isValidnum = tel_chauff.checkValidity()">
+                  <div *ngIf="!isValidnum && telnum.touched" style="color:red" class="alert alert-light" role="alert">
+                      numero invalide
+                     </div>
+               
+
               </div>
               <div class="form-group col-md-3">
                 <label id="adr_chauff">adresse:</label>
-                <input type="text"  minlength="3" maxlength=15 class="form-control" id="adr_chauff" ngModel name="adr_chauff"  >
-              
+                <input type="text" minlength="3" maxlength=15 class="form-control" id="adr_chauff" ngModel
+                  name="adr_chauff">
+
               </div>
             </div>
             <div class="form-group col-md-2">
               <br>
-              <a routerLink="/Chauffeur/listChauffeur">
-              <button type="submit" class="btn btn-success" (click)="add(formulaire )" >Add</button>
-            </a>
-              
+
+              <button type="submit" class="btn btn-success" (click)="add(formulaire )">Add</button>
+
+
             </div>
+
           </div>
         </div>
       </div>
     </form>
+    <form id=”myForm”>
+      <input type=”text” id="emailField" pattern="[A-Za-z]{3}" title="3 alphabets characters only" onblur="const isValidEmail = emailField.checkValidity();if ( isValidEmail ) {
+    alert('Hello World!');
+  } else {
+    alert('No Hello World!');
+  }" data-pattern-mismatch="cccc" data-value-missing="aaaa" />
 
+
+    </form>
     <br><br>
   </div>
 </div>

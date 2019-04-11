@@ -11,24 +11,22 @@ import { Router } from '@angular/router';
 })
 export class FormTypeVComponent implements OnInit {
 
-  form: FormGroup = new FormGroup({});
-  typeVehicule: TypeVehicule[];
+ 
+  typeVehicule: TypeVehicule;
   errorMessage ;
   constructor(private typeVehiculeService : TypeVehiculeService,
               private router : Router) { }
 
   ngOnInit() {
-    this.form=new FormGroup({
-      'des_typeVehicule': new FormControl(null, Validators.required  )
-    })
+   
   }
 
   add(formulaire : NgForm){
     this.typeVehiculeService.addTypeV(formulaire.value)
     .subscribe(
       (response) =>
-      {//this.typeVehiculeService.typeVehicule.push(response);
-        this.form.reset();
+      {
+    
         this.router.navigate(['TypeV/listTypeV']);}
     
  // (error) =>

@@ -3,8 +3,13 @@
           <div class="form-group col-md-3 ">
               <label for="des_energie">energie</label>
               <input type="text" class="form-control" pattern='[A-Za-z\\s]*' minlength="3" maxlength="15" 
-                     ngModel name="des_energie" > 
-                     <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">energie incorrecte!</p>
+                     ngModel name="des_energie" 
+                     #energie="ngModel"
+                     onblur="const isValidenergie = des_energie.checkValidity()">
+                     <div *ngIf="!isValidenergie && energie.touched " style="color:red" class="alert alert-light"
+                      role="alert">
+                        energie invalide
+                       </div>
           </div>
        
       </div>

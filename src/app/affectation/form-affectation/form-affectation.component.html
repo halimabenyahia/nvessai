@@ -2,10 +2,11 @@
     <div class="row">
       <div class="form-group col-sm-3">
         <label for="des_affectation">Affectation</label>
-        <input type="text" pattern='[A-Za-z\\s]*' class="form-control" 
-               ngModel name="des_affectation" id="des_affectation" >
-               <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">
-                   affectation invalide  !</p>
+        <input type="text" pattern="/[a-zA-Z]/" minlength="1" maxlength="20" class="form-control" 
+               ngModel name="des_affectation" id="des_affectation" 
+               #affectation="ngModel" >
+               <div *ngIf="affectation.errors && affectation.invalid " style="color:red"> 
+                affectation invalide  !</div> 
       </div>
     </div> 
     <br>

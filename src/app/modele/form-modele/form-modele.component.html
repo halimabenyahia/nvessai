@@ -4,9 +4,14 @@
           <div class="form-group col-md-3 ">
               <label for="modele">modele</label>
               <input type="text" class="form-control" 
-                     ngModel name="des_modele" pattern='[A-Za-z\\s]*' minlength="3" maxlength="15" >
-                     <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">
-                        modele invalide  !</p> 
+                     ngModel name="des_modele" pattern='[A-Za-z\\s]*' minlength="3" maxlength="15"
+                     #modele="ngModel" 
+                     onblur="const isValidmodele = des_modele.checkValidity()">
+               <div *ngIf="!isValidmodele && modele.touched " style="color:red" class="alert alert-light"
+                role="alert">
+                  modele invalide
+                 </div>
+                     
 
           </div>
        

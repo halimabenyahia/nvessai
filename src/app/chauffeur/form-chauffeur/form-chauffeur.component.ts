@@ -11,22 +11,14 @@ import { Chauffeur } from 'src/app/entity/chauffeur';
 })
 export class FormChauffeurComponent implements OnInit {
 
-  form: FormGroup= new FormGroup({});
-  chauffeur : Chauffeur [] = [];
+
+  chauffeur : Chauffeur;
   link ;
   errorMessage ;
   constructor(private chauffeurService : ChauffeurService,
               private router : Router) { }
 
   ngOnInit() {
-
-  //  this.form=new FormGroup({
-   //   'matricule_ch': new FormControl(null,Validators.required ),
-   //   'nom_ch' : new FormControl(null, [Validators.required , Validators.maxLength(15)]),
-   //   'prenom_ch' : new FormControl(null, [Validators.required , Validators.maxLength(20)]),
-   //   'adr_chauff': new FormControl(null, [Validators.required , Validators.maxLength(20)]) ,
-   //   'tel_chauff': new FormControl(null, [Validators.required , Validators.maxLength(8)])
-   // })
   }
 
   add(formulaire : NgForm) {
