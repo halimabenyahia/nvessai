@@ -5,23 +5,29 @@
         <label for="compagnie_ass">compagnie</label>
         <input type="text" class="form-control"  pattern='[A-Za-z\\s]*' 
                minlength="3" maxlength="20"  [(ngModel)]="assurance.compagnie_ass" 
-               name="compagnie_ass" id="compagnie_ass" >
-               <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">
-                  compagnie invalide  !</p>
+               name="compagnie_ass" id="compagnie_ass" 
+               #compagnie="ngModel" onblur="const isValidassurance = compagnie_ass.checkValidity()">
+               <p *ngIf="!isValidassurance && compagnie.touched " style="color:red" class="alert alert-light"
+                role="alert">
+                  compagnie invalide
+                </p> 
       </div>
       <div class="form-group col-sm-3">
           <label for="adr_assurance">adresse</label>
           <input type="text" class="form-control" pattern='[A-Za-z\\s]*' 
                  [(ngModel)]="assurance.adr_assurance" name="adr_assurance" id="adr_assurance" >
-                 <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">
-                    adresse invalide  !</p>
+                
         </div>
         <div class="form-group col-sm-3">
             <label for="tel_assurance">téléphone</label>
             <input type="text" class="form-control" [(ngModel)]="assurance.tel_assurance" 
-                   name="tel_assurance" id="tel_assurance" minlength=8 maxlength=8 pattern='[1-9]' >
-                   <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">
-                      téléphone invalide  !</p>
+                   name="tel_assurance" id="tel_assurance" minlength=8 maxlength=8 pattern='[1-9]'
+                   #tel="ngModel" onblur="const isValidtel = tel_assurance.checkValidity()" >
+                   <p *ngIf="!isValidtel && tel.touched " style="color:red" class="alert alert-light"
+                role="alert">
+                  tel invalide
+                </p> >
+                   
           </div>
     </div>
     <br>
