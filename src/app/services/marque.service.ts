@@ -31,5 +31,9 @@ export class MarqueService {
   public getMarquesById(id_marque : number){
     return this.http.get('http://localhost:8080' + '/marqueById' +`/${id_marque}` );
   }
+
+  public getMarqueParam(parametre){
+    return this.http.get('http://localhost:8080' + '/marqueByParam/'+ parametre);
+  }
   
 }

@@ -38,6 +38,7 @@ export class VehiculFormComponent implements OnInit {
   typeVehicule : TypeVehicule ;
   affectation : Affectation ;
   link ;
+  resultat : Marque [];
   
   constructor(private VehiculeService:VehiculeServiceService,
               private router : Router,
@@ -57,10 +58,10 @@ export class VehiculFormComponent implements OnInit {
       (params) =>
       {console.log(params);}
     );
-    this.marqueService.getMarques().subscribe( 
+   /* this.marqueService.getMarques().subscribe( 
       (marque : Marque)=>
       {this.marque=marque;});
-
+*/
     this.modeleService.getModeles().subscribe(
       (modele : Modele)=>
       {
@@ -102,6 +103,8 @@ export class VehiculFormComponent implements OnInit {
         this.affectation=affectation;
       }
     );
+
+    this.resultat = [] ;
      
     
   }
@@ -109,21 +112,24 @@ export class VehiculFormComponent implements OnInit {
   add(formulaire : NgForm){
    
     let Vehicule=formulaire.value;
-   // console.log(Vehicule) ;
-   // Vehicule.chauffeur_v=+Vehicule.chauffeur_v;
+   
    console.log('afficher') ;
     console.log(Vehicule) ;
     this.VehiculeService.addVehicule(formulaire.value).subscribe(
       (response) =>
       {
-       // console.log(response);
-      // const link='listVehicules';
-      this.router.navigate(['Vehicule/listVehicules']);
+        this.router.navigate(['Vehicule/listVehicules']);
       },
       (error)=> {
          console.log(error);
       }
     );
+ }
+
+
+ chercherMarque(chaine){
+   console.log(chaine);
+
  }
 
 

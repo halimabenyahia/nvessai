@@ -46,6 +46,7 @@ import { InfoTypeVComponent } from './type-v/info-type-v/info-type-v.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { FormsModule } from '@angular/forms';
 import { ChercherVehiculeComponent } from './vehicule/chercher-vehicule/chercher-vehicule.component';
+import { AuthentificationComponent } from './authentification/authentification.component';
 
 
 
@@ -93,6 +94,7 @@ import { ChercherVehiculeComponent } from './vehicule/chercher-vehicule/chercher
     InfoTypeVComponent,
     AcceuilComponent,
     ChercherVehiculeComponent,
+    AuthentificationComponent,
   ],
   imports: [
     HttpClientModule,

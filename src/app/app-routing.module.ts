@@ -37,9 +37,11 @@ import { InfoEnergieComponent } from './energie/info-energie/info-energie.compon
 import { InfoAffectationComponent } from './affectation/info-affectation/info-affectation.component';
 import { InfoTypeVComponent } from './type-v/info-type-v/info-type-v.component';
 import { ChercherVehiculeComponent } from './vehicule/chercher-vehicule/chercher-vehicule.component';
+import { AuthentificationComponent } from './authentification/authentification.component';
 
 const routes: Routes = [
 
+  { path : 'login' , component : AuthentificationComponent} ,
 
   {path:'Vehicule' , component : VehiculeComponent , children: [
     { path: '', redirectTo: '/Vehicule', pathMatch: 'full' },

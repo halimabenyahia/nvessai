@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Vehicule } from '../entity/vehicule';
 import { Observable } from 'rxjs';
+import { MarqueService } from './marque.service';
 
 
 @Injectable({
@@ -12,7 +13,8 @@ export class VehiculeServiceService {
  vehicule : Vehicule ;
   
 
-  constructor(private httpClient: HttpClient ) { }
+  constructor(private httpClient: HttpClient,
+              private marqueService : MarqueService ) { }
   
 
   public getAllVehicule() {
@@ -23,7 +25,7 @@ export class VehiculeServiceService {
     return this.httpClient.post('http://localhost:8080' + '/addVehicule' , vehicule );
   }
 
-  public deleteVehicule(id_vehicule : string){
+  public deleteVehicule(id_vehicule : number){
     return this.httpClient.delete('http://localhost:8080' + '/deleteVehicule' + `/${id_vehicule}`);
   }
 
@@ -34,6 +36,8 @@ export class VehiculeServiceService {
   public getByIdVehicule(id_vehicule){
     return this.httpClient.get('http://localhost:8080' + '/vehiculeById' + `/${id_vehicule}`);
   }
+
+  
 
  
 }
