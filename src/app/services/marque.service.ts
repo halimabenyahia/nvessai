@@ -33,7 +33,7 @@ export class MarqueService {
   }
 
   public getMarqueParam(parametre){
-    return this.http.get('http://localhost:8080' + '/marqueByParam/'+ parametre);
+    return this.http.get('http://localhost:8080' + '/marqueByParam'+ `/${parametre}`);
   }
   
 }

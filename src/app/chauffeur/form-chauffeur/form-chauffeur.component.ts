@@ -17,7 +17,7 @@ export class FormChauffeurComponent implements OnInit {
   errorMessage ;
   constructor(private chauffeurService : ChauffeurService,
               private router : Router) { }
-
+  nameRegex = '[a-zA-Z ]+';
   ngOnInit() {
   }
 

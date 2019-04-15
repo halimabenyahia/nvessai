@@ -31,4 +31,8 @@ export class ModeleService {
   public getModeleById(id_modele){
     return this.http.get('http://localhost:8080' + '/modeleById' +`/${id_modele}` );
   }
+
+  public getModeleParam(parametre){
+    return this.http.get('http://localhost:8080' + '/modeleByParam' + `/${parametre}`);
+  }
 }

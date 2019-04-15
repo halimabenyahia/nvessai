@@ -31,4 +31,8 @@ export class BoiteService {
     return this.http.get('http://localhost:8080' + '/typeBoiteById' + `/${id_typeBoite}`);
   }
 
+  public getBoiteParam(parametre){
+    return this.http.get('http://localhost:8080' + '/boiteByParam' + `/${parametre}`);
+  }
+
 }

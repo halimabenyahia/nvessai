@@ -31,4 +31,8 @@ export class AssuranceService {
   }
 
 
+  public getAssuranceParam(parametre){
+    return this.http.get('http://localhost:8080' + '/assuranceByParam' + `/${parametre}`);
+  }
+
 }

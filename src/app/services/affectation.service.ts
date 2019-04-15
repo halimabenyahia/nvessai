@@ -30,4 +30,8 @@ export class AffectationService {
   public getAffectationById(id_affectation){
     return this.http.get('http://localhost:8080' + '/affectationById' +`/${id_affectation}` );
   }
+
+  public getAffectationParam(parametre){
+    return this.http.get('http://localhost:8080' + '/affectationByParam' + `/${parametre}`);
+  }
 }

@@ -8,7 +8,7 @@ import { Energie } from '../entity/energie';
 export class EnergieService {
 
   
-  energie : Energie[];
+  energie : Energie;
  
   constructor(private http:HttpClient) { }
 
@@ -30,6 +30,10 @@ export class EnergieService {
 
   public getEnergieById(id_energie){
     return this.http.get('http://localhost:8080' + '/energieById' +`/${id_energie}`);
+  }
+
+  public getEnergieParam(parametre){
+    return this.http.get('http://localhost:8080' + '/energieByParam' + `/${parametre}`);
   }
 
 

@@ -32,43 +32,43 @@
             <br>
             <div class="row">
               <div class="form-group col-md-3">
-                <label id="matricule_ch">matricule:</label>
+                <label for="matricule_ch">matricule:</label>
                 <input type="text" minlength="1" maxlength="8" required class="form-control" id="matricule_ch"
-                  ngModel name="matricule_ch" #matricule="ngModel" pattern="[^A-Za-z0-9]+"
-                  onkeyup="const isValidmatr = matricule_ch.checkValidity()">
-                  <div *ngIf="!isValidmatr && matricule.touched" style="color:red" class="alert alert-light" role="alert">
+                  ngModel name="matricule_ch" #matricule="ngModel" pattern="[A-Za-z0-9]+"
+                >
+                  <div *ngIf="matricule.invalid && matricule.touched" style="color:red" class="alert alert-light" role="alert">
                      invalid
-                    </div>
+                  </div>
 
           
 
               </div>
               <div class="form-group col-md-3">
                 <label id="nom_ch">nom:</label>
-                <input  required minlength="1" maxlength="20" pattern="[a-zA-Z]" type="text" class="form-control"
+                <input  required minlength="1" maxlength="20" [pattern]="nameRegex" type="text" class="form-control"
                   id="nom_ch" ngModel name="nom_ch" #nom="ngModel"
-                  onkeyup="const isValidnom = nom_ch.checkValidity()">
-                  <div *ngIf="!isValidnom && nom.touched" style="color:red" class="alert alert-light" role="alert">
+                >
+                  <div *ngIf="nom.invalid && nom.touched" style="color:red" class="alert alert-light" role="alert">
                      nom invalide
                     </div>
 
               </div>
               <div class="form-group col-md-3">
                 <label id="prenom_ch">prenom:</label>
-                <input minlength="3" maxlength=20 required pattern="/[a-zA-Z]/" type="text" class="form-control" id="prenom_ch"
+                <input minlength="3" maxlength=20 required [pattern]="nameRegex" type="text" class="form-control" id="prenom_ch"
                   ngModel name="prenom_ch" #prenom="ngModel"
-                  onblur="const isValidprenom = prenom_ch.checkValidity()">
-                  <div *ngIf="!isValidprenom && prenom.touched" style="color:red" class="alert alert-light" role="alert">
+                  >
+                  <div *ngIf="prenom.invalid && prenom.touched" style="color:red" class="alert alert-light" role="alert">
                      prenom invalide
                     </div>
                 
               </div>
               <div class="form-group col-md-3">
-                <label id="tel_chauff">numero:</label>
-                <input maxlength="8" placeholder="99999999" required type="tel" pattern="\d*" class="form-control"
+                <label for="tel_chauff">numero:</label>
+                <input maxlength="8" placeholder="99999999" required type="tel" pattern="[1-9][0-9]{7}" class="form-control"
                   id="tel_chauff" ngModel name="tel_chauff"  #telnum="ngModel"
-                  onblur="const isValidnum = tel_chauff.checkValidity()">
-                  <div *ngIf="!isValidnum && telnum.touched" style="color:red" class="alert alert-light" role="alert">
+                  >
+                  <div *ngIf="telnum.invalid && telnum.touched" style="color:red" class="alert alert-light" role="alert">
                       numero invalide
                      </div>
                

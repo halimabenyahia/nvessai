@@ -33,6 +33,10 @@ export class TypeVehiculeService {
   }
 
 
+  public getTypevehiculeParam(parametre){
+    return this.http.get('http://localhost:8080' + '/typevehiculeByParam' + `/${parametre}`);
+  }
+
 
 
 }

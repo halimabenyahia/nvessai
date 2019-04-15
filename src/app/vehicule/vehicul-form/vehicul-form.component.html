@@ -12,7 +12,7 @@
             <div class="row">
               <div class="form-group col-md-3">
                 <label for="immatriculation">immatriculation:</label>
-                <input  pattern="[1-9]{3}[tu]{2}[1-9]{4}" title="immatriculation doit etre 111tu1111" 
+                <input  pattern="[1-9]{3}[tu][1-9]{4}" title="immatriculation doit etre 111tu1111" 
                        type="text" class="form-control" ngModel name="immatriculation">
             
               </div>
@@ -22,104 +22,165 @@
                 <label for="des_marque">marque:</label>
                 <input type="text" class="form-control"
                        #inputmarque
-                       (keyup)="chercherMarque(inputmarque)"
+                       name='des_marque'
+                       (keyup)="chercherMarque(inputmarque.value)"
+                       [(ngModel)]="selectedMarque"
                        >
-                       <div class="auto-result">
-                        <ul *ngFor="let marque of resultat">
-                          <li>{{marque?.des_marque}}</li>
-                        </ul>
-                        </div>
-                      
-              <!--  <select class="form-control" ngModel name="id_marque">
-                    <option *ngFor="let marque of marque" value="{{marque?.id_marque}}" >
-                            {{marque?.des_marque}}</option>
-                  </select>
-                -->
+                <ol class = "list-group" #listSelectedMarque>
+                        <li class="list-group-item" (click)="selectMarque(listSelectedMarque.value)" 
+                            *ngFor="let marque of resultat" value="{{marque?.id_marque}}">
+                                {{marque?.des_marque}}
+                        </li>
+                </ol>
               </div>
             
+
             <div class="form-group col-md-3 ">
                 <label for="id_modele">modele</label>
-                <select class="form-control" ngModel name="id_modele">
-                  <option *ngFor="let modele of modele" value="{{modele?.id_modele}}" >
-                          {{modele?.des_modele}}</option>
-                </select>
-              </div>
+                <input type="text" class="form-control"
+                       #inputmodele
+                       name='des_modele'
+                       (keyup)="chercherModele(inputmodele.value)"
+                       [(ngModel)]="selectedModele"
+                >
+                <ol class = "list-group" #listSelectedModele>
+                    <li class="list-group-item" (click)="selectModele(listSelectedModele.value)" 
+                        *ngFor="let modele of mod" 
+                        value="{{modele?.id_modele}}">
+                        {{modele?.des_modele}}
+                    </li>
+            </ol>
+            </div>
 
               
               <div class="form-group col-md-3">
                   <label for="date_m_c">date mise en circulation:</label>
                   <input type="date" max="2019-04-01" class="form-control" ngModel name="date_m_c" id="date_m_c">
-                  
-                </div>
+              </div>
+
                 <div class="form-group col-md-3">
                     <label for="num_moteur">num_moteur:</label>
                     <input type="text" class="form-control" ngModel name="num_moteur" id="num_moteur">
-                  </div>
-                  <div class="form-group col-md-3">
+                </div>
+
+                <div class="form-group col-md-3">
                       <label for="date_acq">date d'acquisition:</label>
                       <input type="date" max="2019-05-01" class="form-control" ngModel name="date_acq" id="date_acq">
-                     
-                    </div>
-                    <div class="form-group col-md-3">
+                </div>
+
+                <div class="form-group col-md-3">
                         <label for="cout_achat">valeur d'acquisition:</label>
                         <input  type="number"  class="form-control" ngModel name="cout_achat" id="cout_achat">
-                      
-                      </div>
+                </div>
 
-                      <div class="form-group col-md-3 ">
+
+                <div class="form-group col-md-3 ">
                           <label for="id_typeVehicule">Type de vehicule</label>
-                          <select class="form-control" ngModel name="id_typeVehicule">
-                            <option *ngFor="let typeVehicule of typeVehicule" value="{{typeVehicule?.id_typeVehicule}}" >
-                                {{typeVehicule?.des_typeVehicule}}</option>
-                          </select>
-                        </div>
+                          <input type="text" class="form-control"
+                                 #inputtypeV
+                                 name='des_typeVehicule'
+                                 (keyup)="chercherTypeVehicule(inputtypeV.value)"
+                                [(ngModel)]="selectedTypeVehicule"
+                           >
+                   <ol class = "list-group" #listSelectedTypeV>
+                       <li class="list-group-item" (click)="selectTypeV(listSelectedTypeV.value)" 
+                           *ngFor="let type of typev" 
+                           value="{{type?.id_typeVehicule}}">
+                           {{typeVehicule?.des_typeVehicule}}
+                       </li>
+                   </ol>
+                </div>
 
                         <div class="form-group col-md-3 ">
                             <label for="id_affectation">Affectation</label>
-                            <select class="form-control" ngModel name="id_affectation">
-                              <option *ngFor="let affectation of affectation" value="{{affectation?.id_affectation}}" >
-                                  {{affectation?.des_affectation}}</option>
-                            </select>
-                          </div>
+                            <input type="text" class="form-control"
+                                   #inputaffectation
+                                   name='des_affectation'
+                                   (keyup)="chercherAffectation(inputaffectation.value)"
+                                   [(ngModel)]="selectedAffectation"
+                            >
+                            <ol class = "list-group" #listSelectedAffectation>
+                                <li class="list-group-item" (click)="selectAffectation(listSelectedAffectation.value)" 
+                                    *ngFor="let affectation of affect" 
+                                    value="{{affectation?.id_affectation}}">
+                                    {{affectation?.des_affectation}}
+                                </li>
+                            </ol>
+                        </div>
+
 
                       <div class="form-group col-md-3">
                           <label for="matricule_ch">Chauffeur:</label>
-                          <select  class="form-control" ngModel name="id_chauffeur" >
-                            <option  *ngFor="let chauffeur of chauffeur" value="{{chauffeur?.id_chauffeur}}" >
-                              {{chauffeur?.nom_ch}}</option>
-                          </select>
-
+                          <input type="text" class="form-control"
+                                   #inputchauffeur
+                                   name='nom_ch'
+                                   (keyup)="chercherChauffeur(inputchauffeur.value)"
+                                   [(ngModel)]="selectedChauffeur"
+                            >
+                            <ol class = "list-group" #listSelectedChauffeur>
+                                <li class="list-group-item" (click)="selectChauffeur(listSelectedChauffeur.value)" 
+                                    *ngFor="let chauffeur of chauff" 
+                                    value="{{chauffeur?.id_chauffeur}}">
+                                    {{chauffeur?.nom_ch}}
+                                </li>
+                            </ol>
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="des_boite">boite:</label>
-                            <select class="form-control" ngModel name="id_typeBoite">
-                              <option *ngFor="let boite of boites" 
-                              value="{{boite.id_typeBoite}}"
-                              >{{boite?.des_boite}}</option>
-                            </select>
-                          </div>
+                            <input type="text" class="form-control"
+                                   #inputboite
+                                   name='des_boite'
+                                   (keyup)="chercherBoite(inputboite.value)"
+                                   [(ngModel)]="selectedBoite"
+                            >
+                            <ol class = "list-group" #listSelectedBoite>
+                                <li class="list-group-item" (click)="selectBoite(listSelectedBoite.value)" 
+                                    *ngFor="let boite of boiteV" 
+                                    value="{{boite.id_typeBoite}}">
+                                    {{boite?.des_boite}}
+                                </li>
+                            </ol>
+                        </div>
 
                           <div class="form-group col-md-3">
                               <label for="des_energie">energie:</label>
-                              <select class="form-control" ngModel name="id_energie">
-                                <option *ngFor="let energie of energies" 
-                                value="{{energie.id_energie}}" >
-                                {{energie?.des_energie}}</option>
-                              </select>
-                            </div>
+                              <input type="text" class="form-control"
+                                   #inputenergie
+                                   name='des_energie'
+                                   (keyup)="chercherEnergie(inputenergie.value)"
+                                   [(ngModel)]="selectedEnergie"
+                              >
+                            <ol class = "list-group" #listSelectedEnergie>
+                                <li class="list-group-item" (click)="selectEnergie(listSelectedEnergie.value)" 
+                                    *ngFor="let energie of energieV" 
+                                    value="{{energie.id_energie}}">
+                                    {{energie?.des_energie}}
+                                </li>
+                            </ol>
+                          </div>
                           </div>
 
                         </div>
                           <h5 style="color:gray">Assurance</h5>
               <br>
               <div class="row">
+
                   <div class="form-group col-md-3 ">
                       <label for="compagnie_ass">compagnie</label>
-                      <select class="form-control" ngModel name="id_assurance" >
-                        <option *ngFor="let assurance of assurance"
-                                value="{{assurance?.id_assurance}}" >{{assurance?.compagnie_ass}}</option>
-                      </select>
+                      <input type="text" class="form-control"
+                                   #inputassurance
+                                   name='compagnie_ass'
+                                   (keyup)="chercherAssurance(inputassurance.value)"
+                                   [(ngModel)]="selectedassurance"
+                            >
+                            <ol class = "list-group" #listSelectedAssurance>
+                                <li class="list-group-item" (click)="selectAssurance(listSelectedAssurance.value)" 
+                                    *ngFor="let assurance of assur" 
+                                    value="{{assurance?.id_assurance}}">
+                                    {{assurance?.compagnie_ass}}
+                                </li>
+                            </ol>
                     </div>
                       <div class="form-group col-md-3">
                           <label for="date_deb_contrat">date debut contrat:</label>

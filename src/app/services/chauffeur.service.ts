@@ -36,6 +36,9 @@ export class ChauffeurService {
     return this.http.get('http://localhost:8080' + '/chauffeurById' + `/${id_chauffeur}`);
   }
 
+  public getChauffeurParam(parametre){
+    return this.http.get('http://localhost:8080' + '/chauffeurByParam' + `/${parametre}`);
+  }
 
 
 }
