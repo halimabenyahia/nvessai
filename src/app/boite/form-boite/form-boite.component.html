@@ -2,11 +2,11 @@
   <div class="row">
     <div class="form-group col-sm-3">
       <label for="des_boite">Type de boite</label>
-      <input type="text" class="form-control" pattern='[A-Za-z\\s]*' 
-             minlength="3" maxlength="15" ngModel name="des_boite" id="des_boite"
+      <input type="text" class="form-control" pattern='[a-zA-Z ]+' 
+             minlength="3" maxlength="20" ngModel name="des_boite" id="des_boite"
              #boite="ngModel"
-             onblur="const isValidboite = des_boite.checkValidity()">
-             <div *ngIf="!isValidboite && boite.touched " style="color:red" class="alert alert-light"
+             >
+             <div *ngIf="boite.invalid && boite.touched " style="color:red" class="alert alert-light"
               role="alert">
                 type invalide
                </div>

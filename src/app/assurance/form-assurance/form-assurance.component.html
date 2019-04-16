@@ -2,11 +2,11 @@
     <div class="row">
       <div class="form-group col-sm-3">
         <label for="compagnie_ass">compagnie</label>
-        <input type="text"  pattern='[A-Za-z\\s]*' 
+        <input type="text"  pattern='[a-zA-Z ]+' 
                minlength="3" maxlength="20" class="form-control" 
                ngModel name="compagnie_ass" id="compagnie_ass"
-               #compagnie="ngModel" onblur="const isValidassurance = compagnie_ass.checkValidity()">
-               <p *ngIf="!isValidassurance && compagnie.touched " style="color:red" class="alert alert-light"
+               #compagnie="ngModel" >
+               <p *ngIf="compagnie.invalid && compagnie.touched " style="color:red" class="alert alert-light"
                 role="alert">
                   compagnie invalide
                 </p> 
@@ -15,18 +15,21 @@
       </div>
       <div class="form-group col-sm-3">
           <label for="adr_assurance">adresse</label>
-          <input type="text" minlength=3 maxlength=15 pattern='[A-Za-z\\s]*' class="form-control"
+          <input type="text" minlength=3 maxlength=15 pattern='[a-zA-Z ]+' class="form-control"
                  ngModel name="adr_assurance" id="adr_assurance"
                  #adresse="ngModel" >
-                
+                 <p *ngIf="adresse.invalid && adresse.touched " style="color:red" class="alert alert-light"
+                 role="alert">
+                   adresse invalide
+                 </p> 
                  
         </div>
         <div class="form-group col-sm-3">
             <label for="tel_assurance">téléphone</label>
-            <input type="text" minlength=8 maxlength=8 pattern='[1-9]' class="form-control"
+            <input type="text"  maxlength=8 pattern="[1-9][0-9]{7}" class="form-control"
                    ngModel name="tel_assurance" id="tel_assurance"
-                   #tel="ngModel" onblur="const isValidtel = tel_assurance.checkValidity()" >
-                   <p *ngIf="!isValidtel && tel.touched " style="color:red" class="alert alert-light"
+                   #tel="ngModel"  >
+                   <p *ngIf="tel.invalid && tel.touched " style="color:red" class="alert alert-light"
                 role="alert">
                   tel invalide
                 </p>

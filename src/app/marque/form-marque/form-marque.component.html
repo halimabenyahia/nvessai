@@ -3,10 +3,10 @@
     <div class="row">
       <div class="form-group col-sm-3">
         <label for="Marque">Marque</label>
-        <input type="text" class="form-control" pattern='[A-Za-z]*'
+        <input type="text" class="form-control" pattern='[a-zA-Z ]+'
                minlength="3" maxlength="15" ngModel name="des_marque" id="des_marque"
-               #marque="ngModel" onblur="const isValidmarque = des_marque.checkValidity()">
-               <div *ngIf="!isValidmarque && marque.touched " style="color:red" class="alert alert-light"
+               #marque="ngModel" >
+               <div *ngIf="marque.invalid && marque.touched " style="color:red" class="alert alert-light"
                 role="alert">
                   marque invalide
                  </div>

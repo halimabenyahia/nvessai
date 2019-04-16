@@ -5,9 +5,9 @@
               <label for="des_typeVehicule">type de véhicule</label>
               <input type="text" class="form-control" id="des_typeVehicule"
                      ngModel name="des_typeVehicule" #typevehicule="ngModel"
-                     pattern="[a-z]" minlength="1" maxlength="20" 
-                     onblur="const isValidtypev = des_typeVehicule.checkValidity()">
-                     <div *ngIf="!isValidtypev && typevehicule.touched" style="color:red" class="alert alert-light"
+                     pattern='[a-zA-Z ]+' minlength="1" maxlength="25" 
+                     >
+                     <div *ngIf="typevehicule.invalid && typevehicule.touched" style="color:red" class="alert alert-light"
                       role="alert">
                         type invalide
                        </div>

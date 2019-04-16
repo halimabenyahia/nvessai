@@ -1,15 +1,17 @@
 <form #loginFormulaire="ngForm">
   <div class="form-group col-md-3">
     <label for="login">login</label>
-    <input type="text" class="form-control" id="login" ngModel name="login"
-           >
+    <input type="text" class="form-control" id="login"
+           [(ngModel)]="login" name="login"
+           #username="ngModel">
    
   </div>
   <div class="form-group col-md-3">
     <label for="mdp">mot de passe</label>
     <input type="password" class="form-control" id="mdp" 
-           ngModel name="mdp"  
-           maxlength="6" minlength="1">
+           [(ngModel)]="mdp"   name="mdp"
+           maxlength="6" minlength="1"
+           #motdepasse="ngModel">
   </div>
 
   <button type="submit" (click)="connexion()" class="btn btn-primary">se connecter</button>

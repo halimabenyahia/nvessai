@@ -84,7 +84,7 @@
             <div class="form-group col-md-2">
               <br>
 
-              <button type="submit" disabled="!formulaire.pristine" class="btn btn-success" (click)="add(formulaire )">Add</button>
+              <button type="submit"  class="btn btn-success" (click)="add(formulaire )">Add</button>
 
 
             </div>
@@ -92,15 +92,6 @@
           </div>
         </div>
       </div>
-    </form>
-    <form id=”myForm”>
-      <input type=”text” id="emailField" pattern="[A-Za-z]{3}" title="3 alphabets characters only" onblur="const isValidEmail = emailField.checkValidity();if ( isValidEmail ) {
-    alert('Hello World!');
-  } else {
-    alert('No Hello World!');
-  }" data-pattern-mismatch="cccc" data-value-missing="aaaa" />
-
-
     </form>
     <br><br>
   </div>

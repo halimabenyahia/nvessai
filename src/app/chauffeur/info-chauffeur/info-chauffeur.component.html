@@ -12,19 +12,19 @@
               <div class="form-group col-md-3">
                 <label  id="matricule_ch">matricule:</label>
                 <input type="text" required class="form-control" id="matricule_ch" [(ngModel)]="chauffeur.matricule_ch" 
-                       name="matricule_ch" #matricule="ngModel"
-                       onblur="const isValidmatr = matricule_ch.checkValidity()">
-                  <div *ngIf="!isValidmatr && matricule.touched" style="color:red" class="alert alert-light" role="alert">
-                     invalid
-                    </div>
+                       name="matricule_ch" #matricule="ngModel" pattern="[A-Za-z0-9]+"
+                      >
+                      <div *ngIf="matricule.invalid && matricule.touched" style="color:red" class="alert alert-light" role="alert">
+                        invalid
+                     </div>
                
               </div>
               <div class="form-group col-md-3">
                 <label id="nom_ch">nom:</label>
                 <input  type="text" class="form-control" id="nom_ch"
                         [(ngModel)]="chauffeur.nom_ch" name="nom_ch" #nom="ngModel"
-                        onblur="const isValidnom = nom_ch.checkValidity()">
-                  <div *ngIf="!isValidnom && nom.touched" style="color:red" class="alert alert-light" role="alert">
+                        pattern='[a-zA-Z ]+'>
+                  <div *ngIf="nom.invalid && nom.touched" style="color:red" class="alert alert-light" role="alert">
                      nom invalide
                     </div>
               
@@ -33,9 +33,9 @@
                 <label id="prenom_ch">prenom:</label>
                 <input  type="text" class="form-control" id="prenom_ch"
                         [(ngModel)]="chauffeur.prenom_ch" name= "prenom_ch"
-                        #prenom="ngModel"
-                        onblur="const isValidprenom = prenom_ch.checkValidity()">
-                        <div *ngIf="!isValidprenom && prenom.touched" style="color:red" class="alert alert-light" role="alert">
+                        #prenom="ngModel" minlength="1" maxlength="20"
+                        pattern='[a-zA-Z ]+'>
+                        <div *ngIf="prenom.invalid && prenom.touched" style="color:red" class="alert alert-light" role="alert">
                            prenom invalide
                           </div>
              
@@ -44,23 +44,27 @@
                 <label id="tel_chauff">numero:</label>
                 <input  type="tel" class="form-control" id="tel_chauff"
                         [(ngModel)]="chauffeur.tel_chauff" name="tel_chauff"
-                        maxlength="8" placeholder="99999999" pattern="\d*" #telnum="ngModel"
-                        onblur="const isValidnum = tel_chauff.checkValidity()">
-                        <div *ngIf="!isValidnum && telnum.touched" style="color:red" class="alert alert-light" role="alert">
+                        maxlength="8" placeholder="99999999"  #telnum="ngModel"
+                        pattern="[1-9][0-9]{7}">
+                        <div *ngIf="telnum.invalid && telnum.touched" style="color:red" class="alert alert-light" role="alert">
                             numero invalide
                            </div> >
              
               </div>
               <div class="form-group col-md-3">
                 <label id="adr_chauff">adresse:</label>
-                <input type="text" class="form-control" id="adr_chauff" [(ngModel)]="chauffeur.adr_chauff" name="adr_chauff"  >
+                <input type="text" class="form-control" id="adr_chauff" 
+                       [(ngModel)]="chauffeur.adr_chauff" name="adr_chauff"
+                       pattern='[a-zA-Z ]+'  >
               
               </div>
             </div>
             <div class="form-group col-md-2">
               <br>
             
-              <button type="submit" class="btn btn-success" (click)="update(chauffeur)" >Enregistrer</button>
+              <button type="submit" class="btn btn-success" 
+                      (click)="update(chauffeur)"
+                        >Enregistrer</button>
          
               
             </div>

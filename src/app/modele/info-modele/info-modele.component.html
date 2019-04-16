@@ -5,7 +5,7 @@
               <label for="modele">modele</label>
               <input type="text" class="form-control" 
                      [(ngModel)]="modele.des_modele" name="des_modele"
-                     pattern='[A-Za-z\\s]*' minlength="3" maxlength="15" >
+                     pattern='[a-zA-Z ]+' minlength="3" maxlength="20" >
                      <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">
                         modele invalide  !</p> 
 
