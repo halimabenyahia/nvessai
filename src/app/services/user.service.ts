@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../entity/user';
 
 @Injectable({
@@ -29,6 +29,11 @@ export class UserService {
 
   public edit(user){
     return this.http.put('http://localhost:8080' + '/editUser' , user);
+  }
+
+  public getetatUser(login,mdp){
+    const header = login+mdp;
+    return this.http.get('http://localhost:8080' + '/etat' + header );
   }
 
 

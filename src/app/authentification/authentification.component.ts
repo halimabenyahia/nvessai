@@ -12,8 +12,7 @@ import { logging } from 'protractor';
 export class AuthentificationComponent implements OnInit {
 
   user : User ;
-  login ='admin' ;
-  mdp ='admin' ;
+  
   constructor(private userService : UserService,
               private router : Router) { }
 
@@ -21,7 +20,20 @@ export class AuthentificationComponent implements OnInit {
     
   }
 
-  connexion(){
+  connexion(login,mdp){
+    this.userService.getetatUser(login,mdp).subscribe(
+      (response) =>
+      {
+        console.log(response);
+        if (response)
+        {
+          this.router.navigate(['']);
+        }
+        else {
+          this.router.navigate(['login']);
+        }
+      }
+    );
     
     
   }
