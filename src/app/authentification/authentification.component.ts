@@ -21,21 +21,23 @@ export class AuthentificationComponent implements OnInit {
   }
 
   connexion(login,mdp){
+   
     this.userService.getetatUser(login,mdp).subscribe(
       (response) =>
       {
         console.log(response);
         if (response)
         {
-          this.router.navigate(['']);
+          this.router.navigate(['/header']);
         }
         else {
-          this.router.navigate(['login']);
+          console.log("login ou mot de passe incorrecte");
+         // this.router.navigate(['login']);
         }
+      },
+      (error) => {
+        console.log(error);
       }
     );
-    
-    
   }
-
 }

@@ -1,15 +1,14 @@
 <form #formulaire="ngForm">
     <div class="row">
-        
           <div class="form-group col-md-3 ">
-              <label for="modele">modele</label>
+              <label for="login">login</label>
               <input type="text" class="form-control" 
-                     ngModel name="des_modele" pattern='[a-zA-Z ]+' minlength="3" maxlength="20"
-                     #modele="ngModel" 
+                     ngModel name="login" pattern='[a-zA-Z ]+' minlength="3" maxlength="20"
+                     #login="ngModel" 
                      >
-               <div *ngIf="modele.invalid && modele.touched " style="color:red" class="alert alert-light"
+               <div *ngIf="login.invalid && login.touched " style="color:red" class="alert alert-light"
                 role="alert">
-                  modele invalide
+                  login incorrecte
                  </div>
           </div>
       </div>

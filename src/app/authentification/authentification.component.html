@@ -1,18 +1,61 @@
-<form #loginFormulaire="ngForm">
+<!--<form #loginFormulaire="ngForm">
+  <div class="container">
   <div class="form-group col-md-3">
     <label for="login">login</label>
     <input type="text" class="form-control" id="login"
-           [(ngModel)]="login" name="login"
-           #username="ngModel">
+           ngModel name="login" pattern='[a-zA-Z ]+'
+           #username="ngModel" minlength="1" maxlength="10">
+           <p *ngIf="username.invalid" style="color:red"> veuillez vérifier login</p>
    
   </div>
   <div class="form-group col-md-3">
     <label for="mdp">mot de passe</label>
     <input type="password" class="form-control" id="mdp" 
-           [(ngModel)]="mdp"   name="mdp"
-           maxlength="6" minlength="1"
+           ngModel  name="mdp" pattern="[A-Za-z0-9]+"
+           maxlength="10" minlength="1"
            #motdepasse="ngModel">
+           <p *ngIf="motdepasse.invalid" style="color:red"> veuillez vérifier mot de passe</p>
   </div>
-
-  <button type="submit" (click)="connexion(loginFormulaire)" class="btn btn-primary">se connecter</button>
+  <button type="submit" (click)="connexion(username.value,motdepasse.value)" class="btn btn-primary">se connecter</button>
+</div>
 </form>
+<router-outlet></router-outlet>
+-->
+
+
+<div style="float: center ; margin-left: 40% ; margin-top: 6%">
+  <form class="text border border-light p-5">
+<div  style="float: center">
+    <div >
+    <p class="h4 mb-4">Connexion</p>
+  
+     
+    <input type="text" id="login" class="form-control col-md-3" 
+           placeholder="login"
+           ngModel name="login" pattern='[a-zA-Z ]+'
+           #username="ngModel" minlength="1" maxlength="10">
+           <p *ngIf="username.invalid" style="color:red"> veuillez vérifier login</p>
+  
+    <br>
+    <input type="password" id="mdp" class="form-control col-md-3"
+           placeholder="mot de passe"
+           ngModel  name="mdp" pattern="[A-Za-z0-9]+"
+           maxlength="10" minlength="1"
+           #motdepasse="ngModel">
+           <p *ngIf="motdepasse.invalid" style="color:red"> veuillez vérifier mot de passe</p>
+           <br>
+    <button mdbBtn color="info" block="true" 
+            class="btn btn-primary" type="submit"
+            (click)="connexion(username.value,motdepasse.value)">
+            se connecter
+    </button>
+  
+  </div>
+  
+  </div>
+  
+  </form>
+</div>
+<router-outlet></router-outlet>
+
+  <!-- Default form login -->

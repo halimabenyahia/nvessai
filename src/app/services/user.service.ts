@@ -31,10 +31,10 @@ export class UserService {
     return this.http.put('http://localhost:8080' + '/editUser' , user);
   }
 
-  public getetatUser(login,mdp){
-    const header = login+mdp;
-    return this.http.get('http://localhost:8080' + '/etat' + header );
-  }
+  public getetatUser(login : string,mdp : string){
+    const header = login + ' ' + mdp;
+    return this.http.get('http://localhost:8080' + '/etat/' + header );
+  } 
 
 
 }

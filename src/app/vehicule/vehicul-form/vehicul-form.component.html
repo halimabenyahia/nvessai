@@ -86,16 +86,21 @@
                              ngModel name="date_acq" id="date_acq"
                              #dateacq="ngModel">
                              <p *ngIf="dateacq.invalid && dateacq.touched " style="color:red" class="alert alert-light"
-                role="alert">
-                  date invalide
-                </p> 
+                                 role="alert">
+                                date invalide
+                             </p> 
                 </div>
 
                 <div class="form-group col-md-3">
                         <label for="cout_achat">valeur d'acquisition:</label>
-                        <input  type="number"  class="form-control" 
+                        <input  type="number"  class="form-control" #valeurAcq="ngModel"
                                 ngModel name="cout_achat" id="cout_achat"
+                                pattern="\d+(\.\d{3})?"
                                 >
+                                <p *ngIf="valeurAcq.invalid && dateacq.touched " style="color:red" class="alert alert-light"
+                                 role="alert">
+                                date invalide
+                             </p> 
                 </div>
 
 

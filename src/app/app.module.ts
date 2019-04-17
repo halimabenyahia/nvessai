@@ -47,6 +47,10 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { FormsModule } from '@angular/forms';
 import { ChercherVehiculeComponent } from './vehicule/chercher-vehicule/chercher-vehicule.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { FormUtilisateurComponent } from './utilisateur/form-utilisateur/form-utilisateur.component';
+import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-utilisateur.component';
+import { EditUtilisateurComponent } from './utilisateur/edit-utilisateur/edit-utilisateur.component';
 
 
 
@@ -95,6 +99,10 @@ import { AuthentificationComponent } from './authentification/authentification.c
     AcceuilComponent,
     ChercherVehiculeComponent,
     AuthentificationComponent,
+    UtilisateurComponent,
+    FormUtilisateurComponent,
+    ListUtilisateurComponent,
+    EditUtilisateurComponent,
   ],
   imports: [
     HttpClientModule,

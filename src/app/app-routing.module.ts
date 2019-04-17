@@ -38,18 +38,31 @@ import { InfoAffectationComponent } from './affectation/info-affectation/info-af
 import { InfoTypeVComponent } from './type-v/info-type-v/info-type-v.component';
 import { ChercherVehiculeComponent } from './vehicule/chercher-vehicule/chercher-vehicule.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
+import { HeaderComponent } from './header/header.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { FormUtilisateurComponent } from './utilisateur/form-utilisateur/form-utilisateur.component';
+import { EditUtilisateurComponent } from './utilisateur/edit-utilisateur/edit-utilisateur.component';
+import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-utilisateur.component';
+import { AcceuilComponent } from './acceuil/acceuil.component';
 
 const routes: Routes = [
 
   { path : 'login' , component : AuthentificationComponent} ,
+  { path : 'header' , component : HeaderComponent},
+  { path : 'acceuil' , component : AcceuilComponent},
 
   {path:'Vehicule' , component : VehiculeComponent , children: [
-    { path: '', redirectTo: '/Vehicule', pathMatch: 'full' },
+   // { path: '', redirectTo: '/Vehicule', pathMatch: 'full' },
     { path: 'addVehicule', component: VehiculFormComponent },
     { path: 'editVehicule/:id', component: VehiculInfoComponent },
     { path: 'listVehicules', component: VehiculListComponent },
     { path : 'chercherVehicule' , component : ChercherVehiculeComponent}]
   },
+  { path : 'utilisateurs' , component : UtilisateurComponent , children :[
+    { path : 'addUtilisateur' , component : FormUtilisateurComponent},
+    { path : 'editUtilisateur/:id' , component : EditUtilisateurComponent},
+    { path : 'listUtilisateur' , component : ListUtilisateurComponent}
+  ]},
 
   {path:'Chauffeur' , component : ChauffeurComponent , children: [
    // { path: '', redirectTo: '/Chauffeur', pathMatch: 'full' },
@@ -60,7 +73,7 @@ const routes: Routes = [
   },
 
   {path:'Boite'  , component : BoiteComponent , children : [
-    { path :'' , redirectTo : '/Boite' , pathMatch : 'full'},
+   // { path :'' , redirectTo : '/Boite' , pathMatch : 'full'},
     { path : 'addBoite' , component : FormBoiteComponent },
     { path : 'editBoite/:id' , component : InfoBoiteComponent} ,
     { path : 'listBoite' , component : ListBoiteComponent}
@@ -68,7 +81,7 @@ const routes: Routes = [
 },
 
   {path: 'Marque' , component : MarqueComponent , children : [
-    { path :'' , redirectTo : '/Marque' , pathMatch : 'full'},
+  //  { path :'' , redirectTo : '/Marque' , pathMatch : 'full'},
     { path : 'addMarque' , component : FormMarqueComponent },
     { path : 'editMarque/:id' , component : InfoMarqueComponent },
     { path : 'listMarque' , component : ListMarqueComponent}
@@ -76,7 +89,7 @@ const routes: Routes = [
   },
 
   {path:'Assurance' , component : AssuranceComponent , children : [
-    { path :'' , redirectTo : '/Assurance' , pathMatch : 'full'},
+   // { path :'' , redirectTo : '/Assurance' , pathMatch : 'full'},
     { path : 'addAssurance' , component : FormAssuranceComponent},
     { path : 'editAssurance/:id' , component : InfoAssuranceComponent},
     { path : 'listAssurance' , component : ListAssuranceComponent}
@@ -84,7 +97,7 @@ const routes: Routes = [
   },
 
   {path: 'Modele' , component : ModeleComponent , children : [
-    { path :'' , redirectTo : '/Modele' , pathMatch : 'full'},
+   // { path :'' , redirectTo : '/Modele' , pathMatch : 'full'},
     { path : 'addModele' , component : FormModeleComponent},
     { path : 'editModele/:id' , component : InfoModeleComponent},
     { path : 'listModele' , component : ListModeleComponent}
@@ -92,7 +105,7 @@ const routes: Routes = [
 },
 
   {path: 'Energie' , component : EnergieComponent , children : [
-    { path :'' , redirectTo : '/Energie' , pathMatch : 'full'},
+   // { path :'' , redirectTo : '/Energie' , pathMatch : 'full'},
     { path : 'addEnergie' , component : FormEnergieComponent},
     { path : 'editEnergie/:id' , component : InfoEnergieComponent},
     { path : 'listEnergie' , component : ListEnergieComponent}
@@ -100,13 +113,13 @@ const routes: Routes = [
 },
 
   {path : 'Affectation' , component : AffectationComponent , children :[
-    { path :'' , redirectTo : '/Affectation' , pathMatch : 'full'},
+   // { path :'' , redirectTo : '/Affectation' , pathMatch : 'full'},
     { path : 'addAffectation' , component : FormAffectationComponent},
     { path : 'editAffectation/:id' , component : InfoAffectationComponent},
     { path : 'listAffectation' , component : ListAffectationComponent}
   ]},
   {path: 'TypeV' ,component : TypeVComponent , children : [
-    { path :'' , redirectTo : '/TypeV' , pathMatch : 'full'},
+   // { path :'' , redirectTo : '/TypeV' , pathMatch : 'full'},
     { path : 'addTypeV' , component : FormTypeVComponent},
     { path : 'editTypeV/:id' , component : InfoTypeVComponent},
     { path : 'listTypeV' , component : ListTypeVComponent}
