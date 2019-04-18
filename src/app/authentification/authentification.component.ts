@@ -11,7 +11,7 @@ import { logging } from 'protractor';
 })
 export class AuthentificationComponent implements OnInit {
 
-  user : User ;
+  public user : User = null ;
   
   constructor(private userService : UserService,
               private router : Router) { }

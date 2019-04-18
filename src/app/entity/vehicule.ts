@@ -1,10 +1,4 @@
-import { TypeVehicule } from './typeVehicule';
-import { Boite } from './boite';
-import { Energie } from './energie';
-import { Affectation } from './affectation';
-import { Marque } from './marque';
-import { Chauffeur } from './chauffeur';
-import { Modele } from './modele';
+
 
 export class Vehicule {
     id_vehicule:number ;

@@ -14,6 +14,10 @@ import { Chauffeur } from 'src/app/entity/chauffeur';
 import { Boite } from 'src/app/entity/boite';
 import { Energie } from 'src/app/entity/energie';
 import { Assurance } from 'src/app/entity/assurance';
+import { TypeVehiculeService } from 'src/app/services/type-vehicule.service';
+import { TypeVehicule } from 'src/app/entity/typeVehicule';
+import { AffectationService } from 'src/app/services/affectation.service';
+import { Affectation } from 'src/app/entity/affectation';
 
 @Component({
   selector: 'app-vehicul-info',
@@ -30,7 +34,37 @@ export class VehiculInfoComponent implements OnInit {
   boite: Boite;
   energie: Energie;
   assurance: Assurance;
+  typeV : TypeVehicule ;
   link;
+  selectedMarque='';
+  idSelectedMArque:number ;
+  resultat : Marque [];
+  selectedTypeVehicule='';
+  typeVehicule : TypeVehicule[];
+  idSelectedtypevehicule : number ;
+  affect : Affectation[];
+  selectedAffectation ='' ;
+  idSelectedAffectation : number ;
+  chauff : Chauffeur[];
+  selectedChauffeur='';
+  idSelectedChauffeur : number ;
+  boiteV : Boite[];
+  selectedBoite='';
+  idSelectedBoite :number ;
+  energieV : Energie [];
+  selectedEnergie='';
+  idSelectedEnergie : number ;
+  assur : Assurance[];
+  selectedassurance='';
+  idSelectedAssurance:number;
+
+
+
+
+
+
+
+
   constructor(private vehicuelService: VehiculeServiceService,
     private router: Router,
     private marqueService: MarqueService,
@@ -39,7 +73,9 @@ export class VehiculInfoComponent implements OnInit {
     private boiteService: BoiteService,
     private energieService: EnergieService,
     private assuranceService: AssuranceService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private typeVehiculeService :TypeVehiculeService,
+    private affectationService : AffectationService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
@@ -92,4 +128,109 @@ export class VehiculInfoComponent implements OnInit {
     );
   }
 
+  selectMarque(selectedMarque) {
+    console.log(selectedMarque);
+    this.selectedMarque = selectedMarque.des_marque;
+    this.idSelectedMArque = selectedMarque.id_marque;
+    this.resultat = [];
+  }
+  chercherMarque(parametre) {
+    console.log(parametre);
+    this.marqueService.getMarqueParam(parametre).subscribe(
+      (marque: Marque[]) => {
+        this.resultat = marque;
+      }
+    );
+  }
+
+  chercherTypeVehicule(parametre){
+    this.typeVehiculeService.getTypevehiculeParam(parametre).subscribe(
+      (typeV : TypeVehicule []) =>
+      {
+        this.typeVehicule=typeV ;
+      }
+    );
+  }
+  selectTypeV(selectedTypeVehicule){
+    console.log(selectedTypeVehicule);
+    this.selectedTypeVehicule = selectedTypeVehicule.des_typeVehicule;
+    this.idSelectedtypevehicule = selectedTypeVehicule.id_typeVehicule ;
+    this.typeVehicule = [];
+    }
+
+  chercherAffectation(parametre){
+      this.affectationService.getAffectationParam(parametre).subscribe(
+        (affectation : Affectation []) =>
+        {
+          this.affect = affectation ;
+        }
+      );
+    }
+    selectAffectation(selectedAffectation){
+      console.log(selectedAffectation);
+      this.selectedAffectation = selectedAffectation.des_affectation;
+      this.idSelectedAffectation = selectedAffectation.id_affectation ;
+      this.affect = [] ;
+    }
+
+    chercherChauffeur(parametre){
+      this.chauffeurService.getChauffeurParam(parametre).subscribe(
+        (Chauffeur : Chauffeur[]) =>
+        {
+          this.chauff=Chauffeur ;
+        }
+      );
+    }
+    selectChauffeur(selectedChauffeur){
+      console.log(selectedChauffeur);
+      this.selectedChauffeur = selectedChauffeur.nom_ch;
+      this.idSelectedChauffeur = selectedChauffeur.id_chauffeur ;
+      this.chauff = [] ;
+    }
+
+
+    chercherBoite(parametre){
+      this.boiteService.getBoiteParam(parametre).subscribe(
+        (boite : Boite[]) =>
+        {
+          this.boiteV=boite ;
+        }
+      );
+    }
+    selectBoite(selectedBoite){
+      console.log(selectedBoite);
+      this.selectedBoite = selectedBoite.des_boite;
+      this.idSelectedBoite= selectedBoite.id_typeBoite ;
+      this.boiteV = [];
+    }
+
+    chercherEnergie(parametre){
+      this.energieService.getEnergieParam(parametre).subscribe(
+        (energie : Energie[])=>
+        {
+          this.energieV=energie;
+        }
+      );
+    }
+    selectEnergie(selectedEnergie){
+      console.log(selectedEnergie);
+      this.selectedEnergie = selectedEnergie.des_energie ;
+      this.idSelectedEnergie = selectedEnergie.id_energie;
+      this.energieV= [];
+    }
+
+    chercherAssurance(parametre){
+      this.assuranceService.getAssuranceParam(parametre).subscribe(
+        (assurance : Assurance[]) =>
+        {
+          this.assur=assurance;
+        }
+      );
+    }
+    selectAssurance(selectedassurance){
+      console.log(selectedassurance);
+      this.selectedassurance = selectedassurance.compagnie_ass ;
+      this.idSelectedAssurance = selectedassurance.id_assurance;
+      this.assur=[];
+    }
 }

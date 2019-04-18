@@ -54,6 +54,13 @@ export class VehiculFormComponent implements OnInit {
   boiteV : Boite[] ;
   energieV : Energie[];
   assur : Assurance[];
+  idSelectedMArque : number;
+  idSelectedtypevehicule : number ;
+  idSelectedAffectation : number ;
+  idSelectedChauffeur : number ;
+  idSelectedBoite : number ;
+  idSelectedEnergie :number ;
+  idSelectedAssurance : number ;
 
   constructor(private VehiculeService: VehiculeServiceService,
     private router: Router,
@@ -110,10 +117,6 @@ export class VehiculFormComponent implements OnInit {
         this.affectation = affectation;
       }
     );
-
-
-
-
   }
 
 
@@ -123,6 +126,7 @@ export class VehiculFormComponent implements OnInit {
     console.log(Vehicule);
     this.VehiculeService.addVehicule(formulaire.value).subscribe(
       (response) => {
+        console.log(response);
         this.router.navigate(['Vehicule/listVehicules']);
       },
       (error) => {
@@ -134,7 +138,8 @@ export class VehiculFormComponent implements OnInit {
 
   selectMarque(selectedMarque) {
     console.log(selectedMarque);
-    this.selectedMarque = this.selectedMarque;
+    this.selectedMarque = selectedMarque.des_marque;
+    this.idSelectedMArque = selectedMarque.id_marque;
     this.resultat = [];
   }
   chercherMarque(parametre) {
@@ -152,7 +157,6 @@ export class VehiculFormComponent implements OnInit {
     this.selectedModele = this.selectedModele ;
     this.mod = [];
   }
-
   chercherModele(parametre){
     this.modeleService.getModeleParam(parametre).subscribe(
       (modele : Modele []) =>
@@ -162,6 +166,7 @@ export class VehiculFormComponent implements OnInit {
     );
   }
 
+
   chercherTypeVehicule(parametre){
     this.typeVehiculeService.getTypevehiculeParam(parametre).subscribe(
       (typeV : TypeVehicule[]) =>
@@ -170,24 +175,26 @@ export class VehiculFormComponent implements OnInit {
       }
     );
   }
-
   selectTypeV(selectedTypeVehicule){
-    this.selectedTypeVehicule = this.selectedTypeVehicule ;
+    console.log(selectedTypeVehicule);
+    this.selectedTypeVehicule = selectedTypeVehicule.des_typeVehicule;
+    this.idSelectedtypevehicule = selectedTypeVehicule.id_typeVehicule ;
     this.typev = [];
     }
 
 
     chercherAffectation(parametre){
-      this.typeVehiculeService.getTypevehiculeParam(parametre).subscribe(
+      this.affectationService.getAffectationParam(parametre).subscribe(
         (affectation : Affectation []) =>
         {
           this.affect = affectation ;
         }
       );
     }
-
     selectAffectation(selectedAffectation){
-      this.selectedAffectation = this.selectedAffectation ;
+      console.log(selectedAffectation);
+      this.selectedAffectation = selectedAffectation.des_affectation;
+      this.idSelectedAffectation = selectedAffectation.id_affectation ;
       this.affect = [] ;
     }
 
@@ -201,7 +208,9 @@ export class VehiculFormComponent implements OnInit {
       );
     }
     selectChauffeur(selectedChauffeur){
-      this.selectedChauffeur =this.selectedChauffeur ;
+      console.log(selectedChauffeur);
+      this.selectedChauffeur = selectedChauffeur.nom_ch;
+      this.idSelectedChauffeur = selectedChauffeur.id_chauffeur ;
       this.chauff = [] ;
     }
 
@@ -214,7 +223,9 @@ export class VehiculFormComponent implements OnInit {
       );
     }
     selectBoite(selectedBoite){
-      this.selectedBoite=this.selectedBoite;
+      console.log(selectedBoite);
+      this.selectedBoite = selectedBoite.des_boite;
+      this.idSelectedBoite= selectedBoite.id_typeBoite ;
       this.boiteV = [];
     }
 
@@ -226,9 +237,10 @@ export class VehiculFormComponent implements OnInit {
         }
       );
     }
-
     selectEnergie(selectedEnergie){
-      this.selectedEnergie=this.selectedEnergie;
+      console.log(selectedEnergie);
+      this.selectedEnergie = selectedEnergie.des_energie ;
+      this.idSelectedEnergie = selectedEnergie.id_energie;
       this.energieV= [];
     }
 
@@ -241,10 +253,35 @@ export class VehiculFormComponent implements OnInit {
       );
     }
     selectAssurance(selectedassurance){
-      this.selectedassurance=this.selectedassurance;
+      console.log(selectedassurance);
+      this.selectAssurance = selectedassurance.compagnie_ass ;
+      this.idSelectedAssurance = selectedassurance.id_assurance;
       this.assur=[];
     }
 
+    verifiy(event, val) {
+      console.log(event);
+      let input = event.key;
+      if(!(input >= '0' && input <='9')) {
+        event.defaultPrevented = true;        
+        console.log('inpu', input);
+      }
+    }
 
+    public inputValidator(event: any) {
+      //console.log(event.target.value);
+      const pattern = /^\d+(\.\d{1,3})?$/g;   
+      //let inputChar = String.fromCharCode(event.charCode)
+      if (!pattern.test(event.target.value) && event.target.value[event.target.value.length - 1]!='.') {
+        event.target.value = event.target.value.substring(0,event.target.value.length - 1);
+        // invalid character, prevent input
+      }
+    }
+
+    public inputCleaner(event: any) {
+      while (event.target.value[event.target.value.length - 1] =='.') {
+        event.target.value = event.target.value.substring(0,event.target.value.length - 1);
+      } 
+    }
 
 }
