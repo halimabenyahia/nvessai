@@ -51,6 +51,10 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { FormUtilisateurComponent } from './utilisateur/form-utilisateur/form-utilisateur.component';
 import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-utilisateur.component';
 import { EditUtilisateurComponent } from './utilisateur/edit-utilisateur/edit-utilisateur.component';
+import { DepenseComponent } from './depense/depense.component';
+import { FormDepenseComponent } from './depense/form-depense/form-depense.component';
+import { ListDepenseComponent } from './depense/list-depense/list-depense.component';
+import { InfoDepenseComponent } from './depense/info-depense/info-depense.component';
 
 
 
@@ -103,6 +107,10 @@ import { EditUtilisateurComponent } from './utilisateur/edit-utilisateur/edit-ut
     FormUtilisateurComponent,
     ListUtilisateurComponent,
     EditUtilisateurComponent,
+    DepenseComponent,
+    FormDepenseComponent,
+    ListDepenseComponent,
+    InfoDepenseComponent,
   ],
   imports: [
     HttpClientModule,

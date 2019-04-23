@@ -7,13 +7,13 @@
       <div>
         <div class="card">
           <div class="card-body">
-            <h6>ajouter un chauffeur</h6>
+            <h6>ajouter une depense</h6>
             <br>
             <div class="row">
               <div class="form-group col-md-3">
-                <label for="matricule_ch">matricule:</label>
-                <input type="text" minlength="1" maxlength="8" required class="form-control" id="matricule_ch"
-                  ngModel name="matricule_ch" #matricule="ngModel" pattern="[A-Za-z0-9]+"
+                <label for="date_depense">date de depense:</label>
+                <input type="date" minlength="1" maxlength="8" required class="form-control" id="date_depense"
+                  ngModel name="date_depense" #matricule="ngModel" 
                 >
                   <div *ngIf="matricule.invalid && matricule.touched" style="color:red" class="alert alert-light" role="alert">
                      invalid

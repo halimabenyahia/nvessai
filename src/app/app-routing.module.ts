@@ -44,12 +44,22 @@ import { FormUtilisateurComponent } from './utilisateur/form-utilisateur/form-ut
 import { EditUtilisateurComponent } from './utilisateur/edit-utilisateur/edit-utilisateur.component';
 import { ListUtilisateurComponent } from './utilisateur/list-utilisateur/list-utilisateur.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
+import { DepenseComponent } from './depense/depense.component';
+import { FormDepenseComponent } from './depense/form-depense/form-depense.component';
+import { InfoDepenseComponent } from './depense/info-depense/info-depense.component';
+import { ListDepenseComponent } from './depense/list-depense/list-depense.component';
 
 const routes: Routes = [
 
   { path : 'login' , component : AuthentificationComponent} ,
   { path : 'header' , component : HeaderComponent},
   { path : 'acceuil' , component : AcceuilComponent},
+
+  { path : 'depenses' , component : DepenseComponent , children : [
+    { path : 'addDepense' , component : FormDepenseComponent},
+    { path : 'editDepense/:id' , component : InfoDepenseComponent},
+    { path : 'listDepense' , component : ListDepenseComponent}
+  ]},
 
   {path:'Vehicule' , component : VehiculeComponent , children: [
    // { path: '', redirectTo: '/Vehicule', pathMatch: 'full' },
