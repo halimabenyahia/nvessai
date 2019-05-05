@@ -18,23 +18,23 @@ export class VehiculeServiceService {
   
 
   public getAllVehicule() {
-    return this.httpClient.get('http://localhost:8090' + '/vehicules');
+    return this.httpClient.get('http://localhost:8091' + '/vehicules');
   }
 
   public addVehicule(vehicule) : Observable<any>{
-    return this.httpClient.post('http://localhost:8090' + '/addVehicule' , vehicule );
+    return this.httpClient.post('http://localhost:8091' + '/addVehicule' , vehicule );
   }
 
   public deleteVehicule(id_vehicule : number){
-    return this.httpClient.delete('http://localhost:8090' + '/deleteVehicule' + `/${id_vehicule}`);
+    return this.httpClient.delete('http://localhost:8091' + '/deleteVehicule' + `/${id_vehicule}`);
   }
 
   public editVehicule(vehicule) {
-    return this.httpClient.put('http://localhost:8090' + '/editVehicules' ,vehicule);
+    return this.httpClient.put('http://localhost:8091' + '/editVehicules' ,vehicule);
   }
 
   public getByIdVehicule(id_vehicule){
-    return this.httpClient.get('http://localhost:8090' + '/vehiculeById' + `/${id_vehicule}`);
+    return this.httpClient.get('http://localhost:8091' + '/vehiculeById' + `/${id_vehicule}`);
   }
 
   

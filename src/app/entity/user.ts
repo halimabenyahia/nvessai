@@ -1,13 +1,17 @@
 export class User {
-    id_user : number ;
-    login : string ;
-    mdp : string ;
-    etat_admin : boolean ;
+    id : number ;
+    username : string ;
+    email : string ;
+    password : string ;
+    roles :string[] ;
+    token : string ;
     
-    constructor(id_user=0,login='',mdp='',etat_admin :boolean){
-        this.id_user=id_user ;
-        this.login=login ;
-        this.mdp=mdp ;
-        this.etat_admin=etat_admin ;
+    constructor(id=0,username='',email='',password='',roles='',token=''){
+      this.id=id;
+      this.username=username;
+      this.email=email;
+      this.password=password;
+      this.roles=[];
+      this.token=token;
     }
 }

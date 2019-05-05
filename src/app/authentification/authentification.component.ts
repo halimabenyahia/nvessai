@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../entity/user';
 import { Router } from '@angular/router';
-import { logging } from 'protractor';
+import { AuthentificationService } from '../services/authentification.service';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-authentification',
@@ -11,17 +13,18 @@ import { logging } from 'protractor';
 })
 export class AuthentificationComponent implements OnInit {
 
-  public user : User = null ;
+ 
+  user : User ;
+  username : string ;
+  password : string ;
   
-  constructor(private userService : UserService,
+  constructor(private authentificationService : AuthentificationService,
               private router : Router) { }
 
   ngOnInit() {
-    
   }
-
+/*
   connexion(login,mdp){
-   
     this.userService.getetatUser(login,mdp).subscribe(
       (response) =>
       {
@@ -40,4 +43,25 @@ export class AuthentificationComponent implements OnInit {
       }
     );
   }
+  */
+
+ login(loginForm : NgForm){
+   // console.log(this.username,this.password);
+   // console.log('password',password);
+    this.authentificationService.login(loginForm.value).subscribe(
+      (response) =>
+      {
+        console.log(response);
+        const token = this.user.token ;
+        localStorage.setItem('token',token);
+        this.router.navigate(['/header']);
+      },
+      (error) =>{
+        console.log(error);
+      }
+      
+    );
+  }
+  
+
 }

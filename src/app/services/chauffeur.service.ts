@@ -17,27 +17,27 @@ export class ChauffeurService {
   constructor( private http: HttpClient) { }
 
  public getAllChauffeur()  {
-   return this.http.get('http://localhost:8090' + '/chauffeurs') ;
+   return this.http.get('http://localhost:8091' + '/chauffeurs') ;
   }
 
   public supprimer(id_chauffeur : number) {
-    return this.http.delete('http://localhost:8090' + '/deleteChauffeur/' + `/${id_chauffeur}`);
+    return this.http.delete('http://localhost:8091' + '/deleteChauffeur/' + `/${id_chauffeur}`);
   }
 
   public addChauffeur(chauffeur) : Observable<any> {
-    return this.http.post('http://localhost:8090/addChauffeur', chauffeur);
+    return this.http.post('http://localhost:8091/addChauffeur', chauffeur);
   }
 
   public edit(chauffeur){
-    return this.http.put('http://localhost:8090/editChauffeur', chauffeur) ;
+    return this.http.put('http://localhost:8091/editChauffeur', chauffeur) ;
   }
 
   public getChauffeursById(id_chauffeur){
-    return this.http.get('http://localhost:8090' + '/chauffeurById' + `/${id_chauffeur}`);
+    return this.http.get('http://localhost:8091' + '/chauffeurById' + `/${id_chauffeur}`);
   }
 
   public getChauffeurParam(parametre){
-    return this.http.get('http://localhost:8090' + '/chauffeurByParam' + `/${parametre}`);
+    return this.http.get('http://localhost:8091' + '/chauffeurByParam' + `/${parametre}`);
   }
 
 

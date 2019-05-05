@@ -12,27 +12,27 @@ export class AssuranceService {
   constructor(private http : HttpClient) { }
 
   public getAssurrance(){
-    return this.http.get('http://localhost:8090' + '/Assurance');
+    return this.http.get('http://localhost:8091' + '/Assurance');
   }
   public addAssurance(assurance){
-    return this.http.post('http://localhost:8090/addAssurance',assurance);
+    return this.http.post('http://localhost:8091/addAssurance',assurance);
   }
 
   public supprimer(id_assurance){
-   return this.http.delete('http://localhost:8090'+'/deleteAssurance' +`/${id_assurance}`);
+   return this.http.delete('http://localhost:8091'+'/deleteAssurance' +`/${id_assurance}`);
   }
 
   public editAssurance(assurance){
-    return this.http.put('http://localhost:8090' + '/editAssurance' ,assurance);
+    return this.http.put('http://localhost:8091' + '/editAssurance' ,assurance);
   }
 
   public getAssuranceById(id_assurance){
-    return this.http.get('http://localhost:8090' + '/AssuranceByid' +`/${id_assurance}`);
+    return this.http.get('http://localhost:8091' + '/AssuranceByid' +`/${id_assurance}`);
   }
 
 
   public getAssuranceParam(parametre){
-    return this.http.get('http://localhost:8090' + '/assuranceByParam' + `/${parametre}`);
+    return this.http.get('http://localhost:8091' + '/assuranceByParam' + `/${parametre}`);
   }
 
 }
