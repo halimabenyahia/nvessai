@@ -55,6 +55,7 @@ import { DepenseComponent } from './depense/depense.component';
 import { FormDepenseComponent } from './depense/form-depense/form-depense.component';
 import { ListDepenseComponent } from './depense/list-depense/list-depense.component';
 import { InfoDepenseComponent } from './depense/info-depense/info-depense.component';
+import { loginInterceptorProvider } from './interceptor/interceptor';
 
 
 
@@ -118,7 +119,7 @@ import { InfoDepenseComponent } from './depense/info-depense/info-depense.compon
     FormsModule,
     AppRoutingModule
   ],
-  providers: [VehiculeServiceService],
+  providers: [VehiculeServiceService,loginInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -45,15 +45,16 @@ export class AuthentificationComponent implements OnInit {
   }
   */
 
- login(loginForm : NgForm){
-   // console.log(this.username,this.password);
-   // console.log('password',password);
-    this.authentificationService.login(loginForm.value).subscribe(
+ login(form : NgForm){
+   
+    this.authentificationService.login(form.value).subscribe(
       (response) =>
       {
         console.log(response);
-        const token = this.user.token ;
+        const token = response['token'] ;
         localStorage.setItem('token',token);
+        localStorage.setItem('username' ,response['username']);
+        localStorage.setItem('role',response['roles']);
         this.router.navigate(['/header']);
       },
       (error) =>{
@@ -61,6 +62,7 @@ export class AuthentificationComponent implements OnInit {
       }
       
     );
+    
   }
   
 

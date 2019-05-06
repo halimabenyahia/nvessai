@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { LoginInfo } from '../entity/loginInfo';
+import { User } from '../entity/user';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +31,7 @@ export class AuthentificationService {
 }
 */
 
-login (credentials : LoginInfo){
- // const userinfo =credentials.username + ''+credentials.password ;
-  return this.http.post('http://localhost:8091/users/' + 'signin',credentials );
+login (user){
+  return this.http.post('http://localhost:8091/users/signin',user);
 }
 }

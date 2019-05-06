@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class UserService {
 
   user : User ;
-  currentUser : Observable<User> ;
+ // currentUser : Observable<User> ;
 
   link ='http://localhost:8091/users/';
 

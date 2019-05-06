@@ -51,7 +51,7 @@ import { ListDepenseComponent } from './depense/list-depense/list-depense.compon
 
 const routes: Routes = [
 
-  { path : 'login' , component : AuthentificationComponent} ,
+  { path : '' , component : AuthentificationComponent} ,
   { path : 'header' , component : HeaderComponent},
   { path : 'acceuil' , component : AcceuilComponent},
 
