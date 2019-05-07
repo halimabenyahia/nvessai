@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthentificationService } from '../services/authentification.service';
 
 @Component({
   selector: 'app-header',
@@ -8,17 +9,22 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   show = false;
-  constructor(private router : Router) { }
+  constructor(private router: Router,
+              private authentificationService : AuthentificationService) { }
 
   ngOnInit() {
   }
 
-  goToComponent(route){
-    const link = [route] ;
-    this.router.navigate(link) ;
+  goToComponent(route) {
+    const link = [route];
+    this.router.navigate(link);
 
   }
-showMenu() {
-  this.show = ! this.show;  
-}
+  showMenu() {
+    this.show = !this.show;
+  }
+
+/*  logout(){
+    this.authentificationService.logout();
+  }*/
 }

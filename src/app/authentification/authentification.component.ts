@@ -46,7 +46,7 @@ export class AuthentificationComponent implements OnInit {
   */
 
  login(form : NgForm){
-   
+    console.log(form) ;
     this.authentificationService.login(form.value).subscribe(
       (response) =>
       {

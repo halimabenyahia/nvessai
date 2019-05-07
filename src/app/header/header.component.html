@@ -54,7 +54,7 @@
           <a class="nav-link">Entretien</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink='/depenses' >Depense</a>
+          <a class="nav-link" routerLink='/depenses' routerLinkActtive="active" >Depense</a>
         </li>
         <li class="nav-item ">
             <a class="nav-link" routerLink ='/utilisateurs' routerLinkActtive="active" >
@@ -82,9 +82,9 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
-
-      <li class="nav-item">
-          <a class="nav-link" style="float: right" >Deconnexion</a>
+      <li class="nav-item ">
+          <a class="nav-link" routerLink ='' (click)="logout()" routerLinkActtive="active" >
+            Déconnexion </a>
         </li>
       
     </div>
