@@ -31,7 +31,6 @@ export class ListChauffeurComponent implements OnInit {
     this.chauffeurService.supprimer(id_chauffeur)
     .subscribe(
       (value) => {
-      //  this.chauffeurService.chauffeur.splice(index, 1);
         console.log('chauffeur supprimé !');
         this.router.navigate(['Chauffeur/listChauffeur']);    
   }

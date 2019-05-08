@@ -37,6 +37,10 @@ export class VehiculeServiceService {
     return this.httpClient.get('http://localhost:8091' + '/vehiculeById' + `/${id_vehicule}`);
   }
 
+  public getbyImmatricle(chaine){
+    return this.httpClient.get('http://localhost:8091/vehiculebyImmatriculation'+ `/${chaine}`)
+  }
+
   
 
  

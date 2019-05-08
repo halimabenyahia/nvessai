@@ -57,6 +57,9 @@ import { ListDepenseComponent } from './depense/list-depense/list-depense.compon
 import { InfoDepenseComponent } from './depense/info-depense/info-depense.component';
 import { loginInterceptorProvider } from './interceptor/interceptor';
 import { GuardAuth } from './guard/Guard';
+import { FiltrageComponent } from './filtrage/filtrage.component';
+import { ConnectGuard } from './guard/guardConnect';
+import { AfficheTableComponent } from './filtrage/affiche-table/affiche-table.component';
 
 
 
@@ -113,6 +116,8 @@ import { GuardAuth } from './guard/Guard';
     FormDepenseComponent,
     ListDepenseComponent,
     InfoDepenseComponent,
+    FiltrageComponent,
+    AfficheTableComponent,
   ],
   imports: [
     HttpClientModule,
@@ -120,7 +125,12 @@ import { GuardAuth } from './guard/Guard';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [VehiculeServiceService,loginInterceptorProvider,GuardAuth],
+  providers: [
+    VehiculeServiceService,
+    loginInterceptorProvider,
+    GuardAuth,
+    ConnectGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

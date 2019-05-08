@@ -1,0 +1,93 @@
+
+<div class="row">
+  <div style="margin-left: 4%">
+  <div >
+    <br>
+    <form #formulaire="ngForm" >
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="panel-body">
+              <h5 style="color:gray">filtrer : </h5>
+              <br>
+            <div class="row">
+              <div class="form-group col-md-6">
+                  <label for="compagnie_ass">Véhicule</label>
+                  <input type="text" class="form-control"
+                               #inputImmatricul
+                               ngModel name='immatriculation'
+                               (keyup)="chercherVehicule(inputImmatricul.value)"
+                               [(ngModel)]="selectedVehicule"
+                        > 
+                        <input type="text"
+                               hidden  
+                               name='id_vehicule'
+                               [(ngModel)]="idSelectedVehicule"
+                               ngModel
+                        >
+                        <ol class = "list-group" #listSelectedVehicule>
+                            <li class="list-group-item" (click)="selectVehicule(vehicule)" 
+                                *ngFor="let vehicule of vehicule" 
+                                value="{{vehicule?.id_vehicule}}">
+                                {{vehicule?.immatriculation}}
+                            </li>
+                        </ol>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="des_energie">Carburant:</label>
+                            <select class="form-control" ngModel name="id_energie">
+                                     <option *ngFor="let energie of energie" value="{{energie?.id_energie}}" >
+                                             {{energie?.des_energie}}</option>
+                                   </select>
+
+                        </div>
+                        </div>
+                        <div>
+                        <a routerLink="/Chauffeur/listChauffeur" style="margin-left: 85%">
+                          <button  type="button" class="btn btn-dark"  >consulter la liste</button>
+                        </a>
+                      </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </form>
+    <br><br>
+  </div>
+</div>
+</div>
+<!--<form>
+<div class="row">
+  
+<div style="margin-top: 2% ; margin-right: 2%">
+  <div class="form-group col-sm-3">
+  <label for="compagnie_ass">Véhicule</label>
+  <input type="text" class="form-control"
+               #inputImmatricul
+               ngModel name='immatriculation'
+               (keyup)="chercherVehicule(inputImmatricul.value)"
+               [(ngModel)]="selectedVehicule"
+        > 
+        <input type="text"
+               hidden  
+               name='id_vehicule'
+               [(ngModel)]="idSelectedVehicule"
+               ngModel
+        >
+        <ol class = "list-group" #listSelectedVehicule>
+            <li class="list-group-item" (click)="selectVehicule(vehicule)" 
+                *ngFor="let vehicule of vehicule" 
+                value="{{vehicule?.id_vehicule}}">
+                {{vehicule?.immatriculation}}
+            </li>
+        </ol>
+</div>
+<!--<div class="form-group col-md-3 ">
+  <label for="des_energie">Carburant:</label>
+           <select class="form-control" ngModel name="id_energie">
+                    <option *ngFor="let energie of energie" value="{{energie?.id_energie}}" >
+                            {{energie?.des_energie}}</option>
+                  </select>
+                
+</div>
+-->

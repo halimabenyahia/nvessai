@@ -16,7 +16,9 @@ login (user){
   return this.http.post('http://localhost:8091/users/signin',user);
 }
 
-/*logout(){
+logout(){
   localStorage.removeItem('token');
-}*/
+  localStorage.removeItem('username');
+  localStorage.removeItem('password');
+}
 }

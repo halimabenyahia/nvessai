@@ -1,8 +1,30 @@
-
- <div class="form-group col-md-3">
-  <label for="id_immatriculation">Recherche:</label>
-  <select class="form-control" ngModel name="id_immatriculation">
-      <option *ngFor="let vehicule of vehicule" >{{vehicule?.id_immatriculation}}</option>
+<div class="form-group col-md-3 ">
+  <label for="compagnie_ass">Véhicule</label>
+  <input type="text" class="form-control"
+               #inputImmatricul
+               ngModel name='immatriculation'
+               (keyup)="chercherVehicule(inputImmatricul.value)"
+               [(ngModel)]="selectedVehicule"
+        >
+        <input type="text"
+               hidden  
+               name='id_vehicule'
+               [(ngModel)]="idSelectedVehicule"
+               ngModel
+        >
+        <ol class = "list-group" #listSelectedVehicule>
+            <li class="list-group-item" (click)="selectVehicule(vehicule)" 
+                *ngFor="let vehicule of vehicule" 
+                value="{{vehicule?.id_vehicule}}">
+                {{vehicule?.immatriculation}}
+            </li>
+        </ol>
+</div>
+ <!--<div class="form-group col-md-3">
+  <label for="id_vehicule">Recherche:</label>
+  <select class="form-control" ngModel name="id_vehicule">
+      <option *ngFor="let vehicule of vehicule" >{{vehicule?.id_vehicule}}</option>
   </select>
   
 </div>
+ -->

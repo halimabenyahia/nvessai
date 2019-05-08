@@ -16,7 +16,6 @@ export class VehiculListComponent implements OnInit {
   vehicules : Vehicule ;
   link ;
   page : number =0 ;
-  pages :Array<number>;
   constructor( private VehiculeService:VehiculeServiceService,
                private router : Router
                 ) { }

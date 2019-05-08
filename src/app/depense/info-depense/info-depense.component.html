@@ -1,3 +1,99 @@
-<p>
-  info-depense works!
-</p>
+<br>
+<div class="row">
+  <div class="container">
+    <br>
+    <form #formulaire="ngForm" *ngIf="depense" >
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <br>
+            <h5>Détail dépense</h5>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label  id="matricule_ch">date de dépense:</label>
+                <input type="date" required class="form-control" id="date_depense" [(ngModel)]="depense.date_depense" 
+                       name="date_depense" #date_depense="ngModel" 
+                      >
+                      <div *ngIf="date_depense.invalid && date_depense.touched" style="color:red" class="alert alert-light" role="alert">
+                        invalid
+                     </div>
+               
+              </div>
+              <div class="form-group col-md-3">
+                <label id="montant_ht">montant_ht:</label>
+                <input  type="text" class="form-control" id="montant_ht"
+                        [(ngModel)]="depense.montant_ht" name="montant_ht" #montant_ht="ngModel"
+                        pattern='[1-9 ]+'>
+                  <div *ngIf="montant_ht.invalid && montant_ht.touched" style="color:red" class="alert alert-light" role="alert">
+                     montant invalide
+                    </div>
+              
+              </div>
+              <div class="form-group col-md-3">
+                <label id="tva">tva:</label>
+                <input  type="text" class="form-control" id="tva"
+                        [(ngModel)]="depense.tva" name= "tva"
+                        #tva="ngModel" minlength="1" 
+                        pattern='[1-9 ]+'>
+                        <div *ngIf="tva.invalid && tva.touched" style="color:red" class="alert alert-light" role="alert">
+                          tva invalide
+                          </div>
+             
+              </div>
+              <div class="form-group col-md-3">
+                <label id="ttc">ttc:</label>
+                <input  type="text" class="form-control" id="ttc"
+                        [(ngModel)]="depense.ttc" name="ttc"
+                         #montantTtc="ngModel"
+                        pattern='[1-9]+'>
+                        <div *ngIf="montantTtc.invalid && montantTtc.touched" style="color:red" class="alert alert-light" role="alert">
+                          ttc invalide
+                           </div> 
+             
+              </div>
+              <div class="form-group col-md-3">
+                <label id="date_caisse">date_caisse:</label>
+                <input type="date" class="form-control" id="date_caisse" 
+                       [(ngModel)]="depense.date_caisse" name="date_caisse"
+                         >
+              
+              </div>
+              <div class="form-group col-md-3">
+                <label id="reference_d">reference_d:</label>
+                <input  type="text" class="form-control" id="reference_d"
+                        [(ngModel)]="depense.reference_d" name="reference_d"
+                         #reference="ngModel"
+                         pattern="[A-Za-z0-9]+">
+                        <div *ngIf="reference.invalid && reference.touched" style="color:red" class="alert alert-light" role="alert">
+                          reference invalide
+                           </div> 
+             
+              </div>
+              <div class="form-group col-md-3">
+                <label id="compteur_d">compteur:</label>
+                <input  type="text" class="form-control" id="compteur_d"
+                        [(ngModel)]="depense.compteur_d" name="compteur_d"
+                         #compteur="ngModel"
+                         pattern="[1-9]+">
+                        <div *ngIf="compteur.invalid && compteur.touched" style="color:red" class="alert alert-light" role="alert">
+                          compteur invalide
+                           </div> 
+             
+              </div>
+            </div>
+            <div class="form-group col-md-2">
+              <br>
+              <button type="submit" class="btn btn-success" 
+                      (click)="update(depense)"
+                        >Enregistrer</button>
+         
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <br><br>
+  </div>
+</div>

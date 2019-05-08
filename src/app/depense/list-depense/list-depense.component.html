@@ -1,3 +1,39 @@
-<p>
-  list-depense works!
-</p>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+  <h5 style="color:gray">Liste des depenses</h5>
+  <br>
+  <table class="table">
+    <thead class="thead-light">
+      <th>date </th>
+      <th>montant hors taxe</th>
+      <th>tva</th>
+      <th>ttc</th>
+      <th>date caisse</th>
+      <th>reference</th>
+      <th>compteur</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let depense of depense ;let i=index">
+      <th>{{depense?.date_depense}}</th>
+      <td>{{depense?.montant_ht}}</td>
+      <td>{{depense?.tva}}</td>
+      <td>{{depense?.ttc}}</td>
+      <td>{{depense?.date_caisse}}</td>
+      <td>{{depense?.reference_d}}</td>
+      <td>{{depense?.compteur_d}}</td>
+      <td><button type="button" class="btn btn-success" (click)="gotoInfo(depense.id_depense)">Modifier</button></td>
+      <td><button type="button" class="btn btn-danger" (click)="delete(depense.id_depense,i) " >Supprimer</button></td>
+   
+    </tr> 
+  </tbody>
+  </table>
+  </div>
+  </div>
+</div>
+
+

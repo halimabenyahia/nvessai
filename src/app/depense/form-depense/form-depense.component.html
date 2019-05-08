@@ -13,53 +13,60 @@
               <div class="form-group col-md-3">
                 <label for="date_depense">date de depense:</label>
                 <input type="date" minlength="1" maxlength="8" required class="form-control" id="date_depense"
-                  ngModel name="date_depense" #matricule="ngModel" 
+                  ngModel name="date_depense" #matricule="ngModel"  max="2019-06-06"
                 >
-                  <div *ngIf="matricule.invalid && matricule.touched" style="color:red" class="alert alert-light" role="alert">
-                     invalid
-                  </div>
 
               </div>
               <div class="form-group col-md-3">
-                <label id="nom_ch">nom:</label>
-                <input  required minlength="1" maxlength="20" [pattern]="nameRegex" type="text" class="form-control"
-                  id="nom_ch" ngModel name="nom_ch" #nom="ngModel"
+                <label id="montant_ht">montant hors taxe:</label>
+                <input  required  maxlength="20"  type="text" class="form-control"
+                  id="montant_ht" ngModel name="montant_ht" #montant_ht="ngModel"
                 >
-                  <div *ngIf="nom.invalid && nom.touched" style="color:red" class="alert alert-light" role="alert">
-                     nom invalide
+                  <div *ngIf="montant_ht.invalid && montant_ht.touched" style="color:red" class="alert alert-light" role="alert">
+                     montant invalide
                     </div>
 
               </div>
               <div class="form-group col-md-3">
-                <label id="prenom_ch">prenom:</label>
-                <input minlength="3" maxlength=20 required [pattern]="nameRegex" type="text" class="form-control" id="prenom_ch"
-                  ngModel name="prenom_ch" #prenom="ngModel"
+                <label id="tva">tva:</label>
+                <input   required  type="text" class="form-control" id="tva"
+                  ngModel name="tva" #montantTva="ngModel" pattern="[1-9]+" 
                   >
-                  <div *ngIf="prenom.invalid && prenom.touched" style="color:red" class="alert alert-light" role="alert">
-                     prenom invalide
+                  <div *ngIf="montantTva.invalid && montantTva.touched" style="color:red" class="alert alert-light" role="alert">
+                     tva invalide
                     </div>
                 
               </div>
               <div class="form-group col-md-3">
-                <label for="tel_chauff">numero:</label>
-                <input maxlength="8" placeholder="99999999" required type="tel" pattern="[1-9][0-9]{7}" class="form-control"
-                  id="tel_chauff" ngModel name="tel_chauff"  #telnum="ngModel"
+                <label for="ttc">ttc:</label>
+                <input  required type="text" pattern="[1-9]+" class="form-control"
+                  id="ttc" ngModel name="ttc"  #montantTTC="ngModel"
                   >
-                  <div *ngIf="telnum.invalid && telnum.touched" style="color:red" class="alert alert-light" role="alert">
-                      numero invalide
+                  <div *ngIf="montantTTC.invalid && montantTTC.touched" style="color:red" class="alert alert-light" role="alert">
+                      montant invalide
                      </div>
                
 
               </div>
               <div class="form-group col-md-3">
-                <label id="adr_chauff">adresse:</label>
-                <input type="text" minlength="3" maxlength=15 class="form-control" id="adr_chauff" ngModel
-                  name="adr_chauff">
+                <label id="date_caisse">date_caisse:</label>
+                <input type="date"  class="form-control" id="date_caisse" ngModel
+                       name="date_caisse" >
+              </div>
+              
+              <div class="form-group col-md-3">
+                <label id="reference_d">reference:</label>
+                <input  required minlength="1" maxlength="20" [pattern]="nameRegex" type="text" class="form-control"
+                  id="reference_d" ngModel name="reference_d" #reference="ngModel"
+                >
+                  <div *ngIf="reference.invalid && reference.touched" style="color:red" class="alert alert-light" role="alert">
+                     reference invalide
+                    </div>
 
               </div>
             </div>
             <div class="form-group col-md-2">
-              <br>
+              <br> 
 
               <button type="submit"  class="btn btn-success" (click)="add(formulaire )">Add</button>
 
