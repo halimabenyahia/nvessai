@@ -1,4 +1,4 @@
-
+<!--
 <div class="row">
   <div style="margin-left: 4%">
   <div >
@@ -34,18 +34,32 @@
                         </ol>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="des_energie">Carburant:</label>
-                            <select class="form-control" ngModel name="id_energie">
-                                     <option *ngFor="let energie of energie" value="{{energie?.id_energie}}" >
-                                             {{energie?.des_energie}}</option>
-                                   </select>
-
+                            <label for="des_energie">energie:</label>
+                            <input type="text" class="form-control"
+                                 #inputenergie
+                                ngModel name='des_energie'
+                                 (keyup)="chercherEnergie(inputenergie.value)"
+                                 [(ngModel)]="selectedEnergie"
+                            >
+                            <input type="text"
+                                 hidden  
+                                 name='id_energie'
+                                 [(ngModel)]="idSelectedEnergie"
+                                 ngModel 
+                          >
+                          <ol class = "list-group" #listSelectedEnergie>
+                              <li class="list-group-item" (click)="selectEnergie(energies)" 
+                                  *ngFor="let energies of energieV" 
+                                  value="{{energies.id_energie}}">
+                                  {{energies?.des_energie}}
+                              </li>
+                          </ol>
                         </div>
                         </div>
                         <div>
-                        <a routerLink="/Chauffeur/listChauffeur" style="margin-left: 85%">
-                          <button  type="button" class="btn btn-dark"  >consulter la liste</button>
-                        </a>
+                        <a routerLink="/filtrage/filtre" style="margin-left: 85%">
+                          <button  type="button" (click)="goToFiltre()"  class="btn btn-dark"  >Rechercher</button>
+                        </a> 
                       </div>
           </div>
         </div>
@@ -91,3 +105,30 @@
                 
 </div>
 -->
+
+<div style="margin-top: 2%">
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+  <h5 style="color:gray">Liste des depenses </h5>
+  <br>
+  <table class="table">
+    <thead class="thead-light">
+      <th>immatriculation </th>
+      <th>dépense janvier</th>
+      <th>janvier</th>
+      <th></th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let depense of depense ;let i=index">
+      <th>{{depense?.vehicule_dep?.immatriculation}}</th>
+      <td>{{depense?.ttc}}</td>
+   
+    </tr> 
+  </tbody>
+  </table>
+  </div>
+  </div>
+</div>
+</div>
+

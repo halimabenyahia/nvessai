@@ -3,6 +3,9 @@ import { VehiculeServiceService } from '../services/vehicule-service.service';
 import { Vehicule } from '../entity/vehicule';
 import { EnergieService } from '../services/energie.service';
 import { Energie } from '../entity/energie';
+import { Router } from '@angular/router';
+import { DepenseService } from '../services/depense.service';
+import { Depense } from '../entity/depense';
 
 @Component({
   selector: 'app-filtrage',
@@ -17,27 +20,23 @@ export class FiltrageComponent implements OnInit {
   selectedVehicule='';
   selectedEnergie=''
   energies : Energie ;
+  idSelectedEnergie :number ;
+  energieV : Energie[];
+  depense : Depense  ;
   constructor(private vehiculeService :VehiculeServiceService,
-              private energieService : EnergieService ) { }
+              private router : Router ,
+              private depenseService : DepenseService) { }
 
   ngOnInit() {
-    this.vehiculeService.getAllVehicule().subscribe(
-      (vehicule : Vehicule) =>
-      {
-        this.vehicule=vehicule;
-      }
-    );
-
-    this.energieService.getEnergie().subscribe(
-      (energie : Energie)=>
-      {
-        console.log(energie);
-        this.energies=energie;
-      }
+    this.depenseService.getSumMonth1(parametre).subscribe(
+      (response) =>
+       {
+         console.log(response);
+       }
     );
   }
 
-  chercherVehicule(parametre){
+/*  chercherVehicule(parametre){
     this.vehiculeService.getbyImmatricle(parametre).subscribe(
       (vehicule : Vehicule[]) =>
       {
@@ -52,8 +51,25 @@ export class FiltrageComponent implements OnInit {
     this.vehicules=[];
   }
 
-  chercherEnergie(){
-
+  chercherEnergie(parametre){
+    this.energieService.getEnergieParam(parametre).subscribe(
+      (energie : Energie[])=>
+      {
+        this.energieV=energie;
+      }
+    );
   }
+  selectEnergie(selectedEnergie){
+    console.log(selectedEnergie);
+    this.selectedEnergie = selectedEnergie.des_energie ;
+    this.idSelectedEnergie = selectedEnergie.id_energie;
+    this.energieV= [];
+  }
+*/
+  goToFiltre(){
+    this.router.navigate(['/filtrage/filtre']);
+  }
+
+
 
 }

@@ -33,11 +33,12 @@ export class Vehicule {
    id_assurance : number ;
    id_typeVehicule : number ;
    id_affectation : number ;
+   id_depense : number ;
 
     constructor (id_vehicule=0,immatriculation='' , date_m_c,date_acq , cout_achat=0,compteur=0,num_moteur='',num_fab='',date_deb_taxe,
     date_fin_taxe,montant_taxe=0,date_deb_vig,date_fin_vig,montant_vig=0,date_deb_visit_tech,date_fin_visit_tech,
     montant_visit_tech=0,id_marque=0,id_chauffeur=0 ,
-    id_modele=0 ,id_typeBoite=0,id_energie=0,id_assurance=0 , id_typeVehicule=0 , id_affectation=0 ){
+    id_modele=0 ,id_typeBoite=0,id_energie=0,id_assurance=0 , id_typeVehicule=0 , id_affectation=0 , id_depense=0 ){
 
         this.id_vehicule=id_vehicule;
         this.immatriculation=immatriculation;
@@ -64,9 +65,6 @@ export class Vehicule {
         this.id_assurance=id_assurance ;
         this.id_typeVehicule=id_typeVehicule ;
         this.id_affectation=id_affectation ;
-        
-
-
-
+        this.id_depense=id_depense ;
     }
 }

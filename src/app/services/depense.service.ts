@@ -26,6 +26,11 @@ export class DepenseService {
     return this.http.post('http://localhost:8091/editDepense' ,depense );
   }
 
+  public getSumMonth1(parametre){
+    return this.http.get('http://localhost:8091/sumMonth1'+`/${parametre}`);
+
+  }
+
   public getDepensesById(id_depense){
     return this.http.get('http://localhost:8091/depenses'+`/${id_depense}`);
   }
