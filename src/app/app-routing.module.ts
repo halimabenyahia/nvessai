@@ -52,6 +52,7 @@ import { GuardAuth } from './guard/Guard';
 import { FiltrageComponent } from './filtrage/filtrage.component';
 import { ConnectGuard } from './guard/guardConnect';
 import { AfficheTableComponent } from './filtrage/affiche-table/affiche-table.component';
+import { GrapheComponent } from './filtrage/graphe/graphe.component';
 
 const routes: Routes = [
 
@@ -139,7 +140,8 @@ const routes: Routes = [
     { path : 'listTypeV' , component : ListTypeVComponent}
   ]},
   {path : 'filtrage' , component : FiltrageComponent , children :[
-    { path : 'filtre' , component : AfficheTableComponent}
+    { path : 'filtre' , component : AfficheTableComponent},
+    { path : 'graphe/:id' , component : GrapheComponent}
   ]}
   
 ];

@@ -11,7 +11,7 @@ export class DepenseService {
   constructor(private http : HttpClient) { }
 
   public getDepenses(){
-    return this.http.get('http://localhost:8091/depenses');
+    return this.http.get('http://localhost:8091/listdepenses');
   }
 
   public addDepense(depense){
@@ -33,6 +33,10 @@ export class DepenseService {
 
   public getDepensesById(id_depense){
     return this.http.get('http://localhost:8091/depenses'+`/${id_depense}`);
+  }
+
+  public getSumDepenses(){
+    return this.http.get('http://localhost:8091/depensesSum');
   }
 
   

@@ -6,6 +6,7 @@ import { Energie } from '../entity/energie';
 import { Router } from '@angular/router';
 import { DepenseService } from '../services/depense.service';
 import { Depense } from '../entity/depense';
+import { DepenseResponse } from '../entity/depenseResponse';
 
 @Component({
   selector: 'app-filtrage',
@@ -14,7 +15,7 @@ import { Depense } from '../entity/depense';
 })
 export class FiltrageComponent implements OnInit {
 
-  vehicule : Vehicule ;
+/*  vehicule : Vehicule ;
   vehicules : Vehicule[];
   idSelectedVehicule : number ;
   selectedVehicule='';
@@ -23,17 +24,27 @@ export class FiltrageComponent implements OnInit {
   idSelectedEnergie :number ;
   energieV : Energie[];
   depense : Depense  ;
+  */
+ depenseResponse : DepenseResponse ;
+ depenseResponses : DepenseResponse [] ;
   constructor(private vehiculeService :VehiculeServiceService,
               private router : Router ,
               private depenseService : DepenseService) { }
 
   ngOnInit() {
-    this.depenseService.getSumMonth1(parametre).subscribe(
+    this.depenseService.getSumDepenses().subscribe(
+      (value : any []) =>
+      {
+        this.depenseResponses=value ;
+        console.log(this.depenseResponses);
+      }
+    );
+   /* this.depenseService.getSumMonth1(parametre).subscribe(
       (response) =>
        {
          console.log(response);
        }
-    );
+    ); */
   }
 
 /*  chercherVehicule(parametre){
@@ -68,6 +79,11 @@ export class FiltrageComponent implements OnInit {
 */
   goToFiltre(){
     this.router.navigate(['/filtrage/filtre']);
+  }
+
+  GoTograh(immatriculation)
+  {
+    this.router.navigate(['filtrage/graphe',immatriculation]);
   }
 
 

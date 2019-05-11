@@ -60,6 +60,7 @@ import { GuardAuth } from './guard/Guard';
 import { FiltrageComponent } from './filtrage/filtrage.component';
 import { ConnectGuard } from './guard/guardConnect';
 import { AfficheTableComponent } from './filtrage/affiche-table/affiche-table.component';
+import { GrapheComponent } from './filtrage/graphe/graphe.component';
 
 
 
@@ -118,6 +119,7 @@ import { AfficheTableComponent } from './filtrage/affiche-table/affiche-table.co
     InfoDepenseComponent,
     FiltrageComponent,
     AfficheTableComponent,
+    GrapheComponent,
   ],
   imports: [
     HttpClientModule,

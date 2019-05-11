@@ -1,33 +1,32 @@
 <div class="row" style="margin-top: 1%">
     <div class="container"> <!-- espace al jneb-->
     <!--  <h4 style="color:darkred">liste des véhicules</h4> -->
-    <div class="col-md-12">
-      <div class="form-group col-md-3">
+  
       <a routerLink="/Vehicule/addVehicule" style="margin-left: 85%">
-        <button  type="button" class="btn btn-primary" >ajouter un véhicule</button>
+        <button  type="button" class="btn btn-dark" >ajouter un véhicule</button>
       </a>
-    </div>
-    <div class="form-group col-md-3">
+  <br>
+    <br>
         <a routerLink="/Vehicule/listVehicules" style="margin-left: 85%">
-          <button (click)="list()" type="button" class="btn btn-primary" >liste des vehicules</button>
+          <button (click)="list()" type="button" class="btn btn-dark" >liste des vehicules</button>
         </a>
-      </div>
-      <div class="form-group col-md-3">
-        <a routerLink="/Vehicule/chercherVehicule" style="margin-left: 85%">
+     
+      
+     <!--   <a routerLink="/Vehicule/chercherVehicule" style="margin-left: 85%">
           <button  type="button" class="btn btn-primary" >chercher un vehicule</button>
         </a>
+        -->
       </div>
     </div>
       <hr>
-
+ 
     <!--  <app-chercher-vehicule></app-chercher-vehicule> --> 
   
   <router-outlet></router-outlet>
   <br>
  <!--<app-vehicul-list></app-vehicul-list> --> 
   <div style="margin-bottom: 7%"></div>
-  </div>
-  </div>
+
   
 
 

@@ -108,24 +108,48 @@
 
 <div style="margin-top: 2%">
 <div class="container">
-  <div class="card">
+  <div class="card" >
     <div class="card-body">
-  <h5 style="color:gray">Liste des depenses </h5>
+  <h5 style="color:gray">Liste des depenses en DT </h5>
   <br>
   <table class="table">
     <thead class="thead-light">
       <th>immatriculation </th>
-      <th>dépense janvier</th>
       <th>janvier</th>
+      <th>fevrier</th>
+      <th>mars</th>
+      <th>avril</th>
+      <th>mai</th>
+      <th>juin</th>
+      <th>juillet</th>
+      <th>aout</th>
+      <th>septembre</th>
+      <th>octobre</th>
+      <th>novembre</th>
+      <th>decembre</th>
+      <th>Graphe</th>
       <th></th>
     </thead>
     <tbody>
-    <tr *ngFor="let depense of depense ;let i=index">
-      <th>{{depense?.vehicule_dep?.immatriculation}}</th>
-      <td>{{depense?.ttc}}</td>
-   
+    <tr *ngFor="let depense of depenseResponses ;let i=index">
+      <th>{{depense?.immatriculation}}</th>
+      <td>{{depense?.dep_janvier | number }}</td>
+      <td>{{depense?.dep_fevrier | number }}</td>
+      <td>{{depense?.dep_mars | number }}</td>
+      <td>{{depense?.dep_avril | number }}</td>
+      <td>{{depense?.dep_mai | number }}</td>
+      <td>{{depense?.dep_juin | number }}</td>
+      <td>{{depense?.dep_juillet | number }}</td>
+      <td>{{depense?.dep_aout | number }}</td>
+      <td>{{depense?.dep_septembre | number }}</td>
+      <td>{{depense?.dep_octobre | number }}</td>
+      <td>{{depense?.dep_novembre | number }}</td>
+      <td>{{depense?.dep_decembre | number }}</td>
+      <td>
+        <button type="button" class="btn btn-info" (click)="GoTograh(depense.immatriculation)"> Voir graphe</button>
+      </td>
     </tr> 
-  </tbody>
+  </tbody> 
   </table>
   </div>
   </div>
