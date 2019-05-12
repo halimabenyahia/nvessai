@@ -141,7 +141,7 @@ const routes: Routes = [
   ]},
   {path : 'filtrage' , component : FiltrageComponent , children :[
     { path : 'filtre' , component : AfficheTableComponent},
-    { path : 'graphe/:id' , component : GrapheComponent}
+    { path : 'graphe' , component : GrapheComponent}
   ]}
   
 ];
