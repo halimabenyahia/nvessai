@@ -12,11 +12,12 @@
             <div class="row">
               <div class="form-group col-md-3">
                 <label for="immatriculation">immatriculation:</label>
-                <input  pattern='[1-9]{3}[tu][1-9]{9}' maxlength="9" title="immatriculation doit etre 111tu1111" 
+                <input  pattern='[1-9]+[t][u][1-9]+' maxlength="9" title="immatriculation doit etre 111tu1111" 
                        type="text" class="form-control" ngModel name="immatriculation"
                        #immatriculation="ngModel">
-                       <p *ngIf="immatriculation.invalid && immatriculation.touched " style="color:red" class="alert alert-light"
-                       role="alert">
+                       <p *ngIf="immatriculation.invalid && immatriculation.touched " 
+                           style="color:red" class="alert alert-light"
+                           role="alert">
                          immatriculation incorrecte
                        </p> 
               </div>

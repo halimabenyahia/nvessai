@@ -57,10 +57,10 @@ import { GrapheComponent } from './filtrage/graphe/graphe.component';
 const routes: Routes = [
 
   { path : '' , component : AuthentificationComponent} ,
-  { path : 'header' , component : HeaderComponent , canActivate : [ConnectGuard]},
-  { path : 'acceuil' , component : AcceuilComponent},
+  { path : 'header' , component : HeaderComponent , canActivate : [GuardAuth]},
+  { path : 'acceuil' , component : AcceuilComponent , canActivate : [GuardAuth]},
 
-  { path : 'depenses' , component : DepenseComponent , children : [
+  { path : 'depenses' , component : DepenseComponent , canActivate : [GuardAuth], children : [
     { path : 'addDepense' , component : FormDepenseComponent},
     { path : 'editDepense/:id' , component : InfoDepenseComponent},
     { path : 'listDepense' , component : ListDepenseComponent}

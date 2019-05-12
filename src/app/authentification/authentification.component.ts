@@ -55,7 +55,7 @@ export class AuthentificationComponent implements OnInit {
         localStorage.setItem('token',token);
         localStorage.setItem('username' ,response['username']);
         localStorage.setItem('role',response['roles']);
-        this.router.navigate(['/header']);
+        this.router.navigate(['/acceuil']);
       },
       (error) =>{
         console.log(error);
