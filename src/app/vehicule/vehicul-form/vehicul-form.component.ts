@@ -61,6 +61,7 @@ export class VehiculFormComponent implements OnInit {
   idSelectedBoite : number ;
   idSelectedEnergie :number ;
   idSelectedAssurance : number ;
+  idSelectedModele : number ;
 
   constructor(private VehiculeService: VehiculeServiceService,
     private router: Router,
@@ -154,7 +155,8 @@ export class VehiculFormComponent implements OnInit {
 
   selectModele(selectedModele){
     console.log(selectedModele);
-    this.selectedModele = this.selectedModele ;
+    this.selectedModele = selectedModele ;
+    this.idSelectedModele = selectedModele.id_modele ;
     this.mod = [];
   }
   chercherModele(parametre){
@@ -183,7 +185,7 @@ export class VehiculFormComponent implements OnInit {
     }
 
 
-    chercherAffectation(parametre){
+  chercherAffectation(parametre){
       this.affectationService.getAffectationParam(parametre).subscribe(
         (affectation : Affectation []) =>
         {
@@ -191,7 +193,7 @@ export class VehiculFormComponent implements OnInit {
         }
       );
     }
-    selectAffectation(selectedAffectation){
+  selectAffectation(selectedAffectation){
       console.log(selectedAffectation);
       this.selectedAffectation = selectedAffectation.des_affectation;
       this.idSelectedAffectation = selectedAffectation.id_affectation ;
@@ -199,7 +201,7 @@ export class VehiculFormComponent implements OnInit {
     }
 
 
-    chercherChauffeur(parametre){
+  chercherChauffeur(parametre){
       this.chauffeurService.getChauffeurParam(parametre).subscribe(
         (Chauffeur : Chauffeur[]) =>
         {
@@ -207,14 +209,14 @@ export class VehiculFormComponent implements OnInit {
         }
       );
     }
-    selectChauffeur(selectedChauffeur){
+  selectChauffeur(selectedChauffeur){
       console.log(selectedChauffeur);
       this.selectedChauffeur = selectedChauffeur.nom_ch;
       this.idSelectedChauffeur = selectedChauffeur.id_chauffeur ;
       this.chauff = [] ;
     }
 
-    chercherBoite(parametre){
+  chercherBoite(parametre){
       this.boiteService.getBoiteParam(parametre).subscribe(
         (boite : Boite[]) =>
         {
@@ -222,14 +224,14 @@ export class VehiculFormComponent implements OnInit {
         }
       );
     }
-    selectBoite(selectedBoite){
+  selectBoite(selectedBoite){
       console.log(selectedBoite);
       this.selectedBoite = selectedBoite.des_boite;
       this.idSelectedBoite= selectedBoite.id_typeBoite ;
       this.boiteV = [];
     }
 
-    chercherEnergie(parametre){
+  chercherEnergie(parametre){
       this.energieService.getEnergieParam(parametre).subscribe(
         (energie : Energie[])=>
         {
@@ -237,14 +239,14 @@ export class VehiculFormComponent implements OnInit {
         }
       );
     }
-    selectEnergie(selectedEnergie){
+  selectEnergie(selectedEnergie){
       console.log(selectedEnergie);
       this.selectedEnergie = selectedEnergie.des_energie ;
       this.idSelectedEnergie = selectedEnergie.id_energie;
       this.energieV= [];
     }
 
-    chercherAssurance(parametre){
+  chercherAssurance(parametre){
       this.assuranceService.getAssuranceParam(parametre).subscribe(
         (assurance : Assurance[]) =>
         {
@@ -252,7 +254,7 @@ export class VehiculFormComponent implements OnInit {
         }
       );
     }
-    selectAssurance(selectedassurance){
+  selectAssurance(selectedassurance){
       console.log(selectedassurance);
       this.selectAssurance = selectedassurance.compagnie_ass ;
       this.idSelectedAssurance = selectedassurance.id_assurance;

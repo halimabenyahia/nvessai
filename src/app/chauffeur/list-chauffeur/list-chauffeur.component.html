@@ -21,8 +21,8 @@
         <td>{{chauffeur?.prenom_ch}}</td>
         <td>{{chauffeur?.adr_chauff}}</td>
         <td>{{chauffeur?.tel_chauff}}</td>
-        <td><button type="button" class="btn btn-success" (click)="gotoInfo(chauffeur.id_chauffeur)"   >Modifier</button></td> 
-        <td><button type="button" class="btn btn-danger" (click)="delete(chauffeur.id_chauffeur,i) " >Supprimer</button></td>
+        <td><button type="button" class="btn btn-success" (click)="gotoInfo(chauffeur.id_chauffeur)"   ><i class="fa fa-pencil"></i></button></td> 
+        <td><button type="button" class="btn btn-danger" (click)="delete(chauffeur.id_chauffeur,i) " ><i class="fa fa-trash-o"></i></button></td>
      
       </tr> 
     </tbody>

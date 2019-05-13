@@ -29,8 +29,12 @@
           <td>{{vehicule?.type_vehicule?.des_typeVehicule}}</td>
           <td>{{vehicule?.affectation_vehicule?.des_affectation}}</td>
                   
-      <td><button type="button" class="btn btn-success" (click)="edit(vehicule.id_vehicule)" >Modifier</button></td>
-          <td><button type="button" class="btn btn-danger" (click)="delete(vehicule.id_vehicule,i)"  >Supprimer</button></td>
+      <td><button type="button" class="btn btn-success" (click)="edit(vehicule.id_vehicule)" >
+           <i class="fa fa-pencil"></i>
+      </button></td>
+          <td><button type="button" class="btn btn-danger" (click)="delete(vehicule.id_vehicule,i)"  >
+               <i class="fa fa-trash-o"></i>
+              </button></td> 
         </tr> 
       </tbody>
       </table> 

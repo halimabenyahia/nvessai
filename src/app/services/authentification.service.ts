@@ -11,14 +11,20 @@ export class AuthentificationService {
 
   constructor(private http : HttpClient) { }
 
+isLogged() {
+  return !! localStorage.getItem('token');
+}
 
 login (user){
+  console.log(user);
   return this.http.post('http://localhost:8091/users/signin',user);
 }
 
 logout(){
+  console.log("logout");
+  
   localStorage.removeItem('token');
   localStorage.removeItem('username');
-  localStorage.removeItem('password');
+  localStorage.removeItem('role');
 }
 }

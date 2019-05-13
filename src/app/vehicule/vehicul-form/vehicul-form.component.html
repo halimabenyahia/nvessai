@@ -58,7 +58,7 @@
                     <li class="list-group-item" (click)="selectModele(listSelectedModele.value)" 
                         *ngFor="let modele of mod" 
                         value="{{modele?.id_modele}}">
-                        {{modele?.id_modele}}
+                        {{modele?.des_modele}}
                     </li>
             </ol>
             </div>
@@ -150,7 +150,7 @@
                             >
                             <ol class = "list-group" #listSelectedAffectation>
                                 <li class="list-group-item" (click)="selectAffectation(affectations)" 
-                                    *ngFor="let affectations of affect" 
+                                    *ngFor="let affectations of affection" 
                                     value="{{affectations?.id_affectation}}">
                                     {{affectations?.des_affectation}}
                                 </li>

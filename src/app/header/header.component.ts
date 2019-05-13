@@ -10,7 +10,7 @@ import { AuthentificationService } from '../services/authentification.service';
 export class HeaderComponent implements OnInit {
   show = false;
   constructor(private router: Router,
-              private authentificationService : AuthentificationService) { }
+              public authentificationService : AuthentificationService) { }
 
   ngOnInit() {
   }
@@ -26,5 +26,6 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     this.authentificationService.logout();
+    this.router.navigate(['']);
   }
 }

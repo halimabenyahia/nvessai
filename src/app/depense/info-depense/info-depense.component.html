@@ -19,6 +19,7 @@
                      </div>
                
               </div>
+              <!--
               <div class="form-group col-md-3">
                 <label id="montant_ht">montant_ht:</label>
                 <input  type="text" class="form-control" id="montant_ht"
@@ -29,7 +30,8 @@
                     </div>
               
               </div>
-              <div class="form-group col-md-3">
+              -->
+            <!--  <div class="form-group col-md-3">
                 <label id="tva">tva:</label>
                 <input  type="text" class="form-control" id="tva"
                         [(ngModel)]="depense.tva" name= "tva"
@@ -40,6 +42,7 @@
                           </div>
              
               </div>
+              -->
               <div class="form-group col-md-3">
                 <label id="ttc">ttc:</label>
                 <input  type="text" class="form-control" id="ttc"
@@ -51,6 +54,7 @@
                            </div> 
              
               </div>
+              <!--
               <div class="form-group col-md-3">
                 <label id="date_caisse">date_caisse:</label>
                 <input type="date" class="form-control" id="date_caisse" 
@@ -69,6 +73,7 @@
                            </div> 
              
               </div>
+              -->
               <div class="form-group col-md-3">
                 <label id="compteur_d">compteur:</label>
                 <input  type="text" class="form-control" id="compteur_d"
@@ -77,6 +82,17 @@
                          pattern="[1-9]+">
                         <div *ngIf="compteur.invalid && compteur.touched" style="color:red" class="alert alert-light" role="alert">
                           compteur invalide
+                           </div> 
+             
+              </div>
+              <div class="form-group col-md-3">
+                <label id="type_depense">type de depense:</label>
+                <input  type="text" class="form-control" id="type_depense"
+                        [(ngModel)]="depense.type_depense" name="type_depense"
+                         #typedepense="ngModel"
+                         pattern="[A-Za-z0-9]+">
+                        <div *ngIf="typedepense.invalid && typedepense.touched" style="color:red" class="alert alert-light" role="alert">
+                          type depense invalide
                            </div> 
              
               </div>

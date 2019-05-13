@@ -14,8 +14,8 @@
       <tr *ngFor="let marque of marques ;let i=index">
         <td>{{marque?.id_marque}}</td>
         <td>{{marque?.des_marque}}</td>
-     <td><button type="button" class="btn btn-success" (click)="edit(marque.id_marque)" >Modifier</button></td> 
-        <td><button type="button" (click)="delete(marque.id_marque)" class="btn btn-danger" >Supprimer</button></td>
+     <td><button type="button" class="btn btn-success" (click)="edit(marque.id_marque)" ><i class="fa fa-pencil"></i></button></td> 
+        <td><button type="button" (click)="delete(marque.id_marque)" class="btn btn-danger" ><i class="fa fa-trash-o"></i></button></td>
       </tr>
     </table>
     </div>

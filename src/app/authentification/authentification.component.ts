@@ -23,27 +23,6 @@ export class AuthentificationComponent implements OnInit {
 
   ngOnInit() {
   }
-/*
-  connexion(login,mdp){
-    this.userService.getetatUser(login,mdp).subscribe(
-      (response) =>
-      {
-        console.log(response);
-        if (response)
-        {
-          this.router.navigate(['/header']);
-        }
-        else {
-          console.log("login ou mot de passe incorrecte");
-         // this.router.navigate(['login']);
-        }
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-  */
 
  login(form : NgForm){
     console.log(form) ;

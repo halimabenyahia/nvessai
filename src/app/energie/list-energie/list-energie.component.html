@@ -15,8 +15,8 @@
       <tr *ngFor="let energie of energies ;let i=index">
         <td>{{energie?.id_energie}}</td>
         <td>{{energie?.des_energie}}</td>
-        <td><button type="button" class="btn btn-success" (click)="edit(energie.id_energie)" >Modifier</button></td>  
-        <td><button type="button" (click)="delete(energie.id_energie)" class="btn btn-danger" >Supprimer</button></td>
+        <td><button type="button" class="btn btn-success" (click)="edit(energie.id_energie)" ><i class="fa fa-pencil"></i></button></td>  
+        <td><button type="button" (click)="delete(energie.id_energie)" class="btn btn-danger" ><i class="fa fa-trash-o"></i></button></td>
       </tr>
     </tbody>
     </table>

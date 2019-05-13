@@ -21,7 +21,7 @@ export class ChauffeurService {
   }
 
   public supprimer(id_chauffeur : number) {
-    return this.http.delete('http://localhost:8091' + '/deleteChauffeur/' + `/${id_chauffeur}`);
+    return this.http.delete('http://localhost:8091' + '/deleteChauffeur' + `/${id_chauffeur}`);
   }
 
   public addChauffeur(chauffeur) : Observable<any> {

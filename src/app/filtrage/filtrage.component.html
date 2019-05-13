@@ -1,82 +1,14 @@
-<!--
-<div class="row">
-  <div style="margin-left: 4%">
-  <div >
-    <br>
-    <form #formulaire="ngForm" >
-      <div class="col-md-12">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <div class="panel-body">
-              <h5 style="color:gray">filtrer : </h5>
-              <br>
-            <div class="row">
-              <div class="form-group col-md-6">
-                  <label for="compagnie_ass">Véhicule</label>
-                  <input type="text" class="form-control"
-                               #inputImmatricul
-                               ngModel name='immatriculation'
-                               (keyup)="chercherVehicule(inputImmatricul.value)"
-                               [(ngModel)]="selectedVehicule"
-                        > 
-                        <input type="text"
-                               hidden  
-                               name='id_vehicule'
-                               [(ngModel)]="idSelectedVehicule"
-                               ngModel
-                        >
-                        <ol class = "list-group" #listSelectedVehicule>
-                            <li class="list-group-item" (click)="selectVehicule(vehicule)" 
-                                *ngFor="let vehicule of vehicule" 
-                                value="{{vehicule?.id_vehicule}}">
-                                {{vehicule?.immatriculation}}
-                            </li>
-                        </ol>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="des_energie">energie:</label>
-                            <input type="text" class="form-control"
-                                 #inputenergie
-                                ngModel name='des_energie'
-                                 (keyup)="chercherEnergie(inputenergie.value)"
-                                 [(ngModel)]="selectedEnergie"
-                            >
-                            <input type="text"
-                                 hidden  
-                                 name='id_energie'
-                                 [(ngModel)]="idSelectedEnergie"
-                                 ngModel 
-                          >
-                          <ol class = "list-group" #listSelectedEnergie>
-                              <li class="list-group-item" (click)="selectEnergie(energies)" 
-                                  *ngFor="let energies of energieV" 
-                                  value="{{energies.id_energie}}">
-                                  {{energies?.des_energie}}
-                              </li>
-                          </ol>
-                        </div>
-                        </div>
-                        <div>
-                        <a routerLink="/filtrage/filtre" style="margin-left: 85%">
-                          <button  type="button" (click)="goToFiltre()"  class="btn btn-dark"  >Rechercher</button>
-                        </a> 
-                      </div>
-          </div>
-        </div>
-        </div>
-      </div>
-    </form>
-    <br><br>
-  </div>
-</div>
-</div>
-<!--<form>
-<div class="row">
+
+<div style="margin-top: 2%">
+<div class="container">
+  <div class="card" >
+    <div class="card-body">
+  <h5 style="color:gray">Liste des depenses en DT </h5>
   
-<div style="margin-top: 2% ; margin-right: 2%">
+  <div class="row">
   <div class="form-group col-sm-3">
-  <label for="compagnie_ass">Véhicule</label>
-  <input type="text" class="form-control"
+    <label for="compagnie_ass">Véhicule</label>
+        <input type="text" class="form-control"
                #inputImmatricul
                ngModel name='immatriculation'
                (keyup)="chercherVehicule(inputImmatricul.value)"
@@ -95,24 +27,38 @@
                 {{vehicule?.immatriculation}}
             </li>
         </ol>
+        </div>
+        <div class="form-group col-sm-3">
+                              <label for="des_energie">carburant:</label>
+                              <input type="text" class="form-control"
+                                   #inputenergie
+                                  ngModel name='des_energie'
+                                   (keyup)="chercherEnergie(inputenergie.value)"
+                                   [(ngModel)]="selectedEnergie"
+                              >
+                              <input type="text"
+                                   hidden  
+                                   name='id_energie'
+                                   [(ngModel)]="idSelectedEnergie"
+                                   ngModel
+                            >
+                            <ol class = "list-group" #listSelectedEnergie>
+                                <li class="list-group-item" (click)="selectEnergie(energies)" 
+                                    *ngFor="let energies of energieV" 
+                                    value="{{energies.id_energie}}">
+                                    {{energies?.des_energie}}
+                                </li>
+                            </ol>
+          </div>
+       <div>
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
+             <i class="fa fa-search"></i> 
+             </button>
+       </div>
+        
 </div>
-<!--<div class="form-group col-md-3 ">
-  <label for="des_energie">Carburant:</label>
-           <select class="form-control" ngModel name="id_energie">
-                    <option *ngFor="let energie of energie" value="{{energie?.id_energie}}" >
-                            {{energie?.des_energie}}</option>
-                  </select>
-                
-</div>
--->
-
-<div style="margin-top: 2%">
-<div class="container">
-  <div class="card" >
-    <div class="card-body">
-  <h5 style="color:gray">Liste des depenses en DT </h5>
   <br>
-  <table class="table">
+  <table #table class="table">
     <thead class="thead-light">
       <th>immatriculation </th>
       <th>janvier</th>
@@ -127,7 +73,7 @@
       <th>octobre</th>
       <th>novembre</th>
       <th>decembre</th>
-      <th>Graphe</th>
+      <th></th>
       <th></th>
     </thead>
     <tbody>
@@ -146,7 +92,10 @@
       <td>{{depense?.dep_novembre | number }}</td>
       <td>{{depense?.dep_decembre | number }}</td>
       <td>
-        <button type="button" class="btn btn-info" (click)="GoTograh(depense.immatriculation)"> Voir graphe</button>
+       <!-- <button type="button" class="btn btn-info" (click)="GoTograh(depense.immatriculation)"> Voir graphe</button> -->
+        <button (click)=showModal(depense)  type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
+             <i class="fa fa-signal"></i> 
+             </button>
       </td>
     </tr> 
   </tbody> 
@@ -156,3 +105,88 @@
 </div>
 </div>
 
+<!--
+<div class="modal fade bd-example-modal-lg"
+     [ngClass]= "{show: show}" 
+     [ngStyle]="{'display' : displayValue } "
+     tabindex="-1" role="dialog" 
+    aria-labelledby="myLargeModalLabel" >
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div style="margin-top: 3%">
+      <div class="chartjs-wrapper">
+        <canvas id="canvas" class="chartjs"></canvas>
+        <script>
+          new Chart(document.getElementById("canvas"),
+             {
+              "type":"line",
+              "data":{"labels":["January","February","March","April","May","June","July"],
+              "datasets":[{
+                "label":"My First Dataset",
+                "data":[65,59,80,81,56,55,40],
+                "fill":false,
+                "borderColor":"rgb(75, 192, 192)",
+                "lineTension":0.1
+                }]},
+              "options":{}
+              });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+<div class="modal fade" id="exampleModal" 
+     tabindex="-1" role="dialog" 
+     aria-labelledby="exampleModalLabel" 
+     aria-hidden="true"
+     [ngClass]= "{show: show}" 
+     [ngStyle]="{'display' : displayValue } "
+     >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Analyse</h5>
+        <button  (click)="closeModalDialog()" 
+                 type="button" class="close" 
+                 [ngClass]= "{show: show}"
+                 [ngStyle]="{'display' : displayy } "
+                 data-dismiss="modal" 
+                 aria-label="Close">
+          <i class="fa fa-times"></i>
+        <!--  <span #closeModal aria-hidden="true">&times;</span> -->
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="chartjs-wrapper">
+        <canvas id="canvas" class="chartjs"> {{myChart}}</canvas>
+        <script>
+         var myChart = new Chart(document.getElementById("canvas"),
+             {
+              "type":"line",
+              "data": {"labels":["January","February","March","April","May","June","July"],
+              "datasets":[{
+                "label":"My First Dataset",
+                "data":[65,59,80,81,56,55,40],
+                "fill":false,
+                "borderColor":"rgb(75, 192, 192)",
+                "lineTension":0.1
+                }]},
+              "options":{}
+              });
+        </script>
+      </div>
+      </div>
+    <!--  <div class="modal-footer">
+        <button type="button" (click)="closeModalDialog()" 
+                class="btn btn-secondary"
+                [ngClass]= "{show: show}"
+                [ngStyle]="{'display' : displayy } "
+                data-dismiss="modal">
+                Close</button>
+      </div>
+      -->
+    </div>
+  </div>
+</div>

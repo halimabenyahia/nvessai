@@ -13,8 +13,8 @@
     <tr *ngFor="let typeV of typeV ;let i=index">
       <td>{{typeV?.id_typeVehicule }}</td>
       <td>{{typeV?.des_typeVehicule}}</td>
-     <td><button type="button" class="btn btn-success" (click)="edit(typeV.id_typeVehicule)" >Modifier</button></td> 
-      <td><button type="button" (click)="delete(typeV.id_typeVehicule)" class="btn btn-danger" >Supprimer</button></td>
+     <td><button type="button" class="btn btn-success" (click)="edit(typeV.id_typeVehicule)" ><i class="fa fa-pencil"></i></button></td> 
+      <td><button type="button" (click)="delete(typeV.id_typeVehicule)" class="btn btn-danger" ><i class="fa fa-trash-o"></i></button></td>
     
     </tr>
   </table>

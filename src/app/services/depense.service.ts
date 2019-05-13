@@ -23,7 +23,7 @@ export class DepenseService {
   }
 
   public edit(depense){
-    return this.http.post('http://localhost:8091/editDepense' ,depense );
+    return this.http.put('http://localhost:8091/editDepense' ,depense );
   }
 
   public getSumMonth1(parametre){
