@@ -35,8 +35,8 @@
   
   </div>
   -->
-  <!--style="background-color: rgb(121, 129, 168);" -->
- <!-- <nav  class="navbar navbar-expand-lg " style="background-color: #e3f2fd;" >
+<!--style="background-color: rgb(121, 129, 168);" -->
+<!-- <nav  class="navbar navbar-expand-lg " style="background-color: #e3f2fd;" >
     <a class="navbar-brand" routerLink ='' routerLinkActtive="active">Acceuil</a>
     <button class="navbar-toggler" type="button" 
             data-toggle="collapse" data-target="#navbarSupportedContent" 
@@ -91,45 +91,43 @@
   </nav>
   -->
 
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <!-- Brand/logo -->
-    <a class="navbar-brand" routerLink='/acceuil' routerLinkActtive="active" >Acceuil</a>
+    <a class="navbar-brand" routerLink='/acceuil' routerLinkActtive="active">Acceuil</a>
     <!-- Links -->
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink='/Vehicule' routerLinkActtive="active">Véhicules</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink='/depenses' routerLinkActtive="active" >Depense</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink='/filtrage' routerLinkActtive="active" >Filtrage</a>
-      </li>
-      <li class="nav-item dropdown"  >
-        <a class="nav-link dropdown-toggle"  
-           id="navbarDropdown" role="button" data-toggle="dropdown" 
-           aria-haspopup="true" aria-expanded="false" (click)="showMenu()">
+        <li class="nav-item">
+            <a class="nav-link" routerLink='/Vehicule' routerLinkActtive="active">Véhicules</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink='/depenses' routerLinkActtive="active">Depense</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink='/filtrage' routerLinkActtive="active">Filtrage</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showMenu()">
            Occurrences
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown" [ngClass]="{'show':show}">
-          <a class="dropdown-item" routerLink="/Modele" value="Modele">Modele</a>
-          <a class="dropdown-item" routerLink="/Marque" value="Marque">Marque</a>
-          <a class="dropdown-item" routerLink="/Chauffeur" value="Chauffeur">Chauffeur</a>
-          <a class="dropdown-item" routerLink="/TypeV" value="TypeV">Type de véhicule</a>
-          <a class="dropdown-item" routerLink="/Affectation" value="Affectation">Affectation</a>
-          <a class="dropdown-item" routerLink="/Boite" value="Boite">Type de boite</a>
-          <a class="dropdown-item" routerLink="/Energie" value="Energie">Energie</a>
-          <a class="dropdown-item" routerLink="/Assurance" value="Assurance">Assurance</a>
-        </div>
-      </li>
-    </ul>
-      <!-- Actual search box -->
-      <div *ngIf="authentificationService.isLogged()" class="has-search " style="margin-left: 60%">
-        <ul class="navbar-nav">
-        <li class="nav-item ">
-          <span class="nav-link" (click)="logout()"  >
-            Déconnexion </span>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" [ngClass]="{'show':show}">
+                <a class="dropdown-item" routerLink="/Modele" value="Modele">Modele</a>
+                <a class="dropdown-item" routerLink="/Marque" value="Marque">Marque</a>
+                <a class="dropdown-item" routerLink="/Chauffeur" value="Chauffeur">Chauffeur</a>
+                <a class="dropdown-item" routerLink="/TypeV" value="TypeV">Type de véhicule</a>
+                <a class="dropdown-item" routerLink="/Affectation" value="Affectation">Affectation</a>
+                <a class="dropdown-item" routerLink="/Boite" value="Boite">Type de boite</a>
+                <a class="dropdown-item" routerLink="/Energie" value="Energie">Energie</a>
+                <a class="dropdown-item" routerLink="/Assurance" value="Assurance">Assurance</a>
+            </div>
         </li>
+    </ul>
+
+    <div *ngIf="authentificationService.isLogged()" class="has-search " style="margin-left: 60%">
+        <ul class="navbar-nav">
+            <li class="nav-item ">
+                <span class="nav-link" (click)="logout()">
+            Déconnexion </span>
+            </li>
         </ul>
-      </div>
-  </nav>
+    </div>
+</nav>

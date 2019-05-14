@@ -33,44 +33,41 @@ export class FiltrageComponent implements OnInit {
  chart = [];
  month = ['janvier','fevrier','mars','avril','mai','juin',
           'juillet','aout','septembre','octobre','novembre','decembre'];
-dep_janvier = [];
   constructor(private vehiculeService :VehiculeServiceService,
               private router : Router ,
               private depenseService : DepenseService,
               private energieService : EnergieService) { }
 
+         //     depenseResponse
   ngOnInit() {
     this.depenseService.getSumDepenses().subscribe(
       (value : DepenseResponse []) =>
       {
         this.depenseResponses=value ;
-        value.forEach(element => {
-          this.dep_janvier.push(element.dep_janvier);
-          this.dep_fevrier.push(element.dep_fevrier);
-        //  this.dep_janvier.push(element.dep_janvier);
-        });
         console.log(this.depenseResponses);
+
       }
     );
 
-  }
-  
+  } 
 
- 
-
-  showModal() {
-    this.show = ! this.show;
+  showModal(depense,i) {
+    var mounthArray = []
+    for (let index = 0; index < 12; index++) {
+      var test = depense["dep_"+this.month[index]]
+      mounthArray.push(test)
+    }
+    this.show = true;
     this.displayValue = 'block' ;
-
        this.chart = new Chart(document.getElementById("canvas"),
              {
-              "type":"line",
+              "type":"bar",
               "data": {
                 "labels": this.month,
                 "datasets":[
                   {
-                    "label":"Analyse de dépense",
-                    "data":this.dep_janvier,
+                    "label":" vehicule : "+depense.immatriculation,
+                    "data":mounthArray, //les sommes ttc
                     "fill":false,
                     "borderColor":"rgb(75, 192, 192)",
                     "lineTension":0.1
@@ -81,8 +78,8 @@ dep_janvier = [];
   }
 
   closeModalDialog(){
-    this.show = ! this.show ;
-    this.displayy='none';
+    this.show = false ;
+    this.displayValue='none';
   }
 
   chercherVehicule(parametre){

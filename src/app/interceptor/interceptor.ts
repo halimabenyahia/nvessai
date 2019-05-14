@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 export class JwtInterceptor implements HttpInterceptor {
     intercept(
         req: import("@angular/common/http").HttpRequest<any>,
-        next: import("@angular/common/http").HttpHandler): import("rxjs").Observable<import("@angular/common/http").HttpEvent<any>> 
+        next: import("@angular/common/http").HttpHandler):
+         import("rxjs").Observable<import("@angular/common/http").HttpEvent<any>> 
         {
         console.log("interceptor");
          const token = localStorage.getItem('token');
@@ -19,15 +20,9 @@ export class JwtInterceptor implements HttpInterceptor {
             return next.handle(newReq) ;
          }
          return next.handle(req);
-         
-          
-
-         
+   
         }
-
-
 }
-
 export const loginInterceptorProvider = {
     provide : HTTP_INTERCEPTORS ,
     useClass : JwtInterceptor ,
