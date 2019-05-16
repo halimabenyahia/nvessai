@@ -1,21 +1,17 @@
 <form #formulaire="ngForm">
     <div class="row">
-        
-          <div class="form-group col-md-3 ">
-              <label for="modele">modele</label>
-              <input type="text" class="form-control" 
-                     ngModel name="des_modele" pattern='[a-zA-Z ]+' minlength="3" maxlength="20"
-                     #modele="ngModel" 
-                     >
-               <div *ngIf="modele.invalid && modele.touched " style="color:red" class="alert alert-light"
-                role="alert">
-                  modele invalide
-                 </div>
-          </div>
-      </div>
+
+        <div class="form-group col-md-3 ">
+            <label for="modele">modele</label>
+            <input type="text" class="form-control" ngModel name="des_modele" pattern='[a-zA-Z-0-9 ]+' minlength="3" maxlength="20" #modele="ngModel">
+            <div *ngIf="modele.invalid && modele.touched " style="color:red" class="alert alert-light" role="alert">
+                modele invalide
+            </div>
+        </div>
+    </div>
     <br>
     <div>
         <button type="submit" (click)="add(formulaire)" class="btn btn-success">Enregistrer</button>
-      </div>
-  
-  </form>
+    </div>
+
+</form>

@@ -1,7 +1,7 @@
-
-<app-header></app-header>  
+<app-header *ngIf="authentificationService.isLogged()">
+</app-header>
 <!--<app-footer></app-footer> -->
-<router-outlet></router-outlet>  
+<router-outlet></router-outlet>
 
 <!--<app-acceuil></app-acceuil>-->
 
@@ -9,5 +9,3 @@
   <img src="/assets/images/moto.jpg">
 
 </div>-->
-
-

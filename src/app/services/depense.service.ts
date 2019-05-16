@@ -39,5 +39,9 @@ export class DepenseService {
     return this.http.get('http://localhost:8091/depensesSum');
   }
 
+  public getSumDepenceByImm(parametre){
+    return this.http.get('http://localhost:8091/sumdepenseByimm'+`/${parametre}`);
+  }
+
   
 }

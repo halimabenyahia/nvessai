@@ -8,6 +8,7 @@ import { DepenseService } from '../services/depense.service';
 import { Depense } from '../entity/depense';
 import { DepenseResponse } from '../entity/depenseResponse';
 import { Chart } from 'chart.js';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-filtrage',
@@ -29,6 +30,7 @@ export class FiltrageComponent implements OnInit {
   displayValue = "none" ;
  depenseResponse : DepenseResponse ;
  depenseResponses : DepenseResponse [] ;
+ dep : DepenseResponse [] ;
  displayy="block" ;
  chart = [];
  month = ['janvier','fevrier','mars','avril','mai','juin',
@@ -69,7 +71,8 @@ export class FiltrageComponent implements OnInit {
                     "label":" vehicule : "+depense.immatriculation,
                     "data":mounthArray, //les sommes ttc
                     "fill":false,
-                    "borderColor":"rgb(75, 192, 192)",
+                    "backgroundColor" : "#1E41F9",
+                    "borderColor":"rgb(44, 100, 185)",
                     "lineTension":0.1
                   }
                   ]},
@@ -112,13 +115,15 @@ export class FiltrageComponent implements OnInit {
     this.energieV= [];
   }
 
-  goToFiltre(){
-    this.router.navigate(['/filtrage/filtre']);
-  }
 
-  GoTograh(immatriculation)
-  {
-    this.router.navigate(['filtrage/graphe',immatriculation]);
+  chercher(form : NgForm){
+    this.depenseService.getSumDepenceByImm(form.value).subscribe(
+      (value : DepenseResponse []) =>
+      {
+        this.dep=value ;
+        console.log(this.dep);
+      }
+    );
   }
 
  
