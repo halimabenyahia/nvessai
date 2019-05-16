@@ -1,0 +1,39 @@
+<div style="margin-left: 5%">
+    <div class="row">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 style="color:gray">Liste des véhicules</h5>
+                    <br>
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>immatriculation</th>
+                                <th>Chauffeur</th>
+                                <th>cout d'achat</th>
+                                <th>energie</th>
+                                <th>type boite</th>
+                                <th>type vehicule</th>
+                                <th>affectation</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let vehicule of vehicule ;let i=index">
+                                <td>{{vehicule?.immatriculation}}</td>
+                                <td>{{vehicule?.chauffeur_v?.nom_ch}}</td>
+                                <td>{{vehicule?.cout_achat | number}}</td>
+                                <td>{{vehicule?.energie_v?.des_energie}}</td>
+                                <td>{{vehicule?.type_boite?.des_boite}}</td>
+                                <td>{{vehicule?.type_vehicule?.des_typeVehicule}}</td>
+                                <td>{{vehicule?.affectation_vehicule?.des_affectation}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -12,7 +12,6 @@ export class VehiculeServiceService {
 
  vehicule : Vehicule ;
   
-
   constructor(private httpClient: HttpClient,
               private marqueService : MarqueService ) { }
   
@@ -39,6 +38,10 @@ export class VehiculeServiceService {
 
   public getbyImmatricle(chaine){
     return this.httpClient.get('http://localhost:8091/vehiculebyImmatriculation'+ `/${chaine}`)
+  }
+
+  public getVehiculeByCarburant(carburant){
+    return this.httpClient.get('http://localhost:8091/vehiculebyCarburant'+`/${carburant}`);
   }
 
   

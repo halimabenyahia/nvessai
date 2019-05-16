@@ -58,13 +58,6 @@ export class VehiculInfoComponent implements OnInit {
   selectedassurance='';
   idSelectedAssurance:number;
 
-
-
-
-
-
-
-
   constructor(private vehicuelService: VehiculeServiceService,
     private router: Router,
     private marqueService: MarqueService,

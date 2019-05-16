@@ -53,6 +53,7 @@ import { FiltrageComponent } from './filtrage/filtrage.component';
 import { ConnectGuard } from './guard/guardConnect';
 import { AfficheTableComponent } from './filtrage/affiche-table/affiche-table.component';
 import { GrapheComponent } from './filtrage/graphe/graphe.component';
+import { ResultatComponent } from './vehicule/resultat/resultat.component';
 
 const routes: Routes = [
 
@@ -71,7 +72,8 @@ const routes: Routes = [
     { path: 'addVehicule', component: VehiculFormComponent  },
     { path: 'editVehicule/:id', component: VehiculInfoComponent  },
     { path: 'listVehicules', component: VehiculListComponent  },
-    { path : 'chercherVehicule' , component : ChercherVehiculeComponent}]
+    { path : 'chercherVehicule' , component : ChercherVehiculeComponent},
+    { path : 'resultat/:id' , component : ResultatComponent}]
   },
   { path : 'utilisateurs' , component : UtilisateurComponent , children :[
     { path : 'addUtilisateur' , component : FormUtilisateurComponent},

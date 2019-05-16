@@ -61,6 +61,7 @@ import { FiltrageComponent } from './filtrage/filtrage.component';
 import { ConnectGuard } from './guard/guardConnect';
 import { AfficheTableComponent } from './filtrage/affiche-table/affiche-table.component';
 import { GrapheComponent } from './filtrage/graphe/graphe.component';
+import { ResultatComponent } from './vehicule/resultat/resultat.component';
 
 
 
@@ -120,6 +121,8 @@ import { GrapheComponent } from './filtrage/graphe/graphe.component';
     FiltrageComponent,
     AfficheTableComponent,
     GrapheComponent,
+    ResultatComponent
+  
   ],
   imports: [
     HttpClientModule,

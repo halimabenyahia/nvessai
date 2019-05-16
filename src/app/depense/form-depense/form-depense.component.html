@@ -6,7 +6,7 @@
             <div>
                 <div class="card">
                     <div class="card-body">
-                        <h5>Ajouter une depense</h5>
+                        <h5>Ajouter une dépense</h5>
                         <br>
                         <div class="row">
                             <div class="form-group col-md-3 ">
@@ -20,29 +20,34 @@
                                 </ol>
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="date_depense">date de depense:</label>
+                                <label for="date_depense">Date de dépense:</label>
                                 <input type="date" minlength="1" maxlength="8" required class="form-control" id="date_depense" ngModel name="date_depense" #matricule="ngModel" max="2019-06-06">
 
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="ttc">ttc:</label>
+                                <label for="montant_ht">montant hors taxe:</label>
+                                <input required type="text" pattern="[1-9.,0-9]+" class="form-control" id="montant_ht" ngModel name="montant_ht" #montantht="ngModel">
+                                <div *ngIf="montantht.invalid && montantht.touched" style="color:red" class="alert alert-light" role="alert">
+                                    montant invalide
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="ttc">TTC:</label>
                                 <input required type="text" pattern="[1-9.,0-9]+" class="form-control" id="ttc" ngModel name="ttc" #montantTTC="ngModel">
                                 <div *ngIf="montantTTC.invalid && montantTTC.touched" style="color:red" class="alert alert-light" role="alert">
                                     montant invalide
                                 </div>
-
-
                             </div>
-
                             <div class="form-group col-md-3">
-                                <label id="type_depense">type de dépense:</label>
+                                <label id="type_depense">Type de dépense:</label>
                                 <input required minlength="1" maxlength="20" [pattern]="nameRegex" type="text" class="form-control" id="type_depense" ngModel name="type_depense" #typedepense="ngModel">
                                 <div *ngIf="typedepense.invalid && typedepense.touched" style="color:red" class="alert alert-light" role="alert">
                                     reference invalide
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
-                                <label id="compteur_d">compteur:</label>
+                                <label id="compteur_d">Compteur:</label>
                                 <input required minlength="1" maxlength="8" pattern='[1-9]+' type="text" class="form-control" id="compteur_d" ngModel name="compteur_d" #compteurd="ngModel">
                                 <div *ngIf="compteurd.invalid && compteurd.touched" style="color:red" class="alert alert-light" role="alert">
                                     reference invalide

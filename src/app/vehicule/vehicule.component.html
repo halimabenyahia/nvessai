@@ -1,49 +1,25 @@
 <div class="row" style="margin-top: 1%">
-    <div class="container"> <!-- espace al jneb-->
-    <!--  <h4 style="color:darkred">liste des véhicules</h4> -->
-  
-      <a routerLink="/Vehicule/addVehicule" style="margin-left: 85%">
-        <button  type="button" class="btn btn-dark" >ajouter un véhicule</button>
-      </a>
-  <br>
-    <br>
-        <a routerLink="/Vehicule/listVehicules" style="margin-left: 85%">
-          <button (click)="list()" type="button" class="btn btn-dark" >liste des vehicules</button>
+    <div class="container">
+        <!-- espace al jneb-->
+        <!--  <h4 style="color:darkred">liste des véhicules</h4> -->
+
+        <a routerLink="/Vehicule/addVehicule" style="margin-left: 85%">
+            <button type="button" class="btn btn-dark">ajouter un véhicule</button>
         </a>
-     
-      
-     <!--   <a routerLink="/Vehicule/chercherVehicule" style="margin-left: 85%">
-          <button  type="button" class="btn btn-primary" >chercher un vehicule</button>
-        </a>
-        -->
-      </div>
-    </div>
-      <hr>
- 
-    <!--  <app-chercher-vehicule></app-chercher-vehicule> --> 
-  
-  <router-outlet></router-outlet>
-  <br>
- <!--<app-vehicul-list></app-vehicul-list> --> 
-  <div style="margin-bottom: 7%"></div>
-
-  
-
-
-<!--<div class="row" style="margin-top: 2%">
-  <div class="container">
-    <h4 style="color:darkred">Clubs Management</h4>
-    <hr>
-    
-    <div class="row">
-      <div class="col-md-7">
-        <app-vehicul-form></app-vehicul-form>
-      </div>
-      <div class="col-md-5">
-
-        <router-outlet></router-outlet>
         <br>
-      </div>
+        <br>
+        <a routerLink="/Vehicule/listVehicules" style="margin-left: 85%">
+            <button (click)="list()" type="button" class="btn btn-dark">liste des vehicules</button>
+        </a>
+
+        <a routerLink="/Vehicule/chercherVehicule" style="margin-left: 85%">
+            <button type="button" class="btn btn-dark">chercher un vehicule</button>
+        </a>
+
     </div>
-  </div>
-</div> -->
+</div>
+<hr>
+
+<router-outlet></router-outlet>
+<br>
+<div style="margin-bottom: 7%"></div>

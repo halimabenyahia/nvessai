@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiculeServiceService } from 'src/app/services/vehicule-service.service';
 import { Vehicule } from 'src/app/entity/vehicule';
+import { EnergieService } from 'src/app/services/energie.service';
+import { Energie } from 'src/app/entity/energie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chercher-vehicule',
@@ -13,7 +16,12 @@ export class ChercherVehiculeComponent implements OnInit {
   vehicules : Vehicule[];
   idSelectedVehicule : number ;
   selectedVehicule='';
-  constructor(private vehiculeService : VehiculeServiceService) { }
+  idSelectedEnergie :number ;
+  energieV : Energie[];
+  selectedEnergie='';
+  constructor(private vehiculeService : VehiculeServiceService,
+              private energieService : EnergieService,
+              private router : Router) { }
 
   ngOnInit() {
     this.vehiculeService.getAllVehicule().subscribe(
@@ -24,19 +32,22 @@ export class ChercherVehiculeComponent implements OnInit {
     );
   }
 
-  chercherVehicule(parametre){
-    this.vehiculeService.getbyImmatricle(parametre).subscribe(
-      (vehicule : Vehicule[]) =>
+  chercherEnergie(parametre){
+    this.energieService.getEnergieParam(parametre).subscribe(
+      (energie : Energie[])=>
       {
-        this.vehicules=vehicule;
+        this.energieV=energie;
       }
     );
   }
-  selectVehicule(selectedVehicule){
-    console.log(selectedVehicule);
-    this.selectedVehicule = selectedVehicule.immatriculation ;
-    this.idSelectedVehicule = selectedVehicule.id_vehicule;
-    this.vehicules=[];
+selectEnergie(selectedEnergie){
+    console.log(selectedEnergie);
+    this.selectedEnergie = selectedEnergie.des_energie ;
+    this.idSelectedEnergie = selectedEnergie.id_energie;
+    this.energieV= [];
+  }
+  chercher(){
+    this.router.navigate(['Vehicule/resultat']);
   }
 
 }
