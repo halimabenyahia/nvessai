@@ -57,7 +57,9 @@ export class VehiculInfoComponent implements OnInit {
   assur : Assurance[];
   selectedassurance='';
   idSelectedAssurance:number;
-
+  selectedModele='';
+  idSelectedModele : number;
+  mod : Modele [];
   constructor(private vehicuelService: VehiculeServiceService,
     private router: Router,
     private marqueService: MarqueService,
@@ -78,6 +80,7 @@ export class VehiculInfoComponent implements OnInit {
         this.vehicuelService.getByIdVehicule(params.id).subscribe(
           (vehicule: Vehicule) => {
             this.vehicule = vehicule;
+            console.log('update : ');
             console.log(vehicule);
           }
         );
@@ -225,5 +228,20 @@ export class VehiculInfoComponent implements OnInit {
       this.selectedassurance = selectedassurance.compagnie_ass ;
       this.idSelectedAssurance = selectedassurance.id_assurance;
       this.assur=[];
+    }
+
+    selectModele(selectedModele){
+      console.log(selectedModele);
+      this.selectedModele = selectedModele ;
+      this.idSelectedModele = selectedModele.id_modele ;
+      this.mod = [];
+    }
+    chercherModele(parametre){
+      this.modeleService.getModeleParam(parametre).subscribe(
+        (modele : Modele []) =>
+        {
+          this.mod = modele ;
+        }
+      );
     }
 }

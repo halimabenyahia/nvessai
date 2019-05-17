@@ -1,274 +1,193 @@
-
 <div class="row">
-    <div >
-      <br>
-      <form #formulaire="ngForm" *ngIf="vehicule" >
-        <div class="col-md-12">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <div class="panel-body">
-                <h5 style="color:gray">Modifier un véhicule</h5>
-                <br>
-              <div class="row">
-                <div class="form-group col-md-3">
-                  <label for="immatriculation">immatriculation:</label>
-                  <input  pattern="[1-9]{3}[tu]{2}[1-9]{4}" title="immatriculation doit etre 111tu1111" 
-                         type="text" class="form-control" [(ngModel)]="vehicule.immatriculation" name="immatriculation">
-                </div>
+    <div>
+        <br>
+        <form #formulaire="ngForm" *ngIf="vehicule">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="panel-body">
+                            <h5 style="color:gray">Modifier un véhicule</h5>
+                            <br>
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="immatriculation">immatriculation:</label>
+                                    <input pattern="[1-9]{3}[tu]{2}[1-9]{4}" title="immatriculation doit etre 111tu1111" type="text" class="form-control" [(ngModel)]="vehicule.immatriculation" name="immatriculation">
+                                </div>
 
-                <div class="form-group col-md-3">
-                    <label for="des_marque">marque:</label>
-                          <input #inputmarque  class="form-control"
-                           (keyup)="chercherMarque(inputmarque.value)"
-                           [(ngModel)]="selectedMarque"
-                           name="des_marque" 
-                           >
-                           <input type="text"
-                           hidden  
-                           name='id_marque'
-                           [(ngModel)]="idSelectedMArque"
-                           ngModel
-                           >
-                    <ol class = "list-group" #listSelectedMarque>
-                            <li class="list-group-item" (click)="selectMarque(marque)"
-                                *ngFor="let marque of resultat" value="{{marque?.id_marque}}">
-                                    {{marque?.des_marque}}
-                            </li>
-                    </ol>
-                  </div>
+                                <div class="form-group col-md-3">
+                                    <label for="des_marque">marque:</label>
+                                    <input #inputmarque class="form-control" (keyup)="chercherMarque(inputmarque.value)" [(ngModel)]="selectedMarque" name="des_marque">
+                                    <input type="text" hidden name='id_marque' [(ngModel)]="idSelectedMArque" ngModel>
+                                    <ol class="list-group" #listSelectedMarque>
+                                        <li class="list-group-item" (click)="selectMarque(marque)" *ngFor="let marque of resultat" value="{{marque?.id_marque}}">
+                                            {{marque?.des_marque}}
+                                        </li>
+                                    </ol>
+                                </div>
 
-              <div class="form-group col-md-3 ">
-                  <label for="modele_v">modele</label>
-                  <select class="form-control" ngModel name="modele_v">
-                    <option *ngFor="let modele of modele" >{{modele?.des_modele}}</option>
-                  </select>
-                </div>
+                                <div class="form-group col-md-3 ">
+                                    <label for="id_modele">modele</label>
+                                    <input type="text" class="form-control" #inputmodele name='des_modele' (keyup)="chercherModele(inputmodele.value)" [(ngModel)]="selectedModele">
+                                    <ol class="list-group" #listSelectedModele>
+                                        <li class="list-group-item" (click)="selectModele(listSelectedModele.value)" *ngFor="let modele of mod" value="{{modele?.id_modele}}">
+                                            {{modele?.des_modele}}
+                                        </li>
+                                    </ol>
+                                </div>
 
-                <div class="form-group col-md-3">
-                    <label for="date_m_c">date mise en circulation:</label>
-                    <input type="date" max="2019-04-01" class="form-control" ngModel name="date_m_c" id="date_m_c">
-                    
-                  </div>
-                  <div class="form-group col-md-3">
-                      <label for="num_moteur">num_moteur:</label>
-                      <input type="text" class="form-control" ngModel name="num_moteur" id="num_moteur">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="date_acq">date d'acquisition:</label>
-                        <input type="date" max="2019-05-01" class="form-control" ngModel name="date_acq" id="date_acq">
-                       
-                      </div>
-                      <div class="form-group col-md-3">
-                          <label for="cout_achat">valeur d'acquisition:</label>
-                          <input min="10000" type="number" class="form-control" ngModel name="cout_achat" id="cout_achat">
-                        </div>
- 
-                        <div class="form-group col-md-3 ">
-                            <label for="des_typeVehicule">Type de vehicule</label>
-                            <input type="text" class="form-control"
-                                   #inputtypeV
-                                   name='des_typeVehicule'
-                                   (keyup)="chercherTypeVehicule(inputtypeV.value)"
-                                  [(ngModel)]="selectedTypeVehicule"  
-                             >
-                             <input type="text"
-                                    hidden  
-                                    name='id_typeVehicule'
-                                    [(ngModel)]="idSelectedtypevehicule"
-                                    ngModel
-                              >
-                     <ol class = "list-group" #listSelectedTypeV>
-                         <li class="list-group-item" (click)="selectTypeV(type)" 
-                             *ngFor="let type of typeVehicule" 
-                             value="{{type?.id_typeVehicule}}">
-                             {{type?.des_typeVehicule}}
-                         </li>
-                     </ol>
-                  </div>
+                                <div class="form-group col-md-3">
+                                    <label for="date_m_c">date mise en circulation:</label>
+                                    <input type="date" max="2019-04-01" class="form-control" ngModel name="date_m_c" id="date_m_c">
 
-                  <div class="form-group col-md-3 ">
-                      <label for="des_affectation">Affectation</label>
-                      <input type="text" class="form-control"
-                             #inputaffectation
-                             name='des_affectation'
-                             (keyup)="chercherAffectation(inputaffectation.value)"
-                             [(ngModel)]="selectedAffectation"
-                      >
-                      <input type="text"
-                             hidden  
-                             name='id_affectation'
-                             [(ngModel)]="idSelectedAffectation"
-                             ngModel
-                      >
-                      <ol class = "list-group" #listSelectedAffectation>
-                          <li class="list-group-item" (click)="selectAffectation(affectations)" 
-                              *ngFor="let affectations of affect" 
-                              value="{{affectations?.id_affectation}}">
-                              {{affectations?.des_affectation}}
-                          </li>
-                      </ol>
-                  </div>
-                        
-                  <div class="form-group col-md-3">
-                      <label for="nom_ch">Chauffeur:</label>
-                      <input type="text" class="form-control"
-                               #inputchauffeur
-                               name='nom_ch'
-                               (keyup)="chercherChauffeur(inputchauffeur.value)"
-                               [(ngModel)]="selectedChauffeur"
-                        >
-                        <input type="text"
-                               hidden  
-                               name='id_chauffeur'
-                               [(ngModel)]="idSelectedChauffeur"
-                               ngModel
-                        >
-                        <ol class = "list-group" #listSelectedChauffeur>
-                            <li class="list-group-item" (click)="selectChauffeur(chauffeur)" 
-                                *ngFor="let chauffeur of chauff" 
-                                value="{{chauffeur?.id_chauffeur}}">
-                                {{chauffeur?.nom_ch}}
-                            </li>
-                        </ol>
-                    </div>
-  
-                    <div class="form-group col-md-3">
-                        <label for="des_boite">boite:</label>
-                        <input type="text" class="form-control"
-                               #inputboite
-                               name='des_boite'
-                               (keyup)="chercherBoite(inputboite.value)"
-                               [(ngModel)]="selectedBoite"
-                        >
-                        <input type="text"
-                               hidden  
-                               name='id_typeBoite'
-                               [(ngModel)]="idSelectedBoite"
-                               ngModel
-                        >
-                        <ol class = "list-group" #listSelectedBoite>
-                            <li class="list-group-item" (click)="selectBoite(boite)" 
-                                *ngFor="let boite of boiteV" 
-                                value="{{boite.id_typeBoite}}">
-                                {{boite?.des_boite}}
-                            </li>
-                        </ol>
-                    </div>
-  
-                    <div class="form-group col-md-3">
-                        <label for="des_energie">energie:</label>
-                        <input type="text" class="form-control"
-                             #inputenergie
-                             name='des_energie'
-                             (keyup)="chercherEnergie(inputenergie.value)"
-                             [(ngModel)]="selectedEnergie"
-                        >
-                        <input type="text"
-                             hidden  
-                             name='id_energie'
-                             [(ngModel)]="idSelectedEnergie"
-                             ngModel
-                      >
-                      <ol class = "list-group" #listSelectedEnergie>
-                          <li class="list-group-item" (click)="selectEnergie(energies)" 
-                              *ngFor="let energies of energieV" 
-                              value="{{energies.id_energie}}">
-                              {{energies?.des_energie}}
-                          </li>
-                      </ol>
-                    </div>
-  
-                          </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="num_moteur">num_moteur:</label>
+                                    <input type="text" class="form-control" ngModel name="num_moteur" id="num_moteur">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="date_acq">date d'acquisition:</label>
+                                    <input type="date" max="2019-05-01" class="form-control" ngModel name="date_acq" id="date_acq">
+
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="cout_achat">valeur d'acquisition:</label>
+                                    <input min="10000" type="number" class="form-control" ngModel name="cout_achat" id="cout_achat">
+                                </div>
+
+                                <div class="form-group col-md-3 ">
+                                    <label for="des_typeVehicule">Type de vehicule</label>
+                                    <input type="text" class="form-control" #inputtypeV name='des_typeVehicule' (keyup)="chercherTypeVehicule(inputtypeV.value)" [(ngModel)]="vehicule.type_vehicule.des_typeVehicule">
+                                    <input type="text" hidden name='id_typeVehicule' [(ngModel)]="idSelectedtypevehicule" ngModel>
+                                    <ol class="list-group" #listSelectedTypeV>
+                                        <li class="list-group-item" (click)="selectTypeV(type)" *ngFor="let type of typeVehicule" value="{{type?.id_typeVehicule}}">
+                                            {{type?.des_typeVehicule}}
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <div class="form-group col-md-3 ">
+                                    <label for="des_affectation">Affectation</label>
+                                    <input type="text" class="form-control" #inputaffectation name='des_affectation' (keyup)="chercherAffectation(inputaffectation.value)" [(ngModel)]="vehicule.affectation_vehicule.des_affectation">
+                                    <input type="text" hidden name='id_affectation' [(ngModel)]="idSelectedAffectation" ngModel>
+                                    <ol class="list-group" #listSelectedAffectation>
+                                        <li class="list-group-item" (click)="selectAffectation(affectations)" *ngFor="let affectations of affect" value="{{affectations?.id_affectation}}">
+                                            {{affectations?.des_affectation}}
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="nom_ch">Chauffeur:</label>
+                                    <input type="text" class="form-control" #inputchauffeur name='nom_ch' (keyup)="chercherChauffeur(inputchauffeur.value)" [(ngModel)]="vehicule.chauffeur_v.nom_ch">
+                                    <input type="text" hidden name='id_chauffeur' [(ngModel)]="idSelectedChauffeur" ngModel>
+                                    <ol class="list-group" #listSelectedChauffeur>
+                                        <li class="list-group-item" (click)="selectChauffeur(chauffeur)" *ngFor="let chauffeur of chauff" value="{{chauffeur?.id_chauffeur}}">
+                                            {{chauffeur?.nom_ch}}
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="des_boite">boite:</label>
+                                    <input type="text" class="form-control" #inputboite name='des_boite' (keyup)="chercherBoite(inputboite.value)" [(ngModel)]="vehicule.type_boite.des_boite">
+                                    <input type="text" hidden name='id_typeBoite' [(ngModel)]="idSelectedBoite" ngModel>
+                                    <ol class="list-group" #listSelectedBoite>
+                                        <li class="list-group-item" (click)="selectBoite(boite)" *ngFor="let boite of boiteV" value="{{boite.id_typeBoite}}">
+                                            {{boite?.des_boite}}
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="des_energie">energie:</label>
+                                    <input type="text" class="form-control" #inputenergie name='des_energie' (keyup)="chercherEnergie(inputenergie.value)" [(ngModel)]="selectedEnergie">
+                                    <input type="text" hidden name='id_energie' [(ngModel)]="idSelectedEnergie" ngModel>
+                                    <ol class="list-group" #listSelectedEnergie>
+                                        <li class="list-group-item" (click)="selectEnergie(energies)" *ngFor="let energies of energieV" value="{{energies.id_energie}}">
+                                            {{energies?.des_energie}}
+                                        </li>
+                                    </ol>
+                                </div>
+
+                            </div>
                             <h5 style="color:gray">Assurance</h5>
-                <br>
-                <div class="row">
-                    <div class="form-group col-md-3 ">
-                        <label for="compagnie_ass">compagnie</label>
-                        <input type="text" class="form-control"
-                                     #inputassurance 
-                                     name='compagnie_ass'
-                                     (keyup)="chercherAssurance(inputassurance.value)"
-                                     [(ngModel)]="selectedassurance"
-                              >
-                              <input type="text"
-                                     hidden  
-                                     name='id_assurance'
-                                     [(ngModel)]="idSelectedAssurance"
-                                     
-                              >
-                              <ol class = "list-group" #listSelectedAssurance>
-                                  <li class="list-group-item" (click)="selectAssurance(assurance)" 
-                                      *ngFor="let assurance of assur" 
-                                      value="{{assurance?.id_assurance}}">
-                                      {{assurance?.compagnie_ass}}
-                                  </li>
-                              </ol>
-                      </div>
-  
-                        <div class="form-group col-md-3">
-                            <label for="date_deb_contrat">date debut contrat:</label>
-                            <input type="date" min="2019-04-03" class="form-control" ngModel name="date_deb_contrat" id="date_deb_contrat">
-                            
-                          </div>
-  
-                          <div class="form-group col-md-3">
-                              <label for="date_fin_contrat">date fin contrat:</label>
-                              <input type="date" min="2019-04-03" class="form-control" ngModel name="date_fin_contrat" id="date_fin_contrat">
-                             
+                            <br>
+                            <div class="row">
+                                <div class="form-group col-md-3 ">
+                                    <label for="compagnie_ass">compagnie</label>
+                                    <input type="text" class="form-control" #inputassurance name='compagnie_ass' (keyup)="chercherAssurance(inputassurance.value)" [(ngModel)]="selectedassurance">
+                                    <input type="text" hidden name='id_assurance' [(ngModel)]="idSelectedAssurance">
+                                    <ol class="list-group" #listSelectedAssurance>
+                                        <li class="list-group-item" (click)="selectAssurance(assurance)" *ngFor="let assurance of assur" value="{{assurance?.id_assurance}}">
+                                            {{assurance?.compagnie_ass}}
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="date_deb_contrat">date debut contrat:</label>
+                                    <input type="date" min="2019-04-03" class="form-control" ngModel name="date_deb_contrat" id="date_deb_contrat">
+
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="date_fin_contrat">date fin contrat:</label>
+                                    <input type="date" min="2019-04-03" class="form-control" ngModel name="date_fin_contrat" id="date_fin_contrat">
+
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="montant_contrat">montant assurance:</label>
+                                    <input type="number" min=10000 class="form-control" ngModel name="montant_contrat" id="montant_contrat">
+                                </div>
+
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="montant_contrat">montant assurance:</label>
-                                <input type="number" min=10000 class="form-control" ngModel name="montant_contrat" id="montant_contrat">
-                              </div>
-  
-                </div>
-                <h5 style="color:gray">Visite technique</h5>
-                <br>
-                <div class="row">
-                    <div class="form-group col-md-3">
-                        <label for="date_deb_visit_tech">date debut visite technique:</label>
-                        <input type="date" class="form-control" min="2019-04-03" ngModel name="date_deb_visit_tech" id="date_deb_visit_tech">
-                      </div>
-                      <div class="form-group col-md-3">
-                          <label for="date_fin_visit_tech">date fin visite technique:</label>
-                          <input type="date" class="form-control" ngModel name="date_fin_visit_tech" id="date_fin_visit_tech">
+                            <h5 style="color:gray">Visite technique</h5>
+                            <br>
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="date_deb_visit_tech">date debut visite technique:</label>
+                                    <input type="date" class="form-control" min="2019-04-03" ngModel name="date_deb_visit_tech" id="date_deb_visit_tech">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="date_fin_visit_tech">date fin visite technique:</label>
+                                    <input type="date" class="form-control" ngModel name="date_fin_visit_tech" id="date_fin_visit_tech">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="montant_visit_tech">montant visite technique:</label>
+                                    <input type="number" min="10000" class="form-control" ngModel name="montant_visit_tech" id="montant_visit_tech">
+                                </div>
+                            </div>
+                            <h5 style="color:gray">Vignette</h5>
+                            <br>
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="date_deb_vig">date debut vignette:</label>
+                                    <input type="date" class="form-control" min="" ngModel name="date_deb_vig" id="date_deb_vig">
+
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="date_fin_vig">date fin vignette:</label>
+                                    <input type="date" class="form-control" ngModel name="date_fin_vig" id="date_fin_vig">
+
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="montant_vig">montant vignette:</label>
+                                    <input type="number" min="10000" class="form-control" ngModel name="montant_vig" id="montant_vig">
+
+                                </div>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <br>
+                                <button type="submit" (click)="update(vehicule)" class="btn btn-success">Enregistrer</button>
+                            </div>
                         </div>
-  
-                        <div class="form-group col-md-3">
-                            <label for="montant_visit_tech">montant visite technique:</label>
-                            <input type="number" min="10000" class="form-control" ngModel name="montant_visit_tech" id="montant_visit_tech">
-                            </div>
+
+                    </div>
                 </div>
-                <h5 style="color:gray">Vignette</h5>
-                <br>
-                <div class="row">
-                    <div class="form-group col-md-3">
-                        <label for="date_deb_vig">date debut vignette:</label>
-                        <input type="date" class="form-control" min="" ngModel name="date_deb_vig" id="date_deb_vig">
-  
-                      </div>
-                      <div class="form-group col-md-3">
-                        <label for="date_fin_vig">date fin vignette:</label>
-                        <input type="date" class="form-control" ngModel name="date_fin_vig" id="date_fin_vig">
-                       
-                      </div>
-                      <div class="form-group col-md-3">
-                        <label for="montant_vig">montant vignette:</label>
-                        <input type="number" min="10000" class="form-control" ngModel name="montant_vig" id="montant_vig">
-                       
-                      </div>
-                </div>
-                <div class="form-group col-md-2">
-                  <br>
-                  <button  type="submit" (click)="update(vehicule)" class="btn btn-success" >Enregistrer</button>
-                </div>
-              </div>
-  
             </div>
-          </div>
-        </div>
-      </form>
-  
-      <br><br>
+        </form>
+
+        <br><br>
     </div>
-  </div>
+</div>
