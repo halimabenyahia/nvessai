@@ -40,7 +40,7 @@ export class FiltrageComponent implements OnInit {
               private depenseService : DepenseService,
               private energieService : EnergieService) { }
 
-         //     depenseResponse
+        
   ngOnInit() {
     this.depenseService.getSumDepenses().subscribe(
       (value : DepenseResponse []) =>
@@ -116,13 +116,15 @@ export class FiltrageComponent implements OnInit {
   }
 
 
-  chercher(form : NgForm){
-    this.depenseService.getSumDepenceByImm(form.value).subscribe(
+  chercher(inputImmatricul ){
+    console.log(inputImmatricul);
+    this.router.navigateByUrl('/filtrage');
+   /* this.depenseService.getSumDepenceByImm(inputImmatricul.value).subscribe(
       (value : DepenseResponse []) =>
       {
         this.dep=value ;
         console.log(this.dep);
       }
-    );
+    );*/
   }
 }
