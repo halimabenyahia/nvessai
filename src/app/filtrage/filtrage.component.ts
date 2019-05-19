@@ -125,9 +125,4 @@ export class FiltrageComponent implements OnInit {
       }
     );
   }
-
- 
-
-
-
 }

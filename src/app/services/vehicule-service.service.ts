@@ -44,6 +44,14 @@ export class VehiculeServiceService {
     return this.httpClient.get('http://localhost:8091/vehiculebyCarburant'+`/${carburant}`);
   }
 
+  public getVehiculeByAffectation(service){
+    return this.httpClient.get('http://localhost:8091/vehiculebyAffectation'+`/${service}`);
+  }
+
+  public getNombreVehicule(){
+    return this.httpClient.get('http://localhost:8091/nombreVehicule');
+  }
+
   
 
  

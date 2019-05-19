@@ -60,6 +60,8 @@ export class VehiculInfoComponent implements OnInit {
   selectedModele='';
   idSelectedModele : number;
   mod : Modele [];
+  affectation : Affectation ;
+
   constructor(private vehicuelService: VehiculeServiceService,
     private router: Router,
     private marqueService: MarqueService,
@@ -110,6 +112,16 @@ export class VehiculInfoComponent implements OnInit {
 
     this.energieService.getEnergie().subscribe(
       (energie : Energie) => { this.energie = energie; }
+    );
+
+    this.affectationService.getAffectation().subscribe(
+      (affectation: Affectation) => {
+        this.affectation = affectation;
+      }
+    );
+
+    this.assuranceService.getAssurrance().subscribe(
+      (assurance: Assurance) => { this.assurance = assurance; }
     );
 
   } 
@@ -174,6 +186,7 @@ export class VehiculInfoComponent implements OnInit {
         (Chauffeur : Chauffeur[]) =>
         {
           this.chauff=Chauffeur ;
+          console.log(this.chauff);
         }
       );
     }
@@ -243,5 +256,21 @@ export class VehiculInfoComponent implements OnInit {
           this.mod = modele ;
         }
       );
+    }
+
+    public inputValidator(event: any) {
+      //console.log(event.target.value);
+      const pattern = /^\d+(\.\d{1,3})?$/g;   
+      //let inputChar = String.fromCharCode(event.charCode)
+      if (!pattern.test(event.target.value) && event.target.value[event.target.value.length - 1]!='.') {
+        event.target.value = event.target.value.substring(0,event.target.value.length - 1);
+        // invalid character, prevent input
+      }
+    }
+
+    public inputCleaner(event: any) {
+      while (event.target.value[event.target.value.length - 1] =='.') {
+        event.target.value = event.target.value.substring(0,event.target.value.length - 1);
+      } 
     }
 }

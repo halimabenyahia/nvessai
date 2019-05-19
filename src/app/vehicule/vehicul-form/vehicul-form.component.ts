@@ -155,7 +155,7 @@ export class VehiculFormComponent implements OnInit {
 
   selectModele(selectedModele){
     console.log(selectedModele);
-    this.selectedModele = selectedModele ;
+    this.selectedModele = selectedModele.des_modele ;
     this.idSelectedModele = selectedModele.id_modele ;
     this.mod = [];
   }

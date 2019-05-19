@@ -8,20 +8,20 @@
                     <table class="table">
                         <thead class="thead-light">
                             <tr>
-                                <th>Immatriculation</th>
+                                <th>immatriculation</th>
                                 <th>Chauffeur</th>
-                                <th>Coût d'achat</th>
-                                <th>Energie</th>
-                                <th>Type de boite</th>
-                                <th>Type de véhicule</th>
-                                <th>Affectation</th>
+                                <th>cout d'achat</th>
+                                <th>energie</th>
+                                <th>type boite</th>
+                                <th>type vehicule</th>
+                                <th>affectation</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let vehicule of vehicules ;let i=index">
+                            <tr *ngFor="let vehicule of vehicule ;let i=index">
                                 <td>{{vehicule?.immatriculation}}</td>
                                 <td>{{vehicule?.chauffeur_v?.nom_ch}}</td>
                                 <td>{{vehicule?.cout_achat | number}}</td>
@@ -29,14 +29,6 @@
                                 <td>{{vehicule?.type_boite?.des_boite}}</td>
                                 <td>{{vehicule?.type_vehicule?.des_typeVehicule}}</td>
                                 <td>{{vehicule?.affectation_vehicule?.des_affectation}}</td>
-
-                                <td><button type="button" class="btn btn-success" (click)="edit(vehicule.id_vehicule)">
-                                       <i class="fa fa-pencil"></i>
-                                    </button>
-                                </td>
-                                <td><button type="button" class="btn btn-danger" (click)="delete(vehicule.id_vehicule,i)">
-                                       <i class="fa fa-trash-o"></i>
-                                    </button></td>
                             </tr>
                         </tbody>
                     </table>

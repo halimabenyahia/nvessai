@@ -38,7 +38,6 @@ export class VehiculListComponent implements OnInit {
   }
  
   edit(id_vehicule){
-    const link='Vehicule/editVehicule/id_vehicule';
     this.router.navigate(['Vehicule/editVehicule/',id_vehicule]);
   }
 

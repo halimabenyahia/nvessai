@@ -54,6 +54,7 @@ import { ConnectGuard } from './guard/guardConnect';
 import { AfficheTableComponent } from './filtrage/affiche-table/affiche-table.component';
 import { GrapheComponent } from './filtrage/graphe/graphe.component';
 import { ResultatComponent } from './vehicule/resultat/resultat.component';
+import { AffectationResultComponent } from './vehicule/affectation-result/affectation-result.component';
 
 const routes: Routes = [
 
@@ -73,7 +74,8 @@ const routes: Routes = [
     { path: 'editVehicule/:id', component: VehiculInfoComponent  },
     { path: 'listVehicules', component: VehiculListComponent  },
     { path : 'chercherVehicule' , component : ChercherVehiculeComponent},
-    { path : 'resultat/:id' , component : ResultatComponent}]
+    { path : 'resultat/:des_energie' , component : ResultatComponent},
+    { path : 'resultAffectation/:des_affectation' , component : AffectationResultComponent}]
   },
   { path : 'utilisateurs' , component : UtilisateurComponent , children :[
     { path : 'addUtilisateur' , component : FormUtilisateurComponent},

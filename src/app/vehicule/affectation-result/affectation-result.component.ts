@@ -4,13 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { Vehicule } from 'src/app/entity/vehicule';
 
 @Component({
-  selector: 'app-resultat',
-  templateUrl: './resultat.component.html',
-  styleUrls: ['./resultat.component.css']
+  selector: 'app-affectation-result',
+  templateUrl: './affectation-result.component.html',
+  styleUrls: ['./affectation-result.component.css']
 })
-export class ResultatComponent implements OnInit {
-  vehicule: Vehicule;
+export class AffectationResultComponent implements OnInit {
 
+  vehicule : Vehicule ;
   constructor(private vehiculeService : VehiculeServiceService,
               private activatedRoute : ActivatedRoute) { }
 
@@ -19,17 +19,15 @@ export class ResultatComponent implements OnInit {
       (param) => 
       {
         console.log(param);
-        this.vehiculeService.getVehiculeByCarburant(param.des_energie).subscribe(
+        this.vehiculeService.getVehiculeByAffectation(param.des_affectation).subscribe(
           (vehicule: Vehicule) => {
-            console.log(param.carburant);
+           // console.log(param.carburant);
             this.vehicule = vehicule;
             console.log(vehicule);
           }
         );
       }
     );
-
-    
   }
 
 }

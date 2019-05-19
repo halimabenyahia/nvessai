@@ -4,6 +4,9 @@ import { Vehicule } from 'src/app/entity/vehicule';
 import { EnergieService } from 'src/app/services/energie.service';
 import { Energie } from 'src/app/entity/energie';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { AffectationService } from 'src/app/services/affectation.service';
+import { Affectation } from 'src/app/entity/affectation';
 
 @Component({
   selector: 'app-chercher-vehicule',
@@ -19,15 +22,27 @@ export class ChercherVehiculeComponent implements OnInit {
   idSelectedEnergie :number ;
   energieV : Energie[];
   selectedEnergie='';
+  affect : Affectation [] ;
+  idSelectedAffectation : number ;
+  affectation : Affectation [] ;
+  selectedAffectation ='' ;
+ // affectation : Affectation ;
   constructor(private vehiculeService : VehiculeServiceService,
               private energieService : EnergieService,
-              private router : Router) { }
+              private router : Router,
+              private affectationService : AffectationService) { }
 
   ngOnInit() {
     this.vehiculeService.getAllVehicule().subscribe(
       (vehicule : Vehicule) =>
       {
         this.vehicule=vehicule;
+      }
+    );
+
+    this.affectationService.getAffectation().subscribe(
+      (affectation: Affectation []) => {
+        this.affectation = affectation;
       }
     );
   }
@@ -45,9 +60,27 @@ selectEnergie(selectedEnergie){
     this.selectedEnergie = selectedEnergie.des_energie ;
     this.idSelectedEnergie = selectedEnergie.id_energie;
     this.energieV= [];
+    const p =selectedEnergie.des_energie;
+    console.log(p);
   }
-  chercher(){
-    this.router.navigate(['Vehicule/resultat']);
+
+  chercherAffectation(parametre){
+    this.affectationService.getAffectationParam(parametre).subscribe(
+      (affectation : Affectation []) =>
+      {
+        this.affect = affectation ;
+      }
+    );
+  }
+selectAffectation(selectedAffectation){
+    console.log(selectedAffectation);
+    this.selectedAffectation = selectedAffectation.des_affectation;
+    this.idSelectedAffectation = selectedAffectation.id_affectation ;
+    this.affect = [] ;
+  }
+
+chercher(parametre){
+    this.router.navigate(['Vehicule/resultAffectation',parametre]);
   }
 
 }

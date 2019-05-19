@@ -62,6 +62,7 @@ import { ConnectGuard } from './guard/guardConnect';
 import { AfficheTableComponent } from './filtrage/affiche-table/affiche-table.component';
 import { GrapheComponent } from './filtrage/graphe/graphe.component';
 import { ResultatComponent } from './vehicule/resultat/resultat.component';
+import { AffectationResultComponent } from './vehicule/affectation-result/affectation-result.component';
 
 
 
@@ -121,7 +122,8 @@ import { ResultatComponent } from './vehicule/resultat/resultat.component';
     FiltrageComponent,
     AfficheTableComponent,
     GrapheComponent,
-    ResultatComponent
+    ResultatComponent,
+    AffectationResultComponent
   
   ],
   imports: [
