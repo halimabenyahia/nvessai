@@ -16,7 +16,7 @@
                             </ol>
                         </div>
                         <div class="form-group col-sm-3">
-                            <label for="des_energie">carburant:</label>
+                            <label for="des_energie">Type de dépense:</label>
                             <input type="text" class="form-control" #inputenergie ngModel name='des_energie' (keyup)="chercherEnergie(inputenergie.value)" [(ngModel)]="selectedEnergie">
                             <input type="text" hidden name='id_energie' [(ngModel)]="idSelectedEnergie" ngModel>
                             <ol class="list-group" #listSelectedEnergie>
@@ -30,7 +30,6 @@
                             <i class="fa fa-search"></i> 
                         </button>
                         </div>
-
                     </div>
                 </form>
                 <br>

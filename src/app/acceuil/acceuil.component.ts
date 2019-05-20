@@ -14,7 +14,7 @@ export class AcceuilComponent implements OnInit {
   constructor(private vehiculeService : VehiculeServiceService) { }
 
   ngOnInit() {
-    this.vehiculeService.getNombreVehicule().subscribe(
+  /*  this.vehiculeService.getNombreVehicule().subscribe(
       (response) =>
       {
          console.log(response) ;
@@ -36,7 +36,7 @@ export class AcceuilComponent implements OnInit {
                   }
                   ]},
               "options":{}
-              });
+              });*/
   }
 
 }

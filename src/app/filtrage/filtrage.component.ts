@@ -30,11 +30,14 @@ export class FiltrageComponent implements OnInit {
   displayValue = "none" ;
  depenseResponse : DepenseResponse ;
  depenseResponses : DepenseResponse [] ;
- dep : DepenseResponse [] ;
+ dep : DepenseResponse  ;
+ response : DepenseResponse[] ;
  displayy="block" ;
  chart = [];
  month = ['janvier','fevrier','mars','avril','mai','juin',
           'juillet','aout','septembre','octobre','novembre','decembre'];
+editMode = false ;
+              
   constructor(private vehiculeService :VehiculeServiceService,
               private router : Router ,
               private depenseService : DepenseService,
@@ -50,7 +53,13 @@ export class FiltrageComponent implements OnInit {
 
       }
     );
-
+ /*   this.depenseService.getSumDepenceByImm().subscribe(
+      (resp : DepenseResponse []) =>
+      {
+        this.response = resp ;
+        console.log(this.response);
+      }
+    );*/
   } 
 
   showModal(depense,i) {
@@ -98,6 +107,7 @@ export class FiltrageComponent implements OnInit {
     this.selectedVehicule = selectedVehicule.immatriculation ;
     this.idSelectedVehicule = selectedVehicule.id_vehicule;
     this.vehicules=[];
+    
   }
 
   chercherEnergie(parametre){
@@ -117,14 +127,19 @@ export class FiltrageComponent implements OnInit {
 
 
   chercher(inputImmatricul ){
-    console.log(inputImmatricul);
-    this.router.navigateByUrl('/filtrage');
-   /* this.depenseService.getSumDepenceByImm(inputImmatricul.value).subscribe(
-      (value : DepenseResponse []) =>
-      {
-        this.dep=value ;
-        console.log(this.dep);
+   
+    console.log("matricule:"+inputImmatricul);
+    this.depenseService.getSumDepenceByImm(inputImmatricul).subscribe(
+      (value : DepenseResponse[] ) =>
+      { 
+        console.log("chercher"); 
+        this.depenseResponses=value ;
+       console.log(this.depenseResponses);
+       console.log(this.depenseResponses[0].immatriculation);
+       // var k= this.dep.immatriculation;
+       // console.log(k);
+      //  this.ngOnInit();
       }
-    );*/
+    );
   }
 }
