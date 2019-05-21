@@ -126,19 +126,20 @@ editMode = false ;
   }
 
 
-  chercher(inputImmatricul ){
+  chercher(inputImmatricul,typedepense ){
    
     console.log("matricule:"+inputImmatricul);
-    this.depenseService.getSumDepenceByImm(inputImmatricul).subscribe(
+    console.log("type : "+typedepense);
+    this.depenseService.getSumDepenceByImm(inputImmatricul,typedepense).subscribe(
       (value : DepenseResponse[] ) =>
       { 
-        console.log("chercher"); 
-        this.depenseResponses=value ;
+       console.log("chercher"); 
+       this.depenseResponses=value ;
        console.log(this.depenseResponses);
        console.log(this.depenseResponses[0].immatriculation);
-       // var k= this.dep.immatriculation;
-       // console.log(k);
-      //  this.ngOnInit();
+        var k= this.dep.immatriculation;
+        console.log(k);
+        this.ngOnInit();
       }
     );
   }
