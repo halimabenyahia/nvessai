@@ -1,0 +1,22 @@
+<div style="margin-left: 3%">
+    <form #formulaire="ngForm">
+        <h5>Ajouter un type de dépense</h5>
+        <div class="row">
+            <div class="form-group col-md-3 ">
+                <label for="designation_typeDep">type de dépense</label>
+                <input type="text" class="form-control" id="designation_typeDep" ngModel name="designation_typeDep" #typeDepense="ngModel" pattern='[a-zA-Z ]+' minlength="1" maxlength="25">
+                <div *ngIf="typeDepense.invalid && typeDepense.touched" style="color:red" class="alert alert-light" role="alert">
+                    type invalide
+                </div>
+
+            </div>
+
+        </div>
+
+        <br>
+        <div>
+            <button type="submit" (click)="add(formulaire)" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
+</div>

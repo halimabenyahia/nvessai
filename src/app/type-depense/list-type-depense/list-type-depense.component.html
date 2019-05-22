@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-body">
+        <h5 style="color:gray">Liste des types de Dépense</h5>
+        <br>
+        <table class="table">
+            <thead class="thead-light">
+                <th>identifiant</th>
+                <th>le type</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tr *ngFor="let type of typeDepense ;let i=index">
+                <td>{{type?.id_typeDepense }}</td>
+                <td>{{type?.designation_typeDep}}</td>
+                <td><button type="button" class="btn btn-success" (click)="edit(type.id_typeDepense)"><i class="fa fa-pencil"></i></button></td>
+                <td><button type="button" (click)="delete(type.id_typeDepense)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+
+            </tr>
+        </table>
+    </div>
+</div>

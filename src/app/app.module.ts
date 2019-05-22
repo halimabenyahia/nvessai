@@ -63,6 +63,14 @@ import { AfficheTableComponent } from './filtrage/affiche-table/affiche-table.co
 import { GrapheComponent } from './filtrage/graphe/graphe.component';
 import { ResultatComponent } from './vehicule/resultat/resultat.component';
 import { AffectationResultComponent } from './vehicule/affectation-result/affectation-result.component';
+import { TypeDepenseComponent } from './type-depense/type-depense.component';
+import { FormTypeDepenseComponent } from './type-depense/form-type-depense/form-type-depense.component';
+import { InfoTypeDepenseComponent } from './type-depense/info-type-depense/info-type-depense.component';
+import { ListTypeDepenseComponent } from './type-depense/list-type-depense/list-type-depense.component';
+import { TypePieceComponent } from './type-piece/type-piece.component';
+import { FormTypePieceComponent } from './type-piece/form-type-piece/form-type-piece.component';
+import { InfoTypePieceComponent } from './type-piece/info-type-piece/info-type-piece.component';
+import { ListTypePieceComponent } from './type-piece/list-type-piece/list-type-piece.component';
 
 
 
@@ -123,7 +131,15 @@ import { AffectationResultComponent } from './vehicule/affectation-result/affect
     AfficheTableComponent,
     GrapheComponent,
     ResultatComponent,
-    AffectationResultComponent
+    AffectationResultComponent,
+    TypeDepenseComponent,
+    FormTypeDepenseComponent,
+    InfoTypeDepenseComponent,
+    ListTypeDepenseComponent,
+    TypePieceComponent,
+    FormTypePieceComponent,
+    InfoTypePieceComponent,
+    ListTypePieceComponent
   
   ],
   imports: [
