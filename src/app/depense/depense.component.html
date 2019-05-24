@@ -1,24 +1,121 @@
-<div class="row" style="margin-top: 2%">
-  <div class="container"> <!-- espace al jneb-->
-    <!--<h4 style="color:darkred">liste des chauffeurs</h4> -->
-    
-    <a routerLink="/depenses/addDepense" style="margin-left: 85%">
-      <button  type="button" class="btn btn-dark"  >ajouter une depense</button>
-    </a>
-    <br>
-    <br>
-    
-    <a routerLink="/depenses/listDepense" style="margin-left: 85%">
-      <button  type="button" class="btn btn-dark"  >consulter la liste</button>
-    </a>
-    
-
-    <hr>
-    <br   >
-
-<router-outlet></router-outlet>
 <br>
-<!--<app-list-chauffeur></app-list-chauffeur> -->
-<div style="margin-bottom: 7%"></div>
+<div class="card text-center" style="margin-top: 2%">
+    <div class="card-header">
+        <h5>Ajouter une dépense</h5>
+    </div>
+    <div class="card-body">
+        <form #formulaire="ngForm">
+            <div>
+                <div class="row">
+
+                    <div class="form-group col-sm-2 ">
+                        <label for="immatriculation">Véhicule :</label>
+                        <input type="text" class="form-control" #inputImmatricul ngModel name='immatriculation' (keyup)="chercherVehicule(inputImmatricul.value)" [(ngModel)]="selectedVehicule">
+                        <input type="text" hidden name='id_vehicule' [(ngModel)]="idSelectedVehicule" ngModel>
+                        <ol class="list-group" #listSelectedVehicule>
+                            <li class="list-group-item" (click)="selectVehicule(vehicule)" *ngFor="let vehicule of vehicules" value="{{vehicule?.id_vehicule}}">
+                                {{vehicule?.immatriculation}}
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="form-group col-sm-3.5">
+                        <label for="date_depense">Date de dépense:</label>
+                        <input type="date" required class="form-control" id="date_depense" ngModel name="date_depense" #dateDep="ngModel" max="2019-06-06">
+                    </div>
+                    <div class="form-group col-sm-2 ">
+                        <label for="designation_typeDep">Type de dépense :</label>
+                        <input type="text" class="form-control" #typeDep ngModel name='designation_typeDep' (keyup)="chercherTypeDepense(typeDep.value)" [(ngModel)]="selectedTypeDepense">
+                        <input type="text" hidden name='id_typeDepense' [(ngModel)]="idSelectedtypeDepense" ngModel>
+                        <ol class="list-group" #listSelectedType>
+                            <li class="list-group-item" (click)="selectType(type)" *ngFor="let type of typeDepense" value="{{type?.id_typeDepense}}">
+                                {{type?.designation_typeDep}}
+                            </li>
+                        </ol>
+                    </div>
+
+
+                </div>
+                <hr>
+                <div>
+                    <h5 style="color:gray">enregistrer les pièces</h5>
+                    <br>
+                    <table class="table">
+                        <thead class="thead-light">
+                            <th> Pièce </th>
+                            <th>Type de pièce </th>
+                            <th>Référence</th>
+                            <th>Qte</th>
+                            <th>PU</th>
+                            <th>TVA</th>
+                            <th>TTC</th>
+                            <th></th>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>
+                                    <input type="text" class="form-control col-sm-9" ngModel name='des_piece' id="des_piece" pattern="[A-Za-z]+">
+                                </th>
+                                <th>
+                                    <input type="text" class="form-control col-sm-2.5" #type_Piece ngModel name='des_typePiece' (keyup)="chercherTypePiece(type_Piece.value)" [(ngModel)]="selectedTypePiece">
+                                    <input type="text" hidden name='id_typePiece' [(ngModel)]="idSelectedtypePiece" ngModel>
+                                    <ol class="list-group" #listSelectedType>
+                                        <li class="list-group-item" (click)="selectTypeP(type)" *ngFor="let type of typePiece" value="{{type?.id_typePiece}}">
+                                            {{type?.des_typePiece}}
+                                        </li>
+                                    </ol>
+                                </th>
+                                <th>{{piece.reference_piece}}</th>
+                                <th>
+                                    <input type="text" required class="form-control col-sm-7" id="qte_p" pattern="[1-9]+" ngModel name="qte_p" #qtep="ngModel">
+                                    <p *ngIf="qtep.invalid && qtep.touched " style="color:red" class="alert alert-light" role="alert">
+                                        Qte invalide
+                                    </p>
+                                </th>
+                                <th>
+                                    <input required type="text" pattern="[1-9.,0-9]+" class="form-control col-sm-11" id="prix_achat" ngModel name="prix_achat" #prixachat="ngModel">
+                                    <p *ngIf="prixachat.invalid && prixachat.touched " style="color:red" class="alert alert-light" role="alert">
+                                        PU invalide
+                                    </p>
+                                </th>
+                                <th>
+                                    <input required type="text" pattern="[1-9.,0-9]+" class="form-control col-sm-7" id="tva_p" ngModel name="tva_p" #tvap="ngModel">
+                                    <p *ngIf="tvap.invalid && tvap.touched " style="color:red" class="alert alert-light" role="alert">
+                                        tva invalide
+                                    </p>
+                                </th>
+                                <th>
+                                    <input required type="text" pattern="[1-9.,0-9]+" class="form-control col-sm-11" id="ttc_p" ngModel name="ttc_p" #ttcp="ngModel">
+                                    <p *ngIf="ttcp.invalid && ttcp.touched " style="color:red" class="alert alert-light" role="alert">
+                                        tva invalide
+                                    </p>
+                                </th>
+                                <th><button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button></th>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </form>
+    </div>
 </div>
+<div class="card-footer text-muted">
+    <div class="form-group col-md-2">
+        <br>
+        <button type="submit" (click)="add(formulaire)" class="btn btn-success">Enregistrer</button>
+    </div>
+    <div style="margin-right: 1%" class="form-group col-sm-2">
+        <label for="montant_ht">montant totale:</label>
+        <input required type="text" pattern="[1-9.,0-9]+" class="form-control" id="montant_ht" ngModel name="montant_ht" #montantht="ngModel">
+        <div *ngIf="montantht.invalid && montantht.touched" style="color:red" class="alert alert-light" role="alert">
+            montant invalide
+        </div>
+    </div>
+</div>
+<div>
+    <div class="form-group col-md-3">
+        <button type="button" class="btn btn-success" routerLink="/listDepense"><i class="fa fa-list"></i></button>
+    </div>
 </div>

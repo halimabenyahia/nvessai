@@ -63,6 +63,9 @@ import { TypePieceComponent } from './type-piece/type-piece.component';
 import { FormTypePieceComponent } from './type-piece/form-type-piece/form-type-piece.component';
 import { InfoTypePieceComponent } from './type-piece/info-type-piece/info-type-piece.component';
 import { ListTypePieceComponent } from './type-piece/list-type-piece/list-type-piece.component';
+import { PieceComponent } from './piece/piece.component';
+import { InfoPieceComponent } from './piece/info-piece/info-piece.component';
+import { ListPieceComponent } from './piece/list-piece/list-piece.component';
 
 const routes: Routes = [
 
@@ -73,8 +76,9 @@ const routes: Routes = [
   { path : 'depenses' , component : DepenseComponent , canActivate :[GuardAuth], children : [
     { path : 'addDepense' , component : FormDepenseComponent},
     { path : 'editDepense/:id' , component : InfoDepenseComponent},
-    { path : 'listDepense' , component : ListDepenseComponent}
+    
   ]},
+  { path : 'listDepense' , component : ListDepenseComponent},
 
   {path:'Vehicule' , component : VehiculeComponent , canActivate :[GuardAuth], children: [
    // { path: '', redirectTo: '/Vehicule', pathMatch: 'full' },
@@ -164,7 +168,10 @@ const routes: Routes = [
     { path : 'addTypePiece' , component: FormTypePieceComponent},
     { path : 'editTypePiece/:id' , component : InfoTypePieceComponent},
     { path : 'listTypePiece' , component : ListTypePieceComponent}
-  ]}
+  ]},
+  {path : 'pieces' , component : PieceComponent }, //add
+  { path : 'listPiece'  , component : ListPieceComponent},
+  { path : 'editPiece/:id' , component : InfoPieceComponent}
   
 ];
 

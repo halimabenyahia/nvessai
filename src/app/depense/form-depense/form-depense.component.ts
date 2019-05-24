@@ -8,6 +8,8 @@ import { TypeDepenseService } from 'src/app/services/type-depense.service';
 import { TypeDepense } from 'src/app/entity/typeDepense';
 import { TypePieceService } from 'src/app/services/type-piece.service';
 import { TypePiece } from 'src/app/entity/typePiece';
+import { Piece } from 'src/app/entity/piece';
+import { Depense } from 'src/app/entity/depense';
 
 @Component({
   selector: 'app-form-depense',
@@ -30,6 +32,8 @@ export class FormDepenseComponent implements OnInit {
   idSelectedtypePiece : number ;
   typePiece : TypePiece ;
   typeP : TypePiece [];
+  depense : Depense ;
+  piece : Piece ;
   constructor(private depenseService : DepenseService,
               private router : Router,
               private vehiculeService : VehiculeServiceService,

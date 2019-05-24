@@ -31,6 +31,6 @@ export class TypePieceService {
   }
 
   public getTypePieceParam(parametre){
-    return this.http.get('http://localhost:8091/typePieceByParam/'+`/${parametre}`);
+    return this.http.get('http://localhost:8091/typePieceByParam'+`/${parametre}`);
   }
 }

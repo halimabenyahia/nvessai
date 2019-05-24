@@ -1,0 +1,81 @@
+<br>
+<div class="row">
+    <div class="container">
+        <br>
+        <form #formulaire="ngForm" *ngIf="piece">
+            <div>
+                <div class="card">
+                    <div class="card-body">
+                        <br>
+                        <h5>Détail pièce</h5>
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label id="des_piece">Désignation:</label>
+                                <input type="text" required class="form-control" id="des_piece" [(ngModel)]="piece.des_piece" name="des_piece" #despiece="ngModel" pattern="[A-Za-z0-9]+">
+                                <div *ngIf="despiece.invalid && despiece.touched" style="color:red" class="alert alert-light" role="alert">
+                                    désignation invalid
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="des_typePiece">Type de pièce:</label>
+                                <input type="text" class="form-control col-sm-2.5" #type_Piece ngModel name='des_typePiece' (keyup)="chercherTypePiece(type_Piece.value)" [(ngModel)]="piece.type_piece_p.des_typePiece">
+                                <input type="text" hidden name='id_typePiece' [(ngModel)]="idSelectedtypePiece" ngModel>
+                                <ol class="list-group" #listSelectedType>
+                                    <li class="list-group-item" (click)="selectTypeP(type)" *ngFor="let type of typePiece" value="{{type?.id_typePiece}}">
+                                        {{type?.des_typePiece}}
+                                    </li>
+                                </ol>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label id="reference_piece">Réference piece:</label>
+                                <input type="text" class="form-control" id="reference_piece" [(ngModel)]="piece.reference_piece" name="reference_piece" #referencepiece="ngModel" pattern='[a-zA-Z0-9 ]+'>
+                                <div *ngIf="referencepiece.invalid && referencepiece.touched" style="color:red" class="alert alert-light" role="alert">
+                                    reference invalide
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label id="qte_p">Quantité:</label>
+                                <input type="text" disabled="true" class="form-control" id="qte_p" [(ngModel)]="piece.qte_p" name="qte_p" #qtep="ngModel" pattern='[1-9 ]+'>
+
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label id="prix_achat">Prix unitaire en DT:</label>
+                                <input type="tel" class="form-control" id="prix_achat" [(ngModel)]="piece.prix_achat" name="prix_achat" #prixachat="ngModel" pattern="[1-9,.]+">
+                                <div *ngIf="prixachat.invalid && prixachat.touched" style="color:red" class="alert alert-light" role="alert">
+                                    prix unitaire invalide
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label id="tva_p">TVA:</label>
+                                <input type="text" class="form-control" id="tva_p" [(ngModel)]="piece.tva_p" name="tva_p" #tvap="ngModel" pattern='[0-9  ]+'>
+                                <div *ngIf="tvap.invalid && tvap.touched" style="color:red" class="alert alert-light" role="alert">
+                                    TVA invalide
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label id="ttc_p">TTC</label>
+                                <input type="text" disabled="true" pattern="[1-9]+" class="form-control" id="ttc_p" ngModel name="ttc_p" #ttcp="ngModel">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <br>
+                            <div class="form-group col-md-3">
+                                <button type="submit" class="btn btn-success" (click)="update(piece)"><i class="fa fa-check"></i></button>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <button type="button" class="btn btn-success" (click)="gotoList()"><i class="fa fa-list"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <br><br>
+    </div>
+</div>

@@ -71,6 +71,9 @@ import { TypePieceComponent } from './type-piece/type-piece.component';
 import { FormTypePieceComponent } from './type-piece/form-type-piece/form-type-piece.component';
 import { InfoTypePieceComponent } from './type-piece/info-type-piece/info-type-piece.component';
 import { ListTypePieceComponent } from './type-piece/list-type-piece/list-type-piece.component';
+import { PieceComponent } from './piece/piece.component';
+import { ListPieceComponent } from './piece/list-piece/list-piece.component';
+import { InfoPieceComponent } from './piece/info-piece/info-piece.component';
 
 
 
@@ -139,7 +142,10 @@ import { ListTypePieceComponent } from './type-piece/list-type-piece/list-type-p
     TypePieceComponent,
     FormTypePieceComponent,
     InfoTypePieceComponent,
-    ListTypePieceComponent
+    ListTypePieceComponent,
+    PieceComponent,
+    ListPieceComponent,
+    InfoPieceComponent
   
   ],
   imports: [

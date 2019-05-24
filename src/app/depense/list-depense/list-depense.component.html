@@ -1,35 +1,33 @@
 <div class="container">
-  <div class="card">
-    <div class="card-body">
-  <h5 style="color:gray">Liste des depenses</h5>
-  <br>
-  <table class="table">
-    <thead class="thead-light">
-      <th> immatriculation </th>
-      <th>date </th>
-      <th>ttc</th>
-      <th>type depense</th>
-      <th>compteur</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </thead>
-    <tbody>
-    <tr *ngFor="let depense of depense ;let i=index">
-      <th>{{depense?.vehicule_dep.immatriculation}}</th>
-      <th>{{depense?.date_depense}}</th>
-      <td>{{depense?.ttc | number}}</td>
-      <td>{{depense?.type_depense}}</td>
-      <td>{{depense?.compteur_d}}</td>
-      <td><button type="button" class="btn btn-success" (click)="gotoInfo(depense.id_depense)"><i class="fa fa-pencil"></i></button></td>
-      <td><button type="button" class="btn btn-danger" (click)="delete(depense.id_depense,i) " ><i class="fa fa-trash-o"></i></button></td>
-   
-    </tr> 
-  </tbody>
-  </table>
-  </div>
-  </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 style="color:gray">Liste des depenses</h5>
+            <br>
+            <table class="table">
+                <thead class="thead-light">
+                    <th> immatriculation </th>
+                    <th>date </th>
+                    <th>ttc</th>
+                    <th>type depense</th>
+                    <th>compteur</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let depense of depense ;let i=index">
+                        <th>{{depense?.vehicule_dep.immatriculation}}</th>
+                        <th>{{depense?.date_depense}}</th>
+                        <td>{{depense?.ttc | number}}</td>
+                        <td>{{depense?.type_depense}}</td>
+                        <td>{{depense?.compteur_d}}</td>
+                        <td><button type="button" class="btn btn-success" (click)="gotoInfo(depense.id_depense)"><i class="fa fa-pencil"></i></button></td>
+                        <td><button type="button" class="btn btn-danger" (click)="delete(depense.id_depense,i) "><i class="fa fa-trash-o"></i></button></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-
-
