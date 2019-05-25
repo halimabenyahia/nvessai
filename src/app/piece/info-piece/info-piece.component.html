@@ -17,13 +17,13 @@
                                 </div>
 
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="des_typePiece">Type de pièce:</label>
-                                <input type="text" class="form-control col-sm-2.5" #type_Piece ngModel name='des_typePiece' (keyup)="chercherTypePiece(type_Piece.value)" [(ngModel)]="piece.type_piece_p.des_typePiece">
-                                <input type="text" hidden name='id_typePiece' [(ngModel)]="idSelectedtypePiece" ngModel>
-                                <ol class="list-group" #listSelectedType>
-                                    <li class="list-group-item" (click)="selectTypeP(type)" *ngFor="let type of typePiece" value="{{type?.id_typePiece}}">
-                                        {{type?.des_typePiece}}
+                            <div class="form-group col-sm-3 ">
+                                <label for="des_piece">type piece:</label>
+                                <input type="text" class="form-control" #inputTypePiece name='des_typePiece' autocomplete="off" (keyup)="chercherTypePiece(inputTypePiece.value)" [(ngModel)]="piece.type_piece_p.des_typePiece">
+                                <input type="text" hidden name='id_typePiece' [(ngModel)]="idSelectedTypePiece" ngModel>
+                                <ol class="list-group" #listSelectedPiece>
+                                    <li class="list-group-item" (click)="selectTypePiece(p)" *ngFor="let p of typePieces" value="{{p?.id_typePiece}}">
+                                        {{p?.des_typePiece}}
                                     </li>
                                 </ol>
                             </div>

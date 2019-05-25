@@ -15,8 +15,9 @@ export class InfoPieceComponent implements OnInit {
   piece : Piece ;
   typeP : TypePiece [] ;
   selectedTypePiece='';
-  idSelectedtypePiece : number ;
+  idSelectedTypePiece : number ;
   typePiece : TypePiece ;
+  typePieces : TypePiece[];
   constructor(private pieceService :PieceService,
               private router : Router,
               private activatedRoute : ActivatedRoute,
@@ -36,6 +37,12 @@ export class InfoPieceComponent implements OnInit {
         );
       }
     );
+
+    this.typePieceService.getAllTypePiece().subscribe(
+      (piece: Piece) => 
+      { 
+        this.piece = piece; 
+      });
   }
 
   update(piece) {
@@ -53,18 +60,18 @@ export class InfoPieceComponent implements OnInit {
     this.typePieceService.getTypePieceParam(parametre).subscribe(
       (typePiece : TypePiece[]) =>
       {
-        this.typeP=typePiece ;
+        this.typePieces=typePiece;
         console.log(typePiece);
       }
     );
   }
-  selectTypeP(selectedTypePiece){
+  selectTypePiece(selectedTypePiece){
     console.log(selectedTypePiece);
-    this.selectedTypePiece = selectedTypePiece.des_typePiece;
-    this.idSelectedtypePiece = selectedTypePiece.id_typePiece ;
-    this.typeP = [];
-    console.log(this.typeP);
-    }
+    this.selectedTypePiece = selectedTypePiece.des_typePiece ;
+    this.idSelectedTypePiece = selectedTypePiece.id_typePiece;
+    this.typePieces=[];
+    
+  }
 
     gotoList(){
       this.router.navigate(['/listPiece']);

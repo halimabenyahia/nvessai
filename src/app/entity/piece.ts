@@ -11,6 +11,7 @@ export class Piece {
 	montant_hors_taxe : number ;
 	type_piece_p : TypePiece ;
 	id_typePiece : number ;
+
 	constructor(id_piece=0,reference_piece='',des_piece='',tva_p=0,prix_achat=0,qte_p=0,remise_p=0,montant_hors_taxe=0,
 	            id_typePiece=0){
 		this.id_piece = id_piece ;

@@ -16,8 +16,10 @@ export class PieceComponent implements OnInit {
   piece : Piece ;
   typeP : TypePiece [] ;
   selectedTypePiece='' ;
-  idSelectedtypePiece : number ;
+ // idSelectedtypePiece : number ;
   typePiece : TypePiece ;
+  idSelectedTypePiece : number ;
+  typePieces : TypePiece[];
   constructor(private pieceService : PieceService,
               private typePieceService : TypePieceService,
               private router : Router) { }
@@ -34,6 +36,23 @@ export class PieceComponent implements OnInit {
     this.typePieceService.getTypePieceParam(parametre).subscribe(
       (typePiece : TypePiece[]) =>
       {
+        this.typePieces=typePiece;
+        console.log(typePiece);
+      }
+    );
+  }
+  selectTypePiece(selectedTypePiece){
+    console.log(selectedTypePiece);
+    this.selectedTypePiece = selectedTypePiece.des_typePiece ;
+    this.idSelectedTypePiece = selectedTypePiece.id_typePiece;
+    this.typePieces=[];
+    
+  }
+
+ /* chercherTypePiece(parametre){
+    this.typePieceService.getTypePieceParam(parametre).subscribe(
+      (typePiece : TypePiece[]) =>
+      {
         
         this.typeP=typePiece ;
         console.log(typePiece);
@@ -47,7 +66,7 @@ export class PieceComponent implements OnInit {
     this.typeP = [];
     console.log(this.typeP);
     }
-
+*/
     add(formulaire : NgForm){
       this.pieceService.addPiece(formulaire.value).subscribe(
         (response) =>

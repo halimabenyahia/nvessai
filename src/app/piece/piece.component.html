@@ -12,18 +12,18 @@
                         <div class="row">
                             <div class="form-group col-md-3">
                                 <label for="des_piece">Désignation piece:</label>
-                                <input type="text" minlength="1" maxlength="25" required class="form-control" id="des_piece" ngModel name="des_piece" #despiece="ngModel" pattern="[A-Za-z0-9 ']+">
+                                <input type="text" minlength="1" maxlength="55" required class="form-control" id="des_typePiece" ngModel name="des_piece" #despiece="ngModel" pattern="[A-Za-z0-9 ']+">
                                 <div *ngIf="despiece.invalid && despiece.touched" style="color:red" class="alert alert-light" role="alert">
                                     désignation invalide
                                 </div>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="des_typePiece">Type de pièce:</label>
-                                <input type="text" class="form-control col-sm-2.5" #type_Piece ngModel name='des_typePiece' (keyup)="chercherTypePiece(type_Piece.value)" [(ngModel)]="selectedTypePiece">
-                                <input type="text" hidden name='id_typePiece' [(ngModel)]="idSelectedtypePiece" ngModel>
-                                <ol class="list-group" #listSelectedType>
-                                    <li class="list-group-item" (click)="selectTypeP(type)" *ngFor="let type of typePiece" value="{{type?.id_typePiece}}">
-                                        {{type?.des_typePiece}}
+                            <div class="form-group col-sm-3 ">
+                                <label for="des_piece">type piece:</label>
+                                <input type="text" class="form-control" #inputTypePiece ngModel name='des_piece' autocomplete="off" (keyup)="chercherTypePiece(inputTypePiece.value)" [(ngModel)]="selectedTypePiece">
+                                <input type="text" hidden name='id_typePiece' [(ngModel)]="idSelectedTypePiece" ngModel>
+                                <ol class="list-group" #listSelectedPiece>
+                                    <li class="list-group-item" (click)="selectTypePiece(p)" *ngFor="let p of typePieces" value="{{p?.id_typePiece}}">
+                                        {{p?.des_typePiece}}
                                     </li>
                                 </ol>
                             </div>
@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="prix_achat">Prix unitaire en DT:</label>
-                                <input required type="text" pattern="[1-9 ]+ " class="form-control" id="prix_achat" ngModel name="prix_achat" #prixachat="ngModel">
+                                <input required type="text" pattern="[0-9 ]+ " class="form-control" id="prix_achat" ngModel name="prix_achat" #prixachat="ngModel">
                                 <div *ngIf="prixachat.invalid && prixachat.touched" style="color:red" class="alert alert-light" role="alert">
                                     prix invalide
                                 </div>
@@ -53,7 +53,7 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label id="tva_p">TVA en %:</label>
-                                <input type="text" pattern="[1-9]+%" class="form-control" id="tva_p" ngModel name="tva_p" #tvap="ngModel">
+                                <input type="text" pattern="[1-9]+" class="form-control" id="tva_p" ngModel name="tva_p" #tvap="ngModel">
                                 <div *ngIf="tvap.invalid && tvap.touched" style="color:red" class="alert alert-light" role="alert">
                                     tva invalide
                                 </div>

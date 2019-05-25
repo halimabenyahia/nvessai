@@ -29,5 +29,12 @@ export class PieceService {
   public editPiece(piece){
     return this.http.put('http://localhost:8091/editPiece',piece);
   }
+
+  public getbyDespiece(parametre){
+   /* var r="http://localhost:8091/piecebyDes/"+"hello";
+    console.log("service:+"+r);
+return this.http.get(r);*/
+    return this.http.get('http://localhost:8091/piecebyDes'+ `/${parametre}`);
+  }
   
 }
