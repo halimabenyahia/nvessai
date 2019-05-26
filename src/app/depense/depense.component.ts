@@ -40,6 +40,9 @@ export class DepenseComponent implements OnInit {
   selectedPiece = '';
   idSelectedPiece: number;
   typeDepenses: TypeDepense[];
+  k : string ;
+
+  listPieces : Piece[];
   constructor(private depenseService: DepenseService,
     private router: Router,
     private vehiculeService: VehiculeServiceService,
@@ -57,7 +60,6 @@ export class DepenseComponent implements OnInit {
 
     this.typeDepenseService.getAllTypeDepense().subscribe(
       (typeDepense: TypeDepense) => {
-        let t: TypeDepense;
         this.typeDepense = typeDepense;
       }
     );
@@ -112,6 +114,13 @@ export class DepenseComponent implements OnInit {
     else {
       this.isSelectedPiece = false;
     }
+    this.listPieces = [
+      new Piece(),
+      new Piece(),
+      new Piece(),
+      new Piece()
+    ];
+
   }
 
   affiche(designationP) {
@@ -137,15 +146,22 @@ export class DepenseComponent implements OnInit {
     this.selectedPiece = selectedPiece.des_piece;
     this.idSelectedPiece = selectedPiece.id_piece;
     this.pieces = [];
+    this.k =selectedPiece.des_piece;
+    console.log("designation :"+this.k);
+   // this.listPieces.push(items);
+    
   }
 
   ajouterLigne() {
-    var table = document.getElementById("myTable");
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    cell1.innerHTML = "NEW CELL1";
-    cell2.innerHTML = "NEW CELL2";
+    this.listPieces = [
+      new Piece()
+    ];
+  }
+
+  supprimerLigne(p : Piece){
+    console.log("p : "+p );
+    const index = this.listPieces.indexOf(p);
+    this.listPieces.splice(index, 1);
   }
 
 
