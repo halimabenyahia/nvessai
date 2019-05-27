@@ -78,7 +78,7 @@ const routes: Routes = [
     { path : 'editDepense/:id' , component : InfoDepenseComponent},
     
   ]},
-  { path : 'listDepense' , component : ListDepenseComponent},
+  { path : 'listDepense' , component : ListDepenseComponent, canActivate :[GuardAuth]},
 
   {path:'Vehicule' , component : VehiculeComponent , canActivate :[GuardAuth], children: [
    // { path: '', redirectTo: '/Vehicule', pathMatch: 'full' },
@@ -89,7 +89,7 @@ const routes: Routes = [
     { path : 'resultat/:des_energie' , component : ResultatComponent},
     { path : 'resultAffectation/:des_affectation' , component : AffectationResultComponent}]
   },
-  { path : 'utilisateurs' , component : UtilisateurComponent , children :[
+  { path : 'utilisateurs' , component : UtilisateurComponent , canActivate :[GuardAuth], children :[
     { path : 'addUtilisateur' , component : FormUtilisateurComponent},
     { path : 'editUtilisateur/:id' , component : EditUtilisateurComponent},
     { path : 'listUtilisateur' , component : ListUtilisateurComponent}
@@ -169,9 +169,9 @@ const routes: Routes = [
     { path : 'editTypePiece/:id' , component : InfoTypePieceComponent},
     { path : 'listTypePiece' , component : ListTypePieceComponent}
   ]},
-  {path : 'pieces' , component : PieceComponent }, //add
-  { path : 'listPiece'  , component : ListPieceComponent},
-  { path : 'editPiece/:id' , component : InfoPieceComponent}
+  {path : 'pieces' , component : PieceComponent , canActivate :[GuardAuth]}, //add
+  { path : 'listPiece'  , component : ListPieceComponent, canActivate :[GuardAuth]},
+  { path : 'editPiece/:id' , component : InfoPieceComponent, canActivate :[GuardAuth]}
   
 ];
 

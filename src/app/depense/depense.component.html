@@ -65,7 +65,7 @@
                                 <th>{{piece?.type_piece_p?.des_typePiece}}</th>
                                 <th>{{piece?.reference_piece}}</th>
                                 <th>
-                                    <input type="text" required class="form-control col-sm-7" value=1 id="qte_p" pattern="[1-9]+" ngModel name="qte_p" #qtep="ngModel">
+                                    <input type="text" placeholder="1" required class="form-control col-sm-7" value=1 id="qte_p" pattern="[1-9]+" ngModel name="qte_p" #qtep="ngModel">
                                     <p *ngIf="qtep.invalid && qtep.touched " style="color:red" class="alert alert-light" role="alert">
                                         Qte invalide
                                     </p>
