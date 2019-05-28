@@ -6,7 +6,12 @@
 <div style="margin-left: 30%" class="container login-container">
     <div class="row">
         <div class="col-md-6 login-form-1">
-            <h3>Connexion</h3>
+            <!-- <h3>Connexion</h3>-->
+            <div style="margin-left: 12%">
+                <img src="assets/images/only.png" class="img-circle">
+            </div>
+            <br>
+            <br>
             <form #form="ngForm">
                 <div class="form-group">
                     <input type="text" id="username" class="form-control" placeholder="username *" ngModel name="username" pattern='[a-zA-Z ]+' #username="ngModel" minlength="2" maxlength="10">
@@ -21,6 +26,15 @@
           se connecter
         </button>
                 </div>
+                <!--   <div class="col-sm-4 bloc-contact">
+                    <h5 class="text-color"><span class="border-color" style="size: 0ch;color: blanchedalmond">Contactez nous</span></h5>
+                    <div class="content">
+                        <p>
+                            OnlySoft : (+216) 54.950.202
+                        </p>
+                    </div>
+                </div>
+                -->
             </form>
         </div>
     </div>

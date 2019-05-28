@@ -43,6 +43,10 @@ export class DepenseComponent implements OnInit {
   k : string ;
 
   listPieces : Piece[];
+  
+  myTable =[];
+  
+ 
   constructor(private depenseService: DepenseService,
     private router: Router,
     private vehiculeService: VehiculeServiceService,
@@ -115,15 +119,12 @@ export class DepenseComponent implements OnInit {
       this.isSelectedPiece = false;
     }
     this.listPieces = [
-      new Piece(),
-      new Piece(),
-      new Piece(),
       new Piece()
     ];
 
   }
 
-  affiche(designationP) {
+ /* affiche(designationP) {
     console.log(designationP);
     this.pieceService.getbyDespiece(designationP.value).subscribe(
       (piece: Piece) => {
@@ -131,7 +132,7 @@ export class DepenseComponent implements OnInit {
         console.log(piece);
       }
     );
-  }
+  }*/
 
   chercherPiece(parametre) {
     this.pieceService.getbyDespiece(parametre).subscribe(
@@ -141,21 +142,30 @@ export class DepenseComponent implements OnInit {
       }
     );
   }
+
   selectPiece(selectedPiece) {
     console.log(selectedPiece);
     this.selectedPiece = selectedPiece.des_piece;
     this.idSelectedPiece = selectedPiece.id_piece;
     this.pieces = [];
-    this.k =selectedPiece.des_piece;
-    console.log("designation :"+this.k);
-   // this.listPieces.push(items);
+    this.k =selectedPiece.reference_piece;
+    
+
+    this.myTable.push(this.k);
+    
+
+
+   // console.log("designation :"+this.k);
+  //  const index = this.listPieces.indexOf(selectedPiece);
+  //  console.log("index"  + index);
+   
     
   }
 
   ajouterLigne() {
-    this.listPieces = [
+    this.listPieces.push(
       new Piece()
-    ];
+    ) ;
   }
 
   supprimerLigne(p : Piece){

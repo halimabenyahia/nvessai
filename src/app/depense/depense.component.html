@@ -36,7 +36,7 @@
                 <div *ngIf="isSelectedPiece">
                     <h5 style="color:gray">Choisir les pièces</h5>
                     <br>
-                    <table class="table">
+                    <table class="table" #myTable>
                         <thead class="thead-light">
                             <th> Pièce </th>
                             <th>Type de pièce </th>
@@ -45,12 +45,12 @@
                             <th>PU</th>
                             <th>TVA</th>
                             <th>TTC</th>
-                            <th><button type="button" (click)="ajouterLigne()" class="btn btn-success"><i class="fa fa-plus"></i></button></th>
                             <th></th>
+                            <th><button type="button" (click)="ajouterLigne()" class="btn btn-success"><i class="fa fa-plus"></i></button></th>
 
                         </thead>
                         <tbody>
-                            <tr *ngFor="let piece of listPieces">
+                            <tr *ngFor="let piece of listPieces ;let i=index">
                                 <th>
                                     <div class="form-group col-sm-12 ">
                                         <input type="text" class="form-control" #inputPiece ngModel name='des_piece' autocomplete="off" (keyup)="chercherPiece(inputPiece.value)" [(ngModel)]="selectedPiece">
@@ -78,7 +78,7 @@
                                 </th>
                                 <th></th>
                                 <th></th>
-                                <th><button type="button" (click)="supprimerLigne(piece)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></th>
+                                <th><button type="button" (click)="supprimerLigne(piece,i)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></th>
                             </tr>
                         </tbody>
                     </table>
