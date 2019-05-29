@@ -1,12 +1,12 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+---- Include the above in your HEAD tag 
 
 <div style="margin-left: 30%" class="container login-container">
     <div class="row">
         <div class="col-md-6 login-form-1">
-            <!-- <h3>Connexion</h3>-->
+             <h3>Connexion</h3>
             <div style="margin-left: 12%">
                 <img src="assets/images/only.png" class="img-circle">
             </div>
@@ -26,7 +26,7 @@
           se connecter
         </button>
                 </div>
-                <!--   <div class="col-sm-4 bloc-contact">
+                   <div class="col-sm-4 bloc-contact">
                     <h5 class="text-color"><span class="border-color" style="size: 0ch;color: blanchedalmond">Contactez nous</span></h5>
                     <div class="content">
                         <p>
@@ -34,8 +34,78 @@
                         </p>
                     </div>
                 </div>
-                -->
+               
             </form>
         </div>
     </div>
 </div>
+-->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- new login start -->
+<section class="login-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 banner-sec">
+                <div class="signup__overlay"></div>
+                <div class="banner">
+                    <div id="demo" class="carousel slide " data-ride="carousel">
+                        <!--  <ol class="carousel-indicators">
+                            <li data-target="#demo" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="1"></li>
+                        </ol>
+                        -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="assets/images/moto.jpg" class="img-fluid">
+
+                                <h1>Gestion de parc </h1>
+
+                            </div>
+                            <!--   <div class="carousel-item">
+                                <img src="@/assets/images/footer_logo.png" class="img-fluid">
+                                <h1>DISCOVER GROWTH</h1>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 login-sec">
+                <h2 class="text-center">Connexion</h2>
+                <form #form="ngForm" class="login100-form validate-form">
+                    <div class="wrap-input100 validate-input">
+                        <span class="label-input100">Username</span>
+                        <input class="input100" type="text" name="username" ngModel name="username" pattern='[a-zA-Z ]+' #username="ngModel" minlength="2" maxlength="10" placeholder="Type your username">
+                        <div *ngIf="username.invalid && username.touched" style="color:red"> veuillez vérifier username</div>
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <span class="label-input100">Password</span>
+                        <input class="input100" type="password" ngModel name="password" pattern="[A-Za-z0-9]+" maxlength="10" minlength="1" #motdepasse="ngModel" placeholder="Type your password">
+                        <div *ngIf="motdepasse.invalid && motdepasse.touched" style="color:red"> veuillez vérifier mot de passe</div>
+                        <span class="focus-input100 password"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <button (click)="login(form)" type="submit" class="btn btn-primary mr-2">
+                               Se connecter
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="copy-text">OnlySoft 2019 ,Contactez-nous :+216 71 80 02 57
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- new login end -->

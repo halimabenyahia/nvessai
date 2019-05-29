@@ -40,10 +40,11 @@ export class DepenseComponent implements OnInit {
   selectedPiece = '';
   idSelectedPiece: number;
   typeDepenses: TypeDepense[];
-  k : string ;
-
+  ref : string ;
+  ty : string ;
   listPieces : Piece[];
-  
+  pu : string ;
+  tv : number ;
   myTable =[];
   
  
@@ -119,6 +120,9 @@ export class DepenseComponent implements OnInit {
       this.isSelectedPiece = false;
     }
     this.listPieces = [
+      new Piece(),
+      new Piece(),
+      new Piece(),
       new Piece()
     ];
 
@@ -143,21 +147,25 @@ export class DepenseComponent implements OnInit {
     );
   }
 
-  selectPiece(selectedPiece) {
+  selectPiece(selectedPiece , piece :Piece) {
     console.log(selectedPiece);
     this.selectedPiece = selectedPiece.des_piece;
     this.idSelectedPiece = selectedPiece.id_piece;
     this.pieces = [];
-    this.k =selectedPiece.reference_piece;
+   
+    const index = this.listPieces.indexOf(piece);
+    this.listPieces.push(this.listPieces[index]);
     
+  //  this.ref =selectedPiece.reference_piece;
+  //  this.ty = selectedPiece.type_piece_p.des_typePiece;
+   // this.pu=selectedPiece.prix_achat;
+    //this.tv=selectedPiece.tva_p;
 
-    this.myTable.push(this.k);
-    
+   // this.myTable.push(this.ref);
+   // this.myTable.push(this.ty);
+   // this.myTable.push(this.pu);
+   // this.myTable.push(this.tv);
 
-
-   // console.log("designation :"+this.k);
-  //  const index = this.listPieces.indexOf(selectedPiece);
-  //  console.log("index"  + index);
    
     
   }
@@ -172,6 +180,7 @@ export class DepenseComponent implements OnInit {
     console.log("p : "+p );
     const index = this.listPieces.indexOf(p);
     this.listPieces.splice(index, 1);
+    console.log("indice " +index );
   }
 
 
