@@ -19,7 +19,7 @@
                         <td>{{piece?.type_piece_p?.des_typePiece}}</td>
                         <td>{{piece?.reference_piece}}</td>
                         <td>{{piece?.prix_achat | number}}</td>
-                        <td>{{piece?.tva_p}}</td>
+                        <td>{{piece?.tva_p}}%</td>
                         <td><button type="button" class="btn btn-success" (click)="gotoInfo(piece.id_piece)"><i class="fa fa-pencil"></i></button></td>
                         <td><button type="button" class="btn btn-danger" (click)="delete(piece.id_piece,i) "><i class="fa fa-trash-o"></i></button></td>
 

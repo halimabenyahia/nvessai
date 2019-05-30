@@ -43,8 +43,9 @@ export class DepenseComponent implements OnInit {
   ref : string ;
   ty : string ;
   listPieces : Piece[];
-  pu : string ;
+  pu : number ;
   tv : number ;
+  q : number ;
   myTable =[];
   
  
@@ -152,22 +153,41 @@ export class DepenseComponent implements OnInit {
     this.selectedPiece = selectedPiece.des_piece;
     this.idSelectedPiece = selectedPiece.id_piece;
     this.pieces = [];
+
+  //  this.listPieces=[];
+  //  for (let i = 0; i < this.listPieces.length; i++){
+  //    this.listPieces[i]= selectedPiece ;
+   //   this.listPieces.push(selectedPiece[i]);
+    //  this.listPieces.find(selectedPiece[i]);
+   // }
+
+
    
     const index = this.listPieces.indexOf(piece);
+    console.log("index : " + index);
     this.listPieces.push(this.listPieces[index]);
     
-  //  this.ref =selectedPiece.reference_piece;
-  //  this.ty = selectedPiece.type_piece_p.des_typePiece;
-   // this.pu=selectedPiece.prix_achat;
-    //this.tv=selectedPiece.tva_p;
+    this.ref =selectedPiece.reference_piece;
+    this.ty = selectedPiece.type_piece_p.des_typePiece;
+    this.pu=selectedPiece.prix_achat;
+    this.tv=selectedPiece.tva_p;
+    this.q=selectedPiece.qtep;
 
-   // this.myTable.push(this.ref);
-   // this.myTable.push(this.ty);
-   // this.myTable.push(this.pu);
-   // this.myTable.push(this.tv);
+    this.myTable.push(this.ref);
+    this.myTable.push(this.ty);
+    this.myTable.push(this.pu);
+    this.myTable.push(this.tv);
+    this.myTable.push(this.q);
 
-   
     
+    
+  }
+
+  calculResult(qtep){
+    var result=0 ;
+    result=((this.pu * this.q) + this.tv) / 100 ;
+    console.log("resultat ttc " + result);
+
   }
 
   ajouterLigne() {

@@ -80,15 +80,15 @@
                 <form #form="ngForm" class="login100-form validate-form">
                     <div class="wrap-input100 validate-input">
                         <span class="label-input100">Username</span>
-                        <input class="input100" type="text" name="username" ngModel name="username" pattern='[a-zA-Z ]+' #username="ngModel" minlength="2" maxlength="10" placeholder="Type your username">
-                        <div *ngIf="username.invalid && username.touched" style="color:red"> veuillez vérifier username</div>
+                        <input class="input100" type="text" autocomplete="off" name="username" ngModel name="username" pattern='[a-zA-Z ]+' #username="ngModel" minlength="2" maxlength="10" placeholder="Type your username">
+                        <div *ngIf="username.invalid || username.touched && username.pristine" style="color:red"> veuillez vérifier username</div>
                         <span class="focus-input100"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input">
                         <span class="label-input100">Password</span>
-                        <input class="input100" type="password" ngModel name="password" pattern="[A-Za-z0-9]+" maxlength="10" minlength="1" #motdepasse="ngModel" placeholder="Type your password">
-                        <div *ngIf="motdepasse.invalid && motdepasse.touched" style="color:red"> veuillez vérifier mot de passe</div>
+                        <input class="input100" type="password" autocomplete="off" ngModel name="password" pattern="[A-Za-z0-9]+" maxlength="10" minlength="1" #motdepasse="ngModel" placeholder="Type your password">
+                        <div *ngIf="motdepasse.invalid || motdepasse.touched && motdepasse.pristine" style="color:red"> veuillez vérifier mot de passe</div>
                         <span class="focus-input100 password"></span>
                     </div>
 
@@ -97,6 +97,7 @@
                             <button (click)="login(form)" type="submit" class="btn btn-primary mr-2">
                                Se connecter
                             </button>
+                            <div *ngIf="motdepasse.pristine && motdepasse.touched && username.pristine && username.touched" style="color:red"> veuillez remplir les champs</div>
                         </div>
                     </div>
                 </form>
