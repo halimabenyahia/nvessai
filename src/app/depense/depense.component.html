@@ -44,16 +44,19 @@
                             <th>Qte</th>
                             <th>PU</th>
                             <th>TVA</th>
+                            <th>HT</th>
                             <th>TTC</th>
                             <th></th>
                             <th><button type="button" (click)="ajouterLigne()" class="btn btn-success"><i class="fa fa-plus"></i></button></th>
 
                         </thead>
                         <tbody>
+                            <!---->
                             <tr *ngFor="let piece of listPieces ;let i=index">
                                 <th>
+                                    <!-- <input type="text" required class="form-control col-sm-7" (blur)="selectionner(despiece,i)" id="des_piece" ngModel name="des_piece" value="piece.des_piece" #despiece="ngModel">-->
                                     <div class="form-group col-sm-12 ">
-                                        <input type="text" class="form-control" #inputPiece ngModel name='des_piece' autocomplete="off" (keyup)="chercherPiece(inputPiece.value)" [(ngModel)]="selectedPiece">
+                                        <input type="text" class="form-control" (blur)="selectionner(piece,i)" #inputPiece ngModel name='des_piece' autocomplete="off" (keyup)="chercherPiece(inputPiece.value)" #despiece="ngModel" value="piece.des_piece">
                                         <input type="text" hidden name='id_piece' [(ngModel)]="idSelectedPiece" ngModel>
                                         <ol class="list-group" #listSelectedPiece>
                                             <li class="list-group-item" (click)="selectPiece(p)" *ngFor="let p of pieces" value="{{p?.id_piece}}">
@@ -61,23 +64,25 @@
                                             </li>
                                         </ol>
                                     </div>
+
                                 </th>
-                                <th>{{ty}}</th>
-                                <th>{{ref}}</th>
+                                <th>
+                                    <input type="text" required class="form-control col-sm-7" id="des_typePiece" ngModel name="des_typePiece" #destypePiece="ngModel">
+                                </th>
+                                <th>{{piece?.reference_piece}}</th>
                                 <th>
                                     <input type="text" placeholder="1" (onblur)="calculResult(qtep.value)" required class="form-control col-sm-7" value=1 id="qte_p" pattern="[1-9]+" ngModel name="qte_p" #qtep="ngModel">
-
                                 </th>
                                 <th>{{pu | number}}</th>
                                 <th>{{tv}}%</th>
                                 <th>
-                                    <input required type="text" pattern="[1-9.,0-9]+" class="form-control col-sm-8" id="ttc_p" ngModel name="ttc_p" #ttcp="ngModel"> {{result}}
-
+                                    <input required type="text" pattern="[1-9.,0-9]+" class="form-control col-sm-8" id="ttc_p" ngModel name="ttc_p" #ttcp="ngModel">
                                 </th>
                                 <th></th>
                                 <th></th>
                                 <th><button type="button" (click)="supprimerLigne(piece,i)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></th>
                             </tr>
+                            <button type="button" (click)="affiche(piece)" class="btn btn-danger"></button>
                         </tbody>
                     </table>
                 </div>
@@ -88,7 +93,7 @@
 </div>
 <div class="card-footer text-muted">
     <div style="margin-left: 70%" class="form-group col-sm-2">
-        <label for="ttc">montant totale: {{ttc}}</label>
+        <label for="ttc">montant totale: </label>
         <!--montant total piece ==> ttc depense-->
         <!--  <input type="text" class="form-control" id="ttc" ngModel name="ttc" #ttc="ngModel">-->
 

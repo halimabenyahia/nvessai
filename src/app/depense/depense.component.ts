@@ -42,7 +42,7 @@ export class DepenseComponent implements OnInit {
   typeDepenses: TypeDepense[];
   ref : string ;
   ty : string ;
-  listPieces : Piece[];
+  listPieces : Piece[]=[];
   pu : number ;
   tv : number ;
   q : number ;
@@ -57,6 +57,7 @@ export class DepenseComponent implements OnInit {
     private pieceService: PieceService) { }
 
   ngOnInit() {
+    this.listPieces = [];
     this.vehiculeService.getAllVehicule().subscribe(
       (vehicule: Vehicule) => {
         console.log(vehicule);
@@ -153,17 +154,27 @@ export class DepenseComponent implements OnInit {
     this.selectedPiece = selectedPiece.des_piece;
     this.idSelectedPiece = selectedPiece.id_piece;
     this.pieces = [];
+  }
 
-  //  this.listPieces=[];
-  //  for (let i = 0; i < this.listPieces.length; i++){
-  //    this.listPieces[i]= selectedPiece ;
-   //   this.listPieces.push(selectedPiece[i]);
-    //  this.listPieces.find(selectedPiece[i]);
-   // }
-
-
+  selectionner(piece,index){
+    console.log("indexTab "+index);
+    this.listPieces[index].des_piece=piece.des_piece.value;
+   // this.listPieces[index].type_piece_p.des_typePiece=piece.type_piece_p.des_typePiece ;
+    this.listPieces[index].reference_piece=piece.reference_piece.value ;
+    console.log("piece " + piece.des_piece);
+   // console.log("piece " + piece.type_piece_p.des_typePiece.value);
+    console.log("reference " + piece.reference_piece);
+  }
    
-    const index = this.listPieces.indexOf(piece);
+
+  affiche(piece){
+    for (let index = 0; index < this.listPieces.length; index++){
+      this.listPieces[0].des_piece="abc";
+      console.log("element"+ this.listPieces[index].des_piece ,"index :" +index);
+    }
+  }
+
+ /*   const index = this.listPieces.indexOf(piece);
     console.log("index : " + index);
     this.listPieces.push(this.listPieces[index]);
     
@@ -178,10 +189,10 @@ export class DepenseComponent implements OnInit {
     this.myTable.push(this.pu);
     this.myTable.push(this.tv);
     this.myTable.push(this.q);
-
+*/
     
     
-  }
+  
 
   calculResult(qtep){
     var result=0 ;
@@ -189,6 +200,7 @@ export class DepenseComponent implements OnInit {
     console.log("resultat ttc " + result);
 
   }
+
 
   ajouterLigne() {
     this.listPieces.push(
