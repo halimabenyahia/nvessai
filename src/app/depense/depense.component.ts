@@ -161,6 +161,7 @@ export class DepenseComponent implements OnInit {
     this.listPieces[index].des_piece=piece.des_piece.value;
    // this.listPieces[index].type_piece_p.des_typePiece=piece.type_piece_p.des_typePiece ;
     this.listPieces[index].reference_piece=piece.reference_piece.value ;
+    this.listPieces[index].prix_achat=piece.prix_achat.value;
     console.log("piece " + piece.des_piece);
    // console.log("piece " + piece.type_piece_p.des_typePiece.value);
     console.log("reference " + piece.reference_piece);

@@ -34,7 +34,7 @@
                 </div>
                 <hr>
                 <div *ngIf="isSelectedPiece">
-                    <h5 style="color:gray">Choisir les pièces</h5>
+                    <h5 style="color:gray">Choisir la liste des pièces</h5>
                     <br>
                     <table class="table" #myTable>
                         <thead class="thead-light">
@@ -48,15 +48,14 @@
                             <th>TTC</th>
                             <th></th>
                             <th><button type="button" (click)="ajouterLigne()" class="btn btn-success"><i class="fa fa-plus"></i></button></th>
-
                         </thead>
                         <tbody>
-                            <!---->
+                            <!--parcourir depense_piece-->
                             <tr *ngFor="let piece of listPieces ;let i=index">
                                 <th>
                                     <!-- <input type="text" required class="form-control col-sm-7" (blur)="selectionner(despiece,i)" id="des_piece" ngModel name="des_piece" value="piece.des_piece" #despiece="ngModel">-->
                                     <div class="form-group col-sm-12 ">
-                                        <input type="text" class="form-control" (blur)="selectionner(piece,i)" #inputPiece ngModel name='des_piece' autocomplete="off" (keyup)="chercherPiece(inputPiece.value)" #despiece="ngModel" value="piece.des_piece">
+                                        <input type="text" class="form-control" (blur)="selectionner(piece,i)" #inputPiece ngModel name='des_piece' autocomplete="off" (keyup)="chercherPiece(inputPiece.value)" #despiece="ngModel" value="piece">
                                         <input type="text" hidden name='id_piece' [(ngModel)]="idSelectedPiece" ngModel>
                                         <ol class="list-group" #listSelectedPiece>
                                             <li class="list-group-item" (click)="selectPiece(p)" *ngFor="let p of pieces" value="{{p?.id_piece}}">
@@ -64,17 +63,15 @@
                                             </li>
                                         </ol>
                                     </div>
-
                                 </th>
-                                <th>
-                                    <input type="text" required class="form-control col-sm-7" id="des_typePiece" ngModel name="des_typePiece" #destypePiece="ngModel">
-                                </th>
+                                <th>{{piece?.type_piece_p?.des_typePiece}}</th>
                                 <th>{{piece?.reference_piece}}</th>
                                 <th>
                                     <input type="text" placeholder="1" (onblur)="calculResult(qtep.value)" required class="form-control col-sm-7" value=1 id="qte_p" pattern="[1-9]+" ngModel name="qte_p" #qtep="ngModel">
                                 </th>
-                                <th>{{pu | number}}</th>
-                                <th>{{tv}}%</th>
+                                <th>{{piece?.prix_achat}}</th>
+                                <th>{{piece.tva_p}}%</th>
+                                <th>{{piece.montant_hors_taxe}}</th>
                                 <th>
                                     <input required type="text" pattern="[1-9.,0-9]+" class="form-control col-sm-8" id="ttc_p" ngModel name="ttc_p" #ttcp="ngModel">
                                 </th>
@@ -87,7 +84,6 @@
                     </table>
                 </div>
             </div>
-
         </form>
     </div>
 </div>
