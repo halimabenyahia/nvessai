@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AffectationService } from '../services/affectation.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-affectation',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AffectationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private affectationService : AffectationService,
+              private router : Router) { }
 
   ngOnInit() {
+  }
+
+  add(formulaire : NgForm){
+    this.affectationService.addAffectation(formulaire.value).subscribe(
+      (response) =>
+      {this.router.navigate(['/listAffectation']);}
+    
+    );
   }
 
 }

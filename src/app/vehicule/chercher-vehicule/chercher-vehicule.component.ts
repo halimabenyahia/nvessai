@@ -79,8 +79,12 @@ selectAffectation(selectedAffectation){
     this.affect = [] ;
   }
 
-chercher(parametre){
-    this.router.navigate(['Vehicule/resultAffectation',parametre]);
+chercher1(parametre){
+    this.router.navigate(['/resultat',parametre]);
+  }
+
+  chercher(parametre){
+    this.router.navigate(['resultAffectation',parametre]);
   }
 
 }

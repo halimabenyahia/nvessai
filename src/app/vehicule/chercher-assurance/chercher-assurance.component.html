@@ -1,0 +1,37 @@
+<br>
+<br>
+<div style="margin-left: 15%">
+    <div class="row">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 style="color:gray">Liste des contrats d'assurances</h5>
+                    <br>
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Immatriculation</th>
+                                <th>Compagnie</th>
+                                <th>Date de début</th>
+                                <th>Date de fin</th>
+                                <th>Montant</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let vehicule of vehicules ;let i=index">
+                                <td>{{vehicule?.immatriculation}}</td>
+                                <td>{{vehicule?.assurance_vehicule?.compagnie_ass}}</td>
+                                <td>{{vehicule?.date_deb_contrat}}</td>
+                                <td>{{vehicule?.date_fin_contrat}}</td>
+                                <td>{{vehicule?.montant_contratAss | number}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

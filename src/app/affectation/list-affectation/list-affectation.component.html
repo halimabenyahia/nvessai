@@ -1,29 +1,31 @@
-<div class="row" >
+<br>
+<br>
+<div class="row">
     <div class="container ">
-      <div class="card">
-        <div class="card-body">
-      <h5 style="color:gray">Liste des affectations</h5>
-      <br>
-      <table class="table" >
-        <thead class="thead-light">
-          <th>identifiant</th>
-          <th>affectation</th>
-          <th></th>
-          
-          <th></th>
-        </thead>
-        <tr *ngFor="let affectation of affectations ;let i=index">
-          <td>{{affectation?.id_affectation}}</td>
-          <td>{{affectation?.des_affectation}}</td>
+        <div class="card">
+            <div class="card-body">
+                <h5 style="color:gray">Liste des affectations</h5>
+                <br>
+                <table class="table">
+                    <thead class="thead-light">
+                        <th>identifiant</th>
+                        <th>affectation</th>
+                        <th></th>
 
-         <td><button type="button" class="btn btn-success" (click)="edit(affectation.id_affectation)" ><i class="fa fa-pencil"></i></button></td>
-          <td><button type="button" class="btn btn-danger" (click)="delete(affectation.id_affectation,i)" ><i class="fa fa-trash-o"></i></button></td>
-        </tr>
-      </table>
-      </div>
-      </div>
+                        <th></th>
+                    </thead>
+                    <tr *ngFor="let affectation of affectations ;let i=index">
+                        <td>{{affectation?.id_affectation}}</td>
+                        <td>{{affectation?.des_affectation}}</td>
+
+                        <td><button type="button" class="btn btn-success" (click)="edit(affectation.id_affectation)"><i class="fa fa-pencil"></i></button></td>
+                        <td><button type="button" class="btn btn-danger" (click)="delete(affectation.id_affectation,i)"><i class="fa fa-trash-o"></i></button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
 
 <!--<div>hello</div>
 <div *ngFor="let affectation of affectations">

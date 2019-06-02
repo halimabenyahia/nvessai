@@ -1,3 +1,5 @@
+<br>
+<br>
 <div style="margin-left: 2%">
     <form #formulaire="ngForm">
         <h5>Chercher par :</h5>
@@ -5,7 +7,7 @@
 
             <div class="form-group col-sm-3">
                 <label for="des_energie">carburant:</label>
-                <input type="text" class="form-control" #carburant ngModel name='des_energie' (keyup)="chercherEnergie(carburant.value)" [(ngModel)]="selectedEnergie">
+                <input type="text" class="form-control" #carburant ngModel name='des_energie' autocomplete="off" (keyup)="chercherEnergie(carburant.value)" [(ngModel)]="selectedEnergie">
                 <input type="text" hidden name='id_energie' [(ngModel)]="idSelectedEnergie" ngModel>
                 <ol class="list-group" #listSelectedEnergie>
                     <li class="list-group-item" (click)="selectEnergie(energies)" *ngFor="let energies of energieV" value="{{energies.id_energie}}">
@@ -14,17 +16,17 @@
                 </ol>
             </div>
             <div class="form-group col-sm-3">
-                <button type="button" (click)="chercher(carburant.value)" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <button type="button" (click)="chercher1(carburant.value)" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
                       <i class="fa fa-search"></i> 
                 </button>
             </div>
 
             <div class="form-group col-md-3 ">
                 <label for="des_affectation">Affectation</label>
-                <input type="text" class="form-control" #inputAffectation ngModel name='des_affectation' (keyup)="chercherAffectation(inputAffectation.value)" [(ngModel)]="selectedAffectation">
+                <input type="text" class="form-control" #inputAffectation ngModel autocomplete="off" name='des_affectation' (keyup)="chercherAffectation(inputAffectation.value)" [(ngModel)]="selectedAffectation">
                 <input type="text" hidden name='id_affectation' [(ngModel)]="idSelectedAffectation" ngModel>
                 <ol class="list-group" #listSelectedAffectation>
-                    <li class="list-group-item" (click)="selectAffectation(affectations)" *ngFor="let affectations of affectation" value="{{affectations?.id_affectation}}">
+                    <li class="list-group-item" (click)="selectAffectation(affectations)" *ngFor="let affectations of affect" value="{{affectations?.id_affectation}}">
                         {{affectations?.des_affectation}}
                     </li>
                 </ol>

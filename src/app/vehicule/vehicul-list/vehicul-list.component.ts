@@ -33,12 +33,12 @@ export class VehiculListComponent implements OnInit {
     this.VehiculeService.deleteVehicule(id_vehicule)
      .subscribe(value => {
         console.log('Véhicule supprimé !');
-        this.router.navigate(['Vehicule/listVehicules']);
+        this.router.navigate(['addVehicule']);
       });
   }
  
   edit(id_vehicule){
-    this.router.navigate(['Vehicule/editVehicule/',id_vehicule]);
+    this.router.navigate(['editVehicule/',id_vehicule]);
   }
 
 }

@@ -39,7 +39,7 @@ export class InfoAffectationComponent implements OnInit {
       (response) =>
       {
         console.log("affectation modifié") ;
-        this.router.navigate(['Affectation/listAffectation']);
+        this.router.navigate(['/listAffectation']);
       }
     );
   }

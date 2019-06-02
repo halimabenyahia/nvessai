@@ -74,6 +74,8 @@ import { ListTypePieceComponent } from './type-piece/list-type-piece/list-type-p
 import { PieceComponent } from './piece/piece.component';
 import { ListPieceComponent } from './piece/list-piece/list-piece.component';
 import { InfoPieceComponent } from './piece/info-piece/info-piece.component';
+import { ChercherAssuranceComponent } from './vehicule/chercher-assurance/chercher-assurance.component';
+import { ChercherVignetteComponent } from './vehicule/chercher-vignette/chercher-vignette.component';
 
 
 
@@ -145,7 +147,9 @@ import { InfoPieceComponent } from './piece/info-piece/info-piece.component';
     ListTypePieceComponent,
     PieceComponent,
     ListPieceComponent,
-    InfoPieceComponent
+    InfoPieceComponent,
+    ChercherAssuranceComponent,
+    ChercherVignetteComponent
   
   ],
   imports: [

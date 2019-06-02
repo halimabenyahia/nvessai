@@ -42,19 +42,19 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="num_moteur">num_moteur:</label>
-                                    <input type="text" class="form-control" #nummoteur="ngModel" pattern="[A-Za-z0-9]+" [(ngModel)]="vehicule.num_moteur" id="num_moteur">
+                                    <input type="text" class="form-control" #nummoteur="ngModel" name="num_moteur" pattern="[A-Za-z0-9]+" [(ngModel)]="vehicule.num_moteur" id="num_moteur">
                                     <p *ngIf="nummoteur.invalid && nummoteur.touched " style="color:red" class="alert alert-light" role="alert">
                                         numero moteur invalide
                                     </p>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="date_acq">date d'acquisition:</label>
-                                    <input type="date" max="2019-05-01" class="form-control" #dateAcq="ngModel" [(ngModel)]="vehicule.date_acq" id="date_acq">
+                                    <input type="date" max="2019-05-01" class="form-control" name="date_acq" #dateAcq="ngModel" [(ngModel)]="vehicule.date_acq" id="date_acq">
 
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="cout_achat">valeur d'acquisition:</label>
-                                    <input type="number" class="form-control" [(ngModel)]="vehicule.cout_achat" id="cout_achat" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
+                                    <input type="text" class="form-control" name="cout_achat" [(ngModel)]="vehicule.cout_achat" id="cout_achat" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
                                 </div>
 
                                 <div class="form-group col-md-3 ">
@@ -129,18 +129,18 @@
 
                                 <div class="form-group col-md-3">
                                     <label for="date_deb_contrat">date debut contrat:</label>
-                                    <input type="date" min="2019-04-03" class="form-control" [(ngModel)]="vehicule.date_deb_contrat" id="date_deb_contrat">
+                                    <input type="date" min="2019-04-03" class="form-control" name="date_deb_contrat" [(ngModel)]="vehicule.date_deb_contrat" id="date_deb_contrat">
 
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label for="date_fin_contrat">date fin contrat:</label>
-                                    <input type="date" min="2019-04-03" class="form-control" [(ngModel)]="vehicule.date_fin_contrat" id="date_fin_contrat">
+                                    <input type="date" min="2019-04-03" class="form-control" name="date_fin_contrat" [(ngModel)]="vehicule.date_fin_contrat" id="date_fin_contrat">
 
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="montant_contrat">montant assurance:</label>
-                                    <input type="text" class="form-control" [(ngModel)]="vehicule.montant_contratAss" id="montant_contrat" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
+                                    <input type="text" class="form-control" [(ngModel)]="vehicule.montant_contratAss" name="montant_contratAss" id="montant_contrat" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
                                 </div>
 
                             </div>
@@ -149,16 +149,16 @@
                             <div class="row">
                                 <div class="form-group col-md-3">
                                     <label for="date_deb_visit_tech">date debut visite technique:</label>
-                                    <input type="date" class="form-control" min="2019-04-03" [(ngModel)]="vehicule.date_deb_visit_tech" id="date_deb_visit_tech">
+                                    <input type="date" class="form-control" min="2019-04-03" name="date_deb_visit_tech" [(ngModel)]="vehicule.date_deb_visit_tech" id="date_deb_visit_tech">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="date_fin_visit_tech">date fin visite technique:</label>
-                                    <input type="date" class="form-control" [(ngModel)]="vehicule.date_fin_visit_tech" id="date_fin_visit_tech">
+                                    <input type="date" class="form-control" [(ngModel)]="vehicule.date_fin_visit_tech" name="date_fin_visit_tech" id="date_fin_visit_tech">
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label for="montant_visit_tech">montant visite technique:</label>
-                                    <input type="text" class="form-control" [(ngModel)]="vehicule.montant_visit_tech" id="montant_visit_tech" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
+                                    <input type="text" class="form-control" [(ngModel)]="vehicule.montant_visit_tech" name="montant_visit_tech" id="montant_visit_tech" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
                                 </div>
                             </div>
                             <h5 style="color:gray">Vignette</h5>
@@ -166,17 +166,17 @@
                             <div class="row">
                                 <div class="form-group col-md-3">
                                     <label for="date_deb_vig">date debut vignette:</label>
-                                    <input type="date" class="form-control" [(ngModel)]="vehicule.date_deb_vig" id="date_deb_vig">
+                                    <input type="date" class="form-control" [(ngModel)]="vehicule.date_deb_vig" name="date_deb_vig" id="date_deb_vig">
 
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="date_fin_vig">date fin vignette:</label>
-                                    <input type="date" class="form-control" [(ngModel)]="vehicule.date_fin_vig" id="date_fin_vig">
+                                    <input type="date" class="form-control" [(ngModel)]="vehicule.date_fin_vig" name="date_fin_vig" id="date_fin_vig">
 
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="montant_vig">montant vignette:</label>
-                                    <input type="text" class="form-control" [(ngModel)]="vehicule.montant_vig" id="montant_vig" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
+                                    <input type="text" class="form-control" [(ngModel)]="vehicule.montant_vig" name="montant_vig" id="montant_vig" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
 
                                 </div>
                             </div>

@@ -26,7 +26,7 @@ export class ListAssuranceComponent implements OnInit {
   }
 
   edit(id_assurance){
-    this.router.navigate(['Assurance/editAssurance',id_assurance]);
+    this.router.navigate(['/editAssurance',id_assurance]);
   }
 
   delete(id_assurance){
@@ -34,7 +34,7 @@ export class ListAssuranceComponent implements OnInit {
       (response)=>
       {
         console.log("assurance supprimé !");
-        this.router.navigate(['Assurance/listAssurance']);
+        this.router.navigate(['/addAssurance']);
       }
     );
   }

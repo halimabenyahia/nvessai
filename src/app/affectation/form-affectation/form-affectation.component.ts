@@ -11,16 +11,11 @@ import { Router } from '@angular/router';
 })
 export class FormAffectationComponent implements OnInit {
 
-
-  form: FormGroup= new FormGroup({})
   affectation : Affectation [];
   constructor(private affectationService : AffectationService,
               private router : Router) { }
 
   ngOnInit() {
-   // this.form=new FormGroup({
-    //  'des_affectation': new FormGroup(null, Validators.required )
-   // })
   }
 
   add(formulaire : NgForm){

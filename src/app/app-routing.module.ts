@@ -66,6 +66,8 @@ import { ListTypePieceComponent } from './type-piece/list-type-piece/list-type-p
 import { PieceComponent } from './piece/piece.component';
 import { InfoPieceComponent } from './piece/info-piece/info-piece.component';
 import { ListPieceComponent } from './piece/list-piece/list-piece.component';
+import { ChercherAssuranceComponent } from './vehicule/chercher-assurance/chercher-assurance.component';
+import { ChercherVignetteComponent } from './vehicule/chercher-vignette/chercher-vignette.component';
 
 const routes: Routes = [
 
@@ -80,20 +82,15 @@ const routes: Routes = [
   ]},
   { path : 'listDepense' , component : ListDepenseComponent, canActivate :[GuardAuth]},
 
-  {path:'Vehicule' , component : VehiculeComponent , canActivate :[GuardAuth], children: [
-   // { path: '', redirectTo: '/Vehicule', pathMatch: 'full' },
-    { path: 'addVehicule', component: VehiculFormComponent  },
-    { path: 'editVehicule/:id', component: VehiculInfoComponent  },
-    { path: 'listVehicules', component: VehiculListComponent  },
-    { path : 'chercherVehicule' , component : ChercherVehiculeComponent},
-    { path : 'resultat/:des_energie' , component : ResultatComponent},
-    { path : 'resultAffectation/:des_affectation' , component : AffectationResultComponent}]
-  },
-  { path : 'utilisateurs' , component : UtilisateurComponent , canActivate :[GuardAuth], children :[
-    { path : 'addUtilisateur' , component : FormUtilisateurComponent},
-    { path : 'editUtilisateur/:id' , component : EditUtilisateurComponent},
-    { path : 'listUtilisateur' , component : ListUtilisateurComponent}
-  ]},
+  { path: 'addVehicule', component: VehiculFormComponent  },
+  { path: 'listVehicules', component: VehiculListComponent  },
+  { path : 'chercherVehicule' , component : ChercherVehiculeComponent},
+  { path : 'resultat/:des_energie' , component : ResultatComponent},
+  { path : 'resultAffectation/:des_affectation' , component : AffectationResultComponent},
+  { path: 'editVehicule/:id', component: VehiculInfoComponent  },
+  { path : 'chercherAssurance' , component : ChercherAssuranceComponent},
+  { path : 'chercherVignette' , component : ChercherVignetteComponent},
+  {path:'Vehicule' , component : VehiculeComponent , canActivate :[GuardAuth]},
 
   {path:'Chauffeur' , component : ChauffeurComponent, canActivate :[GuardAuth] , children: [
    // { path: '', redirectTo: '/Chauffeur', pathMatch: 'full' },
@@ -118,14 +115,10 @@ const routes: Routes = [
     { path : 'listMarque' , component : ListMarqueComponent}
    ]
   },
-
-  {path:'Assurance' , component : AssuranceComponent, canActivate :[GuardAuth] , children : [
-   // { path :'' , redirectTo : '/Assurance' , pathMatch : 'full'},
-    { path : 'addAssurance' , component : FormAssuranceComponent},
-    { path : 'editAssurance/:id' , component : InfoAssuranceComponent},
-    { path : 'listAssurance' , component : ListAssuranceComponent}
-  ]
-  },
+  { path : 'addAssurance' , component : AssuranceComponent},
+  { path : 'editAssurance/:id' , component : InfoAssuranceComponent},
+  { path : 'listAssurance' , component : ListAssuranceComponent},
+  {path:'Assurance' , component : AssuranceComponent, canActivate :[GuardAuth] },
 
   {path: 'Modele' , component : ModeleComponent , canActivate :[GuardAuth], children : [
    // { path :'' , redirectTo : '/Modele' , pathMatch : 'full'},
@@ -142,13 +135,12 @@ const routes: Routes = [
     { path : 'listEnergie' , component : ListEnergieComponent}
   ]
 },
+{ path : 'addAffectation' , component : AffectationComponent},
+{ path : 'listAffectation' , component : ListAffectationComponent},
+{ path : 'editAffectation/:id' , component : InfoAffectationComponent},
+{ path : 'Affectation' , component : AffectationComponent, canActivate :[GuardAuth]},
 
-  {path : 'Affectation' , component : AffectationComponent, canActivate :[GuardAuth] , children :[
-   // { path :'' , redirectTo : '/Affectation' , pathMatch : 'full'},
-    { path : 'addAffectation' , component : FormAffectationComponent},
-    { path : 'editAffectation/:id' , component : InfoAffectationComponent},
-    { path : 'listAffectation' , component : ListAffectationComponent}
-  ]},
+
   {path: 'TypeV' ,component : TypeVComponent, canActivate :[GuardAuth] , children : [
    // { path :'' , redirectTo : '/TypeV' , pathMatch : 'full'},
     { path : 'addTypeV' , component : FormTypeVComponent},

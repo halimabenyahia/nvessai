@@ -1,0 +1,35 @@
+<br>
+<br>
+<div style="margin-left: 15%">
+    <div class="row">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 style="color:gray">Liste des vignettes</h5>
+                    <br>
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Immatriculation</th>
+                                <th>Date de début</th>
+                                <th>Date de fin</th>
+                                <th>Montant</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let vehicule of vehicules ;let i=index">
+                                <td>{{vehicule?.immatriculation}}</td>
+                                <td>{{vehicule?.date_deb_vig}}</td>
+                                <td>{{vehicule?.date_fin_vig}}</td>
+                                <td>{{vehicule?.montant_vig | number}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

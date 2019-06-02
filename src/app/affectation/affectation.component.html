@@ -1,24 +1,33 @@
-<div class="row" style="margin-top: 2%">
-    <div class="container"> <!-- espace al jneb-->
-      <!--<h4 style="color:darkred">liste des chauffeurs</h4> -->
-      
-      <a routerLink="/Affectation/addAffectation" style="margin-left: 85%">
-        <button  type="button" class="btn btn-dark"  >ajouter un service</button>
-      </a>
-      <br>
-      <br>
-      
-      <a routerLink="/Affectation/listAffectation" style="margin-left: 85%">
-        <button  type="button" class="btn btn-dark"  >la liste des affectations</button>
-      </a>
-      
+<br>
+<div class="row" style="margin-top: 1% ; margin-left: 2%">
+    <div class="row">
+        <br>
+        <div class="form-group col-md-3">
+            <a routerLink="/listAffectation" style="margin-left: 85%">
+                <button type="button" class="btn btn-dark">la liste des affectations</button>
+            </a>
+        </div>
+    </div>
+</div>
+<hr>
+<div style="margin-left: 2%">
+    <form #formulaire="ngForm">
+        <div class="row">
+            <div class="form-group col-sm-3">
+                <label for="des_affectation">Affectation</label>
+                <input type="text" pattern='[a-zA-Z ]+' minlength="1" maxlength="25" class="form-control" ngModel name="des_affectation" id="des_affectation" #affectation="ngModel">
+                <div *ngIf="affectation.invalid && affectation.invalid " style="color:red">
+                    affectation invalide !</div>
+            </div>
+        </div>
+        <br>
 
-      <hr>
-      <br   >
-  
-  <router-outlet></router-outlet>
-  <br>
-<!--<app-list-affectation></app-list-affectation> -->
-  <div style="margin-bottom: 7%"></div>
-  </div>
-  </div>
+        <div>
+            <button type="submit" (click)="add(formulaire)" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
+</div>
+
+
+<router-outlet></router-outlet>

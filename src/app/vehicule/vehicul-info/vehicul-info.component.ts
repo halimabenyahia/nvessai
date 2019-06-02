@@ -131,7 +131,7 @@ export class VehiculInfoComponent implements OnInit {
       (response) => {
         console.log("vehicule modifié");
         // const link='listVehicules';
-        this.router.navigate(['Vehicule/listVehicules']);
+        this.router.navigate(['/listVehicules']);
       }
     );
   }

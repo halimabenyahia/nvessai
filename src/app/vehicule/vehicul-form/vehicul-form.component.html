@@ -91,7 +91,7 @@
                                         <input type="text" class="form-control" #inputaffectation ngModel name='des_affectation' (keyup)="chercherAffectation(inputaffectation.value)" [(ngModel)]="selectedAffectation">
                                         <input type="text" hidden name='id_affectation' [(ngModel)]="idSelectedAffectation" ngModel>
                                         <ol class="list-group" #listSelectedAffectation>
-                                            <li class="list-group-item" (click)="selectAffectation(affectations)" *ngFor="let affectations of affectation" value="{{affectations?.id_affectation}}">
+                                            <li class="list-group-item" (click)="selectAffectation(affectations)" *ngFor="let affectations of affect" value="{{affectations?.id_affectation}}">
                                                 {{affectations?.des_affectation}}
                                             </li>
                                         </ol>
@@ -201,7 +201,7 @@
                             </div>
                             <div class="form-group col-md-2">
                                 <br>
-                                <button type="submit" (click)="add(formulaire)" class="btn btn-success">Add</button>
+                                <button type="submit" (click)="add(formulaire)" class="btn btn-success">Enregistrer</button>
                             </div>
                         </div>
 

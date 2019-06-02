@@ -1,17 +1,22 @@
-<form #formulaire="ngForm" *ngIf="affectation">
-    <div class="row">
-      <div class="form-group col-sm-3">
-        <label for="des_affectation">Affectation</label>
-        <input type="text" pattern='[a-zA-Z ]+' minlength="3" maxlength="25" class="form-control" 
-              [(ngModel)]="affectation.des_affectation"  name="des_affectation" 
-              id="des_affectation"  >
-              <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">
-                  affectation invalide  !</p>
-      </div>
-    </div>
-    <br>
-    <div>
-        <button type="submit" (click)="modifier(affectation)" class="btn btn-success">Enregistrer</button>
-      </div>
-   
-  </form>
+<br>
+<br>
+<div style="margin-left: 5%">
+    <form #formulaire="ngForm" *ngIf="affectation">
+        <h5>Modifier une affectation</h5>
+        <hr>
+        <div class="row">
+
+            <div class="form-group col-sm-3">
+                <label for="des_affectation">Affectation</label>
+                <input type="text" pattern='[a-zA-Z ]+' minlength="3" maxlength="25" class="form-control" [(ngModel)]="affectation.des_affectation" name="des_affectation" id="des_affectation">
+                <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">
+                    affectation invalide !</p>
+            </div>
+        </div>
+        <br>
+        <div>
+            <button type="submit" (click)="modifier(affectation)" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
+</div>

@@ -29,11 +29,11 @@ export class ListAffectationComponent implements OnInit {
     this.affectationService.supprimer(id_affectation).subscribe(
       (value) => {
         console.log('affectation supprimé !');
-        this.router.navigate(['Affectation/listAffectation']);
+        this.router.navigate(['/addAffectation']);
   }
   );
 }
 edit(id_affectation){
-  this.router.navigate(['Affectation/editAffectation',id_affectation]);
+  this.router.navigate(['/editAffectation',id_affectation]);
 }
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AssuranceService } from '../services/assurance.service';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-assurance',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssuranceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private assuranceService: AssuranceService,
+              private router : Router) { }
 
   ngOnInit() {
   }
 
+  add(formulaire : NgForm){
+    this.assuranceService.addAssurance(formulaire.value).subscribe(
+      (response) =>
+      {
+        console.log("assurance ajouté") ;
+        this.router.navigate(['/listAssurance']) ;
+      }
+    );
+
+}
 }
