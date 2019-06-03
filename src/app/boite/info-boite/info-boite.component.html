@@ -1,21 +1,22 @@
-<form #formulaire="ngForm" *ngIf="boite">
-    <div class="row">
-      <div class="form-group col-sm-3">
-        <label for="des_boite">Type de boite</label>
-        <input type="text" class="form-control" pattern='[a-zA-Z ]+'  minlength="3" maxlength="15" 
-               [(ngModel)]="boite.des_boite" name="des_boite" id="des_boite" 
-               
-               >
-               <div *ngIf="formulaire.invalid || formulaire.touched " style="color:red" class="alert alert-light"
-                role="alert">
-                  type invalide
-                 </div>
-      </div>
-    </div>
-    <br>
-    <div>
-        <button type="submit" (click)="modifier(boite)" class="btn btn-success">Enregistrer</button>
-      </div>
-  
-  </form>
-  
+<br>
+<br>
+<div style="margin-left: 5%">
+    <form #formulaire="ngForm" *ngIf="boite">
+        <h5>Modifier un type</h5>
+        <br>
+        <div class="row">
+            <div class="form-group col-sm-3">
+                <label for="des_boite">Type de boite</label>
+                <input type="text" class="form-control" pattern='[a-zA-Z ]+' minlength="3" maxlength="15" [(ngModel)]="boite.des_boite" name="des_boite" id="des_boite">
+                <div *ngIf="formulaire.invalid || formulaire.touched " style="color:red" class="alert alert-light" role="alert">
+                    type invalide
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <button type="submit" (click)="modifier(boite)" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
+</div>

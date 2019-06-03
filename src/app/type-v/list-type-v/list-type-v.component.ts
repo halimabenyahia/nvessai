@@ -29,13 +29,13 @@ export class ListTypeVComponent implements OnInit {
       (response) =>
       {
         console.log("type supprimé") ;
-        this.router.navigate(['TypeV/listTypeV']) ;
+        this.router.navigate(['/listTypeV']) ;
       }
     );
   }
 
   edit(id_typeVehicule){
-    this.router.navigate(['TypeV/editTypeV' ,id_typeVehicule]);
+    this.router.navigate(['/editTypeV/' ,id_typeVehicule]);
   }
 
 }

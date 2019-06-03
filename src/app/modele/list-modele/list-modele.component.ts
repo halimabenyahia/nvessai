@@ -32,13 +32,13 @@ export class ListModeleComponent implements OnInit {
       {
         console.log("modele supprimé") ;
         const link ='listModele' ;
-        this.router.navigate(this.link) ;
+        this.router.navigate(['listModele']) ;
       }
     );
   }
 
   edit(id_modele){
-    this.router.navigate(['Modele/editModele',id_modele]);
+    this.router.navigate(['/editModele',id_modele]);
   }
 
 

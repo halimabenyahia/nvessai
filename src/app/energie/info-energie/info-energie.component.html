@@ -1,18 +1,22 @@
-<form #formulaire="ngForm" *ngIf="energie">
-    <div class="row">
-          <div class="form-group col-md-3 ">
-              <label for="des_energie">energie</label>
-              <input type="text" class="form-control"
-                     [(ngModel)]="energie.des_energie" name="des_energie"
-                     pattern='[a-zA-Z ]+' minlength="3" maxlength="20" >
-                     <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">energie incorrecte!</p> 
-          </div>
-       
-      </div>
-    
-    <br>
-    <div>
-        <button type="submit" (click)="modifier(energie)" class="btn btn-success">Enregistrer</button>
-      </div>
-  
-  </form>
+<br>
+
+<div style="margin-left: 5%">
+    <form #formulaire="ngForm" *ngIf="energie">
+        <h5>Modifier un type</h5>
+        <br>
+        <div class="row">
+            <div class="form-group col-md-3 ">
+                <label for="des_energie">energie</label>
+                <input type="text" class="form-control" [(ngModel)]="energie.des_energie" name="des_energie" pattern='[a-zA-Z ]+' minlength="3" maxlength="20">
+                <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">energie incorrecte!</p>
+            </div>
+
+        </div>
+
+        <br>
+        <div>
+            <button type="submit" (click)="modifier(energie)" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
+</div>

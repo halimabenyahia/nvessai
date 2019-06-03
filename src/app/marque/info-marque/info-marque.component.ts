@@ -36,7 +36,7 @@ export class InfoMarqueComponent implements OnInit {
       (response) =>
       {
         console.log("marque modifié") ;
-        this.router.navigate(['Marque/listMarque']);
+        this.router.navigate(['/listMarque']);
       }
     );
 

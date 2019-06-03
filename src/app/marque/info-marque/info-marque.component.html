@@ -1,21 +1,21 @@
-<form #formulaire="ngForm" *ngIf="marque">
-    <div class="row">
-      <div class="form-group col-sm-3">
-        <label for="Marque">Marque</label>
-        <input type="text" class="form-control" [(ngModel)]="marque.des_marque" 
-               name="des_marque" id="des_marque" pattern='[a-zA-Z ]+' minlength="3" maxlength="20" 
-              
-               >
-               <div *ngIf="formulaire.invalid || formulaire.touched  " style="color:red" class="alert alert-light"
-                role="alert">
-                  marque invalide
-                 </div>
-      </div>
-    </div>
-    <br>
-    <div>
-        <button type="submit" (click)="modifier(marque)" class="btn btn-success">Enregistrer</button>
-      </div>
-  
-  </form>
+<br>
+<br>
+<div style="margin-left: 5%">
+    <form #formulaire="ngForm" *ngIf="marque">
+        <h5>Modifier une marque</h5>
+        <div class="row">
+            <div class="form-group col-sm-3">
+                <label for="Marque">Marque</label>
+                <input type="text" class="form-control" [(ngModel)]="marque.des_marque" name="des_marque" id="des_marque" pattern='[a-zA-Z ]+' minlength="3" maxlength="20">
+                <div *ngIf="formulaire.invalid || formulaire.touched  " style="color:red" class="alert alert-light" role="alert">
+                    marque invalide
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <button type="submit" (click)="modifier(marque)" class="btn btn-success">Enregistrer</button>
+        </div>
 
+    </form>
+</div>

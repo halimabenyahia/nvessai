@@ -34,22 +34,22 @@
         <br>
         <div class="form-group col-md-3">
             <a routerLink="/listVehicules" style="margin-left: 85%">
-                <button (click)="list()" type="button" class="btn btn-dark"><i class="fa fa-list"></i></button>
+                <button (click)="list()" type="button" class="btn btn-info"><i class="fa fa-list"></i></button>
             </a>
         </div>
         <div class="form-group col-md-3">
             <a routerLink="/chercherVehicule" style="margin-left: 85%">
-                <button type="button" class="btn btn-dark"><i class="fa fa-search"></i></button>
+                <button type="button" class="btn btn-info"><i class="fa fa-search"></i></button>
             </a>
         </div>
         <div class="form-group col-md-3">
             <a routerLink="/chercherAssurance" style="margin-left: 85%">
-                <button type="button" class="btn btn-dark">Consulter assurances</button>
+                <button type="button" class="btn btn-info">Consulter assurances</button>
             </a>
         </div>
         <div class="form-group col-md-3">
             <a routerLink="/chercherVignette" style="margin-left: 85%">
-                <button type="button" class="btn btn-dark">Consulter les vignettes</button>
+                <button type="button" class="btn btn-info">Consulter les vignettes</button>
             </a>
         </div>
     </div>
@@ -70,7 +70,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-3">
                                         <label for="immatriculation">immatriculation:</label>
-                                        <input pattern='[1-9-t-u-1-9]+' maxlength="9" title="immatriculation doit etre 111tu1111" type="text" class="form-control" ngModel name="immatriculation" #immatriculation="ngModel">
+                                        <input pattern='[1-9-t-u-1-9]+' autocomplete="off" maxlength="9" title="immatriculation doit etre 111tu1111" type="text" class="form-control" ngModel name="immatriculation" #immatriculation="ngModel">
                                         <p *ngIf="immatriculation.invalid && immatriculation.touched " style="color:red" class="alert alert-light" role="alert">
                                             immatriculation incorrecte
                                         </p>

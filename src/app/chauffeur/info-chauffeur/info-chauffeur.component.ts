@@ -38,7 +38,7 @@ export class InfoChauffeurComponent implements OnInit {
               (response) =>
               {
                 console.log("chauffeur modifié");
-                this.router.navigate(['Chauffeur/listChauffeur']) ;
+                this.router.navigate(['/listChauffeur']) ;
               }
              );
           }

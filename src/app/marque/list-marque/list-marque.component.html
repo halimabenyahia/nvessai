@@ -1,24 +1,25 @@
+<br>
+<br>
 <div class="container">
     <div class="card">
-      <div class="card-body">
-    <h5 style="color:gray">Liste des marques</h5>
-    <br>
-    <table class="table">
-      <thead class="thead-light">
-        <th>identifiant</th>
-        <th>marque</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tr *ngFor="let marque of marques ;let i=index">
-        <td>{{marque?.id_marque}}</td>
-        <td>{{marque?.des_marque}}</td>
-     <td><button type="button" class="btn btn-success" (click)="edit(marque.id_marque)" ><i class="fa fa-pencil"></i></button></td> 
-        <td><button type="button" (click)="delete(marque.id_marque)" class="btn btn-danger" ><i class="fa fa-trash-o"></i></button></td>
-      </tr>
-    </table>
+        <div class="card-body">
+            <h5 style="color:gray">Liste des marques</h5>
+            <br>
+            <table class="table">
+                <thead class="thead-light">
+                    <th>identifiant</th>
+                    <th>marque</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tr *ngFor="let marque of marques ;let i=index">
+                    <td>{{marque?.id_marque}}</td>
+                    <td>{{marque?.des_marque}}</td>
+                    <td><button type="button" class="btn btn-success" (click)="edit(marque.id_marque)"><i class="fa fa-pencil"></i></button></td>
+                    <td><button type="button" (click)="delete(marque.id_marque)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+                </tr>
+            </table>
+        </div>
     </div>
-    </div>
-  </div>
-
+</div>

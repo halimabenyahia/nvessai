@@ -31,13 +31,13 @@ export class ListBoiteComponent implements OnInit {
       {
         console.log("type boite supprimé") ;
         const link='listBoite' ;
-        this.router.navigate(['Boite/listBoite']);
+        this.router.navigate(['/addBoite']);
       }
     );
   }
 
   edit(id_typeBoite){
-    this.router.navigate(['Boite/editBoite',id_typeBoite]);
+    this.router.navigate(['/editBoite',id_typeBoite]);
   }
 
 

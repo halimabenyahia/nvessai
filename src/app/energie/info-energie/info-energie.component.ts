@@ -36,7 +36,7 @@ export class InfoEnergieComponent implements OnInit {
      (response) =>
      {
        console.log("energie modifié") ;
-       this.router.navigate(['Energie/listEnergie']);
+       this.router.navigate(['/listEnergie']);
      }
    );
   }

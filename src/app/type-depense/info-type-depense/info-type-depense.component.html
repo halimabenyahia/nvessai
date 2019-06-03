@@ -1,19 +1,23 @@
-<form #formulaire="ngForm" *ngIf="typeDepense">
-    <h5>Modifier le type</h5>
-    <div class="row">
-        <div class="form-group col-md-3 ">
-            <label for="designation_typeDep">type de véhicule</label>
-            <input type="text" class="form-control" #typeDep="ngModel" [(ngModel)]="typeDepense.designation_typeDep" name="designation_typeDep" pattern='[a-zA-Z ]+' minlength="1" maxlength="25">
-            <div *ngIf="typeDep.invalid && typeDep.touched" style="color:red" class="alert alert-light" role="alert">
-                type invalide
+<br>
+<br>
+<div style="margin-left: 5%">
+    <form #formulaire="ngForm" *ngIf="typeDepense">
+        <h5>Modifier le type</h5>
+        <div class="row">
+            <div class="form-group col-md-3 ">
+                <label for="designation_typeDep">Type de dépense</label>
+                <input type="text" class="form-control" #typeDep="ngModel" [(ngModel)]="typeDepense.designation_typeDep" name="designation_typeDep" pattern='[a-zA-Z ]+' minlength="1" maxlength="25">
+                <div *ngIf="typeDep.invalid && typeDep.touched" style="color:red" class="alert alert-light" role="alert">
+                    type invalide
+                </div>
             </div>
+
         </div>
 
-    </div>
+        <br>
+        <div>
+            <button type="submit" (click)="modifier(typeDepense)" class="btn btn-success">Enregistrer</button>
+        </div>
 
-    <br>
-    <div>
-        <button type="submit" (click)="modifier(typeDepense)" class="btn btn-success">Enregistrer</button>
-    </div>
-
-</form>
+    </form>
+</div>

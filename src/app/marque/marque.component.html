@@ -1,24 +1,33 @@
-<div class="row" style="margin-top: 2%">
-    <div class="container"> <!-- espace al jneb-->
-    <!--  <h4 style="color:darkred">liste des types de boite</h4> -->
-      
-      <a routerLink="/Marque/addMarque" style="margin-left: 85%">
-        <button  type="button" class="btn btn-dark" >ajouter une marque</button>
-      </a>
-      <br>
-      <br>
-    
-      <a routerLink="/Marque/listMarque" style="margin-left: 85%">
-        <button  type="button" class="btn btn-dark" >consulter la liste</button>
-      </a>
-     
-    
-      <hr>
-      <br   >
-  
-  <router-outlet></router-outlet>
-  <br>
-<!--<app-list-marque></app-list-marque> --> 
-  <div style="margin-bottom: 7%"></div>
-  </div>
-  </div>
+<br>
+<div class="row" style="margin-top: 1% ; margin-left: 2%">
+    <div class="row">
+        <br>
+        <div class="form-group col-md-3">
+            <a routerLink="/listMarque" style="margin-left: 85%">
+                <button type="button" class="btn btn-dark">consulter la liste</button>
+            </a>
+        </div>
+    </div>
+</div>
+<hr>
+<br>
+<div style="margin-left: 5%">
+    <form #formulaire="ngForm">
+        <h5>Ajouter une marque</h5>
+        <div class="row">
+            <div class="form-group col-sm-3">
+                <label for="Marque">Marque</label>
+                <input type="text" class="form-control" pattern='[a-zA-Z ]+' minlength="3" maxlength="15" ngModel name="des_marque" id="des_marque" #marque="ngModel">
+                <div *ngIf="marque.invalid && marque.touched " style="color:red" class="alert alert-light" role="alert">
+                    marque invalide
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <button type="submit" (click)="add(formulaire)" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
+</div>
+<router-outlet></router-outlet>

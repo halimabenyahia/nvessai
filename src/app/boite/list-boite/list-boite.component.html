@@ -1,27 +1,26 @@
+<br>
+<br>
 <div class="container">
     <div class="card">
-      <div class="card-body">
-    <h5 style="color:gray">Liste des types de boite</h5>
-    <br>
-    <table class="table">
-      <thead class="thead-light">
-        <th>identifiant</th>
-        <th>type boite</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tr *ngFor="let typeb of boites ;let i=index">
-        <td>{{typeb?.id_typeBoite}}</td>
-        <td>{{typeb?.des_boite}}</td>
-       <td><button type="button" (click)="edit(typeb.id_typeBoite)" class="btn btn-success" ><i class="fa fa-pencil"></i></button></td> 
-        <td><button type="button" (click)="delete(typeb.id_typeBoite)" class="btn btn-danger" ><i class="fa fa-trash-o"></i></button></td>
-      
-      </tr>
-    </table>
+        <div class="card-body">
+            <h5 style="color:gray">Liste des types de boite</h5>
+            <br>
+            <table class="table">
+                <thead class="thead-light">
+                    <th>identifiant</th>
+                    <th>type boite</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tr *ngFor="let typeb of boites ;let i=index">
+                    <td>{{typeb?.id_typeBoite}}</td>
+                    <td>{{typeb?.des_boite}}</td>
+                    <td><button type="button" (click)="edit(typeb.id_typeBoite)" class="btn btn-success"><i class="fa fa-pencil"></i></button></td>
+                    <td><button type="button" (click)="delete(typeb.id_typeBoite)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+
+                </tr>
+            </table>
+        </div>
     </div>
-    </div>
-  </div>
-
-
-
+</div>

@@ -1,24 +1,34 @@
-<div class="row" style="margin-top: 2%">
-    <div class="container"> <!-- espace al jneb-->
-    <!--  <h4 style="color:darkred">liste des types de boite</h4> -->
-      
-      <a routerLink="/Boite/addBoite" style="margin-left: 85%">
-        <button  type="button" class="btn btn-dark" >ajouter un type de boite</button>
-      </a>
-      <br>
-      <br>
-      
-      <a routerLink="/Boite/listBoite" style="margin-left: 85%">
-        <button  type="button" class="btn btn-dark" >consulter la liste</button>
-      </a>
-      
+<br>
+<div class="row" style="margin-top: 1% ; margin-left: 2%">
+    <div class="row">
+        <br>
+        <div style="margin-left: 10%" class="form-group col-md-3">
+            <a routerLink="/listBoite" style="margin-left: 85%">
+                <button type="button" class="btn btn-dark">consulter la liste</button>
+            </a>
+        </div>
+    </div>
+</div>
+<hr>
 
-      <hr>
-      <br   >
-  
-  <router-outlet></router-outlet>
-  <br>
-<!--<app-list-boite></app-list-boite> -->
-  <div style="margin-bottom: 7%"></div>
-  </div>
-  </div>
+<div style="margin-left: 5%">
+    <form #formulaire="ngForm">
+        <h5>Ajouter un type de boite</h5>
+        <div class="row">
+            <div class="form-group col-sm-3">
+                <label for="des_boite">Type de boite</label>
+                <input type="text" class="form-control" pattern='[a-zA-Z ]+' minlength="3" maxlength="20" ngModel name="des_boite" id="des_boite" #boite="ngModel">
+                <div *ngIf="boite.invalid && boite.touched " style="color:red" class="alert alert-light" role="alert">
+                    type invalide
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <button type="submit" (click)="add(formulaire)" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,24 +1,82 @@
-<div class="row" style="margin-top: 2%">
-  <div class="container"> <!-- espace al jneb-->
-    <!--<h4 style="color:darkred">liste des chauffeurs</h4> -->
-    
-    <a routerLink="/Chauffeur/addChauffeur" style="margin-left: 85%">
-      <button  type="button" class="btn btn-dark"  >ajouter</button>
-    </a>
-    <br>
-    <br>
-    
-    <a routerLink="/Chauffeur/listChauffeur" style="margin-left: 85%">
-      <button  type="button" class="btn btn-dark"  >consulter la liste</button>
-    </a>
-    
+<br>
+<div class="row" style="margin-top: 1% ; margin-left: 2%">
+    <div class="row">
+        <br>
+        <div class="form-group col-md-3">
+            <a routerLink="/listChauffeur" style="margin-left: 85%">
+                <button type="button" class="btn btn-dark">consulter la liste</button>
+            </a>
+        </div>
+    </div>
+</div>
+<hr>
 
-    <hr>
-    <br   >
+<br>
+
+<br>
+<div class="row">
+    <div class="container">
+        <br>
+        <form #formulaire="ngForm">
+            <div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Ajouter un chauffeur</h5>
+                        <br>
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label for="matricule_ch">matricule:</label>
+                                <input type="text" minlength="1" maxlength="8" required class="form-control" id="matricule_ch" ngModel name="matricule_ch" #matricule="ngModel" pattern="[A-Za-z0-9]+">
+                                <div *ngIf="matricule.invalid && matricule.touched" style="color:red" class="alert alert-light" role="alert">
+                                    invalid
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label id="nom_ch">nom:</label>
+                                <input required minlength="1" maxlength="20" [pattern]="nameRegex" type="text" class="form-control" id="nom_ch" ngModel name="nom_ch" #nom="ngModel">
+                                <div *ngIf="nom.invalid && nom.touched" style="color:red" class="alert alert-light" role="alert">
+                                    nom invalide
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label id="prenom_ch">prenom:</label>
+                                <input minlength="3" maxlength=20 required [pattern]="nameRegex" type="text" class="form-control" id="prenom_ch" ngModel name="prenom_ch" #prenom="ngModel">
+                                <div *ngIf="prenom.invalid && prenom.touched" style="color:red" class="alert alert-light" role="alert">
+                                    prenom invalide
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="tel_chauff">numero:</label>
+                                <input maxlength="8" placeholder="99999999" required type="tel" pattern="[1-9][0-9]{7}" class="form-control" id="tel_chauff" ngModel name="tel_chauff" #telnum="ngModel">
+                                <div *ngIf="telnum.invalid && telnum.touched" style="color:red" class="alert alert-light" role="alert">
+                                    numero invalide
+                                </div>
+
+
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label id="adr_chauff">adresse:</label>
+                                <input type="text" minlength="3" maxlength=15 class="form-control" id="adr_chauff" ngModel name="adr_chauff">
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <br>
+
+                            <button type="submit" class="btn btn-success" (click)="add(formulaire )">Enregistrer</button>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br><br>
+    </div>
+</div>
 
 <router-outlet></router-outlet>
-<br>
-<!--<app-list-chauffeur></app-list-chauffeur> -->
-<div style="margin-bottom: 7%"></div>
-</div>
-</div>

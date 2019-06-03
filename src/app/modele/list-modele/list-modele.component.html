@@ -1,27 +1,28 @@
+<br>
 <div class="container">
-   <div class="card">
-      <div class="card-body">
-    <h5 style="color:gray">Liste des modèles</h5>
-    <br>
-    <table class="table">
-      <thead class="thead-light">
-        <th>identifiant</th>
-        <th>modèle</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tr *ngFor="let modele of modeles ;let i=index">
-        <td>{{modele?.id_modele}}</td>
-        <td>{{modele?.des_modele}}</td>
-     <td><button type="button"  class="btn btn-success" (click)="edit(modele.id_modele)" ><i class="fa fa-pencil"></i></button></td> 
-        <td><button type="button" (click)="delete(modele.id_modele)" class="btn btn-danger" ><i class="fa fa-trash-o"></i></button></td>
-   
-      </tr>
-    </table>
+    <div class="card">
+        <div class="card-body">
+            <h5 style="color:gray">Liste des modèles</h5>
+            <br>
+            <table class="table">
+                <thead class="thead-light">
+                    <th>identifiant</th>
+                    <th>modèle</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tr *ngFor="let modele of modeles ;let i=index">
+                    <td>{{modele?.id_modele}}</td>
+                    <td>{{modele?.des_modele}}</td>
+                    <td><button type="button" class="btn btn-success" (click)="edit(modele.id_modele)"><i class="fa fa-pencil"></i></button></td>
+                    <td><button type="button" (click)="delete(modele.id_modele)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+
+                </tr>
+            </table>
+        </div>
     </div>
-    </div>
-  </div>
+</div>
 
 
 <!--<div *ngFor="let modele of modeles">

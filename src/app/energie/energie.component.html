@@ -1,24 +1,35 @@
-<div class="row" style="margin-top: 2%">
-    <div class="container"> <!-- espace al jneb-->
-      <!--<h4 style="color:darkred">liste des chauffeurs</h4> -->
-      
-      <a routerLink="/Energie/addEnergie" style="margin-left: 85%">
-        <button  type="button" class="btn btn-dark"  >ajouter énergie</button>
-      </a>
-      <br>
-      <br>
-     
-      <a routerLink="/Energie/listEnergie" style="margin-left: 85%">
-        <button  type="button" class="btn btn-dark"  >consulter la liste</button>
-      </a>
- 
+<br>
+<div class="row" style="margin-top: 1% ; margin-left: 2%">
+    <div class="row">
+        <br>
+        <div class="form-group col-md-3">
+            <a routerLink="/listEnergie" style="margin-left: 85%">
+                <button type="button" class="btn btn-dark">consulter la liste</button>
+            </a>
+        </div>
+    </div>
+</div>
+<hr>
 
-      <hr>
-      <br   >
-  
-  <router-outlet></router-outlet>
-  <br>
-<!--<app-list-energie></app-list-energie> --> 
-  <div style="margin-bottom: 7%"></div>
-  </div>
-  </div>
+<div style="margin-left: 5%">
+    <form #formulaire="ngForm">
+        <h5>Ajouter un type d'energie</h5>
+        <div class="row">
+            <div class="form-group col-md-3 ">
+                <label for="des_energie">energie</label>
+                <input type="text" class="form-control" pattern='[a-zA-Z ]+' minlength="3" maxlength="20" ngModel name="des_energie" #energie="ngModel">
+                <div *ngIf="energie.invalid && energie.touched " style="color:red" class="alert alert-light" role="alert">
+                    energie invalide
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+        <div>
+            <button type="submit" (click)="add(formulaire)" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
+</div>
+<router-outlet></router-outlet>

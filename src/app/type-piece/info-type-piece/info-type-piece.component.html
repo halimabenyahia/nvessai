@@ -1,19 +1,23 @@
-<form #formulaire="ngForm" *ngIf="typePiece">
-    <h5>Modifier le type</h5>
-    <div class="row">
-        <div class="form-group col-md-3 ">
-            <label for="des_typePiece">type de véhicule</label>
-            <input type="text" class="form-control" #destypePiece="ngModel" [(ngModel)]="typePiece.des_typePiece" name="des_typePiece" pattern='[a-zA-Z ]+' minlength="1" maxlength="25">
-            <div *ngIf="destypePiece.invalid && destypePiece.touched" style="color:red" class="alert alert-light" role="alert">
-                type invalide
+<br>
+<br>
+<div style="margin-left: 5%">
+    <form #formulaire="ngForm" *ngIf="typePiece">
+        <h5>Modifier le type</h5>
+        <div class="row">
+            <div class="form-group col-md-3 ">
+                <label for="des_typePiece">type de véhicule</label>
+                <input type="text" class="form-control" #destypePiece="ngModel" [(ngModel)]="typePiece.des_typePiece" name="des_typePiece" pattern='[a-zA-Z ]+' minlength="1" maxlength="25">
+                <div *ngIf="destypePiece.invalid && destypePiece.touched" style="color:red" class="alert alert-light" role="alert">
+                    type invalide
+                </div>
             </div>
+
         </div>
 
-    </div>
+        <br>
+        <div>
+            <button type="submit" (click)="modifier(typePiece)" class="btn btn-success">Enregistrer</button>
+        </div>
 
-    <br>
-    <div>
-        <button type="submit" (click)="modifier(typePiece)" class="btn btn-success">Enregistrer</button>
-    </div>
-
-</form>
+    </form>
+</div>

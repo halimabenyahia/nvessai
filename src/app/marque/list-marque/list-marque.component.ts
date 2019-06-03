@@ -32,13 +32,13 @@ export class ListMarqueComponent implements OnInit {
       {
         console.log("marque supprimé ! ") ;
         const link='listMarque';
-        this.router.navigate(this.link) ;
+        this.router.navigate(['listMarque']) ;
       }
     );
   }
 
   edit(id_marque){
-    this.router.navigate(['Marque/editMarque',id_marque]);
+    this.router.navigate(['/editMarque',id_marque]);
   }
 
 }

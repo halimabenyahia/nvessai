@@ -36,7 +36,7 @@ export class InfoModeleComponent implements OnInit {
       (response) =>
       {
         console.log("modele modifié") ;
-        this.router.navigate(['Modele/listModele']);
+        this.router.navigate(['/listModele']);
       }
     );
 

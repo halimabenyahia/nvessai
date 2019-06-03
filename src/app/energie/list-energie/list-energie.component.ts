@@ -29,13 +29,13 @@ export class ListEnergieComponent implements OnInit {
       (response) =>
       {
         const link='listEnergie' ;
-        this.router.navigate(this.link);
+        this.router.navigate(['listEnergie']);
       }
     );
   }
 
   edit(id_energie){
-    this.router.navigate(['Energie/editEnergie', id_energie]);
+    this.router.navigate(['/editEnergie', id_energie]);
   }
 
 }

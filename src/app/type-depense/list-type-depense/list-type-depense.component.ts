@@ -24,7 +24,7 @@ export class ListTypeDepenseComponent implements OnInit {
   }
 
   edit(id_typeDepense){
-    this.router.navigate(['typeDepenses/editTypeDepense',id_typeDepense]);
+    this.router.navigate(['/editTypeDepense',id_typeDepense]);
   }
 
   delete(id_typeDepense){
@@ -32,7 +32,7 @@ export class ListTypeDepenseComponent implements OnInit {
       (response) =>
       {
         console.log("type supprimé") ;
-        this.router.navigate(['typeDepenses/listTypeDepense']);
+        this.router.navigate(['/addTypeDepense']);
       }
     );
   }

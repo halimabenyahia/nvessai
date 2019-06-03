@@ -1,21 +1,24 @@
-<form #formulaire="ngForm" *ngIf="modele">
-    <div class="row">
-      
-          <div class="form-group col-md-3 ">
-              <label for="modele">modele</label>
-              <input type="text" class="form-control" 
-                     [(ngModel)]="modele.des_modele" name="des_modele"
-                     pattern='[a-zA-Z ]+' minlength="3" maxlength="20" >
-                     <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">
-                        modele invalide  !</p> 
+<br>
+<br>
+<div style="margin-left: 5%">
+    <form #formulaire="ngForm" *ngIf="modele">
+        <h5>Modifier un modèle</h5>
+        <div class="row">
 
-          </div>
-       
-      </div>
-    
-    <br>
-    <div>
-        <button type="submit" (click)="modifier()" class="btn btn-success">Enregistrer</button>
-      </div>
-  
-  </form>
+            <div class="form-group col-md-3 ">
+                <label for="modele">modele</label>
+                <input type="text" class="form-control" [(ngModel)]="modele.des_modele" name="des_modele" pattern='[a-zA-Z ]+' minlength="3" maxlength="20">
+                <p *ngIf="formulaire.invalid && formulaire.touched" style="color:red">
+                    modele invalide !</p>
+
+            </div>
+
+        </div>
+
+        <br>
+        <div>
+            <button type="submit" (click)="modifier()" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
+</div>

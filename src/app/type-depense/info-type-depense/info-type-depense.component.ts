@@ -36,7 +36,7 @@ export class InfoTypeDepenseComponent implements OnInit {
       (response) =>
       {
         console.log("type modifié");
-        this.router.navigate(['typeDepenses/listTypeDepense']);
+        this.router.navigate(['/listTypeDepense']);
       }
     );
 

@@ -36,7 +36,7 @@ export class InfoTypePieceComponent implements OnInit {
       (response) =>
       {
         console.log("type modifié");
-        this.router.navigate(['typePieces/listTypePiece']);
+        this.router.navigate(['/listTypePiece']);
       }
     );
 

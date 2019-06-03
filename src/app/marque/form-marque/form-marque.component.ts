@@ -15,9 +15,9 @@ export class FormMarqueComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit() {
-    this.form=new FormGroup({
-      'des_marque': new FormControl(null, Validators.required )
-    })
+    //this.form=new FormGroup({
+    //  'des_marque': new FormControl(null, Validators.required )
+   // })
   }
 
   add(formulaire : NgForm){

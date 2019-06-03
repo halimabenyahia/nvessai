@@ -1,33 +1,34 @@
-  <div class="container">
+<br>
+<br>
+<div class="container">
     <div class="card">
-      <div class="card-body">
-    <h5 style="color:gray">Liste des chauffeurs</h5>
-    <br>
-    <table class="table">
-      <thead class="thead-light">
-        <th>matricule</th>
-        <th>nom</th>
-        <th>prenom</th>
-        <th>adresse</th>
-        <th>numero</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tbody>
-      <tr *ngFor="let chauffeur of chauffeur ;let i=index">
-        <th>{{chauffeur?.matricule_ch}}</th>
-        <td>{{chauffeur?.nom_ch}}</td>
-        <td>{{chauffeur?.prenom_ch}}</td>
-        <td>{{chauffeur?.adr_chauff}}</td>
-        <td>{{chauffeur?.tel_chauff}}</td>
-        <td><button type="button" class="btn btn-success" (click)="gotoInfo(chauffeur.id_chauffeur)"   ><i class="fa fa-pencil"></i></button></td> 
-        <td><button type="button" class="btn btn-danger" (click)="delete(chauffeur.id_chauffeur,i) " ><i class="fa fa-trash-o"></i></button></td>
-     
-      </tr> 
-    </tbody>
-    </table>
-    </div>
-    </div>
-  </div>
+        <div class="card-body">
+            <h5 style="color:gray">Liste des chauffeurs</h5>
+            <br>
+            <table class="table">
+                <thead class="thead-light">
+                    <th>matricule</th>
+                    <th>nom</th>
+                    <th>prenom</th>
+                    <th>adresse</th>
+                    <th>numero</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let chauffeur of chauffeur ;let i=index">
+                        <th>{{chauffeur?.matricule_ch}}</th>
+                        <td>{{chauffeur?.nom_ch}}</td>
+                        <td>{{chauffeur?.prenom_ch}}</td>
+                        <td>{{chauffeur?.adr_chauff}}</td>
+                        <td>{{chauffeur?.tel_chauff}}</td>
+                        <td><button type="button" class="btn btn-success" (click)="gotoInfo(chauffeur.id_chauffeur)"><i class="fa fa-pencil"></i></button></td>
+                        <td><button type="button" class="btn btn-danger" (click)="delete(chauffeur.id_chauffeur,i) "><i class="fa fa-trash-o"></i></button></td>
 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

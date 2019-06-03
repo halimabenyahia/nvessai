@@ -37,7 +37,7 @@ export class InfoBoiteComponent implements OnInit {
       (response) =>
       {
        console.log("boite modifié") ;
-       this.router.navigate(['Boite/listBoite']);
+       this.router.navigate(['/listBoite']);
 
       }
     );

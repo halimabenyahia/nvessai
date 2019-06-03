@@ -1,21 +1,36 @@
-<div class="row" style="margin-top: 1%">
-    <div class="container">
-        <!-- espace al jneb-->
-        <!--  <h4 style="color:darkred">liste des véhicules</h4> -->
-
-        <a routerLink="/typeDepenses/addTypeDepense" style="margin-left: 85%">
-            <button type="button" class="btn btn-dark">ajouter un type</button>
-        </a>
+<div class="row" style="margin-top: 1% ; margin-left: 2%">
+    <div class="row">
         <br>
-
-        <a routerLink="/typeDepenses/listTypeDepense" style="margin-left: 85%">
-            <button type="button" class="btn btn-dark"><i class="fa fa-list"></i></button>
-        </a>
-
+        <div class="form-group col-md-3">
+            <a routerLink="/listTypeDepense" style="margin-left: 85%">
+                <button type="button" class="btn btn-dark"><i class="fa fa-list"></i></button>
+            </a>
+        </div>
     </div>
 </div>
 <hr>
 
+<div style="margin-left: 3%">
+    <form #formulaire="ngForm">
+        <h5>Ajouter un type de dépense</h5>
+        <div class="row">
+            <div class="form-group col-md-3 ">
+                <label for="designation_typeDep">type de dépense</label>
+                <input type="text" class="form-control" id="designation_typeDep" ngModel name="designation_typeDep" #typeDepense="ngModel" pattern='[a-zA-Z ]+' minlength="1" maxlength="25">
+                <div *ngIf="typeDepense.invalid && typeDepense.touched" style="color:red" class="alert alert-light" role="alert">
+                    type invalide
+                </div>
+
+            </div>
+
+        </div>
+
+        <br>
+        <div>
+            <button type="submit" (click)="add(formulaire)" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
+</div>
+
 <router-outlet></router-outlet>
-<br>
-<div style="margin-bottom: 7%"></div>

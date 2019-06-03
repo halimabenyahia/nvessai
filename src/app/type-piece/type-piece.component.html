@@ -1,21 +1,38 @@
-<div class="row" style="margin-top: 1%">
-    <div class="container">
-        <!-- espace al jneb-->
-        <!--  <h4 style="color:darkred">liste des véhicules</h4> -->
-
-        <a routerLink="/typePieces/addTypePiece" style="margin-left: 85%">
-            <button type="button" class="btn btn-dark">ajouter un type</button>
-        </a>
+<div class="row" style="margin-top: 1% ; margin-left: 2%">
+    <div class="row">
         <br>
-
-        <a routerLink="/typePieces/listTypePiece" style="margin-left: 85%">
-            <button type="button" class="btn btn-dark"><i class="fa fa-list"></i></button>
-        </a>
-
+        <div class="form-group col-md-3">
+            <a routerLink="/listTypePiece" style="margin-left: 85%">
+                <button type="button" class="btn btn-dark"><i class="fa fa-list"></i></button>
+            </a>
+        </div>
     </div>
 </div>
 <hr>
+<div style="margin-left: 3%">
+    <form #formulaire="ngForm">
+        <h5>Ajouter un type de pièce</h5>
+        <div class="row">
+            <div class="form-group col-md-3 ">
+                <label for="des_typePiece">type de pièce</label>
+                <input type="text" class="form-control" id="des_typePiece" ngModel name="des_typePiece" #typePiece="ngModel" pattern='[a-zA-Z ]+' minlength="1" maxlength="25">
+                <div *ngIf="typePiece.invalid && typePiece.touched" style="color:red" class="alert alert-light" role="alert">
+                    type invalide
+                </div>
+
+            </div>
+
+        </div>
+
+        <br>
+        <div>
+            <button type="submit" (click)="add(formulaire)" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
+</div>
+
+
+
 
 <router-outlet></router-outlet>
-<br>
-<div style="margin-bottom: 7%"></div>
