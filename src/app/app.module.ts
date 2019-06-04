@@ -76,6 +76,11 @@ import { ListPieceComponent } from './piece/list-piece/list-piece.component';
 import { InfoPieceComponent } from './piece/info-piece/info-piece.component';
 import { ChercherAssuranceComponent } from './vehicule/chercher-assurance/chercher-assurance.component';
 import { ChercherVignetteComponent } from './vehicule/chercher-vignette/chercher-vignette.component';
+import { GuardAdmin } from './guard/guardAdmin';
+import { GuardAgent } from './guard/guardAgent';
+import { EntretienComponent } from './entretien/entretien.component';
+import { ListEntretienComponent } from './entretien/list-entretien/list-entretien.component';
+import { InfoEntretienComponent } from './entretien/info-entretien/info-entretien.component';
 
 
 
@@ -149,7 +154,10 @@ import { ChercherVignetteComponent } from './vehicule/chercher-vignette/chercher
     ListPieceComponent,
     InfoPieceComponent,
     ChercherAssuranceComponent,
-    ChercherVignetteComponent
+    ChercherVignetteComponent,
+    EntretienComponent,
+    ListEntretienComponent,
+    InfoEntretienComponent
   
   ],
   imports: [
@@ -162,7 +170,9 @@ import { ChercherVignetteComponent } from './vehicule/chercher-vignette/chercher
     VehiculeServiceService,
     loginInterceptorProvider,
     GuardAuth,
-    ConnectGuard
+    ConnectGuard,
+    GuardAdmin,
+    GuardAgent
   ],
   bootstrap: [AppComponent]
 })

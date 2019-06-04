@@ -83,7 +83,7 @@
                 <form #form="ngForm" class="login100-form validate-form">
                     <div class="wrap-input100 validate-input">
                         <span class="label-input100">Nom d'utilisateur </span>
-                        <input class="input100" type="text" autocomplete="off" name="username" ngModel name="username" pattern='[a-zA-Z ]+' #username="ngModel" minlength="2" maxlength="10" placeholder="Tapez votre nom d'utilisateur'">
+                        <input class="input100" type="text" autocomplete="off" name="username" ngModel name="username" pattern='[a-zA-Z0-9 ]+' #username="ngModel" minlength="2" maxlength="10" placeholder="Tapez votre nom d'utilisateur'">
                         <div *ngIf="username.invalid || username.touched && username.pristine" style="color:red"> veuillez vérifier le nom</div>
                         <span class="focus-input100"></span>
                     </div>
