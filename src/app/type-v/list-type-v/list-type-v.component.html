@@ -1,22 +1,32 @@
 <div class="card">
     <div class="card-body">
-  <h5 style="color:gray">Liste des types de véhicule</h5>
-  <br>
-  <table class="table">
-    <thead class="thead-light">
-      <th>identifiant</th>
-      <th>le type</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </thead>
-    <tr *ngFor="let typeV of typeV ;let i=index">
-      <td>{{typeV?.id_typeVehicule }}</td>
-      <td>{{typeV?.des_typeVehicule}}</td>
-     <td><button type="button" class="btn btn-success" (click)="edit(typeV.id_typeVehicule)" ><i class="fa fa-pencil"></i></button></td> 
-      <td><button type="button" (click)="delete(typeV.id_typeVehicule)" class="btn btn-danger" ><i class="fa fa-trash-o"></i></button></td>
-    
-    </tr>
-  </table>
-  </div>
-  </div>
+        <h5 style="color:gray">Liste des types de véhicule</h5>
+        <br>
+        <table class="table">
+            <thead class="thead-light">
+                <th>identifiant</th>
+                <th>le type</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tr *ngFor="let typeV of typeV ;let i=index">
+                <td>{{typeV?.id_typeVehicule }}</td>
+                <td>{{typeV?.des_typeVehicule}}</td>
+                <td><button type="button" class="btn btn-success" (click)="edit(typeV.id_typeVehicule)"><i class="fa fa-pencil"></i></button></td>
+                <td><button type="button" (click)="delete(typeV.id_typeVehicule)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+
+<br>
+<div class="row" style="margin-left: 80%">
+    <br>
+    <div class="form-group col-md-3">
+        <a routerLink="/addTypeV" style="margin-left: 85%">
+            <button type="button" class="btn btn-dark"><i class="fa fa-plus"></i></button>
+        </a>
+    </div>
+</div>

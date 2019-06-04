@@ -11,15 +11,21 @@ import { Chart } from 'chart.js';
 export class AcceuilComponent implements OnInit {
 
   chart = [] ;
+  nombre  ;
   constructor(private vehiculeService : VehiculeServiceService) { }
 
+ role= localStorage.getItem('role');
+ 
+              
   ngOnInit() {
-  /*  this.vehiculeService.getNombreVehicule().subscribe(
+    this.vehiculeService.getNombreVehicule().subscribe(
       (response) =>
       {
-         console.log(response) ;
+        this.nombre = response ;
+         console.log("nombre de véhicule "+this.nombre) ;
       }
     );
+    /*
     this.chart = new Chart(document.getElementById("canvas"),
              {
               "type":"doughnut",
@@ -37,6 +43,10 @@ export class AcceuilComponent implements OnInit {
                   ]},
               "options":{}
               });*/
+              console.log("rolee "+ this.role);
+              
   }
+
+  
 
 }

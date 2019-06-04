@@ -87,7 +87,7 @@ const routes: Routes = [
   ]},
   { path : 'listDepense' , component : ListDepenseComponent, canActivate :[GuardAuth ,GuardAgent]},
 
-  { path: 'addVehicule', component: VehiculFormComponent , canActivate :[GuardAuth] },
+  { path: 'addVehicule', component: VehiculeComponent , canActivate :[GuardAuth] },
   { path: 'listVehicules', component: VehiculListComponent , canActivate :[GuardAuth] },
   { path : 'chercherVehicule' , component : ChercherVehiculeComponent, canActivate :[GuardAuth]},
   { path : 'resultat/:des_energie' , component : ResultatComponent, canActivate :[GuardAuth]},
@@ -107,7 +107,7 @@ const routes: Routes = [
   { path : 'listBoite' , component : ListBoiteComponent, canActivate :[GuardAuth]},
   {path:'Boite'  , component : BoiteComponent , canActivate :[GuardAuth]},
 
-  { path : 'addMarque' , component : FormMarqueComponent, canActivate :[GuardAuth] },
+  { path : 'addMarque' , component : MarqueComponent, canActivate :[GuardAuth] },
   { path : 'editMarque/:id' , component : InfoMarqueComponent, canActivate :[GuardAuth] },
   { path : 'listMarque' , component : ListMarqueComponent, canActivate :[GuardAuth]},
   {path: 'Marque' , component : MarqueComponent, canActivate :[GuardAuth]},
@@ -118,12 +118,12 @@ const routes: Routes = [
   { path : 'listAssurance' , component : ListAssuranceComponent, canActivate :[GuardAuth]},
   {path:'Assurance' , component : AssuranceComponent, canActivate :[GuardAuth]},
 
-  { path : 'addModele' , component : FormModeleComponent, canActivate :[GuardAuth]},
+  { path : 'addModele' , component : ModeleComponent, canActivate :[GuardAuth]},
   { path : 'editModele/:id' , component : InfoModeleComponent, canActivate :[GuardAuth]},
   { path : 'listModele' , component : ListModeleComponent, canActivate :[GuardAuth]},
   {path: 'Modele' , component : ModeleComponent , canActivate :[GuardAuth]},
 
-{ path : 'addEnergie' , component : FormEnergieComponent, canActivate :[GuardAuth]},
+{ path : 'addEnergie' , component : EnergieComponent, canActivate :[GuardAuth]},
 { path : 'editEnergie/:id' , component : InfoEnergieComponent, canActivate :[GuardAuth]},
 { path : 'listEnergie' , component : ListEnergieComponent, canActivate :[GuardAuth]},
 {path: 'Energie' , component : EnergieComponent , canActivate :[GuardAuth]},
@@ -135,31 +135,31 @@ const routes: Routes = [
 { path : 'Affectation' , component : AffectationComponent, canActivate :[GuardAuth]},
 
 
-{ path : 'addTypeV' , component : FormTypeVComponent, canActivate :[GuardAuth]},
+{ path : 'addTypeV' , component : TypeVComponent, canActivate :[GuardAuth]},
 { path : 'editTypeV/:id' , component : InfoTypeVComponent, canActivate :[GuardAuth]},
 { path : 'listTypeV' , component : ListTypeVComponent, canActivate :[GuardAuth]},
 {path: 'TypeV' ,component : TypeVComponent, canActivate :[GuardAuth] },
 
-  {path : 'filtrage' , component : FiltrageComponent, canActivate :[GuardAuth,GuardAgent] , children :[
+  {path : 'filtrage' , component : FiltrageComponent, canActivate :[GuardAuth] , children :[
     { path : 'filtre' , component : AfficheTableComponent},
     { path : 'graphe' , component : GrapheComponent}
   ]},
 
-  { path : 'addTypeDepense' , component : TypeDepenseComponent, canActivate :[GuardAuth,GuardAgent]},
-  { path : 'editTypeDepense/:id' , component : InfoTypeDepenseComponent, canActivate :[GuardAuth,GuardAgent]},
-  { path : 'listTypeDepense' , component : ListTypeDepenseComponent, canActivate :[GuardAuth,GuardAgent]},
-  {path : 'typeDepenses' , component : TypeDepenseComponent, canActivate :[GuardAuth,GuardAgent] },
+  { path : 'addTypeDepense' , component : TypeDepenseComponent, canActivate :[GuardAuth]},
+  { path : 'editTypeDepense/:id' , component : InfoTypeDepenseComponent, canActivate :[GuardAuth]},
+  { path : 'listTypeDepense' , component : ListTypeDepenseComponent, canActivate :[GuardAuth]},
+  {path : 'typeDepenses' , component : TypeDepenseComponent, canActivate :[GuardAuth] },
 
 
-  { path : 'addTypePiece' , component: TypePieceComponent, canActivate :[GuardAuth,GuardAgent]},
-  { path : 'editTypePiece/:id' , component : InfoTypePieceComponent, canActivate :[GuardAuth,GuardAgent]},
-  { path : 'listTypePiece' , component : ListTypePieceComponent, canActivate :[GuardAuth,GuardAgent]},
-  {path : 'typePieces' , component : TypePieceComponent, canActivate :[GuardAuth,GuardAgent]},
+  { path : 'addTypePiece' , component: TypePieceComponent, canActivate :[GuardAuth]},
+  { path : 'editTypePiece/:id' , component : InfoTypePieceComponent, canActivate :[GuardAuth]},
+  { path : 'listTypePiece' , component : ListTypePieceComponent, canActivate :[GuardAuth]},
+  {path : 'typePieces' , component : TypePieceComponent, canActivate :[GuardAuth]},
 
 
-  {path : 'pieces' , component : PieceComponent , canActivate :[GuardAuth,GuardAgent]}, //add
-  { path : 'listPiece'  , component : ListPieceComponent, canActivate :[GuardAuth,GuardAgent]},
-  { path : 'editPiece/:id' , component : InfoPieceComponent, canActivate :[GuardAuth,GuardAgent]},
+  {path : 'pieces' , component : PieceComponent , canActivate :[GuardAuth]}, //add
+  { path : 'listPiece'  , component : ListPieceComponent, canActivate :[GuardAuth]},
+  { path : 'editPiece/:id' , component : InfoPieceComponent, canActivate :[GuardAuth]},
 
   { path : 'entretien' , component : EntretienComponent, canActivate :[GuardAuth]}, //add
   { path : 'listEntretien' , component : ListEntretienComponent, canActivate :[GuardAuth]},

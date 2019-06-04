@@ -1,3 +1,65 @@
-<p>
-  entretien works!
-</p>
+<br>
+<div class="row" style="margin-top: 1% ; margin-left: 2%">
+    <div class="row">
+        <br>
+        <div class="form-group col-md-3">
+            <a routerLink="/listEntretien" style="margin-left: 85%">
+                <button type="button" class="btn btn-dark">consulter la liste</button>
+            </a>
+        </div>
+    </div>
+</div>
+<hr>
+
+<br>
+<div class="row">
+    <div class="container">
+        <br>
+        <form #formulaire="ngForm">
+            <div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Ajouter un programme d'entretien</h5>
+                        <br>
+                        <div class="row">
+                            <div class="form-group col-sm-2 ">
+                                <label for="immatriculation">Véhicule :</label>
+                                <input type="text" class="form-control" #inputImmatricul ngModel name='immatriculation' autocomplete="off" (keyup)="chercherVehicule(inputImmatricul.value)" [(ngModel)]="selectedVehicule">
+                                <input type="text" hidden name='id_vehicule' [(ngModel)]="idSelectedVehicule" ngModel>
+                                <ol class="list-group" #listSelectedVehicule>
+                                    <li class="list-group-item" (click)="selectVehicule(vehicule)" *ngFor="let vehicule of vehicules" value="{{vehicule?.id_vehicule}}">
+                                        {{vehicule?.immatriculation}}
+                                    </li>
+                                </ol>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="date_prev_ent">Date prévu:</label>
+                                <input type="date" required class="form-control" id="date_prev_ent" ngModel name="date_prev_ent" #dateprevent="ngModel">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="date_execution">Date d'exécution:</label>
+                                <input type="date" required class="form-control" id="date_execution" ngModel name="date_execution" #dateexecution="ngModel">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="description">Description:</label>
+                                <input required type="text" pattern="[a-zA-Z]+" class="form-control" id="description" ngModel name="description" #description="ngModel">
+
+                            </div>
+
+                        </div>
+                        <div class="form-group col-md-2">
+                            <br>
+
+                            <!--      <button type="submit" class="btn btn-success" (click)="add(formulaire )">Enregistrer</button>-->
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br><br>
+    </div>
+</div>

@@ -11,6 +11,7 @@ import { TypeDepenseService } from '../services/type-depense.service';
 import { TypePieceService } from '../services/type-piece.service';
 import { NgForm } from '@angular/forms';
 import { PieceService } from '../services/piece.service';
+import { Depense_piece } from '../entity/depense_piece';
 
 @Component({
   selector: 'app-depense',
@@ -47,6 +48,8 @@ export class DepenseComponent implements OnInit {
   tv : number ;
   q : number ;
   myTable =[];
+
+  depensePiece : Depense_piece ;
   
  
   constructor(private depenseService: DepenseService,

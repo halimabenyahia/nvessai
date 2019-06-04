@@ -70,7 +70,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-3">
                                         <label for="immatriculation">immatriculation:</label>
-                                        <input pattern='[1-9-t-u-1-9]+' autocomplete="off" maxlength="9" title="immatriculation doit etre 111tu1111" type="text" class="form-control" ngModel name="immatriculation" #immatriculation="ngModel">
+                                        <input pattern='[1-9]+[t][u][1-9]+' autocomplete="off" maxlength="9" title="immatriculation doit etre 111tu1111" type="text" class="form-control" ngModel name="immatriculation" #immatriculation="ngModel">
                                         <p *ngIf="immatriculation.invalid && immatriculation.touched " style="color:red" class="alert alert-light" role="alert">
                                             immatriculation incorrecte
                                         </p>
@@ -79,7 +79,7 @@
 
                                     <div class="form-group col-md-3">
                                         <label for="des_marque">marque:</label>
-                                        <input #inputmarque class="form-control" (keyup)="chercherMarque(inputmarque.value)" [(ngModel)]="selectedMarque" ngModel name="des_marque">
+                                        <input #inputmarque class="form-control" autocomplete="off" (keyup)="chercherMarque(inputmarque.value)" [(ngModel)]="selectedMarque" ngModel name="des_marque">
                                         <input type="text" hidden name='id_marque' [(ngModel)]="idSelectedMArque" ngModel>
                                         <ol class="list-group" #listSelectedMarque>
                                             <li class="list-group-item" (click)="selectMarque(marque)" *ngFor="let marque of resultat" value="{{marque?.id_marque}}">
@@ -91,7 +91,7 @@
 
                                     <div class="form-group col-md-3 ">
                                         <label for="id_modele">modele</label>
-                                        <input type="text" class="form-control" #inputmodele name='des_modele' (keyup)="chercherModele(inputmodele.value)" [(ngModel)]="selectedModele">
+                                        <input type="text" class="form-control" #inputmodele name='des_modele' autocomplete="off" (keyup)="chercherModele(inputmodele.value)" [(ngModel)]="selectedModele">
                                         <ol class="list-group" #listSelectedModele>
                                             <li class="list-group-item" (click)="selectModele(listSelectedModele.value)" *ngFor="let modele of mod" value="{{modele?.id_modele}}">
                                                 {{modele?.des_modele}}
@@ -110,7 +110,7 @@
 
                                     <div class="form-group col-md-3">
                                         <label for="num_moteur">num_moteur:</label>
-                                        <input type="text" class="form-control" ngModel name="num_moteur" id="num_moteur" #nummoteur="ngModel" pattern="[A-Za-z0-9]+">
+                                        <input type="text" class="form-control" ngModel name="num_moteur" autocomplete="off" id="num_moteur" #nummoteur="ngModel" pattern="[A-Za-z0-9]+">
                                         <p *ngIf="nummoteur.invalid && nummoteur.touched " style="color:red" class="alert alert-light" role="alert">
                                             numero moteur invalide
                                         </p>
@@ -126,7 +126,7 @@
 
                                     <div class="form-group col-md-3">
                                         <label for="cout_achat">valeur d'acquisition:</label>
-                                        <input type="text" #acq class="form-control" #valeurAcq="ngModel" ngModel name="cout_achat" id="cout_achat" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
+                                        <input type="text" #acq class="form-control" #valeurAcq="ngModel" autocomplete="off" ngModel name="cout_achat" id="cout_achat" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
                                         <p *ngIf="valeurAcq.invalid && valeurAcq.touched " style="color:red" class="alert alert-light" role="alert">
                                             date invalide
                                         </p>
@@ -135,7 +135,7 @@
 
                                     <div class="form-group col-md-3 ">
                                         <label for="des_typeVehicule">Type de vehicule</label>
-                                        <input type="text" class="form-control" #inputtypeV ngModel name='des_typeVehicule' (keyup)="chercherTypeVehicule(inputtypeV.value)" [(ngModel)]="selectedTypeVehicule">
+                                        <input type="text" class="form-control" #inputtypeV ngModel name='des_typeVehicule' autocomplete="off" (keyup)="chercherTypeVehicule(inputtypeV.value)" [(ngModel)]="selectedTypeVehicule">
                                         <input type="text" hidden name='id_typeVehicule' [(ngModel)]="idSelectedtypevehicule" ngModel>
                                         <ol class="list-group" #listSelectedTypeV>
                                             <li class="list-group-item" (click)="selectTypeV(type)" *ngFor="let type of typev" value="{{type?.id_typeVehicule}}">
@@ -146,7 +146,7 @@
 
                                     <div class="form-group col-md-3 ">
                                         <label for="des_affectation">Affectation</label>
-                                        <input type="text" class="form-control" #inputaffectation ngModel name='des_affectation' (keyup)="chercherAffectation(inputaffectation.value)" [(ngModel)]="selectedAffectation">
+                                        <input type="text" class="form-control" #inputaffectation ngModel name='des_affectation' autocomplete="off" (keyup)="chercherAffectation(inputaffectation.value)" [(ngModel)]="selectedAffectation">
                                         <input type="text" hidden name='id_affectation' [(ngModel)]="idSelectedAffectation" ngModel>
                                         <ol class="list-group" #listSelectedAffectation>
                                             <li class="list-group-item" (click)="selectAffectation(affectations)" *ngFor="let affectations of affect" value="{{affectations?.id_affectation}}">
@@ -157,7 +157,7 @@
 
                                     <div class="form-group col-md-3">
                                         <label for="nom_ch">Chauffeur:</label>
-                                        <input type="text" class="form-control" #inputchauffeur ngModel name='nom_ch' (keyup)="chercherChauffeur(inputchauffeur.value)" [(ngModel)]="selectedChauffeur">
+                                        <input type="text" class="form-control" #inputchauffeur ngModel name='nom_ch' autocomplete="off" (keyup)="chercherChauffeur(inputchauffeur.value)" [(ngModel)]="selectedChauffeur">
                                         <input type="text" hidden name='id_chauffeur' [(ngModel)]="idSelectedChauffeur" ngModel>
                                         <ol class="list-group" #listSelectedChauffeur>
                                             <li class="list-group-item" (click)="selectChauffeur(chauffeur)" *ngFor="let chauffeur of chauff" value="{{chauffeur?.id_chauffeur}}">
@@ -168,7 +168,7 @@
 
                                     <div class="form-group col-md-3">
                                         <label for="des_boite">boite:</label>
-                                        <input type="text" class="form-control" #inputboite ngModel name='des_boite' (keyup)="chercherBoite(inputboite.value)" [(ngModel)]="selectedBoite">
+                                        <input type="text" class="form-control" #inputboite ngModel name='des_boite' autocomplete="off" (keyup)="chercherBoite(inputboite.value)" [(ngModel)]="selectedBoite">
                                         <input type="text" hidden name='id_typeBoite' [(ngModel)]="idSelectedBoite" ngModel>
                                         <ol class="list-group" #listSelectedBoite>
                                             <li class="list-group-item" (click)="selectBoite(boite)" *ngFor="let boite of boiteV" value="{{boite.id_typeBoite}}">
@@ -179,7 +179,7 @@
 
                                     <div class="form-group col-md-3">
                                         <label for="des_energie">energie:</label>
-                                        <input type="text" class="form-control" #inputenergie ngModel name='des_energie' (keyup)="chercherEnergie(inputenergie.value)" [(ngModel)]="selectedEnergie">
+                                        <input type="text" class="form-control" #inputenergie ngModel name='des_energie' autocomplete="off" (keyup)="chercherEnergie(inputenergie.value)" [(ngModel)]="selectedEnergie">
                                         <input type="text" hidden name='id_energie' [(ngModel)]="idSelectedEnergie" ngModel>
                                         <ol class="list-group" #listSelectedEnergie>
                                             <li class="list-group-item" (click)="selectEnergie(energies)" *ngFor="let energies of energieV" value="{{energies.id_energie}}">
@@ -196,7 +196,7 @@
 
                                 <div class="form-group col-md-3 ">
                                     <label for="compagnie_ass">compagnie</label>
-                                    <input type="text" class="form-control" #inputassurance ngModel name='compagnie_ass' (keyup)="chercherAssurance(inputassurance.value)" [(ngModel)]="selectedassurance">
+                                    <input type="text" class="form-control" #inputassurance ngModel name='compagnie_ass' autocomplete="off" (keyup)="chercherAssurance(inputassurance.value)" [(ngModel)]="selectedassurance">
                                     <input type="text" hidden name='id_assurance' [(ngModel)]="idSelectedAssurance" ngModel>
                                     <ol class="list-group" #listSelectedAssurance>
                                         <li class="list-group-item" (click)="selectAssurance(assurance)" *ngFor="let assurance of assur" value="{{assurance?.id_assurance}}">
@@ -216,8 +216,8 @@
 
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="montant_contrat">montant assurance:</label>
-                                    <input type="text" class="form-control" ngModel name="montant_contrat" id="montant_contrat" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
+                                    <label for="montant_contratAss">montant assurance:</label>
+                                    <input type="text" class="form-control" ngModel name="montant_contratAss" autocomplete="off" id="montant_contratAss" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
                                 </div>
 
                             </div>
@@ -235,7 +235,7 @@
 
                                 <div class="form-group col-md-3">
                                     <label for="montant_visit_tech">montant visite technique:</label>
-                                    <input type="text" class="form-control" ngModel name="montant_visit_tech" id="montant_visit_tech" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
+                                    <input type="text" class="form-control" ngModel name="montant_visit_tech" autocomplete="off" id="montant_visit_tech" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
                                 </div>
                             </div>
                             <h5 style="color:gray">Vignette</h5>
