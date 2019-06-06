@@ -40,5 +40,9 @@ export class ChauffeurService {
     return this.http.get('http://localhost:8091' + '/chauffeurByParam' + `/${parametre}`);
   }
 
+  public getNombreChauffeur(){
+    return this.http.get('http://localhost:8091/nbChauffeur');
+  }
+
 
 }

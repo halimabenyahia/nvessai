@@ -1,10 +1,10 @@
 <br>
-<div class="row" style="margin-top: 1% ; margin-left: 2%">
+<div class="row" style="margin-top: 1% ; margin-left: 80%">
     <div class="row">
         <br>
         <div class="form-group col-md-3">
             <a routerLink="/listEntretien" style="margin-left: 85%">
-                <button type="button" class="btn btn-dark">consulter la liste</button>
+                <button type="button" class="btn btn-dark">consulter liste</button>
             </a>
         </div>
     </div>
@@ -32,6 +32,17 @@
                                     </li>
                                 </ol>
                             </div>
+
+                            <div class="form-group col-sm-2 ">
+                                <label for="des_typeEntretien">Type d'entretien :</label>
+                                <input type="text" class="form-control" #destypeEntretien ngModel name='des_typeEntretien' autocomplete="off" (keyup)="chercherType(destypeEntretien.value)" [(ngModel)]="selectedTypeEntretien">
+                                <input type="text" hidden name='id_typeEntretien' [(ngModel)]="idSelectedTypeEntretien" ngModel>
+                                <ol class="list-group" #listSelectedTypeEntretien>
+                                    <li class="list-group-item" (click)="selectTypeEntretien(type)" *ngFor="let type of typeEntretiens" value="{{type?.id_typeEntretien}}">
+                                        {{type?.des_typeEntretien}}
+                                    </li>
+                                </ol>
+                            </div>
                             <div class="form-group col-md-3">
                                 <label for="date_prev_ent">Date prévu:</label>
                                 <input type="date" required class="form-control" id="date_prev_ent" ngModel name="date_prev_ent" #dateprevent="ngModel">
@@ -46,12 +57,19 @@
                                 <input required type="text" pattern="[a-zA-Z]+" class="form-control" id="description" ngModel name="description" #description="ngModel">
 
                             </div>
+                            <div class="form-group col-md-3">
+                                <label for="montant_entretien">Montant de l'entretien:</label>
+                                <input required type="text" #montant="ngModel" pattern="[0-9]+" class="form-control" id="montant_entretien" ngModel name="montant_entretien" #montantentretien="ngModel">
+                                <div *ngIf="montant.invalid && montant.touched " style="color:red" class="alert alert-light" role="alert">
+                                    montant invalide
+                                </div>
+                            </div>
 
                         </div>
                         <div class="form-group col-md-2">
                             <br>
 
-                            <!--      <button type="submit" class="btn btn-success" (click)="add(formulaire )">Enregistrer</button>-->
+                            <button type="submit" class="btn btn-success" (click)="add(formulaire )">Enregistrer</button>
 
 
                         </div>

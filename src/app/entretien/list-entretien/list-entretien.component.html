@@ -1,3 +1,43 @@
-<p>
-  list-entretien works!
-</p>
+<div class="row" style="margin-left: 80%">
+    <br>
+    <div class="form-group col-md-3">
+        <a routerLink="/addChauffeur" style="margin-left: 85%">
+            <button type="button" class="btn btn-dark"><i class="fa fa-arrow-left"></i></button>
+        </a>
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 style="color:gray">Liste des entretiens</h5>
+            <br>
+            <table class="table">
+                <thead class="thead-light">
+                    <th>Immatriculation</th>
+                    <th>Type de l'entretien</th>
+                    <th>Date prévu</th>
+                    <th>Date d'exécution</th>
+                    <th>Montant</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let chauffeur of chauffeur ;let i=index">
+                        <th>{{chauffeur?.matricule_ch}}</th>
+                        <td>{{chauffeur?.nom_ch}}</td>
+                        <td>{{chauffeur?.prenom_ch}}</td>
+                        <td>{{chauffeur?.adr_chauff}}</td>
+                        <td>{{chauffeur?.tel_chauff}}</td>
+                        <td><button type="button" class="btn btn-success" (click)="gotoInfo(chauffeur.id_chauffeur)"><i class="fa fa-pencil"></i></button></td>
+                        <td><button type="button" class="btn btn-danger" (click)="delete(chauffeur.id_chauffeur,i) "><i class="fa fa-trash-o"></i></button></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<br>

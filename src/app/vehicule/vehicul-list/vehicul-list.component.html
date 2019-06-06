@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <h5 style="color:gray">Liste des véhicules</h5>
                     <br>
-                    <table class="table">
+                    <table class="table" id="myTable">
                         <thead class="thead-light">
                             <tr>
                                 <th>Immatriculation</th>
@@ -27,6 +27,7 @@
                                 <th>Type de boite</th>
                                 <th>Type de véhicule</th>
                                 <th>Affectation</th>
+                                <th></th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -42,13 +43,21 @@
                                 <td>{{vehicule?.type_vehicule?.des_typeVehicule}}</td>
                                 <td>{{vehicule?.affectation_vehicule?.des_affectation}}</td>
 
-                                <td><button type="button" class="btn btn-success" (click)="edit(vehicule.id_vehicule)">
+                                <td>
+                                    <button type="button" class="btn btn-success" (click)="edit(vehicule.id_vehicule)">
                                        <i class="fa fa-pencil"></i>
                                     </button>
                                 </td>
-                                <td><button type="button" class="btn btn-danger" (click)="delete(vehicule.id_vehicule,i)">
+                                <td>
+                                    <button type="button" class="btn btn-danger" (click)="delete(vehicule.id_vehicule,i)">
                                        <i class="fa fa-trash-o"></i>
-                                    </button></td>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-info" (click)="download(vehicule,i)">
+                                                    <i class="fa fa-download"></i>
+                                        </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

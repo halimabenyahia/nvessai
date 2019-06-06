@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VehiculeServiceService } from '../services/vehicule-service.service';
 import { Vehicule } from '../entity/vehicule';
 import { Chart } from 'chart.js';
+import { ChauffeurService } from '../services/chauffeur.service';
 
 @Component({
   selector: 'app-acceuil',
@@ -12,7 +13,9 @@ export class AcceuilComponent implements OnInit {
 
   chart = [] ;
   nombre  ;
-  constructor(private vehiculeService : VehiculeServiceService) { }
+  nbChauff ;
+  constructor(private vehiculeService : VehiculeServiceService,
+              private chauffeurService : ChauffeurService) { }
 
  role= localStorage.getItem('role');
  
@@ -22,9 +25,20 @@ export class AcceuilComponent implements OnInit {
       (response) =>
       {
         this.nombre = response ;
-         console.log("nombre de véhicule "+this.nombre) ;
+         //console.log("nombre de véhicule "+this.nombre) ;
       }
     );
+
+    this.chauffeurService.getNombreChauffeur().subscribe(
+      (response) =>
+      {
+        this.nbChauff = response ;
+       // console.log("nb chauff" + this.nbChauff);
+
+      }
+    );
+
+
     /*
     this.chart = new Chart(document.getElementById("canvas"),
              {

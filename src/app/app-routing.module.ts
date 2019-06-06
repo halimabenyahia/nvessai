@@ -80,7 +80,7 @@ const routes: Routes = [
   { path : 'header' , component : HeaderComponent, canActivate :[GuardAuth] },
   { path : 'acceuil' , component : AcceuilComponent , canActivate :[GuardAuth]},
 
-  { path : 'depenses' , component : DepenseComponent , canActivate :[GuardAuth], children : [
+  { path : 'depenses' , component : DepenseComponent , canActivate :[GuardAuth , GuardAgent,GuardAdmin], children : [
     { path : 'addDepense' , component : FormDepenseComponent},
     { path : 'editDepense/:id' , component : InfoDepenseComponent},
     

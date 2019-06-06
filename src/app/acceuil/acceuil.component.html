@@ -8,6 +8,7 @@
 <br>
 <div style="margin-left: 2%">connecté tant que {{role}}</div>
 <br>
+<!--
 <div style="margin-left: 2%">
     <div class="row">
         <div class="col-sm-3">
@@ -39,6 +40,7 @@
         </div>
     </div>
 </div>
+-->
 
 
 <br>
@@ -49,12 +51,25 @@
             <div _ngcontent-c5="" class="col-lg-3 col-md-6 col-sm-6">
                 <div _ngcontent-c5="" class="card card-stats">
                     <div _ngcontent-c5="" class="card-header card-header-warning card-header-icon">
-                        <div _ngcontent-c5="" class="card-icon"><i _ngcontent-c5="" class="fa fa-truck"> Véhicule dans le parc</i></div>
+                        <div _ngcontent-c5="" class="card-icon"><i _ngcontent-c5="" style="font-style: italic" class="fa fa-truck"> Véhicule dans le parc</i></div>
                         <!--   <p _ngcontent-c5="" class="card-category">Used Space</p> -->
                         <h3 _ngcontent-c5="" class="card-title">{{nombre}} <small _ngcontent-c5="">Véhicule</small></h3>
                     </div>
                     <div _ngcontent-c5="" class="card-footer">
-                        <div _ngcontent-c5="" class="stats"><i _ngcontent-c5="" class="material-icons text-danger">warning</i></div>
+                        <!--   <div _ngcontent-c5="" class="stats"><i _ngcontent-c5="" class="material-icons">access_time</i> updated 4 minutes ago </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div _ngcontent-c5="" class="col-lg-3 col-md-6 col-sm-6">
+                <div _ngcontent-c5="" class="card card-stats">
+                    <div _ngcontent-c5="" class="card-header card-header-warning card-header-icon">
+                        <div _ngcontent-c5="" class="card-icon"><i _ngcontent-c5="" style="font-style: italic" class="fa fa-male"> Chauffeurs dans le parc</i></div>
+                        <!--   <p _ngcontent-c5="" class="card-category">Used Space</p> -->
+                        <h3 _ngcontent-c5="" class="card-title">{{nbChauff}} <small _ngcontent-c5=""> Chauffeur</small></h3>
+                    </div>
+                    <div _ngcontent-c5="" class="card-footer">
+                        <!--   <div _ngcontent-c5="" class="stats"><i _ngcontent-c5="" class="material-icons">access_time</i> updated 4 minutes ago </div> -->
                     </div>
                 </div>
             </div>
@@ -62,3 +77,6 @@
         </div>
     </div>
 </div>
+
+
+<app-footer></app-footer>
