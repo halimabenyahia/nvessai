@@ -3,10 +3,11 @@
 <div style="margin-left: 5%">
     <form #formulaire="ngForm" *ngIf="typePiece">
         <h5>Modifier le type</h5>
+        <br>
         <div class="row">
             <div class="form-group col-md-3 ">
-                <label for="des_typePiece">type de véhicule</label>
-                <input type="text" class="form-control" #destypePiece="ngModel" [(ngModel)]="typePiece.des_typePiece" name="des_typePiece" pattern='[a-zA-Z ]+' minlength="1" maxlength="25">
+                <label for="des_typePiece">Type de pièce</label>
+                <input type="text" class="form-control" #destypePiece="ngModel" autocomplete="off" [(ngModel)]="typePiece.des_typePiece" name="des_typePiece" pattern='[a-zA-Z ]+' minlength="1" maxlength="50">
                 <div *ngIf="destypePiece.invalid && destypePiece.touched" style="color:red" class="alert alert-light" role="alert">
                     type invalide
                 </div>

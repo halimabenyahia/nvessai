@@ -2,21 +2,22 @@
     <div class="row">
         <br>
         <div class="form-group col-md-3">
-            <a routerLink="/listTypePiece" style="margin-left: 85%">
+            <a routerLink="/listTypeEntretien" style="margin-left: 85%">
                 <button type="button" class="btn btn-dark"><i class="fa fa-list"></i></button>
             </a>
         </div>
     </div>
 </div>
 <hr>
+
 <div style="margin-left: 3%">
     <form #formulaire="ngForm">
-        <h5>Ajouter un type de pièce</h5>
+        <h5>Ajouter un type d'entretien</h5>
         <div class="row">
             <div class="form-group col-md-3 ">
-                <label for="des_typePiece">type de pièce</label>
-                <input type="text" class="form-control" id="des_typePiece" autocomplete="off" ngModel name="des_typePiece" #typePiece="ngModel" pattern='[a-zA-Z ]+' minlength="1" maxlength="50">
-                <div *ngIf="typePiece.invalid && typePiece.touched" style="color:red" class="alert alert-light" role="alert">
+                <label for="des_typeEntretien">Type d'entretien:</label>
+                <input type="text" class="form-control" id="des_typeEntretien" ngModel name="des_typeEntretien" autocomplete="off" #destypeEntretien="ngModel" pattern='[a-zA-Zéà ]+' minlength="1" maxlength="25">
+                <div *ngIf="destypeEntretien.invalid && destypeEntretien.touched" style="color:red" class="alert alert-light" role="alert">
                     type invalide
                 </div>
 
@@ -31,8 +32,5 @@
 
     </form>
 </div>
-
-
-
 
 <router-outlet></router-outlet>

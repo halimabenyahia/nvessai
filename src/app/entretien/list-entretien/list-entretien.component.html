@@ -1,8 +1,10 @@
-<div class="row" style="margin-left: 80%">
+<br>
+
+<div class="row" style="margin-left: 5%">
     <br>
     <div class="form-group col-md-3">
-        <a routerLink="/addChauffeur" style="margin-left: 85%">
-            <button type="button" class="btn btn-dark"><i class="fa fa-arrow-left"></i></button>
+        <a routerLink="/entretien" style="margin-left: 85%">
+            <button type="button" class="btn btn-dark"><i class="fa fa-plus"></i></button>
         </a>
     </div>
 </div>
@@ -25,14 +27,14 @@
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let chauffeur of chauffeur ;let i=index">
-                        <th>{{chauffeur?.matricule_ch}}</th>
-                        <td>{{chauffeur?.nom_ch}}</td>
-                        <td>{{chauffeur?.prenom_ch}}</td>
-                        <td>{{chauffeur?.adr_chauff}}</td>
-                        <td>{{chauffeur?.tel_chauff}}</td>
-                        <td><button type="button" class="btn btn-success" (click)="gotoInfo(chauffeur.id_chauffeur)"><i class="fa fa-pencil"></i></button></td>
-                        <td><button type="button" class="btn btn-danger" (click)="delete(chauffeur.id_chauffeur,i) "><i class="fa fa-trash-o"></i></button></td>
+                    <tr *ngFor="let entretien of entretiens ;let i=index">
+                        <th>{{entretien?.vehicule_entretien?.immatriculation}}</th>
+                        <td>{{entretien?.type_entretien?.des_typeEntretien}}</td>
+                        <td>{{entretien?.date_prev_ent}}</td>
+                        <td>{{entretien?.date_execution}}</td>
+                        <td>{{entretien?.montant_entretien | number}}</td>
+                        <td><button type="button" class="btn btn-success" (click)="gotoInfo(entretien.id_programme)"><i class="fa fa-pencil"></i></button></td>
+                        <td><button type="button" class="btn btn-danger" (click)="delete(entretien.id_programme,i) "><i class="fa fa-trash-o"></i></button></td>
 
                     </tr>
                 </tbody>

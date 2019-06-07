@@ -69,8 +69,8 @@
                                 <br>
                                 <div class="row">
                                     <div class="form-group col-md-3">
-                                        <label for="immatriculation">immatriculation:</label>
-                                        <input pattern='[1-9]+[t][u][1-9]+' autocomplete="off" maxlength="9" title="immatriculation doit etre 111tu1111" type="text" class="form-control" ngModel name="immatriculation" #immatriculation="ngModel">
+                                        <label for="immatriculation">Immatriculation:</label>
+                                        <input pattern='[1-9]+[t][u][1-9]+' autocomplete="off" maxlength="9" title="immatriculation doit etre 111tu1111" type="text" autocomplete="off" class="form-control" ngModel name="immatriculation" #immatriculation="ngModel">
                                         <p *ngIf="immatriculation.invalid && immatriculation.touched " style="color:red" class="alert alert-light" role="alert">
                                             immatriculation incorrecte
                                         </p>
@@ -78,7 +78,7 @@
 
 
                                     <div class="form-group col-md-3">
-                                        <label for="des_marque">marque:</label>
+                                        <label for="des_marque">Marque:</label>
                                         <input #inputmarque class="form-control" autocomplete="off" (keyup)="chercherMarque(inputmarque.value)" [(ngModel)]="selectedMarque" ngModel name="des_marque">
                                         <input type="text" hidden name='id_marque' [(ngModel)]="idSelectedMArque" ngModel>
                                         <ol class="list-group" #listSelectedMarque>
@@ -90,7 +90,7 @@
 
 
                                     <div class="form-group col-md-3 ">
-                                        <label for="id_modele">modele</label>
+                                        <label for="id_modele">Modele</label>
                                         <input type="text" class="form-control" #inputmodele name='des_modele' autocomplete="off" (keyup)="chercherModele(inputmodele.value)" [(ngModel)]="selectedModele">
                                         <ol class="list-group" #listSelectedModele>
                                             <li class="list-group-item" (click)="selectModele(listSelectedModele.value)" *ngFor="let modele of mod" value="{{modele?.id_modele}}">
@@ -101,7 +101,7 @@
 
 
                                     <div class="form-group col-md-3">
-                                        <label for="date_m_c">date mise en circulation:</label>
+                                        <label for="date_m_c">Date mise en circulation:</label>
                                         <input type="date" max="2019-04-16" class="form-control" ngModel name="date_m_c" id="date_m_c" #datemc="ngModel">
                                         <p *ngIf="datemc.invalid && datemc.touched " style="color:red" class="alert alert-light" role="alert">
                                             date invalide
@@ -109,7 +109,7 @@
                                     </div>
 
                                     <div class="form-group col-md-3">
-                                        <label for="num_moteur">num_moteur:</label>
+                                        <label for="num_moteur">Num moteur:</label>
                                         <input type="text" class="form-control" ngModel name="num_moteur" autocomplete="off" id="num_moteur" #nummoteur="ngModel" pattern="[A-Za-z0-9]+">
                                         <p *ngIf="nummoteur.invalid && nummoteur.touched " style="color:red" class="alert alert-light" role="alert">
                                             numero moteur invalide
@@ -117,7 +117,7 @@
                                     </div>
 
                                     <div class="form-group col-md-3">
-                                        <label for="date_acq">date d'acquisition:</label>
+                                        <label for="date_acq">Date d'acquisition:</label>
                                         <input type="date" max="2019-04-16" class="form-control" ngModel name="date_acq" id="date_acq" #dateacq="ngModel">
                                         <p *ngIf="dateacq.invalid && dateacq.touched " style="color:red" class="alert alert-light" role="alert">
                                             date invalide
@@ -125,8 +125,8 @@
                                     </div>
 
                                     <div class="form-group col-md-3">
-                                        <label for="cout_achat">valeur d'acquisition:</label>
-                                        <input type="text" #acq class="form-control" #valeurAcq="ngModel" autocomplete="off" ngModel name="cout_achat" id="cout_achat" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
+                                        <label for="cout_achat">Valeur d'acquisition:</label>
+                                        <input type="text" class="form-control" #valeurAcq="ngModel" autocomplete="off" ngModel name="cout_achat" id="cout_achat" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
                                         <p *ngIf="valeurAcq.invalid && valeurAcq.touched " style="color:red" class="alert alert-light" role="alert">
                                             date invalide
                                         </p>
@@ -167,7 +167,7 @@
                                     </div>
 
                                     <div class="form-group col-md-3">
-                                        <label for="des_boite">boite:</label>
+                                        <label for="des_boite">Type de boite:</label>
                                         <input type="text" class="form-control" #inputboite ngModel name='des_boite' autocomplete="off" (keyup)="chercherBoite(inputboite.value)" [(ngModel)]="selectedBoite">
                                         <input type="text" hidden name='id_typeBoite' [(ngModel)]="idSelectedBoite" ngModel>
                                         <ol class="list-group" #listSelectedBoite>
@@ -178,7 +178,7 @@
                                     </div>
 
                                     <div class="form-group col-md-3">
-                                        <label for="des_energie">energie:</label>
+                                        <label for="des_energie">Energie:</label>
                                         <input type="text" class="form-control" #inputenergie ngModel name='des_energie' autocomplete="off" (keyup)="chercherEnergie(inputenergie.value)" [(ngModel)]="selectedEnergie">
                                         <input type="text" hidden name='id_energie' [(ngModel)]="idSelectedEnergie" ngModel>
                                         <ol class="list-group" #listSelectedEnergie>
@@ -195,7 +195,7 @@
                             <div class="row">
 
                                 <div class="form-group col-md-3 ">
-                                    <label for="compagnie_ass">compagnie</label>
+                                    <label for="compagnie_ass">Compagnie</label>
                                     <input type="text" class="form-control" #inputassurance ngModel name='compagnie_ass' autocomplete="off" (keyup)="chercherAssurance(inputassurance.value)" [(ngModel)]="selectedassurance">
                                     <input type="text" hidden name='id_assurance' [(ngModel)]="idSelectedAssurance" ngModel>
                                     <ol class="list-group" #listSelectedAssurance>
@@ -205,18 +205,18 @@
                                     </ol>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="date_deb_contrat">date debut contrat:</label>
+                                    <label for="date_deb_contrat">Date debut contrat:</label>
                                     <input type="date" min="2019-04-03" class="form-control" ngModel name="date_deb_contrat" id="date_deb_contrat">
 
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="date_fin_contrat">date fin contrat:</label>
+                                    <label for="date_fin_contrat">Date fin contrat:</label>
                                     <input type="date" min="2019-04-03" class="form-control" ngModel name="date_fin_contrat" id="date_fin_contrat">
 
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="montant_contratAss">montant assurance:</label>
+                                    <label for="montant_contratAss">Montant assurance:</label>
                                     <input type="text" class="form-control" ngModel name="montant_contratAss" autocomplete="off" id="montant_contratAss" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
                                 </div>
 
@@ -225,16 +225,16 @@
                             <br>
                             <div class="row">
                                 <div class="form-group col-md-3">
-                                    <label for="date_deb_visit_tech">date debut visite technique:</label>
+                                    <label for="date_deb_visit_tech">Date debut visite technique:</label>
                                     <input type="date" class="form-control" min="2019-04-03" ngModel name="date_deb_visit_tech" id="date_deb_visit_tech">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="date_fin_visit_tech">date fin visite technique:</label>
+                                    <label for="date_fin_visit_tech">Date fin visite technique:</label>
                                     <input type="date" class="form-control" ngModel name="date_fin_visit_tech" id="date_fin_visit_tech">
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="montant_visit_tech">montant visite technique:</label>
+                                    <label for="montant_visit_tech">Montant visite technique:</label>
                                     <input type="text" class="form-control" ngModel name="montant_visit_tech" autocomplete="off" id="montant_visit_tech" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
                                 </div>
                             </div>
@@ -242,18 +242,18 @@
                             <br>
                             <div class="row">
                                 <div class="form-group col-md-3">
-                                    <label for="date_deb_vig">date debut vignette:</label>
+                                    <label for="date_deb_vig">Date debut vignette:</label>
                                     <input type="date" class="form-control" min="" ngModel name="date_deb_vig" id="date_deb_vig">
 
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="date_fin_vig">date fin vignette:</label>
+                                    <label for="date_fin_vig">Date fin vignette:</label>
                                     <input type="date" class="form-control" ngModel name="date_fin_vig" id="date_fin_vig">
 
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="montant_vig">montant vignette:</label>
-                                    <input type="text" class="form-control" ngModel name="montant_vig" id="montant_vig" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
+                                    <label for="montant_vig">Montant vignette:</label>
+                                    <input type="text" class="form-control" ngModel name="montant_vig" autocomplete="off" id="montant_vig" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
 
                                 </div>
                             </div>

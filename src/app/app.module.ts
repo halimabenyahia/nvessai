@@ -81,6 +81,9 @@ import { GuardAgent } from './guard/guardAgent';
 import { EntretienComponent } from './entretien/entretien.component';
 import { ListEntretienComponent } from './entretien/list-entretien/list-entretien.component';
 import { InfoEntretienComponent } from './entretien/info-entretien/info-entretien.component';
+import { TypeEntretienComponent } from './type-entretien/type-entretien.component';
+import { ListTypeEntretienComponent } from './type-entretien/list-type-entretien/list-type-entretien.component';
+import { InfoTypeEntretienComponent } from './type-entretien/info-type-entretien/info-type-entretien.component';
 
 
 
@@ -157,7 +160,10 @@ import { InfoEntretienComponent } from './entretien/info-entretien/info-entretie
     ChercherVignetteComponent,
     EntretienComponent,
     ListEntretienComponent,
-    InfoEntretienComponent
+    InfoEntretienComponent,
+    TypeEntretienComponent,
+    ListTypeEntretienComponent,
+    InfoTypeEntretienComponent
   
   ],
   imports: [

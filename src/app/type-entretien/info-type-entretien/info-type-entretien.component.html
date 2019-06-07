@@ -1,0 +1,24 @@
+<br>
+<br>
+<div style="margin-left: 5%">
+    <form #formulaire="ngForm" *ngIf="typeEntretien">
+        <h5>Modifier le type</h5>
+        <br>
+        <div class="row">
+            <div class="form-group col-md-3 ">
+                <label for="des_typeEntretien">Type d'entretien</label>
+                <input type="text" class="form-control" #destypeEntretien="ngModel" autocomplete="off" [(ngModel)]="typeEntretien.des_typeEntretien" name="des_typeEntretien" pattern='[a-zA-Z ]+' minlength="1" maxlength="50">
+                <div *ngIf="destypeEntretien.invalid && destypeEntretien.touched" style="color:red" class="alert alert-light" role="alert">
+                    type invalide
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+        <div>
+            <button type="submit" (click)="modifier(typeEntretien)" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
+</div>

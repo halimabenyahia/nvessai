@@ -5,8 +5,8 @@
         <h5>Modifier le type</h5>
         <div class="row">
             <div class="form-group col-md-3 ">
-                <label for="des_typeVehicule">type de véhicule</label>
-                <input type="text" class="form-control" #typevehicule="ngModel" [(ngModel)]="typeVehicule.des_typeVehicule" name="des_typeVehicule" pattern='[a-zA-Z ]+' minlength="1" maxlength="25">
+                <label for="des_typeVehicule">Type de véhicule</label>
+                <input type="text" class="form-control" #typevehicule="ngModel" autocomplete="off" [(ngModel)]="typeVehicule.des_typeVehicule" name="des_typeVehicule" pattern='[a-zA-Z ]+' minlength="1" maxlength="25">
                 <div *ngIf="typevehicule.invalid && typevehicule.touched" style="color:red" class="alert alert-light" role="alert">
                     type invalide
                 </div>

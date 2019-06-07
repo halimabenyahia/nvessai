@@ -73,6 +73,9 @@ import { GuardAgent } from './guard/guardAgent';
 import { EntretienComponent } from './entretien/entretien.component';
 import { ListEntretienComponent } from './entretien/list-entretien/list-entretien.component';
 import { InfoEntretienComponent } from './entretien/info-entretien/info-entretien.component';
+import { TypeEntretienComponent } from './type-entretien/type-entretien.component';
+import { ListTypeEntretienComponent } from './type-entretien/list-type-entretien/list-type-entretien.component';
+import { InfoTypeEntretienComponent } from './type-entretien/info-type-entretien/info-type-entretien.component';
 
 const routes: Routes = [
 
@@ -80,7 +83,7 @@ const routes: Routes = [
   { path : 'header' , component : HeaderComponent, canActivate :[GuardAuth] },
   { path : 'acceuil' , component : AcceuilComponent , canActivate :[GuardAuth]},
 
-  { path : 'depenses' , component : DepenseComponent , canActivate :[GuardAuth , GuardAgent,GuardAdmin], children : [
+  { path : 'depenses' , component : DepenseComponent , canActivate :[GuardAuth], children : [
     { path : 'addDepense' , component : FormDepenseComponent},
     { path : 'editDepense/:id' , component : InfoDepenseComponent},
     
@@ -163,7 +166,11 @@ const routes: Routes = [
 
   { path : 'entretien' , component : EntretienComponent, canActivate :[GuardAuth]}, //add
   { path : 'listEntretien' , component : ListEntretienComponent, canActivate :[GuardAuth]},
-  { path : 'editEntretien/:id' , component : InfoEntretienComponent, canActivate :[GuardAuth]}
+  { path : 'editEntretien/:id' , component : InfoEntretienComponent, canActivate :[GuardAuth]},
+
+  { path : 'typesEntretiens' , component : TypeEntretienComponent, canActivate :[GuardAuth]},//add
+  { path : 'listTypeEntretien' , component : ListTypeEntretienComponent, canActivate :[GuardAuth]},
+  { path : 'editTypeEntretien/:id' , component : InfoTypeEntretienComponent, canActivate :[GuardAuth]}
   
 ];
 

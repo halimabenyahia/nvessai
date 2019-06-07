@@ -14,8 +14,8 @@
         <h5>Ajouter un type de vehicule</h5>
         <div class="row">
             <div class="form-group col-md-3 ">
-                <label for="des_typeVehicule">type de véhicule</label>
-                <input type="text" class="form-control" id="des_typeVehicule" ngModel name="des_typeVehicule" #typevehicule="ngModel" pattern='[a-zA-Z ]+' minlength="1" maxlength="25">
+                <label for="des_typeVehicule">Type de véhicule</label>
+                <input type="text" class="form-control" id="des_typeVehicule" autocomplete="off" ngModel name="des_typeVehicule" #typevehicule="ngModel" pattern='[a-zA-Z ]+' minlength="1" maxlength="25">
                 <div *ngIf="typevehicule.invalid && typevehicule.touched" style="color:red" class="alert alert-light" role="alert">
                     type invalide
                 </div>
