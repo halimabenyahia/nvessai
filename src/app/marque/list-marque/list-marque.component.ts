@@ -12,8 +12,20 @@ export class ListMarqueComponent implements OnInit {
 
   marques : Marque[]=[] ;
   link ;
+  config :any ;
   constructor(private marqueService : MarqueService,
-              private router : Router) { }
+              private router : Router) { 
+                this.config = {
+                  itemsPerPage: 3,
+                  currentPage: 1
+                 };
+              } 
+         
+
+           pageChanged(event) {
+             this.config.currentPage = event;
+           }
+              
 
   ngOnInit() {
     this.marqueService.getMarques()

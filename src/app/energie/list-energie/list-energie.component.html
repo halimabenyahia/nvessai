@@ -14,7 +14,7 @@
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let energie of energies ;let i=index">
+                    <tr *ngFor="let energie of energies |paginate : config ;let i=index">
                         <td>{{energie?.id_energie}}</td>
                         <td>{{energie?.des_energie}}</td>
                         <td><button type="button" class="btn btn-success" (click)="edit(energie.id_energie)"><i class="fa fa-pencil"></i></button></td>
@@ -22,6 +22,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div style="margin-left: 27%">
+                <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+            </div>
         </div>
     </div>
 </div>

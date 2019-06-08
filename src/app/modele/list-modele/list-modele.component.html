@@ -12,7 +12,7 @@
                     <th></th>
                     <th></th>
                 </thead>
-                <tr *ngFor="let modele of modeles ;let i=index">
+                <tr *ngFor="let modele of modeles |paginate : config ;let i=index">
                     <td>{{modele?.id_modele}}</td>
                     <td>{{modele?.des_modele}}</td>
                     <td><button type="button" class="btn btn-success" (click)="edit(modele.id_modele)"><i class="fa fa-pencil"></i></button></td>
@@ -20,6 +20,9 @@
 
                 </tr>
             </table>
+            <div style="margin-left: 27%">
+                <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+            </div>
         </div>
     </div>
 </div>

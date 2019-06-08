@@ -88,7 +88,7 @@ const routes: Routes = [
     { path : 'editDepense/:id' , component : InfoDepenseComponent},
     
   ]},
-  { path : 'listDepense' , component : ListDepenseComponent, canActivate :[GuardAuth ,GuardAgent]},
+  { path : 'listDepense' , component : ListDepenseComponent, canActivate :[GuardAuth ]},
 
   { path: 'addVehicule', component: VehiculeComponent , canActivate :[GuardAuth] },
   { path: 'listVehicules', component: VehiculListComponent , canActivate :[GuardAuth] },

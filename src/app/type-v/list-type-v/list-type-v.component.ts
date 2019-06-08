@@ -13,8 +13,19 @@ export class ListTypeVComponent implements OnInit {
 
   typeV : TypeVehicule[] =[] ;
   link ;
+  config : any ;
   constructor(private typevehiculeService : TypeVehiculeService,
-              private router : Router) { }
+              private router : Router) {
+                this.config = {
+                  itemsPerPage: 3,
+                  currentPage: 1
+                 };
+              }
+
+              pageChanged(event) {
+                this.config.currentPage = event;
+              } 
+               
 
   ngOnInit() {
     this.typevehiculeService.getTypeVehicule().subscribe(

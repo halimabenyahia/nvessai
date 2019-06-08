@@ -12,8 +12,19 @@ export class ListModeleComponent implements OnInit {
 
   modeles : Modele[] = [] ;
   link ;
+  config: any ;
   constructor(private modeleService : ModeleService,
-              private router : Router) { }
+              private router : Router) {
+                this.config = {
+                  itemsPerPage: 3,
+                  currentPage: 1
+                 };
+              }
+
+              pageChanged(event) {
+                this.config.currentPage = event;
+              } 
+               
 
   ngOnInit() {
     this.modeleService.getModeles()

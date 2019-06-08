@@ -14,7 +14,7 @@
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let piece of pieces ;let i=index">
+                    <tr *ngFor="let piece of pieces | paginate : config ;let i=index">
                         <th>{{piece?.des_piece}}</th>
                         <td>{{piece?.type_piece_p?.des_typePiece}}</td>
                         <td>{{piece?.reference_piece}}</td>
@@ -26,6 +26,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div style="margin-left: 27%">
+                <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+            </div>
         </div>
     </div>
 </div>

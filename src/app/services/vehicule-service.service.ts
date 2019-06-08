@@ -52,6 +52,18 @@ export class VehiculeServiceService {
     return this.httpClient.get('http://localhost:8091/nombreVehicule');
   }
 
+  public getNombreVehiculePartner(){
+    return this.httpClient.get('http://localhost:8091/nbPartner');
+  }
+
+  public getNombreVehiculeCamion(){
+    return this.httpClient.get('http://localhost:8091/nbCamion');
+  }
+
+  public getNombreVehiculeVoiture(){
+    return this.httpClient.get('http://localhost:8091/nbVoiture');
+  }
+
   
 
  

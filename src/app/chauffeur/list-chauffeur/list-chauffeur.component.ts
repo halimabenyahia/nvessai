@@ -14,9 +14,21 @@ export class ListChauffeurComponent implements OnInit {
  
   chauffeur : Chauffeur[];
   link1 ;
+  config :any ;
   constructor(private chauffeurService : ChauffeurService,
               private httpClient: HttpClient,
-              private router : Router) { }
+              private router : Router) {
+                this.config = {
+                  itemsPerPage: 3,
+                  currentPage: 1
+                 };
+              } 
+         
+
+           pageChanged(event) {
+             this.config.currentPage = event;
+           }
+               
 
   ngOnInit() {
 

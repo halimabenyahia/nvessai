@@ -14,7 +14,7 @@
                     <th></th>
                     <th></th>
                 </thead>
-                <tr *ngFor="let assurance of assurances ;let i=index">
+                <tr *ngFor="let assurance of assurances | paginate: config ;let i=index">
                     <td>{{assurance?.compagnie_ass}}</td>
                     <td>{{assurance?.adr_assurance}}</td>
                     <td>{{assurance?.tel_assurance}}</td>
@@ -22,6 +22,7 @@
                     <td><button type="button" class="btn btn-danger" (click)="delete(assurance.id_assurance)"><i class="fa fa-trash-o"></i></button></td>
                 </tr>
             </table>
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
         </div>
     </div>
 </div>
@@ -34,9 +35,3 @@
             <button type="button" class="btn btn-dark"><i class="fa fa-plus"></i></button>
         </a>
     </div>
-
-    <!--
-<div *ngFor="let assurance of assurances ">
-  {{assurance|json}}
-</div>
--->

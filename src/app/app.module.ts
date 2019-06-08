@@ -84,6 +84,8 @@ import { InfoEntretienComponent } from './entretien/info-entretien/info-entretie
 import { TypeEntretienComponent } from './type-entretien/type-entretien.component';
 import { ListTypeEntretienComponent } from './type-entretien/list-type-entretien/list-type-entretien.component';
 import { InfoTypeEntretienComponent } from './type-entretien/info-type-entretien/info-type-entretien.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 
 
@@ -170,7 +172,9 @@ import { InfoTypeEntretienComponent } from './type-entretien/info-type-entretien
     HttpClientModule,
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
+    
   ],
   providers: [
     VehiculeServiceService,

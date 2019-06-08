@@ -10,9 +10,18 @@ import { Router } from '@angular/router';
 })
 export class ListAffectationComponent implements OnInit {
 
+  config : any ;
   affectations : Affectation[] ;
   constructor(private affectationService : AffectationService,
-              private router : Router) { }
+              private router : Router) { 
+                this.config = {
+                  itemsPerPage: 3,
+                  currentPage: 1
+                 };
+              }
+              pageChanged(event) {
+                this.config.currentPage = event;
+              }
 
   ngOnInit() {
     this.affectationService.getAffectation()

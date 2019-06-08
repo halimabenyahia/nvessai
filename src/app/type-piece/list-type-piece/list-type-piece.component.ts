@@ -11,8 +11,19 @@ import { Router } from '@angular/router';
 export class ListTypePieceComponent implements OnInit {
 
   typePiece : TypePiece [] ;
+  config : any ;
   constructor(private typePieceService : TypePieceService,
-              private router : Router) { }
+              private router : Router) { 
+                this.config = {
+                  itemsPerPage: 3,
+                  currentPage: 1
+                 };
+              } 
+         
+           pageChanged(event) {
+             this.config.currentPage = event;
+           }
+              
 
   ngOnInit() {
     this.typePieceService.getAllTypePiece().subscribe(

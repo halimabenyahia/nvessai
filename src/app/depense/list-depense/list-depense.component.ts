@@ -3,6 +3,8 @@ import { DepenseService } from 'src/app/services/depense.service';
 import { Router } from '@angular/router';
 import { Depense } from 'src/app/entity/depense';
 
+
+
 @Component({
   selector: 'app-list-depense',
   templateUrl: './list-depense.component.html',
@@ -11,8 +13,19 @@ import { Depense } from 'src/app/entity/depense';
 export class ListDepenseComponent implements OnInit {
 
   depense : Depense [];
+  config : any ;
   constructor(private depenseService : DepenseService,
-              private router : Router) { }
+              private router : Router
+              ) {
+                this.config = {
+                  itemsPerPage: 5,
+                  currentPage: 1
+                 };
+               }
+
+               pageChanged(event) {
+                this.config.currentPage = event;
+              }
 
   ngOnInit() {
     this.depenseService.getDepenses().subscribe(
@@ -32,7 +45,8 @@ export class ListDepenseComponent implements OnInit {
     this.depenseService.supprimer(id_depense).subscribe(
       (response) =>
       {
-        this.router.navigate(['depenses']);
+        //this.toastr.success("Hello, I'm the toastr message.")
+        this.router.navigate(['/listDepense']);
       }
     );
   }

@@ -12,8 +12,18 @@ export class ListPieceComponent implements OnInit {
 
   piece : Piece[] ;
   pieces : Piece[]=[] ;
+  config : any ;
   constructor(private pieceService : PieceService,
-              private router : Router) { }
+              private router : Router) { 
+                this.config = {
+                  itemsPerPage: 3,
+                  currentPage: 1
+                 };
+              }
+
+              pageChanged(event) {
+                this.config.currentPage = event;
+              }         
 
   ngOnInit() {
     this.pieceService.getAllPiece().subscribe(

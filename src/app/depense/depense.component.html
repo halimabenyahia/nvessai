@@ -1,4 +1,10 @@
 <br>
+<div>
+    <div class="form-group col-md-3" style="margin-left: 75%">
+        <button type="button" class="btn btn-info" (click)="gotoList()">Consulter liste</button>
+    </div>
+</div>
+<br>
 <div class="card text-center" style="margin-top: 2%">
     <div class="card-header">
         <h5>Ajouter une dépense</h5>
@@ -50,8 +56,8 @@
                             <th><button type="button" (click)="ajouterLigne()" class="btn btn-success"><i class="fa fa-plus"></i></button></th>
                         </thead>
                         <tbody>
-                            <!--parcourir depense_piece-->
-                            <tr *ngFor="let piece of listPieces ;let i=index">
+
+                            <tr *ngFor="let d of depensePiece ;let i=index">
                                 <th>
                                     <!-- <input type="text" required class="form-control col-sm-7" (blur)="selectionner(despiece,i)" id="des_piece" ngModel name="des_piece" value="piece.des_piece" #despiece="ngModel">-->
                                     <div class="form-group col-sm-12 ">
@@ -64,14 +70,14 @@
                                         </ol>
                                     </div>
                                 </th>
-                                <th>{{piece?.type_piece_p?.des_typePiece}}</th>
-                                <th>{{piece?.reference_piece}}</th>
+                                <th>{{d?.type_piece_p?.des_typePiece}}</th>
+                                <th>{{d?.reference_piece}}</th>
                                 <th>
-                                    <input type="text" placeholder="1" (onblur)="calculResult(qtep.value)" required class="form-control col-sm-7" value=1 id="qte_p" pattern="[1-9]+" ngModel name="qte_p" #qtep="ngModel">
+                                    <input type="text" placeholder="1" (change)="calculResult(formulaire)" required class="form-control col-sm-7" value=1 id="qte" pattern="[1-9]+" ngModel name="qte" #qte="ngModel">
                                 </th>
-                                <th>{{piece?.prix_achat}}</th>
-                                <th>{{piece.tva_p}}%</th>
-                                <th>{{piece.montant_hors_taxe}}</th>
+                                <th>{{d?.prix_achat}}</th>
+                                <th>{{d.tva_p}}%</th>
+                                <th>{{ht}}</th>
                                 <th>
                                     <input required type="text" pattern="[1-9.,0-9]+" class="form-control col-sm-8" id="ttc_p" ngModel name="ttc_p" #ttcp="ngModel">
                                 </th>
@@ -79,7 +85,7 @@
                                 <th></th>
                                 <th><button type="button" (click)="supprimerLigne(piece,i)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></th>
                             </tr>
-                            <button type="button" (click)="affiche(piece)" class="btn btn-danger"></button>
+
                         </tbody>
                     </table>
                 </div>
@@ -103,8 +109,3 @@
 
 </div>
 <br>
-<div>
-    <div class="form-group col-md-3" style="margin-left: 75%">
-        <button type="button" class="btn btn-success" routerLink="/listDepense">Consulter liste</button>
-    </div>
-</div>

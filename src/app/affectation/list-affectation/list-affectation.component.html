@@ -14,7 +14,7 @@
 
                         <th></th>
                     </thead>
-                    <tr *ngFor="let affectation of affectations ;let i=index">
+                    <tr *ngFor="let affectation of affectations | paginate: config ;let i=index">
                         <td>{{affectation?.id_affectation}}</td>
                         <td>{{affectation?.des_affectation}}</td>
 
@@ -22,6 +22,7 @@
                         <td><button type="button" class="btn btn-danger" (click)="delete(affectation.id_affectation,i)"><i class="fa fa-trash-o"></i></button></td>
                     </tr>
                 </table>
+                <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
             </div>
         </div>
     </div>

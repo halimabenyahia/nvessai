@@ -13,8 +13,19 @@ export class ListEnergieComponent implements OnInit {
 
   energies : Energie[]=[] ;
   link ;
+  config : any ;
   constructor(private energieService : EnergieService,
-              private router : Router) { }
+              private router : Router) {
+                this.config = {
+                  itemsPerPage: 3,
+                  currentPage: 1
+                 };
+              }
+
+              pageChanged(event) {
+                this.config.currentPage = event;
+              } 
+               
 
   ngOnInit() {
     this.energieService.getEnergie()

@@ -16,18 +16,23 @@
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let depense of depense ;let i=index">
+                    <tr *ngFor="let depense of depense  | paginate: config;let i=index">
                         <th>{{depense?.vehicule_dep.immatriculation}}</th>
                         <th>{{depense?.date_depense}}</th>
                         <td>{{depense?.ttc | number}}</td>
                         <td>{{depense?.type_depense}}</td>
                         <td>{{depense?.compteur_d}}</td>
                         <td><button type="button" class="btn btn-success" (click)="gotoInfo(depense.id_depense)"><i class="fa fa-pencil"></i></button></td>
-                        <td><button type="button" class="btn btn-danger" (click)="delete(depense.id_depense,i) "><i class="fa fa-trash-o"></i></button></td>
+                        <td>
+                            <button type="button" class="btn btn-danger" (click)="delete(depense.id_depense,i) ">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                        </td>
 
                     </tr>
                 </tbody>
             </table>
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
         </div>
     </div>
 </div>

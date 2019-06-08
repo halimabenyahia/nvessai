@@ -11,8 +11,19 @@ import { Router } from '@angular/router';
 export class ListTypeEntretienComponent implements OnInit {
 
   typeEntretiens : TypeEntretien [] ;
+  config : any ;
   constructor(private typeEntretienService : TypeEntretienService,
-              private router : Router) { }
+              private router : Router) {
+                this.config = {
+                  itemsPerPage: 3,
+                  currentPage: 1
+                 };
+              }
+
+              pageChanged(event) {
+                this.config.currentPage = event;
+              } 
+               
 
   ngOnInit() {
     this.typeEntretienService.getAlltypeEntretiens().subscribe(

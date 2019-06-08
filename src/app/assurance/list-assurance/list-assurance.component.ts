@@ -11,8 +11,18 @@ import { Router } from '@angular/router';
 export class ListAssuranceComponent implements OnInit {
 
   assurances : Assurance[] ;
+  config : any ;
   constructor(private assuranceService : AssuranceService,
-              private router : Router) { }
+              private router : Router) {
+                this.config = {
+                  itemsPerPage: 3,
+                  currentPage: 1
+                 };
+               }
+
+               pageChanged(event) {
+                this.config.currentPage = event;
+              }
 
   ngOnInit() {
     this.assuranceService.getAssurrance()

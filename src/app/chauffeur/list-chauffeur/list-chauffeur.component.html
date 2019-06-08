@@ -17,7 +17,7 @@
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let chauffeur of chauffeur ;let i=index">
+                    <tr *ngFor="let chauffeur of chauffeur | paginate: config ;let i=index">
                         <th>{{chauffeur?.matricule_ch}}</th>
                         <td>{{chauffeur?.nom_ch}}</td>
                         <td>{{chauffeur?.prenom_ch}}</td>
@@ -29,6 +29,7 @@
                     </tr>
                 </tbody>
             </table>
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
         </div>
     </div>
 </div>

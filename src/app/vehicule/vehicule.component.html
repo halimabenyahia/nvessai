@@ -70,7 +70,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-3">
                                         <label for="immatriculation">Immatriculation:</label>
-                                        <input pattern='[1-9]+[t][u][1-9]+' autocomplete="off" maxlength="9" title="immatriculation doit etre 111tu1111" type="text" autocomplete="off" class="form-control" ngModel name="immatriculation" #immatriculation="ngModel">
+                                        <input pattern='[1-9]+[t][u][1-9]+' required autocomplete="off" maxlength="9" title="immatriculation doit etre 111tu1111" type="text" autocomplete="off" class="form-control" ngModel name="immatriculation" #immatriculation="ngModel">
                                         <p *ngIf="immatriculation.invalid && immatriculation.touched " style="color:red" class="alert alert-light" role="alert">
                                             immatriculation incorrecte
                                         </p>

@@ -44,20 +44,33 @@
 
 
 <br>
-<div class="main-content">
+<div class="main-content" style="margin-left: 5%">
     <div class="container-fluid">
         <div class="row">
 
             <div _ngcontent-c5="" class="col-lg-3 col-md-6 col-sm-6">
                 <div _ngcontent-c5="" class="card card-stats">
                     <div _ngcontent-c5="" class="card-header card-header-warning card-header-icon">
-                        <div _ngcontent-c5="" class="card-icon"><i _ngcontent-c5="" style="font-style: italic" class="fa fa-truck"> Véhicule dans le parc</i></div>
+                        <div _ngcontent-c5="" class="card-icon"><i _ngcontent-c5="" style="font-style: normal" class="fa fa-truck"> Véhicule dans le parc</i></div>
                         <!--   <p _ngcontent-c5="" class="card-category">Used Space</p> -->
                         <h3 _ngcontent-c5="" class="card-title">{{nombre}} <small _ngcontent-c5="">Véhicule</small></h3>
                     </div>
                     <div _ngcontent-c5="" class="card-footer">
                         <!--   <div _ngcontent-c5="" class="stats"><i _ngcontent-c5="" class="material-icons">access_time</i> updated 4 minutes ago </div> -->
                     </div>
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div _ngcontent-c5="" class="col-lg-3 col-md-6 col-sm-6">
+                <div _ngcontent-c5="" class="card card-stats ">
+                    <div _ngcontent-c5="" class="card-header card-header-warning card-header-icon">
+                        <!-- <div _ngcontent-c5="" class="card-icon"><i _ngcontent-c5="" style="font-style: italic" class="fa fa-truck"> Véhicule dans le parc</i></div>-->
+                        <!--   <p _ngcontent-c5="" class="card-category">Used Space</p> -->
+                        <h3 _ngcontent-c5="" class="card-title">{{nbCamion}} <small _ngcontent-c5="">Camion</small></h3>
+                        <h3 _ngcontent-c5="" class="card-title">{{nbPartner}} <small _ngcontent-c5="">Partner</small></h3>
+                        <h3 _ngcontent-c5="" class="card-title">{{nbVoiture}} <small _ngcontent-c5="">Voiture</small></h3>
+                    </div>
+
                 </div>
             </div>
 
@@ -77,6 +90,15 @@
         </div>
     </div>
 </div>
+<br>
+<br>
+
+<div style="left:10px; width:500px; height:500px;margin-left: 5%">
+    <div class="chartjs-wrapper">
+        hello
+        <canvas id="canvas" class="chartjs"> {{charts}}</canvas>
+    </div>
+</div>
 
 
-<app-footer></app-footer>
+<!--<app-footer></app-footer>-->

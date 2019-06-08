@@ -27,7 +27,7 @@
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let entretien of entretiens ;let i=index">
+                    <tr *ngFor="let entretien of entretiens |paginate:config ;let i=index">
                         <th>{{entretien?.vehicule_entretien?.immatriculation}}</th>
                         <td>{{entretien?.type_entretien?.des_typeEntretien}}</td>
                         <td>{{entretien?.date_prev_ent}}</td>
@@ -39,6 +39,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div style="margin-left: 27%">
+                <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+            </div>
         </div>
     </div>
 </div>

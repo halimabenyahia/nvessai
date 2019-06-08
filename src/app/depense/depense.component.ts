@@ -43,12 +43,14 @@ export class DepenseComponent implements OnInit {
   typeDepenses: TypeDepense[];
   ref : string ;
   ty : string ;
-  listPieces : Piece[]=[];
-  pu : number ;
-  tv : number ;
+  listPieces : Piece [];
+ 
   q : number ;
   myTable =[];
-
+  ht : number ;
+  ttc : number ;
+  tva : number ;
+  montant_total : number ;
   depensePiece : Depense_piece ;
   
  
@@ -133,16 +135,6 @@ export class DepenseComponent implements OnInit {
 
   }
 
- /* affiche(designationP) {
-    console.log(designationP);
-    this.pieceService.getbyDespiece(designationP.value).subscribe(
-      (piece: Piece) => {
-        this.piece = piece;
-        console.log(piece);
-      }
-    );
-  }*/
-
   chercherPiece(parametre) {
     this.pieceService.getbyDespiece(parametre).subscribe(
       (piece: Piece[]) => {
@@ -198,10 +190,26 @@ export class DepenseComponent implements OnInit {
     
   
 
-  calculResult(qtep){
+  calculResult(formulaire){
     var result=0 ;
-    result=((this.pu * this.q) + this.tv) / 100 ;
-    console.log("resultat ttc " + result);
+    var q=formulaire.qte.value ;
+    console.log("quantité:" + q) ;
+
+    var pu=this.listPieces.prix_achat ;
+    console.log("prix unitaire :"+pu);
+
+    this.ht =q*pu ;
+    console.log("hors taxe :"+this.ht);
+
+    this.tva = this.listPieces.tva_p ;
+    console.log("tva"+this.tva);
+
+    this.depensePiece.ttc_dp=
+    this.ttc=((pu*q)+this.tva)/100 ;
+
+
+    //montant_total 
+    
 
   }
 
@@ -217,6 +225,10 @@ export class DepenseComponent implements OnInit {
     const index = this.listPieces.indexOf(p);
     this.listPieces.splice(index, 1);
     console.log("indice " +index );
+  }
+
+  gotoList(){
+    this.router.navigate(['/listDepense']);
   }
 
 

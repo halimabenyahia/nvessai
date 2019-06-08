@@ -13,7 +13,7 @@
                     <th></th>
                     <th></th>
                 </thead>
-                <tr *ngFor="let typeb of boites ;let i=index">
+                <tr *ngFor="let typeb of boites | paginate : config ;let i=index">
                     <td>{{typeb?.id_typeBoite}}</td>
                     <td>{{typeb?.des_boite}}</td>
                     <td><button type="button" (click)="edit(typeb.id_typeBoite)" class="btn btn-success"><i class="fa fa-pencil"></i></button></td>
@@ -21,6 +21,10 @@
 
                 </tr>
             </table>
+
+            <div style="margin-left: 27%">
+                <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+            </div>
         </div>
     </div>
 </div>
