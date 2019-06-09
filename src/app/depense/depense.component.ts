@@ -51,7 +51,7 @@ export class DepenseComponent implements OnInit {
   ttc : number ;
   tva : number ;
   montant_total : number ;
-  depensePiece : Depense_piece ;
+  depensePiece : Depense_piece [];
   
  
   constructor(private depenseService: DepenseService,
@@ -81,6 +81,48 @@ export class DepenseComponent implements OnInit {
         this.typePiece = typePiece
       }
     );
+  }
+
+
+  calculResult(formulaire){
+    var result=0 ;
+
+    for (let index = 0; index < this.depensePiece.length; index++){
+      
+      var q=this.depensePiece[index].qte
+      console.log("quantité:" + q) ;
+
+    }
+      ;
+    
+
+   // var pu=this.listPieces.prix_achat ;
+   // console.log("prix unitaire :"+pu);
+
+   // this.ht =q*pu ;
+   // console.log("hors taxe :"+this.ht);
+
+   // this.tva = this.listPieces.tva_p ;
+   // console.log("tva"+this.tva);
+
+   // this.depensePiece.ttc_dp=
+    //this.ttc=((pu*q)+this.tva)/100 ;
+    
+
+  }
+
+
+  ajouterLigne() {
+    this.listPieces.push(
+      new Piece()
+    ) ;
+  }
+
+  supprimerLigne(p : Piece){
+    console.log("p : "+p );
+    const index = this.listPieces.indexOf(p);
+    this.listPieces.splice(index, 1);
+    console.log("indice " +index );
   }
 
   add(formulaire: NgForm) {
@@ -190,42 +232,7 @@ export class DepenseComponent implements OnInit {
     
   
 
-  calculResult(formulaire){
-    var result=0 ;
-    var q=formulaire.qte.value ;
-    console.log("quantité:" + q) ;
-
-    var pu=this.listPieces.prix_achat ;
-    console.log("prix unitaire :"+pu);
-
-    this.ht =q*pu ;
-    console.log("hors taxe :"+this.ht);
-
-    this.tva = this.listPieces.tva_p ;
-    console.log("tva"+this.tva);
-
-    this.depensePiece.ttc_dp=
-    this.ttc=((pu*q)+this.tva)/100 ;
-
-
-    //montant_total 
-    
-
-  }
-
-
-  ajouterLigne() {
-    this.listPieces.push(
-      new Piece()
-    ) ;
-  }
-
-  supprimerLigne(p : Piece){
-    console.log("p : "+p );
-    const index = this.listPieces.indexOf(p);
-    this.listPieces.splice(index, 1);
-    console.log("indice " +index );
-  }
+  
 
   gotoList(){
     this.router.navigate(['/listDepense']);

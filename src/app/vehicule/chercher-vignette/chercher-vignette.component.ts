@@ -10,7 +10,17 @@ import { Vehicule } from 'src/app/entity/vehicule';
 export class ChercherVignetteComponent implements OnInit {
 
   vehicules : Vehicule ;
-  constructor(private vehiculeService : VehiculeServiceService) { }
+  config : any ;
+  constructor(private vehiculeService : VehiculeServiceService) {
+    this.config = {
+      itemsPerPage: 3,
+      currentPage: 1
+     };
+   }
+
+   pageChanged(event) {
+    this.config.currentPage = event;
+  } 
 
   ngOnInit() {
     this.vehiculeService.getAllVehicule().subscribe( 

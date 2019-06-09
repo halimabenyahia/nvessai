@@ -4,7 +4,7 @@
         <button type="button" class="btn btn-info" (click)="gotoList()">Consulter liste</button>
     </div>
 </div>
-<br>
+
 <div class="card text-center" style="margin-top: 2%">
     <div class="card-header">
         <h5>Ajouter une dépense</h5>
@@ -69,9 +69,10 @@
                                             </li>
                                         </ol>
                                     </div>
+
                                 </th>
-                                <th>{{d?.type_piece_p?.des_typePiece}}</th>
-                                <th>{{d?.reference_piece}}</th>
+                                <th>{{p?.type_piece_p?.des_typePiece}}</th>
+                                <th>{{p?.reference_piece}}</th>
                                 <th>
                                     <input type="text" placeholder="1" (change)="calculResult(formulaire)" required class="form-control col-sm-7" value=1 id="qte" pattern="[1-9]+" ngModel name="qte" #qte="ngModel">
                                 </th>
