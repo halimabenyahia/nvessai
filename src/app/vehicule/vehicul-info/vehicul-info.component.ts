@@ -140,6 +140,7 @@ export class VehiculInfoComponent implements OnInit {
     console.log(selectedMarque);
     this.selectedMarque = selectedMarque.des_marque;
     this.idSelectedMArque = selectedMarque.id_marque;
+    this.vehicule.marque_v = selectedMarque ;
     this.resultat = [];
   }
   chercherMarque(parametre) {
@@ -163,6 +164,7 @@ export class VehiculInfoComponent implements OnInit {
     console.log(selectedTypeVehicule);
     this.selectedTypeVehicule = selectedTypeVehicule.des_typeVehicule;
     this.idSelectedtypevehicule = selectedTypeVehicule.id_typeVehicule ;
+    this.vehicule.type_vehicule = selectedTypeVehicule ;
     this.typeVehicule = [];
     }
 
@@ -178,6 +180,7 @@ export class VehiculInfoComponent implements OnInit {
       console.log(selectedAffectation);
       this.selectedAffectation = selectedAffectation.des_affectation;
       this.idSelectedAffectation = selectedAffectation.id_affectation ;
+      this.vehicule.affectation_vehicule = selectedAffectation ;
       this.affect = [] ;
     }
 
@@ -194,6 +197,7 @@ export class VehiculInfoComponent implements OnInit {
       console.log(selectedChauffeur);
       this.selectedChauffeur = selectedChauffeur.nom_ch;
       this.idSelectedChauffeur = selectedChauffeur.id_chauffeur ;
+      this.vehicule.chauffeur_v = selectedChauffeur; // edittt
       this.chauff = [] ;
     }
 
@@ -210,6 +214,7 @@ export class VehiculInfoComponent implements OnInit {
       console.log(selectedBoite);
       this.selectedBoite = selectedBoite.des_boite;
       this.idSelectedBoite= selectedBoite.id_typeBoite ;
+      this.vehicule.type_boite = selectedBoite ;
       this.boiteV = [];
     }
 
@@ -225,6 +230,7 @@ export class VehiculInfoComponent implements OnInit {
       console.log(selectedEnergie);
       this.selectedEnergie = selectedEnergie.des_energie ;
       this.idSelectedEnergie = selectedEnergie.id_energie;
+      this.vehicule.energie_v = selectedEnergie ;
       this.energieV= [];
     }
 
@@ -240,6 +246,7 @@ export class VehiculInfoComponent implements OnInit {
       console.log(selectedassurance);
       this.selectedassurance = selectedassurance.compagnie_ass ;
       this.idSelectedAssurance = selectedassurance.id_assurance;
+      this.vehicule.assurance_vehicule = selectedassurance ;
       this.assur=[];
     }
 

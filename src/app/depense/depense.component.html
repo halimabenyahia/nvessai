@@ -61,7 +61,7 @@
                                 <th>
                                     <!-- <input type="text" required class="form-control col-sm-7" (blur)="selectionner(despiece,i)" id="des_piece" ngModel name="des_piece" value="piece.des_piece" #despiece="ngModel">-->
                                     <div class="form-group col-sm-12 ">
-                                        <input type="text" class="form-control" (blur)="selectionner(piece,i)" #inputPiece ngModel name='des_piece' autocomplete="off" (keyup)="chercherPiece(inputPiece.value)" #despiece="ngModel" value="piece">
+                                        <input type="text" class="form-control" (blur)="selectionner(piece,i)" #inputPiece ngModel name='des_piece' autocomplete="off" (keyup)="chercherPiece(inputPiece.value)" #despiece="ngModel" value="d.piece_dep.des_piece">
                                         <input type="text" hidden name='id_piece' [(ngModel)]="idSelectedPiece" ngModel>
                                         <ol class="list-group" #listSelectedPiece>
                                             <li class="list-group-item" (click)="selectPiece(p)" *ngFor="let p of pieces" value="{{p?.id_piece}}">
@@ -71,20 +71,24 @@
                                     </div>
 
                                 </th>
-                                <th>{{p?.type_piece_p?.des_typePiece}}</th>
-                                <th>{{p?.reference_piece}}</th>
+                                <th>{{tp}}</th>
+                                <th>{{ref}}</th>
                                 <th>
                                     <input type="text" placeholder="1" (change)="calculResult(formulaire)" required class="form-control col-sm-7" value=1 id="qte" pattern="[1-9]+" ngModel name="qte" #qte="ngModel">
                                 </th>
-                                <th>{{d?.prix_achat}}</th>
-                                <th>{{d.tva_p}}%</th>
-                                <th>{{ht}}</th>
+                                <th>{{pu}}</th>
+                                <th>
+                                    {{d.tva_dp}}
+                                </th>
+                                <th>
+                                    <!--{{depensePiece.hors_taxe}}-->
+                                </th>
                                 <th>
                                     <input required type="text" pattern="[1-9.,0-9]+" class="form-control col-sm-8" id="ttc_p" ngModel name="ttc_p" #ttcp="ngModel">
                                 </th>
                                 <th></th>
                                 <th></th>
-                                <th><button type="button" (click)="supprimerLigne(piece,i)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></th>
+                                <th><button type="button" (click)="supprimerLigne(i)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></th>
                             </tr>
 
                         </tbody>

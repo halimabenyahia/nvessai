@@ -9,7 +9,7 @@ export class GuardAdmin implements CanActivate{
 			console.log("guardAdmin");
 			const role = localStorage.getItem('role');
 			console.log("role " +role);
-			if (role === "admin")
+			if (role === "ROLE_ADMIN")
 			{
 				
 				return true;

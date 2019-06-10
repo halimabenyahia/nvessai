@@ -83,7 +83,7 @@ const routes: Routes = [
   { path : 'header' , component : HeaderComponent, canActivate :[GuardAuth] },
   { path : 'acceuil' , component : AcceuilComponent , canActivate :[GuardAuth]},
 
-  { path : 'depenses' , component : DepenseComponent , canActivate :[GuardAuth], children : [
+  { path : 'depenses' , component : DepenseComponent , canActivate :[GuardAuth, GuardAdmin], children : [
     { path : 'addDepense' , component : FormDepenseComponent},
     { path : 'editDepense/:id' , component : InfoDepenseComponent},
     
@@ -143,34 +143,34 @@ const routes: Routes = [
 { path : 'listTypeV' , component : ListTypeVComponent, canActivate :[GuardAuth]},
 {path: 'TypeV' ,component : TypeVComponent, canActivate :[GuardAuth] },
 
-  {path : 'filtrage' , component : FiltrageComponent, canActivate :[GuardAuth] , children :[
+  {path : 'filtrage' , component : FiltrageComponent, canActivate :[GuardAuth,GuardAdmin] , children :[
     { path : 'filtre' , component : AfficheTableComponent},
     { path : 'graphe' , component : GrapheComponent}
   ]},
 
-  { path : 'addTypeDepense' , component : TypeDepenseComponent, canActivate :[GuardAuth]},
-  { path : 'editTypeDepense/:id' , component : InfoTypeDepenseComponent, canActivate :[GuardAuth]},
-  { path : 'listTypeDepense' , component : ListTypeDepenseComponent, canActivate :[GuardAuth]},
-  {path : 'typeDepenses' , component : TypeDepenseComponent, canActivate :[GuardAuth] },
+  { path : 'addTypeDepense' , component : TypeDepenseComponent, canActivate :[GuardAuth,GuardAdmin]},
+  { path : 'editTypeDepense/:id' , component : InfoTypeDepenseComponent, canActivate :[GuardAuth,GuardAdmin]},
+  { path : 'listTypeDepense' , component : ListTypeDepenseComponent, canActivate :[GuardAuth,GuardAdmin]},
+  {path : 'typeDepenses' , component : TypeDepenseComponent, canActivate :[GuardAuth,GuardAdmin] },
 
 
-  { path : 'addTypePiece' , component: TypePieceComponent, canActivate :[GuardAuth]},
-  { path : 'editTypePiece/:id' , component : InfoTypePieceComponent, canActivate :[GuardAuth]},
-  { path : 'listTypePiece' , component : ListTypePieceComponent, canActivate :[GuardAuth]},
-  {path : 'typePieces' , component : TypePieceComponent, canActivate :[GuardAuth]},
+  { path : 'addTypePiece' , component: TypePieceComponent, canActivate :[GuardAuth,GuardAdmin]},
+  { path : 'editTypePiece/:id' , component : InfoTypePieceComponent, canActivate :[GuardAuth,GuardAdmin]},
+  { path : 'listTypePiece' , component : ListTypePieceComponent, canActivate :[GuardAuth,GuardAdmin]},
+  {path : 'typePieces' , component : TypePieceComponent, canActivate :[GuardAuth,GuardAdmin]},
 
 
-  {path : 'pieces' , component : PieceComponent , canActivate :[GuardAuth]}, //add
+  {path : 'pieces' , component : PieceComponent , canActivate :[GuardAuth,GuardAdmin]}, //add
   { path : 'listPiece'  , component : ListPieceComponent, canActivate :[GuardAuth]},
   { path : 'editPiece/:id' , component : InfoPieceComponent, canActivate :[GuardAuth]},
 
-  { path : 'entretien' , component : EntretienComponent, canActivate :[GuardAuth]}, //add
-  { path : 'listEntretien' , component : ListEntretienComponent, canActivate :[GuardAuth]},
-  { path : 'editEntretien/:id' , component : InfoEntretienComponent, canActivate :[GuardAuth]},
+  { path : 'entretien' , component : EntretienComponent, canActivate :[GuardAuth,GuardAdmin]}, //add
+  { path : 'listEntretien' , component : ListEntretienComponent, canActivate :[GuardAuth,GuardAdmin]},
+  { path : 'editEntretien/:id' , component : InfoEntretienComponent, canActivate :[GuardAuth,GuardAdmin]},
 
-  { path : 'typesEntretiens' , component : TypeEntretienComponent, canActivate :[GuardAuth]},//add
-  { path : 'listTypeEntretien' , component : ListTypeEntretienComponent, canActivate :[GuardAuth]},
-  { path : 'editTypeEntretien/:id' , component : InfoTypeEntretienComponent, canActivate :[GuardAuth]}
+  { path : 'typesEntretiens' , component : TypeEntretienComponent, canActivate :[GuardAuth,GuardAdmin]},//add
+  { path : 'listTypeEntretien' , component : ListTypeEntretienComponent, canActivate :[GuardAuth,GuardAdmin]},
+  { path : 'editTypeEntretien/:id' , component : InfoTypeEntretienComponent, canActivate :[GuardAuth,GuardAdmin]}
   
 ];
 

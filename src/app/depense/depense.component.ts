@@ -12,6 +12,7 @@ import { TypePieceService } from '../services/type-piece.service';
 import { NgForm } from '@angular/forms';
 import { PieceService } from '../services/piece.service';
 import { Depense_piece } from '../entity/depense_piece';
+import { DepensePieceService } from '../services/depense-piece.service';
 
 @Component({
   selector: 'app-depense',
@@ -41,7 +42,6 @@ export class DepenseComponent implements OnInit {
   selectedPiece = '';
   idSelectedPiece: number;
   typeDepenses: TypeDepense[];
-  ref : string ;
   ty : string ;
   listPieces : Piece [];
  
@@ -52,14 +52,17 @@ export class DepenseComponent implements OnInit {
   tva : number ;
   montant_total : number ;
   depensePiece : Depense_piece [];
-  
- 
+  tp ='';
+  dp ='';
+  pu : number ;
+  ref='';
   constructor(private depenseService: DepenseService,
-    private router: Router,
-    private vehiculeService: VehiculeServiceService,
-    private typeDepenseService: TypeDepenseService,
-    private typePieceService: TypePieceService,
-    private pieceService: PieceService) { }
+              private router: Router,
+              private vehiculeService: VehiculeServiceService,
+              private typeDepenseService: TypeDepenseService,
+              private typePieceService: TypePieceService,
+              private pieceService: PieceService,
+              private depensePieceService : DepensePieceService) { }
 
   ngOnInit() {
     this.listPieces = [];
@@ -95,38 +98,24 @@ export class DepenseComponent implements OnInit {
     }
       ;
     
-
-   // var pu=this.listPieces.prix_achat ;
-   // console.log("prix unitaire :"+pu);
-
-   // this.ht =q*pu ;
-   // console.log("hors taxe :"+this.ht);
-
-   // this.tva = this.listPieces.tva_p ;
-   // console.log("tva"+this.tva);
-
-   // this.depensePiece.ttc_dp=
-    //this.ttc=((pu*q)+this.tva)/100 ;
-    
-
   }
 
 
   ajouterLigne() {
-    this.listPieces.push(
-      new Piece()
+    this.depensePiece.push(
+      //new Depense_piece()
     ) ;
   }
 
-  supprimerLigne(p : Piece){
-    console.log("p : "+p );
-    const index = this.listPieces.indexOf(p);
-    this.listPieces.splice(index, 1);
+  supprimerLigne(d : Depense_piece){
+    console.log("lignee : "+d );
+    const index = this.depensePiece.indexOf(d);
+    this.depensePiece.splice(index, 1);
     console.log("indice " +index );
   }
 
   add(formulaire: NgForm) {
-    this.depenseService.addDepense(formulaire.value).subscribe(
+    this.depensePieceService.addDepensePiece(formulaire.value).subscribe(
       (response) => {
         this.router.navigate(['/listDepense']);
       },
@@ -135,6 +124,8 @@ export class DepenseComponent implements OnInit {
       }
     );
   }
+
+
 
   chercherVehicule(parametre) {
     this.vehiculeService.getbyImmatricle(parametre).subscribe(
@@ -168,11 +159,9 @@ export class DepenseComponent implements OnInit {
     else {
       this.isSelectedPiece = false;
     }
-    this.listPieces = [
-      new Piece(),
-      new Piece(),
-      new Piece(),
-      new Piece()
+    this.depensePiece = [
+      new Depense_piece()
+      
     ];
 
   }
@@ -193,45 +182,37 @@ export class DepenseComponent implements OnInit {
     this.pieces = [];
   }
 
-  selectionner(piece,index){
+  selectionner(d,index){
     console.log("indexTab "+index);
-    this.listPieces[index].des_piece=piece.des_piece.value;
-   // this.listPieces[index].type_piece_p.des_typePiece=piece.type_piece_p.des_typePiece ;
-    this.listPieces[index].reference_piece=piece.reference_piece.value ;
-    this.listPieces[index].prix_achat=piece.prix_achat.value;
-    console.log("piece " + piece.des_piece);
-   // console.log("piece " + piece.type_piece_p.des_typePiece.value);
-    console.log("reference " + piece.reference_piece);
+
+    this.depensePiece[index].piece_dep.des_piece=d.piece_dep.des_piece.value;
+    console.log("piece " + this.depensePiece[index].piece_dep.des_piece);
+
+    //this.depensePiece[index].piece_dep.type_piece_p.des_typePiece=d.type_piece_p.des_typePiece.value ;
+    //this.tp=this.depensePiece[index].piece_dep.type_piece_p.des_typePiece;
+    //console.log("type piece "+this.tp)
+
+    //this.depensePiece[index].piece_dep.reference_piece=d.piece_dep.reference_piece.value ;
+    //this.ref=this.depensePiece[index].piece_dep.reference_piece=d.piece_dep.reference_piece.value;
+    //console.log("reference" + this.ref);
+    
+    //this.depensePiece[index].piece_dep.prix_achat=d.piece_dep.prix_achat.value;
+    //this.pu=this.depensePiece[index].piece_dep.prix_achat;
+
+    //console.log("pu" + this.pu);
+    //console.log("piece " + d.piece_dep.des_piece.value);
+    //console.log("piece " + d.piece_dep.type_piece_p.des_typePiece.value);
+    //console.log("reference " + d.piece_dep.reference_piece);
   }
    
 
   affiche(piece){
-    for (let index = 0; index < this.listPieces.length; index++){
-      this.listPieces[0].des_piece="abc";
-      console.log("element"+ this.listPieces[index].des_piece ,"index :" +index);
+    for (let index = 0; index < this.depensePiece.length; index++){
+      this.depensePiece[0].piece_dep.des_piece="abc";
+      console.log("element"+ this.depensePiece[index].piece_dep.des_piece ,"index :" +index);
     }
   }
-
- /*   const index = this.listPieces.indexOf(piece);
-    console.log("index : " + index);
-    this.listPieces.push(this.listPieces[index]);
-    
-    this.ref =selectedPiece.reference_piece;
-    this.ty = selectedPiece.type_piece_p.des_typePiece;
-    this.pu=selectedPiece.prix_achat;
-    this.tv=selectedPiece.tva_p;
-    this.q=selectedPiece.qtep;
-
-    this.myTable.push(this.ref);
-    this.myTable.push(this.ty);
-    this.myTable.push(this.pu);
-    this.myTable.push(this.tv);
-    this.myTable.push(this.q);
-*/
-    
-    
   
-
   
 
   gotoList(){

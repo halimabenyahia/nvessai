@@ -9,7 +9,7 @@ export class GuardAgent implements CanActivate{
 			console.log("guardAgent");
 			const role = localStorage.getItem('role');
 			console.log("role  " +role);
-			if (role === "agent")
+			if (role === "ROLE_AGENT")
 			{
 				console.log("guard pour agent");
 				return false;
