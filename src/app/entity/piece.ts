@@ -1,4 +1,6 @@
 import { TypePiece } from './typePiece';
+import Big from 'big.js';
+
 
 export class Piece {
     id_piece : number ;
@@ -17,5 +19,6 @@ export class Piece {
 		this.tva_p = tva_p ;
 		this.prix_achat = prix_achat ;
 		this.id_typePiece = id_typePiece ;
+		
 	}
 }

@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group col-sm-3.5">
                         <label for="date_depense">Date de dépense:</label>
-                        <input type="date" required class="form-control" id="date_depense" ngModel name="date_depense" #dateDep="ngModel" max="2019-06-06">
+                        <input type="date" required class="form-control" id="date_depense" ngModel name="date_depense" #dateDep="ngModel" max="2019-07-12">
                     </div>
                     <div class="form-group col-sm-2 ">
                         <label for="designation_typeDep">Type de dépense :</label>
@@ -45,15 +45,15 @@
                     <table class="table" #myTable>
                         <thead class="thead-light">
                             <th> Pièce </th>
-                            <th>Type de pièce </th>
                             <th>Référence</th>
                             <th>Qte</th>
                             <th>PU</th>
-                            <th>TVA</th>
                             <th>HT</th>
+                            <th>TVA</th>
                             <th>TTC</th>
                             <th></th>
-                            <th><button type="button" (click)="ajouterLigne()" class="btn btn-success"><i class="fa fa-plus"></i></button></th>
+                            <th>
+                                <!--<button type="button" (click)="ajouterLigne()" class="btn btn-success"><i class="fa fa-plus"></i></button>--></th>
                         </thead>
                         <tbody>
 
@@ -61,33 +61,31 @@
                                 <th>
                                     <!-- <input type="text" required class="form-control col-sm-7" (blur)="selectionner(despiece,i)" id="des_piece" ngModel name="des_piece" value="piece.des_piece" #despiece="ngModel">-->
                                     <div class="form-group col-sm-12 ">
-                                        <input type="text" class="form-control" (blur)="selectionner(piece,i)" #inputPiece ngModel name='des_piece' autocomplete="off" (keyup)="chercherPiece(inputPiece.value)" #despiece="ngModel" value="d.piece_dep.des_piece">
-                                        <input type="text" hidden name='id_piece' [(ngModel)]="idSelectedPiece" ngModel>
+                                        <input type="text" class="form-control" #inputPiece ngModel name='des_piece' autocomplete="off" (keyup)="chercherPiece(inputPiece.value)" #despiece="ngModel" value="{{d.piece_des}}">
+                                        <input type="text" name='id_piece' hidden [(ngModel)]="idSelectedPiece" ngModel value="{{d.piece_id}}">
                                         <ol class="list-group" #listSelectedPiece>
-                                            <li class="list-group-item" (click)="selectPiece(p)" *ngFor="let p of pieces" value="{{p?.id_piece}}">
+                                            <li class="list-group-item" (click)="selectPiece(p,i)" *ngFor="let p of pieces" value="{{p?.id_piece}}">
                                                 {{p?.des_piece}}
                                             </li>
                                         </ol>
                                     </div>
 
                                 </th>
-                                <th>{{tp}}</th>
-                                <th>{{ref}}</th>
+                                <th>{{d.reference}}</th>
                                 <th>
-                                    <input type="text" placeholder="1" (change)="calculResult(formulaire)" required class="form-control col-sm-7" value=1 id="qte" pattern="[1-9]+" ngModel name="qte" #qte="ngModel">
+                                    <input type="text" placeholder="1" required class="form-control col-sm-7" value="{{d.qte}}" id="qte" pattern="[1-9]+" ngModel name="qte" #qte="ngModel">
                                 </th>
-                                <th>{{pu}}</th>
+                                <th>{{d.prix | number}}</th>
+                                <th>{{d.hors_taxe |number}}</th>
                                 <th>
-                                    {{d.tva_dp}}
-                                </th>
-                                <th>
-                                    <!--{{depensePiece.hors_taxe}}-->
+                                    {{d.tva_dp}}%
                                 </th>
                                 <th>
-                                    <input required type="text" pattern="[1-9.,0-9]+" class="form-control col-sm-8" id="ttc_p" ngModel name="ttc_p" #ttcp="ngModel">
+                                    {{d.ttc_dp | number}}
                                 </th>
+
                                 <th></th>
-                                <th></th>
+                                <th><button type="button" (click)="ajouterLigne(i)" class="btn btn-success"><i class="fa fa-plus"></i></button></th>
                                 <th><button type="button" (click)="supprimerLigne(i)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></th>
                             </tr>
 
@@ -100,9 +98,10 @@
 </div>
 <div class="card-footer text-muted">
     <div style="margin-left: 70%" class="form-group col-sm-2">
-        <label for="ttc">montant totale: </label>
-        <!--montant total piece ==> ttc depense-->
-        <!--  <input type="text" class="form-control" id="ttc" ngModel name="ttc" #ttc="ngModel">-->
+        <label for="hors_taxe"> Totale HT : {{total_ht | number}}</label>
+        <br>
+        <label for="ttc">Totale TTC : {{total_ttc | number}} </label>
+
 
     </div>
     <div class="form-group col-md-2">

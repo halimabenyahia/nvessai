@@ -19,6 +19,7 @@ export class AcceuilComponent implements OnInit {
   nbPartner ;
   nbCamion ;
   nbVoiture ;
+  nbEssence  ;
   charts =[] ;
   listEnergie : Energie   ;
   energieTab = ["essence" , "gazoil","gazoil sans soufre","essence sans plomb"];
@@ -76,16 +77,23 @@ export class AcceuilComponent implements OnInit {
        }
      );
 
+     this.vehiculeService.getNombreEss().subscribe(
+       (response) =>
+       {
+         this.nbEssence=response ;
+       }
+     );
+
 
      this.charts = new Chart(document.getElementById("canvas"),
              {
-              "type":"bubble",
+              "type":"doughnut",
               "data": {
                 "labels": this.energieTab,
                 "datasets":[
                   {
                     "label":" vehicule : ",
-                    "data": [], //les sommes ttc
+                    "data": [5,2,2,1], //les sommes ttc
                     "fill":false,
                     "backgroundColor" : "#1E41F9",
                     "borderColor":"rgb(44, 100, 185)",
@@ -93,7 +101,12 @@ export class AcceuilComponent implements OnInit {
                   }
                   ]},
               "options":{
-               
+                colors:[{
+                  backgroundColor:"#F00",
+                  hoverBackgroundColor:"#FF0",
+                  borderColor:"#0F0",
+                  hoverBorderColor:"#00F"
+            }]
               }
               });
 

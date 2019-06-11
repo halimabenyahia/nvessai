@@ -1,6 +1,7 @@
 import { CanActivate } from '@angular/router';
 
 export class GuardAgent implements CanActivate{
+	public isAgent = false ;
 
 	canActivate(
 		route: import("@angular/router").ActivatedRouteSnapshot, 
@@ -11,6 +12,7 @@ export class GuardAgent implements CanActivate{
 			console.log("role  " +role);
 			if (role === "ROLE_AGENT")
 			{
+				this.isAgent=true;
 				console.log("guard pour agent");
 				return false;
 			}

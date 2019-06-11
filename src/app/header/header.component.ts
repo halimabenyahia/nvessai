@@ -9,10 +9,22 @@ import { AuthentificationService } from '../services/authentification.service';
 })
 export class HeaderComponent implements OnInit {
   show = false;
+  isAgent= true ;
   constructor(private router: Router,
               public authentificationService : AuthentificationService) { }
 
   ngOnInit() {
+  }
+
+  agentLogged(){
+    const role = localStorage.getItem('role');
+			console.log("role  " +role);
+			if (role === "ROLE_AGENT")
+			{
+				this.isAgent=false;
+				//console.log("guard pour agent");
+				//return false;
+			}
   }
 
   goToComponent(route) {

@@ -64,6 +64,10 @@ export class VehiculeServiceService {
     return this.httpClient.get('http://localhost:8091/nbVoiture');
   }
 
+  public getNombreEss(){
+    return this.httpClient.get('http://localhost:8091/nbVoitureEss');
+  }
+
   
 
  
