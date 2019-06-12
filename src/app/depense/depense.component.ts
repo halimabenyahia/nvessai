@@ -62,7 +62,7 @@ export class DepenseComponent implements OnInit {
   total_ttc = 0;
   total_ht = 0;
   test: number;
-
+  p: number ;
 
   constructor(private depenseService: DepenseService,
     private router: Router,
@@ -139,11 +139,12 @@ export class DepenseComponent implements OnInit {
   }
   selectVehicule(selectedVehicule) {
     console.log(selectedVehicule);
+    console.log(selectedVehicule.immatriculation);
     this.selectedVehicule = selectedVehicule.immatriculation;
     this.idSelectedVehicule = selectedVehicule.id_vehicule;
     this.vehicules = [];
   }
-
+ 
   chercherTypeDepense(parametre) {
     this.typeDepenseService.getTypedepenseParam(parametre).subscribe(
       (typeDepense: TypeDepense[]) => {
@@ -152,7 +153,8 @@ export class DepenseComponent implements OnInit {
     );
   }
   selectTypeDepense(selectedTypeDepense) {
-    console.log(selectedTypeDepense);
+    console.log(selectedTypeDepense.designation_typeDep);
+    //console.log(selectedTypeDepense.type_depense.designation_typeDep);
     this.selectedTypeDepense = selectedTypeDepense.designation_typeDep;
     this.idSelectedTypeDepense = selectedTypeDepense.id_typeDepense;
     this.typeDep = [];
@@ -209,9 +211,11 @@ export class DepenseComponent implements OnInit {
     this.qt = this.depensePiece[index].qte;
     console.log("qtttee" + this.qt);
 
+   // this.depensePiece[index].hors_taxe
+
     this.depensePiece[index].reference = selectedP.reference_piece;
 
-    // this.pu = Big().toPrecision(3);
+
     this.depensePiece[index].prix = selectedP.prix_achat;
     this.pu = this.depensePiece[index].prix;
     console.log("prixxx  puu :" + this.pu);
@@ -219,38 +223,56 @@ export class DepenseComponent implements OnInit {
 
     this.depensePiece[index].hors_taxe = this.qt * this.pu;
     this.ht = this.depensePiece[index].hors_taxe;
+    console.log("ht : " +this.ht);
 
     this.depensePiece[index].ttc_dp = ((this.ht * (100 + this.tv) / 100));
     console.log("calculee ttcc " + this.depensePiece[index].ttc_dp);
-
-    //this.depense.total_ttc. = calculeSum() ;
-
-
-
-    //this.selectedPiece = selectedPiece.des_piece;
-    //this.idSelectedPiece = selectedPiece.id_piece;
-
-
+    console.log("ttc_dp" + this.depensePiece[index].ttc_dp);
+    
 
     this.total_ttc = 0;
     this.total_ht = 0;
     for (let index = 0; index < this.depensePiece.length; index++) {
       this.total_ttc = this.depensePiece[index].ttc_dp + this.total_ttc;
       this.total_ht = this.depensePiece[index].hors_taxe + this.total_ht;
-      console.log("I " + index + ":" + this.depensePiece[index].ttc_dp);
-
-
-      console.log("somme " + this.total_ttc);
+     // console.log("I " + index + ":" + this.depensePiece[index].ttc_dp);
+      console.log("total ttc " + this.total_ttc);
       console.log("total hors taxe " + this.total_ht);
 
     }
     // this.depense.total_ttc=this.total_ttc;
     //this.depenses.vehicule_dep.immatriculation="abc";
-   this.depenses.total_ht=this.total_ht ;
+  // this.depenses.total_ht=this.total_ht ;
 
 
-    console.log("this.depensePiece[index].piece_id=selectedP.id_piece;" + this.depensePiece[index].piece_id)
+    //console.log("this.depensePiece[index].piece_id=selectedP.id_piece;" + this.depensePiece[index].piece_id)
     this.pieces = [];
+  }
+
+  recalculer(qte,index){
+
+    console.log("qtee" + qte.value);
+   // this.depensePiece[index].tva_dp = selectedP.tva_p;
+   // this.tv = this.depensePiece[index].tva_dp;
+  //  console.log("tvaaa " + this.tv);
+
+
+     
+    this.depensePiece[index].qte=qte.value;
+    this.qt =this.depensePiece[index].qte;
+    console.log("qtttee changé" + this.qt);
+
+   // this.depensePiece[index].prix = selectedP.prix_achat;
+   // this.pu = this.depensePiece[index].prix;
+    //console.log("prixxx  puu :" + this.pu);
+
+
+    this.depensePiece[index].hors_taxe = this.qt * this.pu;
+    this.ht = this.depensePiece[index].hors_taxe;
+    console.log("ht changé : " +this.ht);
+
+    this.depensePiece[index].ttc_dp = ((this.ht * (100 + this.tv) / 100));
+
   }
 
   selectionner(d, index) {

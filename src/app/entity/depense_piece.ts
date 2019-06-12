@@ -16,6 +16,9 @@ export class Depense_piece {
 	reference :string ;
 	prix:number;
 
+	id_piece : number ;
+	id_depense : number ;
+
 	
 
 	

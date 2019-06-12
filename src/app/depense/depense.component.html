@@ -73,10 +73,12 @@
                                 </th>
                                 <th>{{d.reference}}</th>
                                 <th>
-                                    <input type="text" placeholder="1" required class="form-control col-sm-7" value="{{d.qte}}" id="qte" pattern="[1-9]+" ngModel name="qte" #qte="ngModel">
+                                    <input type="text" placeholder="1" (change)="recalculer(qte,i)" required class="form-control col-sm-7" value="{{d.qte}}" id="qte" pattern="[1-9]+" ngModel name="qte" #qte="ngModel">
                                 </th>
                                 <th>{{d.prix | number}}</th>
-                                <th>{{d.hors_taxe |number}}</th>
+                                <th><input type="text" placeholder="0.000" class="form-control col-sm-7" value="{{d.hors_taxe}}" id="hors_taxe" pattern="[1-9]+" ngModel name="hors_taxe" #horstaxe="ngModel">
+                                    <!--{{d.hors_taxe |number}}-->
+                                </th>
                                 <th>
                                     {{d.tva_dp}}%
                                 </th>
@@ -100,7 +102,7 @@
     <div style="margin-left: 70%" class="form-group col-sm-2">
         <label for="hors_taxe"> Totale HT : {{total_ht | number}}</label>
         <br>
-        <label for="ttc">Totale TTC : {{total_ttc | number}} </label>
+        <label for="ttc">Totale TTC :  {{total_ttc | number}} </label>
 
 
     </div>

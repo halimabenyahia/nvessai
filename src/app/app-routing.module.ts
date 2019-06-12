@@ -76,6 +76,7 @@ import { InfoEntretienComponent } from './entretien/info-entretien/info-entretie
 import { TypeEntretienComponent } from './type-entretien/type-entretien.component';
 import { ListTypeEntretienComponent } from './type-entretien/list-type-entretien/list-type-entretien.component';
 import { InfoTypeEntretienComponent } from './type-entretien/info-type-entretien/info-type-entretien.component';
+import { ListDepensePieceComponent } from './depense/list-depense-piece/list-depense-piece.component';
 
 const routes: Routes = [
 
@@ -89,6 +90,7 @@ const routes: Routes = [
     
   ]},
   { path : 'listDepense' , component : ListDepenseComponent, canActivate :[GuardAuth ]},
+  { path : 'listDepensePiece'  , component : ListDepensePieceComponent , canActivate:[GuardAuth,GuardAdmin]},
 
   { path: 'addVehicule', component: VehiculeComponent , canActivate :[GuardAuth] },
   { path: 'listVehicules', component: VehiculListComponent , canActivate :[GuardAuth] },
