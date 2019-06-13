@@ -63,6 +63,8 @@ export class DepenseComponent implements OnInit {
   total_ht = 0;
   test: number;
   p: number ;
+  dernierD ;
+
 
   constructor(private depenseService: DepenseService,
     private router: Router,
@@ -78,6 +80,14 @@ export class DepenseComponent implements OnInit {
       (vehicule: Vehicule) => {
         console.log(vehicule);
         this.vehicule = vehicule;
+      }
+    );
+
+    this.depenseService.getDernierDepense().subscribe(
+      (response) =>
+      {
+        this.dernierD = response ;
+        console.log("indice dernier depense" +this.dernierD);
       }
     );
 
@@ -118,14 +128,22 @@ export class DepenseComponent implements OnInit {
   }
 
   add(formulaire: NgForm) {
-    this.depensePieceService.addDepensePiece(formulaire.value).subscribe(
+    this.depenseService.addDepense(formulaire.value).subscribe(
       (response) => {
+        
         this.router.navigate(['/listDepense']);
       },
       (error) => {
         console.log("probleme de connexion au serveur");
       }
     );
+    this.depensePieceService.addDepensePiece(formulaire.value).subscribe(
+      (response) =>
+      {
+        this.router.navigate(['/listDepense']);
+      }
+    );
+   
   }
 
 
@@ -175,6 +193,7 @@ export class DepenseComponent implements OnInit {
       this.depensePiece[index].qte = 1;
       this.depensePiece[index].ttc_dp = 0;
       this.depensePiece[index].hors_taxe = 0;
+      this.depensePiece[index].id_depense = this.dernierD+1 ;
 
     }
 
@@ -228,6 +247,10 @@ export class DepenseComponent implements OnInit {
     this.depensePiece[index].ttc_dp = ((this.ht * (100 + this.tv) / 100));
     console.log("calculee ttcc " + this.depensePiece[index].ttc_dp);
     console.log("ttc_dp" + this.depensePiece[index].ttc_dp);
+
+    
+    this.depensePiece[index].id_depense = this.dernierD+1 ;
+    console.log("indice du nv depense " +this.depensePiece[index].id_depense);
     
 
     this.total_ttc = 0;

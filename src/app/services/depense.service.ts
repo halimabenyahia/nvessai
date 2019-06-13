@@ -42,9 +42,13 @@ export class DepenseService {
   public getSumDepenceByImm(matricule,type){
     var r="http://localhost:8091/sumdepenseByimm/"+matricule;
     console.log("service:+"+r);
-return this.http.get(r);
+    return this.http.get(r);
   //  return this.http.get('http://localhost:8091/sumdepenseByimm/'+matricule+ `/${type}`);
   }
+
+ public getDernierDepense(){
+   return this.http.get('http://localhost:8091/maxIdDepense');
+ }
 
   
 }
