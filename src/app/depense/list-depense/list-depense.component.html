@@ -1,3 +1,5 @@
+<br>
+<br>
 <div class="container">
     <div class="card">
         <div class="card-body">
@@ -5,28 +7,31 @@
             <br>
             <table class="table">
                 <thead class="thead-light">
-                    <th> immatriculation </th>
-                    <th>date </th>
-                    <th>ttc</th>
-                    <th>type depense</th>
-                    <th>compteur</th>
+                    <th> Immatriculation </th>
+                    <th>Type de dépense </th>
+                    <th>Date </th>
+                    <th>HT</th>
+                    <th>TTC</th>
                     <th></th>
                     <th></th>
                     <th></th>
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let depense of depense  | paginate: config;let i=index">
-                        <th>{{depense?.vehicule_dep.immatriculation}}</th>
-                        <th>{{depense?.date_depense}}</th>
-                        <td>{{depense?.ttc | number}}</td>
-                        <td>{{depense?.type_depense}}</td>
-                        <td>{{depense?.compteur_d}}</td>
-                        <td><button type="button" class="btn btn-success" (click)="gotoInfo(depense.id_depense)"><i class="fa fa-pencil"></i></button></td>
+                    <tr *ngFor="let depensep of depense  | paginate: config;let i=index">
+                        <th>{{depensep?.vehicule_dep?.immatriculation}}</th>
+                        <td>{{depensep?.typedepense?.designation_typeDep}}</td>
+                        <th>{{depensep?.date_depense}}</th>
+                        <td>{{depensep?.total_ht | number}}</td>
+                        <td>{{depensep?.total_ttc }}</td>
+
+
                         <td>
-                            <button type="button" class="btn btn-danger" (click)="delete(depense.id_depense,i) ">
+                            <!--<button type="button" class="btn btn-success" (click)="gotoInfo(depense.id_depense)"><i class="fa fa-pencil"></i></button>--></td>
+                        <td>
+                            <!-- <button type="button" class="btn btn-danger" (click)="delete(depense.id_depense,i) ">
                                 <i class="fa fa-trash-o"></i>
-                            </button>
+                            </button>-->
                         </td>
 
                     </tr>

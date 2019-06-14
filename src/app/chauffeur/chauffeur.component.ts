@@ -31,9 +31,6 @@ export class ChauffeurComponent implements OnInit {
         this.errorMessage=`probleme de connexion au serveur`}
      
   }
-
-
-
  
 
 }

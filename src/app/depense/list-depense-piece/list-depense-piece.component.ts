@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DepensePieceService } from 'src/app/services/depense-piece.service';
 import { Depense_piece } from 'src/app/entity/depense_piece';
+import { Depense } from 'src/app/entity/depense';
+import { DepenseService } from 'src/app/services/depense.service';
 
 @Component({
   selector: 'app-list-depense-piece',
@@ -11,7 +13,10 @@ export class ListDepensePieceComponent implements OnInit {
 
   config : any ;
   depensePieces : Depense_piece[] ;
-  constructor(private depensePieceService : DepensePieceService) {
+  depense : Depense [] ;
+
+  constructor(private depensePieceService : DepensePieceService,
+              private depenseService : DepenseService) {
     this.config = {
       itemsPerPage: 5,
       currentPage: 1
@@ -28,6 +33,13 @@ export class ListDepensePieceComponent implements OnInit {
       (value : any[]) =>
       {
         this.depensePieces = value ;
+      }
+    );
+
+    this.depenseService.getDepenses().subscribe(
+      (value : any[]) =>
+      {
+        this.depense = value ;
       }
     );
   }

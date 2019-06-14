@@ -17,13 +17,15 @@ export class Depense_piece {
 	prix:number;
 
 	id_piece : number ;
-	id_depense : number ;
+	iddepense : number ;
 
 	
 
 	
 
-	constructor(){
+	
+	constructor(iddepense=0){
+		this.iddepense=iddepense;
 	}
 
 

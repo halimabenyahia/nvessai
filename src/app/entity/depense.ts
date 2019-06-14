@@ -12,7 +12,7 @@ export class Depense {
     id_piece : number ;
     pieces : Piece ;
     vehicule_dep : Vehicule ;
-    type_depense : TypeDepense ;
+    typedepense : TypeDepense ;
     description_depense : string ;
     total_ttc : number ;
     total_ht : number ;

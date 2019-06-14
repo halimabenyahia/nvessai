@@ -12,8 +12,11 @@
     <div class="card-body">
         <form #formulaire="ngForm">
             <div>
-                <div class="row">
+                <div id="selectedDepense" class="row">
+
+
                     <div class="form-group col-sm-2 ">
+
                         <label for="immatriculation">Véhicule :</label>
                         <input type="text" class="form-control" #inputImmatricul ngModel name='immatriculation' autocomplete="off" (keyup)="chercherVehicule(inputImmatricul.value)" [(ngModel)]="selectedVehicule">
                         <input type="text" hidden name='id_vehicule' [(ngModel)]="idSelectedVehicule" ngModel>
@@ -44,6 +47,7 @@
                     <br>
                     <table class="table" #myTable>
                         <thead class="thead-light">
+                            <th> depense </th>
                             <th> Pièce </th>
                             <th>Référence</th>
                             <th>Qte</th>
@@ -52,14 +56,25 @@
                             <th>TVA</th>
                             <th>TTC</th>
                             <th></th>
+                            <th></th>
                             <th>
-                                <!--<button type="button" (click)="ajouterLigne()" class="btn btn-success"><i class="fa fa-plus"></i></button>--></th>
+                                <button type="button" (click)="ajouterLigne()" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                            </th>
                         </thead>
                         <tbody>
 
                             <tr *ngFor="let d of depensePiece ;let i=index">
                                 <th>
                                     <!-- <input type="text" required class="form-control col-sm-7" (blur)="selectionner(despiece,i)" id="des_piece" ngModel name="des_piece" value="piece.des_piece" #despiece="ngModel">-->
+                                    <div class="form-group col-sm-12 ">
+
+                                        <input type="text" name='iddepense' value="{{d.iddepense}}">
+
+
+                                    </div>
+                                </th>
+                                <th>
+
                                     <div class="form-group col-sm-12 ">
                                         <input type="text" class="form-control" #inputPiece ngModel name='des_piece' autocomplete="off" (keyup)="chercherPiece(inputPiece.value)" #despiece="ngModel" value="{{d.piece_des}}">
                                         <input type="text" name='id_piece' hidden [(ngModel)]="idSelectedPiece" ngModel value="{{d.piece_id}}">
@@ -73,8 +88,8 @@
                                 </th>
                                 <th>{{d.reference}}</th>
                                 <th>
-
-                                    <input type="text" placeholder="1" (change)="recalculer(qte,i)" required class="form-control col-sm-7" value="{{d.qte}}" id="qte" pattern="[1-9]+" ngModel name="qte" #qte="ngModel">
+                                    <!-- ngModel name="qte" #qte="ngModel"-->
+                                    <input type="text" (change)="recalculer(qte,i)" autocomplete="off" required class="form-control col-sm-7" value="{{d.qte}}" id="qte" pattern="[1-9]+" ngModel name="qte" #qte="ngModel">
                                 </th>
                                 <th>{{d.prix | number}}</th>
                                 <th>
@@ -90,7 +105,8 @@
                                 </th>
 
                                 <th></th>
-                                <th><button type="button" (click)="ajouterLigne(i)" class="btn btn-success"><i class="fa fa-plus"></i></button></th>
+                                <th>
+                                    <!--<button type="button" (click)="ajouterLigne(i)" class="btn btn-success"><i class="fa fa-plus"></i></button>--></th>
                                 <th><button type="button" (click)="supprimerLigne(i)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></th>
                             </tr>
 

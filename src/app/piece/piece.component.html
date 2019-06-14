@@ -21,8 +21,8 @@
                                 </div>
                             </div>
                             <div class="form-group col-sm-3 ">
-                                <label for="des_piece">Type de piece:</label>
-                                <input type="text" class="form-control" #inputTypePiece ngModel name='des_piece' autocomplete="off" (keyup)="chercherTypePiece(inputTypePiece.value)" [(ngModel)]="selectedTypePiece">
+                                <label for="des_typePiece">Type de piece:</label>
+                                <input type="text" class="form-control" #inputTypePiece ngModel name='des_typePiece' autocomplete="off" (keyup)="chercherTypePiece(inputTypePiece.value)" [(ngModel)]="selectedTypePiece">
                                 <input type="text" hidden name='id_typePiece' [(ngModel)]="idSelectedTypePiece" ngModel>
                                 <ol class="list-group" #listSelectedPiece>
                                     <li class="list-group-item" (click)="selectTypePiece(p)" *ngFor="let p of typePieces" value="{{p?.id_typePiece}}">
@@ -41,7 +41,7 @@
 
                             <div class="form-group col-md-3">
                                 <label for="prix_achat">Prix unitaire en DT:</label>
-                                <input required type="text" pattern="[0-9 ]+ " class="form-control" id="prix_achat" ngModel name="prix_achat" #prixachat="ngModel">
+                                <input required type="text" pattern="[1-9 ]+ " autocomplete="off" class="form-control" id="prix_achat" ngModel name="prix_achat" #prixachat="ngModel">
                                 <div *ngIf="prixachat.invalid && prixachat.touched" style="color:red" class="alert alert-light" role="alert">
                                     prix invalide
                                 </div>
@@ -61,7 +61,7 @@
                             <br>
                             <br>
                             <div class="form-group col-md-3">
-                                <button type="submit" class="btn btn-success" (click)="add(formulaire)"><i class="fa fa-check"></i></button>
+                                <button type="submit" class="btn btn-success" (click)="add(formulaire)">Enregistrer</button>
                             </div>
 
                         </div>
