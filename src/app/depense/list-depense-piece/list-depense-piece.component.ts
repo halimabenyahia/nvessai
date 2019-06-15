@@ -3,6 +3,7 @@ import { DepensePieceService } from 'src/app/services/depense-piece.service';
 import { Depense_piece } from 'src/app/entity/depense_piece';
 import { Depense } from 'src/app/entity/depense';
 import { DepenseService } from 'src/app/services/depense.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-depense-piece',
@@ -16,7 +17,8 @@ export class ListDepensePieceComponent implements OnInit {
   depense : Depense [] ;
 
   constructor(private depensePieceService : DepensePieceService,
-              private depenseService : DepenseService) {
+              private depenseService : DepenseService,
+              private router : Router) {
     this.config = {
       itemsPerPage: 5,
       currentPage: 1
@@ -42,6 +44,17 @@ export class ListDepensePieceComponent implements OnInit {
         this.depense = value ;
       }
     );
+  }
+
+  delete(id_depense_piece,index){
+    this.depensePieceService.supprimer(id_depense_piece).subscribe(
+      (response) =>
+      {
+        console.log("depense piece supprimée");
+        this.router.navigate(['/depenses']);
+      }
+    );
+
   }
 
 }

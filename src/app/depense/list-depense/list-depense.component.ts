@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DepenseService } from 'src/app/services/depense.service';
 import { Router } from '@angular/router';
 import { Depense } from 'src/app/entity/depense';
+import { Depense_piece } from 'src/app/entity/depense_piece';
+import { DepensePieceService } from 'src/app/services/depense-piece.service';
 
 
 
@@ -14,7 +16,10 @@ export class ListDepenseComponent implements OnInit {
 
   depense : Depense [];
   config : any ;
+  depensepiece : Depense_piece [] ;
+
   constructor(private depenseService : DepenseService,
+              private depensePieceService : DepensePieceService,
               private router : Router
               ) {
                 this.config = {
@@ -33,6 +38,13 @@ export class ListDepenseComponent implements OnInit {
       {
         this.depense=value ;
         console.log(this.depense);
+      }
+    );
+
+    this.depensePieceService.getDepensePieceList().subscribe(
+      (value : any[]) =>
+      {
+        this.depensepiece = value ;
       }
     );
   }

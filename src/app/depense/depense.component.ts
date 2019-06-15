@@ -36,9 +36,9 @@ export class DepenseComponent implements OnInit {
   idSelectedtypePiece: number;
   typePiece: TypePiece;
   typeP: TypePiece[];
-  depenses: Depense;
+  depenses: Depense [] =[];
   piece: Piece;
-  isSelectedPiece = false;
+  isSelectedPiece = true;
   pieces: Piece[];
   selectedPiece = '';
   idSelectedPiece: number;
@@ -52,7 +52,7 @@ export class DepenseComponent implements OnInit {
   ttc: number;
   tva: number;
   montant_total: number;
-  depensePiece: Depense_piece[];
+  depensePiece: Depense_piece[] = [];
   depP: Depense_piece;
   tp = '';
   dp = '';
@@ -68,6 +68,8 @@ export class DepenseComponent implements OnInit {
   selectedDepense: number;
   idSelectedDepense: number;
   d1: Depense_piece;
+  iSelectPiece = false;
+
 
   constructor(private depenseService: DepenseService,
     private router: Router,
@@ -121,16 +123,35 @@ export class DepenseComponent implements OnInit {
   }
 
   add(formulaire: NgForm) {
+/*    this.depenseService.addDepense(formulaire.value).subscribe(
+      (response) => {
+        console.log(response);
+        this.depensePieceService.addDepensePiece(formulaire.value).subscribe(
+          (response) => {
+            // Todo add response.id_depense in each depensePiece
+            this.router.navigate(['/listDepensePiece']);
+          },
+          (error) => {
+              // Todo delete depense with response.id_depense
+              // print error message  
+          }
+        );
+      },
+      (error) => {
+        console.log("probleme de connexion au serveur");
+      }
+    );
+*/
+
     this.depenseService.addDepense(formulaire.value).subscribe(
       (response) => {
-
         this.router.navigate(['/listDepensePiece']);
       },
       (error) => {
         console.log("probleme de connexion au serveur");
       }
     );
-    this.depensePieceService.addDepensePiece(formulaire.value).subscribe(
+    this.depensePieceService.addDepensePiece(this.depensePiece).subscribe(
       (response) => {
         this.router.navigate(['/listDepensePiece']);
       }
@@ -161,44 +182,48 @@ export class DepenseComponent implements OnInit {
     );
   }
   selectTypeDepense(selectedTypeDepense, index) {
-    console.log(selectedTypeDepense);
+    console.log('ici', selectedTypeDepense);
     console.log(selectedTypeDepense.designation_typeDep);
     //console.log(selectedTypeDepense.type_depense.designation_typeDep);
     this.selectedTypeDepense = selectedTypeDepense.designation_typeDep;
     this.idSelectedTypeDepense = selectedTypeDepense.id_typeDepense;
 
     this.idSelectedDepense = this.selectedDepense;
-    console.log("id depense" + this.idSelectedDepense);
+   // console.log("id depense" + this.idSelectedDepense);
     this.typeDep = [];
-    if (selectedTypeDepense.value = 'piece') {
+    console.log("value :", selectedTypeDepense.designation_typeDep);
+    if (selectedTypeDepense.designation_typeDep == "piece" ) {
       this.isSelectedPiece = true;
+        this.iSelectPiece = true;
+        this.depensePiece = [
+        new Depense_piece()
+       // new Depense_piece(),
+       // new Depense_piece(),
+       // new Depense_piece(),
+       // new Depense_piece(),
+       // new Depense_piece()
+      ];
+  
+      //console.log("this.selectedDepense" + this.selectedDepense);
+      for (let index = 0; index < this.depensePiece.length; index++) {
+  
+        this.depensePiece[index].qte = 1;
+        this.depensePiece[index].ttc_dp = 0;
+        this.depensePiece[index].hors_taxe = 0;
+        this.depensePiece[index].id_depense = this.dernierD + 1;
+  
+      }
+    } else {
+      this.iSelectPiece = false;
+        this.isSelectedPiece = false;
     }
-    else {
-      this.isSelectedPiece = false;
-    }
 
-    this.depensePiece = [
 
-      new Depense_piece(),
-      new Depense_piece(),
-      new Depense_piece()
-
-    ];
-
-    console.log("this.selectedDepense" + this.selectedDepense);
-    for (let index = 0; index < this.depensePiece.length; index++) {
-
-      this.depensePiece[index].qte = 1;
-      this.depensePiece[index].ttc_dp = 0;
-      this.depensePiece[index].hors_taxe = 0;
-      this.depensePiece[index].iddepense = this.dernierD + 1;
-
-    }
    // for (let index = 0; index < this.depensePiece.length; index++) {
     //  console.log(this.depensePiece[index].qte);
     //  console.log(this.depensePiece[index].ttc_dp);
     //  console.log(this.depensePiece[index].hors_taxe);
-    //  console.log(this.depensePiece[index].iddepense);
+    //  console.log(this.depensePiece[index].id_depense);
 
    // }
 
@@ -225,7 +250,7 @@ export class DepenseComponent implements OnInit {
     console.log("id_piece@selectPiece" + selectedP.id_piece);
 
     this.depensePiece[index].piece_des = selectedP.des_piece;
-    this.depensePiece[index].piece_id = selectedP.id_piece;
+    this.depensePiece[index].id_piece = selectedP.id_piece;
 
     this.depensePiece[index].tva_dp = selectedP.tva_p;
     this.tv = this.depensePiece[index].tva_dp;
@@ -247,14 +272,16 @@ export class DepenseComponent implements OnInit {
     this.ht = this.depensePiece[index].hors_taxe;
     console.log("ht : " + this.ht);
 
+    this.depensePiece[index].hors_taxe=this.ht ;
+
     this.depensePiece[index].ttc_dp = ((this.ht * (100 + this.tv) / 100));
     console.log("calculee ttcc " + this.depensePiece[index].ttc_dp);
     console.log("ttc_dp" + this.depensePiece[index].ttc_dp);
 
 
-    this.depensePiece[index].iddepense = this.dernierD + 1;
-    //console.log("this.depensePiece[index].iddepense = this.dernierD+1" + this.depensePiece[index].iddepense);
-    console.log("indice du nv depense enregistré " + this.depensePiece[index].iddepense);
+    this.depensePiece[index].id_depense = this.dernierD + 1;
+    //console.log("this.depensePiece[index].id_depense = this.dernierD+1" + this.depensePiece[index].id_depense);
+    console.log("indice du nv depense enregistré " + this.depensePiece[index].id_depense);
 
 
     this.total_ttc = 0;
@@ -263,10 +290,17 @@ export class DepenseComponent implements OnInit {
       this.total_ttc = this.depensePiece[index].ttc_dp + this.total_ttc;
       this.total_ht = this.depensePiece[index].hors_taxe + this.total_ht;
       // console.log("I " + index + ":" + this.depensePiece[index].ttc_dp);
-      console.log("total ttc " + this.total_ttc);
-      console.log("total hors taxe " + this.total_ht);
+     // console.log("total ttc " + this.total_ttc);
+      //console.log("total hors taxe " + this.total_ht);
+
+
+     
 
     }
+   // this.depenses[index].total_ht=this.total_ttc;
+   // console.log("this.depenses.total_ht"+this.depenses[index].total_ht);
+
+   
     this.pieces = [];
   }
 
@@ -288,7 +322,11 @@ export class DepenseComponent implements OnInit {
     for (let index = 0; index < this.depensePiece.length; index++) {
       this.total_ttc = this.depensePiece[index].ttc_dp + this.total_ttc;
       this.total_ht = this.depensePiece[index].hors_taxe + this.total_ht;
+
+     
     }
+    //this.depenses[index].total_ttc = this.total_ttc ;
+    //console.log("this.depenses[index].total_ttc"+this.depenses[index].total_ttc);
 
   }
 

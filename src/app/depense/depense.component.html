@@ -42,7 +42,16 @@
                     </div>
                 </div>
                 <hr>
-                <div *ngIf="isSelectedPiece">
+
+
+                <div *ngIf=" ! isSelectedPiece">
+                    <label for="montant_carburant"></label>
+                    <input type="text" class="form-control col-sm-7" id="montant_carburant" pattern="[1-9]+" ngModel name="montant_carburant" #montantcarburant="ngModel">
+
+                </div>
+
+
+                <div *ngIf="iSelectPiece">
                     <h5 style="color:gray">Choisir la liste des pièces</h5>
                     <br>
                     <table class="table" #myTable>
@@ -68,7 +77,7 @@
                                     <!-- <input type="text" required class="form-control col-sm-7" (blur)="selectionner(despiece,i)" id="des_piece" ngModel name="des_piece" value="piece.des_piece" #despiece="ngModel">-->
                                     <div class="form-group col-sm-12 ">
 
-                                        <input type="text" name='iddepense' value="{{d.iddepense}}">
+                                        <input type="text" name='id_depense' value="{{d.id_depense}}">
 
 
                                     </div>
@@ -89,7 +98,7 @@
                                 <th>{{d.reference}}</th>
                                 <th>
                                     <!-- ngModel name="qte" #qte="ngModel"-->
-                                    <input type="text" (change)="recalculer(qte,i)" autocomplete="off" required class="form-control col-sm-7" value="{{d.qte}}" id="qte" pattern="[1-9]+" ngModel name="qte" #qte="ngModel">
+                                    <input type="text" (change)="recalculer(qte,i)" placeholder="1" autocomplete="off" required class="form-control col-sm-7" value="{{d.qte}}" id="qte" pattern="[1-9]+" ngModel name="qte" #qte="ngModel">
                                 </th>
                                 <th>{{d.prix | number}}</th>
                                 <th>
@@ -103,7 +112,6 @@
                                 <th>
                                     {{d.ttc_dp | number}}
                                 </th>
-
                                 <th></th>
                                 <th>
                                     <!--<button type="button" (click)="ajouterLigne(i)" class="btn btn-success"><i class="fa fa-plus"></i></button>--></th>

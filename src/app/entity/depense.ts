@@ -14,11 +14,14 @@ export class Depense {
     vehicule_dep : Vehicule ;
     typedepense : TypeDepense ;
     description_depense : string ;
+    
     total_ttc : number ;
     total_ht : number ;
 
+    montant_carburant : number ;
+
     constructor(id_depense=0,date_depense,reference_d='',compteur_d='',
-               id_vehicule=0,description_depense='',total_ttc=0,total_ht=0) {
+               id_vehicule=0,description_depense='',total_ttc=0,total_ht=0,montant_carburant=0) {
         this.id_depense = id_depense ;
         this.date_depense = date_depense ;
         this.reference_d = reference_d ;
@@ -27,5 +30,6 @@ export class Depense {
         this.description_depense = description_depense ;
         this.total_ttc = total_ttc ;
         this.total_ht = total_ht ;
+        this.montant_carburant = montant_carburant ;
     }
 }

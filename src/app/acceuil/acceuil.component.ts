@@ -88,25 +88,36 @@ export class AcceuilComponent implements OnInit {
      this.charts = new Chart(document.getElementById("canvas"),
              {
               "type":"doughnut",
+              "title":{
+                "text":"Chart Title",
+               },
               "data": {
                 "labels": this.energieTab,
                 "datasets":[
                   {
-                    "label":" vehicule : ",
+                    "label":" Energie par véhicule ",
                     "data": [5,2,2,1], //les sommes ttc
                     "fill":false,
-                    "backgroundColor" : "#1E41F9",
-                    "borderColor":"rgb(44, 100, 185)",
+                    "backgroundColor" : ["#0074D9", "#FF4136", "#E1DE2F", "#16F487", "#7FDBFF"],
+                    "borderColor":"#F7FCF9",
                     "lineTension":0.1
                   }
                   ]},
               "options":{
-                colors:[{
-                  backgroundColor:"#F00",
-                  hoverBackgroundColor:"#FF0",
-                  borderColor:"#0F0",
-                  hoverBorderColor:"#00F"
-            }]
+                title: "Energie par véhicule "
+              /*  colors:[{
+                  //backgroundColor:"#F00",
+                  backgroundColor: [
+                    'rgba(110, 114, 20, 1)',
+                    'rgba(118, 183, 172, 1)',
+                    'rgba(0, 148, 97, 1)',
+                    'rgba(129, 78, 40, 1)'
+                    //'rgba(129, 199, 111, 1)'
+                ]
+                 // hoverBackgroundColor:"Blue",
+                 // borderColor:"#0F0",
+                 // hoverBorderColor:"#00F"
+            }]*/
               }
               });
 

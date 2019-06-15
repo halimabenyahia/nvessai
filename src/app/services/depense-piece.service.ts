@@ -19,6 +19,8 @@ export class DepensePieceService {
   }
 
   public addDepensePiece(depense_piece){
+    console.log(depense_piece);
+   // console.log(depense_piece.id_depense);
     return this.http.post('http://localhost:8091/adddepensePiece',depense_piece);
   }
 

@@ -1,47 +1,5 @@
-<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
----- Include the above in your HEAD tag 
-
-<div style="margin-left: 30%" class="container login-container">
-    <div class="row">
-        <div class="col-md-6 login-form-1">
-             <h3>Connexion</h3>
-            <div style="margin-left: 12%">
-                <img src="assets/images/only.png" class="img-circle">
-            </div>
-            <br>
-            <br>
-            <form #form="ngForm">
-                <div class="form-group">
-                    <input type="text" id="username" class="form-control" placeholder="username *" ngModel name="username" pattern='[a-zA-Z ]+' #username="ngModel" minlength="2" maxlength="10">
-                    <p *ngIf="username.invalid" style="color:red"> veuillez vérifier username</p> />
-                </div>
-                <div class="form-group">
-                    <input type="password" id="password" class="form-control" placeholder="Password *" ngModel name="password" pattern="[A-Za-z0-9]+" maxlength="10" minlength="1" #motdepasse="ngModel">
-                    <p *ngIf="motdepasse.invalid" style="color:red"> veuillez vérifier mot de passe</p>/>
-                </div>
-                <div class="col-md-12 text-center">
-                    <button mdbBtn color="info" block="true" class="btn btn-light" type="submit" (click)="login(form)">
-          se connecter
-        </button>
-                </div>
-                   <div class="col-sm-4 bloc-contact">
-                    <h5 class="text-color"><span class="border-color" style="size: 0ch;color: blanchedalmond">Contactez nous</span></h5>
-                    <div class="content">
-                        <p>
-                            OnlySoft : (+216) 54.950.202
-                        </p>
-                    </div>
-                </div>
-               
-            </form>
-        </div>
-    </div>
-</div>
--->
-
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
@@ -97,10 +55,11 @@
 
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
+                            <div *ngIf="motdepasse.pristine && motdepasse.touched && username.pristine && username.touched" style="color:red"> veuillez remplir les champs</div>
                             <button (click)="login(form)" type="submit" class="btn btn-primary mr-2">
                                Se connecter
                             </button>
-                            <div *ngIf="motdepasse.pristine && motdepasse.touched && username.pristine && username.touched" style="color:red"> veuillez remplir les champs</div>
+
                         </div>
                     </div>
                 </form>

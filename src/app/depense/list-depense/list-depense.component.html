@@ -18,12 +18,12 @@
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let depensep of depense  | paginate: config;let i=index">
+                    <tr *ngFor="let depensep of depensepiece  | paginate: config;let i=index">
                         <th>{{depensep?.vehicule_dep?.immatriculation}}</th>
                         <td>{{depensep?.typedepense?.designation_typeDep}}</td>
                         <th>{{depensep?.date_depense}}</th>
-                        <td>{{depensep?.total_ht | number}}</td>
-                        <td>{{depensep?.total_ttc }}</td>
+                        <td>{{depensep?.hors_taxe | number}}</td>
+                        <td>{{depensep?.ttc_dp }}</td>
 
 
                         <td>
