@@ -54,12 +54,12 @@
 
                             <div class="form-group col-md-3">
                                 <label for="description">Description:</label>
-                                <input required type="text" pattern="[a-zA-Z]+" class="form-control" id="description" ngModel name="description" #description="ngModel">
+                                <input type="text" pattern="[a-zA-Z]+" autocomplete="off" class="form-control" id="description" ngModel name="description" #description="ngModel">
 
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="montant_entretien">Montant de l'entretien:</label>
-                                <input required type="text" #montant="ngModel" pattern="[0-9]+" class="form-control" id="montant_entretien" ngModel name="montant_entretien" #montantentretien="ngModel">
+                                <input required type="text" #montant="ngModel" pattern="[0-9]+" autocomplete="off" class="form-control" id="montant_entretien" ngModel name="montant_entretien" #montantentretien="ngModel">
                                 <div *ngIf="montant.invalid && montant.touched " style="color:red" class="alert alert-light" role="alert">
                                     montant invalide
                                 </div>

@@ -86,7 +86,8 @@ import { ListTypeEntretienComponent } from './type-entretien/list-type-entretien
 import { InfoTypeEntretienComponent } from './type-entretien/info-type-entretien/info-type-entretien.component';
 import { NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule} from 'ng2-search-filter';
-import { ListDepensePieceComponent } from './depense/list-depense-piece/list-depense-piece.component' ;
+import { ListDepensePieceComponent } from './depense/list-depense-piece/list-depense-piece.component';
+import { ListDepenseCarburantComponent } from './depense/list-depense-carburant/list-depense-carburant.component' ;
 
 
 
@@ -168,7 +169,8 @@ import { ListDepensePieceComponent } from './depense/list-depense-piece/list-dep
     TypeEntretienComponent,
     ListTypeEntretienComponent,
     InfoTypeEntretienComponent,
-    ListDepensePieceComponent
+    ListDepensePieceComponent,
+    ListDepenseCarburantComponent
   
   ],
   imports: [

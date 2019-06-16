@@ -196,8 +196,8 @@ export class DepenseComponent implements OnInit {
       this.isSelectedPiece = true;
         this.iSelectPiece = true;
         this.depensePiece = [
-        new Depense_piece()
-       // new Depense_piece(),
+        new Depense_piece(),
+        new Depense_piece(),
        // new Depense_piece(),
        // new Depense_piece(),
        // new Depense_piece(),
@@ -300,7 +300,7 @@ export class DepenseComponent implements OnInit {
    // this.depenses[index].total_ht=this.total_ttc;
    // console.log("this.depenses.total_ht"+this.depenses[index].total_ht);
 
-   
+
     this.pieces = [];
   }
 
@@ -342,7 +342,11 @@ export class DepenseComponent implements OnInit {
 
 
   gotoList() {
-    this.router.navigate(['/listDepense']);
+    this.router.navigate(['/listDepensePiece']);
+  }
+
+  gotoListCarburant(){
+    this.router.navigate(['depenseCarburant']);
   }
 
 

@@ -51,10 +51,14 @@ export class ListDepensePieceComponent implements OnInit {
       (response) =>
       {
         console.log("depense piece supprimée");
-        this.router.navigate(['/depenses']);
+        //this.router.navigate(['/depenses']);
       }
     );
 
+  }
+
+  gotoInfo(id_depense_piece){
+    this.router.navigate([]);
   }
 
 }

@@ -50,5 +50,9 @@ export class DepenseService {
    return this.http.get('http://localhost:8091/maxIdDepense');
  }
 
+ getSumCarburant(){
+   return this.http.get('http://localhost:8091/sommeCarbu');
+ }
+
   
 }
