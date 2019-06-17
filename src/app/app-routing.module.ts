@@ -78,6 +78,7 @@ import { ListTypeEntretienComponent } from './type-entretien/list-type-entretien
 import { InfoTypeEntretienComponent } from './type-entretien/info-type-entretien/info-type-entretien.component';
 import { ListDepensePieceComponent } from './depense/list-depense-piece/list-depense-piece.component';
 import { ListDepenseCarburantComponent } from './depense/list-depense-carburant/list-depense-carburant.component';
+import { DetailVehiculeComponent } from './vehicule/detail-vehicule/detail-vehicule.component';
 
 const routes: Routes = [
 
@@ -103,6 +104,7 @@ const routes: Routes = [
   { path : 'chercherAssurance' , component : ChercherAssuranceComponent, canActivate :[GuardAuth]},
   { path : 'chercherVignette' , component : ChercherVignetteComponent, canActivate :[GuardAuth]},
   {path:'Vehicule' , component : VehiculeComponent , canActivate :[GuardAuth]},
+  { path : 'detailVehicule/:id' , component : DetailVehiculeComponent , canActivate :[GuardAuth]},
 
   { path: 'addChauffeur', component: ChauffeurComponent , canActivate :[GuardAuth]},
   { path: 'editChauffeur/:id', component: InfoChauffeurComponent, canActivate :[GuardAuth] },

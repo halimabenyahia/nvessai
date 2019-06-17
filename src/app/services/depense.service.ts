@@ -54,5 +54,14 @@ export class DepenseService {
    return this.http.get('http://localhost:8091/sommeCarbu');
  }
 
+ public getSumDepenceCarburantByImm(matricule){
+   matricule = "200tu2000" ;
+   console.log("matricule service"+matricule);
+  var r="http://localhost:8091/sumdepensePieceByimm/"+matricule;
+  console.log("service:+"+r);
+  return this.http.get(r);
+  // return this.http.get('http://localhost:8091/sumdepensePieceByimm/'+matricule);
+ }
+
   
 }

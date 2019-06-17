@@ -1,0 +1,148 @@
+<br>
+<div style="margin-left: 14%">
+    <button type="button" class="btn btn-dark" (click)="gotoAdd()">
+    <i class="fa fa-arrow-left"></i>
+  </button>
+</div>
+<br>
+<div class="col-md-9 container">
+    <div class="card">
+        <div class="card-body">
+            <h2>Détail véhicule {{vehicule?.immatriculation}} : </h2>
+            <div style="margin-left: 90%">
+                <button type="button" class="btn btn-info" (click)="download(vehicule)">
+                   <i class="fa fa-download"></i>
+                </button>
+            </div>
+            <hr>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> Immatriculation: </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.immatriculation}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> date_m_c : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.date_m_c}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> date_acq : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.date_acq}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> cout_achat : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.cout_achat | number}}
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> date_deb_vig : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.date_deb_vig}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> date_fin_vig : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.date_fin_vig}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> montant vig : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.montant_vig | number}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> date debut assurance : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.date_deb_contrat}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> date fin assurance : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.date_fin_contrat}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> montant assurance : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.montant_contratAss | number}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> Marque : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.marque_v?.des_marque}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> Energie : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.energie_v?.des_energie}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> Boite : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.type_boite?.des_boite}}
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> Type de véhicule : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{vehicule?.type_vehicule?.des_typeVehicule}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<br><br>

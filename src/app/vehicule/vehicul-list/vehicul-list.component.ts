@@ -69,7 +69,7 @@ export class VehiculListComponent implements OnInit {
     ];
 
     console.log(doc)
-    //var res = doc.autoTableHtmlToJson(document.getElementById("myTable"));
+    var res = doc.autoTableHtmlToJson(document.getElementById("myTable"));
 
     doc.text("Information véhicule " + vehicule.immatriculation, 7, 10);
 
@@ -79,7 +79,7 @@ export class VehiculListComponent implements OnInit {
 
     //console.log("afterrr");
 
-    doc.autoTable(x, y);
+   // doc.autoTable(x, y);
 
     //console.log("afterr autotable");
 
@@ -99,6 +99,9 @@ export class VehiculListComponent implements OnInit {
 
   edit(id_vehicule) {
     this.router.navigate(['editVehicule/', id_vehicule]);
+  }
+  detail(id_vehicule){
+    this.router.navigate(['detailVehicule/',id_vehicule]);
   }
 
 }

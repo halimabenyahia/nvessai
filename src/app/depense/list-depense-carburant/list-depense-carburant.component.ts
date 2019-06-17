@@ -3,6 +3,8 @@ import { DepenseService } from 'src/app/services/depense.service';
 import { DepenseResponse } from 'src/app/entity/depenseResponse';
 import { Chart } from 'chart.js';
 import { Depense } from 'src/app/entity/depense';
+import { VehiculeServiceService } from 'src/app/services/vehicule-service.service';
+import { Vehicule } from 'src/app/entity/vehicule';
 
 @Component({
   selector: 'app-list-depense-carburant',
@@ -12,6 +14,9 @@ import { Depense } from 'src/app/entity/depense';
 export class ListDepenseCarburantComponent implements OnInit {
 
   depenseResponses : DepenseResponse[] ;
+  vehicules : Vehicule [] ;
+  selectedVehicule ='' ;
+  idSelectedVehicule : number ;
   config : any ;
   depense : Depense  ;
   depenseResponse : DepenseResponse ;
@@ -25,7 +30,9 @@ export class ListDepenseCarburantComponent implements OnInit {
           'juillet','aout','septembre','octobre','novembre','decembre'];
 editMode = false ;
   
-  constructor(private depenseService : DepenseService) {
+  constructor(private depenseService : DepenseService,
+              private vehiculeService : VehiculeServiceService) {
+                
     this.config = {
       itemsPerPage: 3,
       currentPage: 1
@@ -47,6 +54,10 @@ pageChanged(event) {
 
       }
     );
+
+   /* this.depenseService.getSumDepenceCarburantByImm().subscribe(
+
+    );*/
   }
 
   showModal(depense,i) {
@@ -59,7 +70,7 @@ pageChanged(event) {
     this.displayValue = 'block' ;
        this.chart = new Chart(document.getElementById("canvas"),
              {
-              "type":"line",
+              "type":"bar",
               "data": {
                 "labels": this.month,
                 "datasets":[
@@ -79,6 +90,40 @@ pageChanged(event) {
   closeModalDialog(){
     this.show = false ;
     this.displayValue='none';
+  }
+
+
+
+  chercherVehicule(parametre) {
+    this.vehiculeService.getbyImmatricle(parametre).subscribe(
+      (vehicule: Vehicule[]) => {
+        this.vehicules = vehicule;
+      }
+    );
+  }
+  selectVehicule(selectedVehicule) {
+    console.log(selectedVehicule);
+    console.log(selectedVehicule.immatriculation);
+    this.selectedVehicule = selectedVehicule.immatriculation;
+    this.idSelectedVehicule = selectedVehicule.id_vehicule;
+    this.vehicules = [];
+  }
+
+
+  chercher(inputImmatricul){
+    console.log("inputImmatricul"+inputImmatricul);
+    this.depenseService.getSumDepenceCarburantByImm(inputImmatricul.value).subscribe(
+      (value : DepenseResponse[] ) =>
+      { 
+       console.log("chercher"); 
+     //  this.depenseResponses=value ;
+     //  console.log(this.depenseResponses);
+     // console.log(this.depenseResponses[0].immatriculation);
+      //  var k= this.dep.immatriculation;
+      //  console.log(k);
+    
+      } 
+    );
   }
 
 }
