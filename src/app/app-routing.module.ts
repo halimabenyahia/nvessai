@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { VehiculeComponent } from './vehicule/vehicule.component';
 import { VehiculFormComponent } from './vehicule/vehicul-form/vehicul-form.component';
@@ -79,6 +79,8 @@ import { InfoTypeEntretienComponent } from './type-entretien/info-type-entretien
 import { ListDepensePieceComponent } from './depense/list-depense-piece/list-depense-piece.component';
 import { ListDepenseCarburantComponent } from './depense/list-depense-carburant/list-depense-carburant.component';
 import { DetailVehiculeComponent } from './vehicule/detail-vehicule/detail-vehicule.component';
+import { DashbordDepenseComponent } from './depense/dashbord-depense/dashbord-depense.component';
+import { SumDepensePieceComponent } from './depense/sum-depense-piece/sum-depense-piece.component';
 
 const routes: Routes = [
 
@@ -94,6 +96,8 @@ const routes: Routes = [
   { path : 'listDepense' , component : ListDepenseComponent, canActivate :[GuardAuth ]},
   { path : 'listDepensePiece'  , component : ListDepensePieceComponent , canActivate:[GuardAuth,GuardAdmin]},
   { path : 'depenseCarburant' , component : ListDepenseCarburantComponent , canActivate:[GuardAuth,GuardAdmin]},
+  { path : 'dashbordDepense', component : DashbordDepenseComponent ,  canActivate:[GuardAuth,GuardAdmin]},
+  { path : 'sommeDepensePiece' , component : SumDepensePieceComponent , canActivate:[GuardAuth,GuardAdmin]},
 
   { path: 'addVehicule', component: VehiculeComponent , canActivate :[GuardAuth] },
   { path: 'listVehicules', component: VehiculListComponent , canActivate :[GuardAuth] },

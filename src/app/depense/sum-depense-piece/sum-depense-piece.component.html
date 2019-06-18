@@ -1,0 +1,86 @@
+<br>
+<br>
+<div class="row">
+    <div class="col-md-8">
+        <div style="margin-left: 3%" class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h4 style="color:midnightblue">Liste des dépenses pièces en TTC</h4>
+                    <br>
+
+                    <table class="table">
+                        <thead class="thead-light">
+                            <th>immatriculation </th>
+                            <th>janvier</th>
+                            <th>fevrier</th>
+                            <th>mars</th>
+                            <th>avril</th>
+                            <th>mai</th>
+                            <th>juin</th>
+                            <th>juillet</th>
+                            <th>aout</th>
+                            <th>septembre</th>
+                            <th>octobre</th>
+                            <th>novembre</th>
+                            <th>decembre</th>
+                            <th></th>
+
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let depense of depenseResponses | paginate : config;let i=index">
+                                <th>{{depense?.immatriculation}}</th>
+                                <td>{{depense?.dep_janvier | number }}</td>
+                                <td>{{depense?.dep_fevrier | number }}</td>
+                                <td>{{depense?.dep_mars | number }}</td>
+                                <td>{{depense?.dep_avril | number }}</td>
+                                <td>{{depense?.dep_mai | number }}</td>
+                                <td>{{depense?.dep_juin | number }}</td>
+                                <td>{{depense?.dep_juillet | number }}</td>
+                                <td>{{depense?.dep_aout | number }}</td>
+                                <td>{{depense?.dep_septembre | number }}</td>
+                                <td>{{depense?.dep_octobre | number }}</td>
+                                <td>{{depense?.dep_novembre | number }}</td>
+                                <td>{{depense?.dep_decembre | number }}</td>
+                                <td>
+                                    <button (click)=showModal(depense,i) type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
+                   <i class="fa fa-bar-chart-o"></i> 
+                </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  <div class="col-md-4">
+        <h4>Montant total TTC des dépenses pièces</h4>
+
+        <div class="chartjs-wrapper">
+            ggg
+            <canvas id="canvas" class="chartjs"> {{charts}}</canvas>
+        </div>
+
+    </div>
+    -->
+</div>
+
+
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [ngClass]="{show: show}" [ngStyle]="{'display' : displayValue } ">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Analyse des dépenses carburant en TTC</h5>
+                <button (click)="closeModalDialog()" type="button" class="close" [ngClass]="{show: show}" [ngStyle]="{'display' : displayy } " data-dismiss="modal" aria-label="Close">
+<i class="fa fa-times"></i>
+</button>
+            </div>
+            <div class="modal-body">
+                <div class="chartjs-wrapper">
+                    <canvas id="canvas" class="chartjs"> {{chart}}</canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -88,7 +88,9 @@ import { NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule} from 'ng2-search-filter';
 import { ListDepensePieceComponent } from './depense/list-depense-piece/list-depense-piece.component';
 import { ListDepenseCarburantComponent } from './depense/list-depense-carburant/list-depense-carburant.component';
-import { DetailVehiculeComponent } from './vehicule/detail-vehicule/detail-vehicule.component' ;
+import { DetailVehiculeComponent } from './vehicule/detail-vehicule/detail-vehicule.component';
+import { DashbordDepenseComponent } from './depense/dashbord-depense/dashbord-depense.component';
+import { SumDepensePieceComponent } from './depense/sum-depense-piece/sum-depense-piece.component' ;
 
 
 
@@ -172,7 +174,9 @@ import { DetailVehiculeComponent } from './vehicule/detail-vehicule/detail-vehic
     InfoTypeEntretienComponent,
     ListDepensePieceComponent,
     ListDepenseCarburantComponent,
-    DetailVehiculeComponent
+    DetailVehiculeComponent,
+    DashbordDepenseComponent,
+    SumDepensePieceComponent
   
   ],
   imports: [

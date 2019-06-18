@@ -1,0 +1,145 @@
+<br>
+<div style="margin-left: 70%">
+    <button type="button" (click)="gotoAdd()" class="btn btn-dark">Ajouter une dépense<!--<i class="fa fa-plus"></i>--></button>
+</div>
+<br>
+<div class="row">
+    <div style="margin-left: 8%" class="container">
+        <div class="card">
+            <div class="card-body">
+                <h5 style="color:gray">Liste des dépenses carburant</h5>
+                <br>
+                <div class="row">
+                    <div class="form-group col-sm-2">
+                        <label for="immatriculation">Véhicule :</label>
+                        <input type="text" class="form-control" #inputImmatricul ngModel name='immatriculation' autocomplete="off" (keyup)="chercherVehicule(inputImmatricul.value)" [(ngModel)]="selectedVehicule">
+                        <input type="text" hidden name='id_vehicule' [(ngModel)]="idSelectedVehicule" ngModel>
+                        <ol class="list-group" #listSelectedVehicule>
+                            <li class="list-group-item" (click)="selectVehicule(vehicule)" *ngFor="let vehicule of vehicules" value="{{vehicule?.id_vehicule}}">
+                                {{vehicule?.immatriculation}}
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <button type="button" (click)="chercher(inputImmatricul.value)" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <i class="fa fa-search"></i> 
+            </button>
+                    </div>
+                </div>
+
+
+                <table class="table">
+                    <thead class="thead-light">
+                        <th>immatriculation </th>
+                        <th>janvier</th>
+                        <th>fevrier</th>
+                        <th>mars</th>
+                        <th>avril</th>
+                        <th>mai</th>
+                        <th>juin</th>
+                        <th>juillet</th>
+                        <th>aout</th>
+                        <th>septembre</th>
+                        <th>octobre</th>
+                        <th>novembre</th>
+                        <th>decembre</th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let depense of depenseResponses | paginate : config;let i=index">
+                            <th>{{depense?.immatriculation}}</th>
+                            <td>{{depense?.dep_janvier | number }}</td>
+                            <td>{{depense?.dep_fevrier | number }}</td>
+                            <td>{{depense?.dep_mars | number }}</td>
+                            <td>{{depense?.dep_avril | number }}</td>
+                            <td>{{depense?.dep_mai | number }}</td>
+                            <td>{{depense?.dep_juin | number }}</td>
+                            <td>{{depense?.dep_juillet | number }}</td>
+                            <td>{{depense?.dep_aout | number }}</td>
+                            <td>{{depense?.dep_septembre | number }}</td>
+                            <td>{{depense?.dep_octobre | number }}</td>
+                            <td>{{depense?.dep_novembre | number }}</td>
+                            <td>{{depense?.dep_decembre | number }}</td>
+                            <td>
+                                <button (click)=showModal(depense,i) type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">
+                               <i class="fa fa-bar-chart-o"></i> 
+                            </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [ngClass]="{show: show}" [ngStyle]="{'display' : displayValue } ">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Analyse des dépenses carburant en TTC</h5>
+                <button (click)="closeModalDialog()" type="button" class="close" [ngClass]="{show: show}" [ngStyle]="{'display' : displayy } " data-dismiss="modal" aria-label="Close">
+          <i class="fa fa-times"></i>
+        </button>
+            </div>
+            <div class="modal-body">
+                <div class="chartjs-wrapper">
+                    <canvas id="canvas" class="chartjs"> {{chart}}</canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br> hhhhh
+
+<!--depense piece-->
+
+<!--
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 style="color:gray">Liste des dépenses pièces</h5>
+            <br>
+            <table class="table">
+                <thead class="thead-light">
+                    <th> Immatriculation </th>
+                    <th>Type de dépense</th>
+                    <th>Date </th>
+                    <th>HT</th>
+                    <th>TTC</th>
+
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let depensep of depensePieces  | paginate: config;let i=index">
+                        <th>{{depensep?.depense_dp?.vehicule_dep?.immatriculation}}</th>
+                        <td>{{depensep?.depense_dp?.typedepense?.designation_typeDep}}</td>
+                        <th>{{depensep?.depense_dp?.date_depense}}</th>
+                        <td>{{depensep?.hors_taxe | number}}</td>
+                        <td>{{depensep?.ttc_dp | number }}</td>
+
+
+                        <td>
+                            <button type="button" class="btn btn-success" (click)="gotoInfo(depensep.id_depense)"><i class="fa fa-pencil"></i></button></td>
+                        <td>
+                            <button type="button" class="btn btn-danger" (click)="delete(depensep.id_depense_piece,i) ">
+                                <i class="fa fa-trash-o"></i>
+                                </button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+    </div>
+</div>
+-->

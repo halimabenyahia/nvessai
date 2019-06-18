@@ -31,4 +31,12 @@ return this.http.delete('http://localhost:8091/deletedepensePiece'+`/${id_depens
   public edit(depense_piece){
     return this.http.put('http://localhost:8091/editdepensePiece',depense_piece);
   }
+
+
+  public totalHT(){
+    return this.http.get('http://localhost:8091/totalht');
+  }
+  public totalTTC(){
+    return this.http.get('http://localhost:8091/totalttc');
+  }
 }

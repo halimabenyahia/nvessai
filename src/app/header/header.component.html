@@ -106,11 +106,12 @@
             <a class="nav-link" routerLink='/depenses' routerLinkActtive="active">Dépense</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" routerLink='/filtrage' routerLinkActtive="active">Filtrage</a>
+            <a class="nav-link" routerLink='/dashbordDepense' routerLinkActtive="active">Dashboard dépense</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" routerLink='/pieces' routerLinkActtive="active">Pièce</a>
+            <a class="nav-link" routerLink='/filtrage' routerLinkActtive="active">Filtrage</a>
         </li>
+
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showMenu()">
            Occurrences
@@ -131,6 +132,7 @@
          Autres
       </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown" [ngClass]="{'show':show}">
+                <a class="dropdown-item" routerLink="/pieces" value="pieces">Pièces</a>
                 <a class="dropdown-item" routerLink="/typeDepenses" value="typeDepenses">Type de Dépense</a>
                 <a class="dropdown-item" routerLink="/typePieces" value="typePieces">Type de pièce</a>
                 <a class="dropdown-item" routerLink="/typesEntretiens" value="typesEntretiens">Type d'entretien</a>

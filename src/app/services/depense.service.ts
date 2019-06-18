@@ -50,8 +50,12 @@ export class DepenseService {
    return this.http.get('http://localhost:8091/maxIdDepense');
  }
 
- getSumCarburant(){
+ public getSumCarburant(){
    return this.http.get('http://localhost:8091/sommeCarbu');
+ }
+
+ public getSumPiecess(){
+   return this.http.get('http://localhost:8091/sommePiece');
  }
 
  public getSumDepenceCarburantByImm(matricule){
