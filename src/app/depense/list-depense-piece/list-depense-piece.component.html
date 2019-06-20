@@ -12,6 +12,7 @@
                 <thead class="thead-light">
                     <th> Immatriculation </th>
                     <th>Type de dépense</th>
+                    <th>Pièce</th>
                     <th>Date </th>
                     <th>HT</th>
                     <th>TTC</th>
@@ -24,6 +25,7 @@
                     <tr *ngFor="let depensep of depensePieces  | paginate: config;let i=index">
                         <th>{{depensep?.depense_dp?.vehicule_dep?.immatriculation}}</th>
                         <td>{{depensep?.depense_dp?.typedepense?.designation_typeDep}}</td>
+                        <td>{{depensep?.piece_dep?.des_piece}}</td>
                         <th>{{depensep?.depense_dp?.date_depense}}</th>
                         <td>{{depensep?.hors_taxe | number}}</td>
                         <td>{{depensep?.ttc_dp | number }}</td>
