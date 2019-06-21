@@ -349,5 +349,9 @@ export class DepenseComponent implements OnInit {
     this.router.navigate(['depenseCarburant']);
   }
 
+  ListCarburant(){
+    this.router.navigate(['listeCarburant']);
+  }
+
 
 }

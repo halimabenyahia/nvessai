@@ -1,0 +1,45 @@
+<br>
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 style="color:gray">Liste des dépenses carburant</h5>
+            <div style="margin-left: 85%">
+                <button type="button" class="btn btn-dark" (click)="gotoSumByMonthCarburant()"><i class="fa fa-calendar"></i></button>
+            </div>
+            <br>
+            <table class="table">
+                <thead class="thead-light">
+                    <th> Immatriculation </th>
+                    <th>Date de dépense</th>
+
+                    <th>Montant </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let depense of depenseCarburant  | paginate: config;let i=index">
+                        <th>{{depense?.vehicule_dep?.immatriculation}}</th>
+                        <td>{{depense?.date_depense}}</td>
+                        <!-- <td>{{depense?.typedepense?.designation_typeDep}}</td> -->
+                        <th>{{depense?.montant_carburant | number}}</th>
+
+
+
+                        <td>
+                            <button type="button" class="btn btn-success" (click)="gotoInfo(depense.id_depense)"><i class="fa fa-pencil"></i></button></td>
+                        <td>
+                            <button type="button" class="btn btn-danger" (click)="delete(depense.id_depense_piece,i) ">
+                                <i class="fa fa-trash-o"></i>
+                                </button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+    </div>
+</div>

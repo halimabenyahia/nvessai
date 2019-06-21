@@ -44,9 +44,7 @@ tab = [ 'TTC' , 'HT'];
         }
     );
 
-
-
-    this.charts = new Chart(document.getElementById("canvas"),
+ /*   this.charts = new Chart(document.getElementById("canvas"),
     {
      "type":"doughnut",
      "title":{
@@ -66,7 +64,7 @@ tab = [ 'TTC' , 'HT'];
          ]},
      "options":{
        title: "Energie par véhicule "
-     /*  colors:[{
+       colors:[{
          //backgroundColor:"#F00",
          backgroundColor: [
            'rgba(110, 114, 20, 1)',
@@ -78,13 +76,12 @@ tab = [ 'TTC' , 'HT'];
         // hoverBackgroundColor:"Blue",
         // borderColor:"#0F0",
         // hoverBorderColor:"#00F"
-   }]*/
+   }]
      }
-     });
-
-
+     });*/
   }
 
+  
   showModal(depense,i){
     var mounthArray = []
     for (let index = 0; index < 12; index++) {

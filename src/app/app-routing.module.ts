@@ -81,6 +81,7 @@ import { ListDepenseCarburantComponent } from './depense/list-depense-carburant/
 import { DetailVehiculeComponent } from './vehicule/detail-vehicule/detail-vehicule.component';
 import { DashbordDepenseComponent } from './depense/dashbord-depense/dashbord-depense.component';
 import { SumDepensePieceComponent } from './depense/sum-depense-piece/sum-depense-piece.component';
+import { ListeCarburantComponent } from './depense/liste-carburant/liste-carburant.component';
 
 const routes: Routes = [
 
@@ -98,6 +99,7 @@ const routes: Routes = [
   { path : 'depenseCarburant' , component : ListDepenseCarburantComponent , canActivate:[GuardAuth,GuardAdmin]},
   { path : 'dashbordDepense', component : DashbordDepenseComponent ,  canActivate:[GuardAuth,GuardAdmin]},
   { path : 'sommeDepensePiece' , component : SumDepensePieceComponent , canActivate:[GuardAuth,GuardAdmin]},
+  { path : 'listeCarburant' , component : ListeCarburantComponent ,canActivate:[GuardAuth,GuardAdmin] },
 
   { path: 'addVehicule', component: VehiculeComponent , canActivate :[GuardAuth] },
   { path: 'listVehicules', component: VehiculListComponent , canActivate :[GuardAuth] },

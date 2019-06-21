@@ -90,7 +90,8 @@ import { ListDepensePieceComponent } from './depense/list-depense-piece/list-dep
 import { ListDepenseCarburantComponent } from './depense/list-depense-carburant/list-depense-carburant.component';
 import { DetailVehiculeComponent } from './vehicule/detail-vehicule/detail-vehicule.component';
 import { DashbordDepenseComponent } from './depense/dashbord-depense/dashbord-depense.component';
-import { SumDepensePieceComponent } from './depense/sum-depense-piece/sum-depense-piece.component' ;
+import { SumDepensePieceComponent } from './depense/sum-depense-piece/sum-depense-piece.component';
+import { ListeCarburantComponent } from './depense/liste-carburant/liste-carburant.component' ;
 
 
 
@@ -176,7 +177,8 @@ import { SumDepensePieceComponent } from './depense/sum-depense-piece/sum-depens
     ListDepenseCarburantComponent,
     DetailVehiculeComponent,
     DashbordDepenseComponent,
-    SumDepensePieceComponent
+    SumDepensePieceComponent,
+    ListeCarburantComponent
   
   ],
   imports: [

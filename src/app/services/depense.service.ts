@@ -67,5 +67,8 @@ export class DepenseService {
   // return this.http.get('http://localhost:8091/sumdepensePieceByimm/'+matricule);
  }
 
+ public getListCarburant(){
+   return this.http.get('http://localhost:8091/listCarburant'); }
+
   
 }
