@@ -40,29 +40,28 @@ export class InfoDepenseComponent implements OnInit {
   }
 
   update(depense){
-    return this.depenseService.edit(depense).subscribe(
+   this.depenseService.edit(depense).subscribe(
       (response) =>
       {
         console.log("depense modifié");
-        this.router.navigate(['depenses/listDepense']);
+        this.router.navigate(['listeCarburant']);
       }
 
     );
   }
 
-  chercherVehicule(parametre){
+  chercherVehicule(parametre) {
     this.vehiculeService.getbyImmatricle(parametre).subscribe(
-      (vehicule : Vehicule[]) =>
-      {
-        this.vehicules=vehicule;
+      (vehicule: Vehicule[]) => {
+        this.vehicules = vehicule;
       }
     );
   }
-  selectVehicule(selectedVehicule){
+  selectVehicule(selectedVehicule) {
     console.log(selectedVehicule);
-    this.selectedVehicule = selectedVehicule.immatriculation ;
+    this.selectedVehicule = selectedVehicule.immatriculation;
     this.idSelectedVehicule = selectedVehicule.id_vehicule;
-    this.vehicules=[];
+    this.vehicules = [];
   }
 
 }

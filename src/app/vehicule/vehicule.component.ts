@@ -145,6 +145,7 @@ export class VehiculeComponent implements OnInit {
 
   selectMarque(selectedMarque) {
     console.log(selectedMarque);
+    console.log("selectedMarque.des_marque"+selectedMarque.des_marque);
     this.selectedMarque = selectedMarque.des_marque;
     this.idSelectedMArque = selectedMarque.id_marque;
     this.resultat = [];

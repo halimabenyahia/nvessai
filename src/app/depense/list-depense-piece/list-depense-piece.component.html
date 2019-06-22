@@ -1,4 +1,7 @@
 <br>
+<div style="margin-left: 18%">
+    <button type="button" class="btn btn-dark" (click)="gotoAdd()"><i class="fa fa-arrow-left"></i></button>
+</div>
 <br>
 <div class="container">
     <div class="card">
@@ -32,7 +35,11 @@
 
 
                         <td>
-                            <button type="button" class="btn btn-success" (click)="gotoInfo(depensep.id_depense)"><i class="fa fa-pencil"></i></button></td>
+                            <button type="button" class="btn btn-success" (click)="gotoInfo(depensep.id_depense)"><i class="fa fa-pencil"></i></button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-dark" (click)="gotoDetail(depensep.id_depense_piece)"><i class="fa fa-info-circle"></i></button>
+                        </td>
                         <td>
                             <button type="button" class="btn btn-danger" (click)="delete(depensep.id_depense_piece,i) ">
                                 <i class="fa fa-trash-o"></i>

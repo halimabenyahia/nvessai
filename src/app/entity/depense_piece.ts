@@ -11,6 +11,7 @@ export class Depense_piece {
 	qte : number ;
 	piece_dep : Piece ;
 	depense_dep : Depense ;
+	depense_dp : Depense ;
 	piece_id:number;
 	piece_des:string;
 	reference :string ;

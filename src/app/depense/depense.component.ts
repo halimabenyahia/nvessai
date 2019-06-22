@@ -145,7 +145,7 @@ export class DepenseComponent implements OnInit {
 
     this.depenseService.addDepense(formulaire.value).subscribe(
       (response) => {
-        this.router.navigate(['/listDepensePiece']);
+        this.router.navigate(['/listeCarburant']);
       },
       (error) => {
         console.log("probleme de connexion au serveur");

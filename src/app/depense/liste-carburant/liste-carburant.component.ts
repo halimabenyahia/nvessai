@@ -52,12 +52,17 @@ export class ListeCarburantComponent implements OnInit {
     );
   }
 
-  gotoInfo(){
+  gotoInfo(id_depense){
+    this.router.navigate(['editDepense/',id_depense]);
 
   }
 
   gotoSumByMonthCarburant(){
     this.router.navigate(['depenseCarburant']);
+  }
+
+  gotoAddDepense(){
+    this.router.navigate(['depenses']);
   }
 
 }

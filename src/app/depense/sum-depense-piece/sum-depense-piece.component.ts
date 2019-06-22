@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DepenseService } from 'src/app/services/depense.service';
 import { DepenseResponse } from 'src/app/entity/depenseResponse';
 import { Chart } from 'chart.js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sum-depense-piece',
@@ -24,7 +25,8 @@ editMode = false ;
 tab = [ 'TTC' , 'HT'];
 
 
-  constructor(private depenseService : DepenseService) {
+  constructor(private depenseService : DepenseService,
+              private router : Router) {
     this.config = {
       itemsPerPage: 3,
       currentPage: 1
@@ -112,6 +114,10 @@ tab = [ 'TTC' , 'HT'];
   closeModalDialog(){
     this.show = false ;
     this.displayValue='none';
+  }
+
+  gotoList(){
+    this.router.navigate(['listDepensePiece']);
   }
 
 

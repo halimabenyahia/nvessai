@@ -1,77 +1,41 @@
 <br>
-<div class="row">
-    <div class="container">
+<br>
+<div style="margin-left: 5%">
+    <form #formulaire="ngForm" *ngIf="depense">
+        <h5 style="color:midnightblue">Modifier une dépense carburant</h5>
         <br>
-        <form #formulaire="ngForm" *ngIf="depense">
-            <div>
-                <div class="card">
-                    <div class="card-body">
-                        <br>
-                        <h5>Détail dépense</h5>
-                        <div class="row">
-                            <div class="form-group col-md-3 ">
-                                <label for="immatriculation">Véhicule</label>
-                                <input type="text" class="form-control" #inputImmatricul ngModel name='immatriculation' (keyup)="chercherVehicule(inputImmatricul.value)" [(ngModel)]="selectedVehicule">
-                                <input type="text" hidden name='id_vehicule' [(ngModel)]="idSelectedVehicule" ngModel>
-                                <ol class="list-group" #listSelectedVehicule>
-                                    <li class="list-group-item" (click)="selectVehicule(vehicule)" *ngFor="let vehicule of vehicules" value="{{vehicule?.id_vehicule}}">
-                                        {{vehicule?.immatriculation}}
-                                    </li>
-                                </ol>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label id="matricule_ch">Date de dépense:</label>
-                                <input type="date" required class="form-control" id="date_depense" [(ngModel)]="depense.date_depense" name="date_depense" #date_depense="ngModel">
-                                <div *ngIf="date_depense.invalid && date_depense.touched" style="color:red" class="alert alert-light" role="alert">
-                                    invalid
-                                </div>
+        <div class="row">
 
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="montant_ht">Montant hors taxe:</label>
-                                <input required type="text" pattern="[1-9.,0-9]+" class="form-control" id="montant_ht" ngModel name="montant_ht" #montantht="ngModel">
-                                <div *ngIf="montantht.invalid && montantht.touched" style="color:red" class="alert alert-light" role="alert">
-                                    montant invalide
-                                </div>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label id="ttc">TTC:</label>
-                                <input type="text" class="form-control" id="ttc" [(ngModel)]="depense.ttc" name="ttc" #montantTtc="ngModel" pattern='[1-9]+'>
-                                <div *ngIf="montantTtc.invalid && montantTtc.touched" style="color:red" class="alert alert-light" role="alert">
-                                    ttc invalide
-                                </div>
+            <div class="form-group col-sm-2 ">
+                <label for="immatriculation">Véhicule :</label>
+                <input type="text" class="form-control" #inputImmatricul ngModel name='immatriculation' autocomplete="off" (keyup)="chercherVehicule(inputImmatricul.value)" [(ngModel)]="depense.vehicule_dep.immatriculation">
+                <input type="text" hidden name='id_vehicule' [(ngModel)]="idSelectedVehicule" ngModel>
+                <ol class="list-group" #listSelectedVehicule>
+                    <li class="list-group-item" (click)="selectVehicule(vehicule)" *ngFor="let vehicule of vehicules" value="{{vehicule?.id_vehicule}}">
+                        {{vehicule?.immatriculation}}
+                    </li>
+                </ol>
+            </div>
 
-                            </div>
+            <div class="form-group col-sm-2 ">
+                <label for="date_depense">Date de dépense :</label>
+                <input type="date" required class="form-control" id="date_depense" name="date_depense" [(ngModel)]="depense.date_depense" #datedepense="ngModel">
+            </div>
 
-
-                            <div class="form-group col-md-3">
-                                <label id="compteur_d">compteur:</label>
-                                <input type="text" class="form-control" id="compteur_d" [(ngModel)]="depense.compteur_d" name="compteur_d" #compteur="ngModel" pattern="[1-9]+">
-                                <div *ngIf="compteur.invalid && compteur.touched" style="color:red" class="alert alert-light" role="alert">
-                                    compteur invalide
-                                </div>
-
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label id="type_depense">type de depense:</label>
-                                <input type="text" class="form-control" id="type_depense" [(ngModel)]="depense.type_depense" name="type_depense" #typedepense="ngModel" pattern="[A-Za-z0-9]+">
-                                <div *ngIf="typedepense.invalid && typedepense.touched" style="color:red" class="alert alert-light" role="alert">
-                                    type depense invalide
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="form-group col-md-2">
-                            <br>
-                            <button type="submit" class="btn btn-success" (click)="update(depense)">Enregistrer</button>
-
-
-                        </div>
-                    </div>
+            <div class="form-group col-md-3">
+                <label for="montant_carburant">Montant carburant:</label>
+                <input type="text" pattern="[1-9]+ " required class="form-control" id="montant_carburant" name="montant_carburant" [(ngModel)]="depense.montant_carburant" #montantcarburant="ngModel">
+                <div *ngIf="montantcarburant.invalid && montantcarburant.touched" style="color:red" class="alert alert-light" role="alert">
+                    montant invalid
                 </div>
             </div>
-        </form>
 
-        <br><br>
-    </div>
+        </div>
+        <br>
+        <div>
+
+            <button type="submit" (click)="update(depense)" class="btn btn-success">Enregistrer</button>
+        </div>
+
+    </form>
 </div>

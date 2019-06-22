@@ -1,0 +1,114 @@
+<br>
+<div style="margin-left: 14%">
+    <button type="button" class="btn btn-dark" (click)="returnToList()">
+    <i class="fa fa-arrow-left"></i>
+  </button>
+</div>
+<br>
+<div class="col-md-9 container">
+    <div class="card">
+        <div class="card-body">
+            <h2>Détail dépense pièce {{depensePieces?.depense_dp?.vehicule_dep.immatriculation}} : </h2>
+            <div style="margin-left: 90%">
+                <button type="button" class="btn btn-info" (click)="download(vehicule)">
+                   <i class="fa fa-download"></i>
+                </button>
+            </div>
+            <hr>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> Immatriculation: </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{depensePieces?.depense_dp?.vehicule_dep.immatriculation}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> Date de dépense : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{depensePieces?.depense_dp?.date_depense}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> Type de dépense : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{depensePieces?.depense_dp?.typedepense?.designation_typeDep}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> Piece : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{depensePieces?.piece_dep?.des_piece }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> Référence : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{depensePieces?.piece_dep?.reference_piece }}
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> Qte : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{depensePieces?.qte }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> Prix unitaire : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{depensePieces?.piece_dep?.prix_achat | number}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> HT : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{depensePieces?.hors_taxe | number}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> TVA : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{depensePieces?.piece_dep?.tva_p}}%
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6> TTC : </h6>
+                        </div>
+                        <div class="col-md-6">
+                            {{depensePieces?.ttc_dp | number}}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<br><br>

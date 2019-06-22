@@ -82,6 +82,8 @@ import { DetailVehiculeComponent } from './vehicule/detail-vehicule/detail-vehic
 import { DashbordDepenseComponent } from './depense/dashbord-depense/dashbord-depense.component';
 import { SumDepensePieceComponent } from './depense/sum-depense-piece/sum-depense-piece.component';
 import { ListeCarburantComponent } from './depense/liste-carburant/liste-carburant.component';
+import { EditDepensePieceComponent } from './depense/edit-depense-piece/edit-depense-piece.component';
+import { InfoDepensePieceComponent } from './depense/info-depense-piece/info-depense-piece.component';
 
 const routes: Routes = [
 
@@ -90,16 +92,18 @@ const routes: Routes = [
   { path : 'acceuil' , component : AcceuilComponent , canActivate :[GuardAuth]},
 
   { path : 'depenses' , component : DepenseComponent , canActivate :[GuardAuth, GuardAdmin], children : [
-    { path : 'addDepense' , component : FormDepenseComponent},
-    { path : 'editDepense/:id' , component : InfoDepenseComponent},
-    
+    { path : 'addDepense' , component : FormDepenseComponent}
   ]},
+  
   { path : 'listDepense' , component : ListDepenseComponent, canActivate :[GuardAuth ]},
   { path : 'listDepensePiece'  , component : ListDepensePieceComponent , canActivate:[GuardAuth,GuardAdmin]},
   { path : 'depenseCarburant' , component : ListDepenseCarburantComponent , canActivate:[GuardAuth,GuardAdmin]},
   { path : 'dashbordDepense', component : DashbordDepenseComponent ,  canActivate:[GuardAuth,GuardAdmin]},
   { path : 'sommeDepensePiece' , component : SumDepensePieceComponent , canActivate:[GuardAuth,GuardAdmin]},
   { path : 'listeCarburant' , component : ListeCarburantComponent ,canActivate:[GuardAuth,GuardAdmin] },
+  { path : 'editDepense/:id' , component : InfoDepenseComponent,canActivate:[GuardAuth,GuardAdmin]},
+  { path : 'editDepensePiece/:id' , component : EditDepensePieceComponent ,canActivate:[GuardAuth,GuardAdmin] },
+  { path : 'detailDepensePiece/:id' , component : InfoDepensePieceComponent , canActivate:[GuardAuth,GuardAdmin]},
 
   { path: 'addVehicule', component: VehiculeComponent , canActivate :[GuardAuth] },
   { path: 'listVehicules', component: VehiculListComponent , canActivate :[GuardAuth] },

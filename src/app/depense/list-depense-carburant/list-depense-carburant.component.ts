@@ -5,6 +5,7 @@ import { Chart } from 'chart.js';
 import { Depense } from 'src/app/entity/depense';
 import { VehiculeServiceService } from 'src/app/services/vehicule-service.service';
 import { Vehicule } from 'src/app/entity/vehicule';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-depense-carburant',
@@ -31,7 +32,8 @@ export class ListDepenseCarburantComponent implements OnInit {
 editMode = false ;
   
   constructor(private depenseService : DepenseService,
-              private vehiculeService : VehiculeServiceService) {
+              private vehiculeService : VehiculeServiceService,
+              private router : Router) {
                 
     this.config = {
       itemsPerPage: 3,
@@ -124,6 +126,10 @@ pageChanged(event) {
     
       } 
     );
+  }
+
+  gotoPrecedent(){
+    this.router.navigate(['listeCarburant']);
   }
 
 }
