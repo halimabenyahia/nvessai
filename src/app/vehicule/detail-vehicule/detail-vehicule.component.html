@@ -9,11 +9,11 @@
     <div class="card">
         <div class="card-body">
             <h2>Détail véhicule {{vehicule?.immatriculation}} : </h2>
-            <div style="margin-left: 90%">
+           <!-- <div style="margin-left: 90%">
                 <button type="button" class="btn btn-info" (click)="download(vehicule)">
                    <i class="fa fa-download"></i>
                 </button>
-            </div>
+            </div>-->
             <hr>
             <br>
             <div class="row">
@@ -47,7 +47,7 @@
                             <h6> cout_achat : </h6>
                         </div>
                         <div class="col-md-6">
-                            {{vehicule?.cout_achat | number}}
+                            {{vehicule?.cout_achat | number}} DT
                         </div>
                     </div>
 
@@ -74,7 +74,7 @@
                             <h6> montant vig : </h6>
                         </div>
                         <div class="col-md-6">
-                            {{vehicule?.montant_vig | number}}
+                            {{vehicule?.montant_vig | number}} DT
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                             <h6> montant assurance : </h6>
                         </div>
                         <div class="col-md-6">
-                            {{vehicule?.montant_contratAss | number}}
+                            {{vehicule?.montant_contratAss | number}} DT
                         </div>
                     </div>
                     <div class="row">

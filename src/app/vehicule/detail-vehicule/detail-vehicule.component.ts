@@ -68,7 +68,7 @@ export class DetailVehiculeComponent implements OnInit {
   }
 
   gotoAdd(){
-    this.router.navigate(['addVehicule']);
+    this.router.navigate(['listVehicules']);
   }
 
 }
