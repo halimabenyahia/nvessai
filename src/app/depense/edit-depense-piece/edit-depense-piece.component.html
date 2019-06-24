@@ -1,3 +1,132 @@
-<p>
-  edit-depense-piece works!
-</p>
+<br>
+<div class="row">
+    <!-- <div class="form-group col-md-3" style="margin-left: 75%">
+        <button type="button" class="btn btn-info" (click)="gotoList()">Consulter dépense pièce</button>
+    </div>
+-->
+    <!-- <div class="form-group col-md-3" style="margin-left: 75%">
+        <button type="button" class="btn btn-info" (click)="ListCarburant()">Consulter liste carburant</button>
+    </div>-->
+    <!--  <div class="form-group col-md-3" style="margin-left: 75%">
+        <button type="button" class="btn btn-info" (click)="gotoListCarburant()">Consulter dépense carburant</button>
+    </div>-->
+</div>
+
+<div class="card text-center" style="margin-top: 2%">
+    <div class="card-header">
+        <h5 style="color:midnightblue">Modifier une dépense</h5>
+    </div>
+    <div class="card-body">
+        <form #formulaire="ngForm" *ngIf="depenses">
+            <div>
+                <div id="selectedDepense" class="row">
+
+
+                    <div class="form-group col-sm-2 ">
+
+                        <label for="immatriculation">Véhicule :</label>
+                        <input type="text" class="form-control" #inputImmatricul name='immatriculation' autocomplete="off" (keyup)="chercherVehicule(inputImmatricul.value)" [(ngModel)]="depenses.vehicule_dep.immatriculation">
+                        <input type="text" hidden name='id_vehicule' [(ngModel)]="idSelectedVehicule" ngModel>
+                        <ol class="list-group" #listSelectedVehicule>
+                            <li class="list-group-item" (click)="selectVehicule(vehicule)" *ngFor="let vehicule of vehicules" value="{{vehicule?.id_vehicule}}">
+                                {{vehicule?.immatriculation}}
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="form-group col-sm-3.5">
+                        <label for="date_depense">Date de dépense:</label>
+                        <input type="date" required class="form-control" id="date_depense" name="date_depense" [(ngModel)]="depenses.date_depense" #dateDep="ngModel" max="2019-07-12">
+                    </div>
+
+                </div>
+                <hr>
+
+
+
+                <div>
+                    <h5 style="color:midnightblue">Choisir la liste des pièces</h5>
+                    <br>
+                    <table class="table" #myTable *ngIf="depense_piece">
+                        <thead class="thead-light">
+                            <!-- <th> depense </th>-->
+                            <th> Pièce </th>
+                            <th>Référence</th>
+                            <th>Qte</th>
+                            <th>PU</th>
+                            <th>HT</th>
+                            <th>TVA</th>
+                            <th>TTC</th>
+                            <th></th>
+                            <th></th>
+                            <!--    <th>
+                                <button type="button" (click)="ajouterLigne()" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                            </th>  -->
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let d of depensePiece ;let i=index">
+
+                                <th>
+
+                                    <div class="form-group col-sm-12 ">
+                                        <input type="text" class="form-control" #inputPiece name="des_piece" [(ngModel)]='depense_piece.piece_dep.des_piece' autocomplete="off" (keyup)="chercherPiece(inputPiece.value)" #despiece="ngModel" value="{{d.piece_des}}">
+                                        <input type="text" name='id_piece' hidden [(ngModel)]="idSelectedPiece" ngModel value="{{d.piece_id}}">
+                                        <ol class="list-group" #listSelectedPiece>
+                                            <li class="list-group-item" (click)="selectPiece(p,i)" *ngFor="let p of pieces" value="{{p?.id_piece}}">
+                                                {{p?.des_piece}}
+                                            </li>
+                                        </ol>
+                                    </div>
+
+                                </th>
+                                <th>{{d.reference}}</th>
+                                <th>
+                                    <!-- ngModel name="qte" #qte="ngModel"-->
+                                    <input type="text" (change)="recalculer(qte,i)" placeholder="1" autocomplete="off" required class="form-control col-sm-7" value="{{d.qte}}" id="qte" pattern="[1-9]+" ngModel name="qte" #qte="ngModel">
+                                </th>
+                                <th>{{d.prix | number}}</th>
+                                <th>
+                                    <!--<input type="text" placeholder="0.000" class="form-control col-sm-7" value="{{d.hors_taxe}}" id="hors_taxe" pattern="[1-9]+" ngModel name="hors_taxe" #horstaxe="ngModel">-->
+
+                                    {{d.hors_taxe |number}}
+                                </th>
+                                <th>
+                                    {{d.tva_dp}}%
+                                </th>
+                                <th>
+                                    {{d.ttc_dp | number}}
+                                </th>
+                                <th></th>
+                                <th>
+                                    <!--<button type="button" (click)="ajouterLigne(i)" class="btn btn-success"><i class="fa fa-plus"></i></button>--></th>
+                                <!--   <th><button type="button" (click)="supprimerLigne(i)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></th>-->
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+                    <div style="margin-left: 70%" class="form-group col-sm-2">
+                        <label for="hors_taxe"> Totale HT : {{total_ht | number}}</label>
+                        <br>
+                        <label for="ttc">Totale TTC :  {{total_ttc | number}} </label>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="card-footer text-muted">
+
+    <div class="form-group col-md-2">
+        <br>
+        <div>
+            <button type="submit" style="margin-left: 500%" (click)="update(depenses,depense_piece)" class="btn btn-success">Enregistrer</button>
+        </div>
+    </div>
+
+</div>
+<br>

@@ -27,6 +27,8 @@ export class HeaderComponent implements OnInit {
 			}
   }
 
+  
+
   goToComponent(route) {
     const link = [route];
     this.router.navigate(link);

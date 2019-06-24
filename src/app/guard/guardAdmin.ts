@@ -1,6 +1,7 @@
 import { CanActivate } from '@angular/router';
 
 export class GuardAdmin implements CanActivate{
+	public isNotAdmin = true ;
 
 	canActivate(
 		route: import("@angular/router").ActivatedRouteSnapshot, 
@@ -16,6 +17,7 @@ export class GuardAdmin implements CanActivate{
 			}
 			else 
 			{
+				this.isNotAdmin = false ;
 				return false ;
 			}
 	     }

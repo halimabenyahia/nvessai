@@ -10,9 +10,19 @@ import { Vehicule } from 'src/app/entity/vehicule';
 })
 export class ResultatComponent implements OnInit {
   vehicule: Vehicule;
+  config : any ;
 
   constructor(private vehiculeService : VehiculeServiceService,
-              private activatedRoute : ActivatedRoute) { }
+              private activatedRoute : ActivatedRoute) {
+                 this.config = {
+         itemsPerPage: 4,
+         currentPage: 1
+        };
+               }
+
+                pageChanged(event) {
+    this.config.currentPage = event;
+  }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
