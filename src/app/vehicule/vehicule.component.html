@@ -59,7 +59,7 @@
 
 
                                     <div class="form-group col-md-3">
-                                        <label for="id_modele">Modele</label>
+                                        <label for="des_modele">Modele</label>
                                         <input type="text" class="form-control" #inputmodele name='des_modele' autocomplete="off" (keyup)="chercherModele(inputmodele.value)" [(ngModel)]="selectedModele">
                                         <ol class="list-group" #listSelectedModele>
                                             <li class="list-group-item" (click)="selectModele(listSelectedModele.value)" *ngFor="let modele of mod" value="{{modele?.id_modele}}">

@@ -64,13 +64,13 @@ export class EditDepensePieceComponent implements OnInit {
       (params) =>
       {
         console.log(params) ;
-        this.depenseService.getDepensesById(params.id).subscribe(
+       /* this.depenseService.getDepensesById(params.id).subscribe(
           (depense : Depense) =>
           {
             this.depenses = depense ;
             console.log(this.depenses);
           }
-        );
+        );*/
         this.depensePieceService.getDepensePieceById(params.id).subscribe(
           (depensePiece : Depense_piece) =>
           {
@@ -161,8 +161,8 @@ export class EditDepensePieceComponent implements OnInit {
     console.log("ttc_dp" + this.depensePiece[index].ttc_dp);
 
 
-    this.depensePiece[index].id_depense = this.dernierD + 1;
-    console.log("indice du nv depense enregistré " + this.depensePiece[index].id_depense);
+    //this.depensePiece[index].id_depense = this.dernierD + 1;
+    //console.log("indice du nv depense enregistré " + this.depensePiece[index].id_depense);
 
 
     this.total_ttc = 0;

@@ -39,9 +39,9 @@ export class InfoPieceComponent implements OnInit {
     );
 
     this.typePieceService.getAllTypePiece().subscribe(
-      (piece: Piece) => 
+      (typePiece: TypePiece) => 
       { 
-        this.piece = piece; 
+        this.typePiece = typePiece; 
       });
   }
 

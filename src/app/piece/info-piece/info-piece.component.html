@@ -18,7 +18,7 @@
 
                             </div>
                             <div class="form-group col-sm-3 ">
-                                <label for="des_piece">type piece:</label>
+                                <label for="des_typePiece">type piece:</label>
                                 <input type="text" class="form-control" #inputTypePiece name='des_typePiece' autocomplete="off" (keyup)="chercherTypePiece(inputTypePiece.value)" [(ngModel)]="piece.type_piece_p.des_typePiece">
                                 <input type="text" hidden name='id_typePiece' [(ngModel)]="idSelectedTypePiece" ngModel>
                                 <ol class="list-group" #listSelectedPiece>
@@ -35,11 +35,7 @@
                                 </div>
 
                             </div>
-                            <div class="form-group col-md-3">
-                                <label id="qte_p">Quantité:</label>
-                                <input type="text" disabled="true" class="form-control" id="qte_p" [(ngModel)]="piece.qte_p" name="qte_p" #qtep="ngModel" pattern='[1-9 ]+'>
 
-                            </div>
                             <div class="form-group col-md-3">
                                 <label id="prix_achat">Prix unitaire en DT:</label>
                                 <input type="tel" class="form-control" id="prix_achat" [(ngModel)]="piece.prix_achat" name="prix_achat" #prixachat="ngModel" pattern="[1-9,.]+">
@@ -55,11 +51,7 @@
                                     TVA invalide
                                 </div>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label id="ttc_p">TTC</label>
-                                <input type="text" disabled="true" pattern="[1-9]+" class="form-control" id="ttc_p" ngModel name="ttc_p" #ttcp="ngModel">
 
-                            </div>
                         </div>
                         <div class="row">
                             <br>

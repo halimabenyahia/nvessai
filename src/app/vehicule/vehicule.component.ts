@@ -162,7 +162,7 @@ export class VehiculeComponent implements OnInit {
 
   selectModele(selectedModele){
     console.log(selectedModele);
-    console.log(selectedModele.des_modele);
+    //console.log(selectedModele.des_modele);
     this.selectedModele = selectedModele.des_modele ;
     this.idSelectedModele = selectedModele.id_modele ;
     this.mod = [];
