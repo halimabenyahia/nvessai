@@ -99,6 +99,7 @@ import { InfoDepensePieceComponent } from './depense/info-depense-piece/info-dep
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -201,6 +202,7 @@ import { InfoDepensePieceComponent } from './depense/info-depense-piece/info-dep
     ConnectGuard,
     GuardAdmin,
     GuardAgent
+    
   ],
   bootstrap: [AppComponent]
 })

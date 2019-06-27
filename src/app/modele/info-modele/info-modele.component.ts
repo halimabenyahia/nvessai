@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ModeleService } from 'src/app/services/modele.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Modele } from 'src/app/entity/modele';
+import { Marque } from 'src/app/entity/marque';
+import { MarqueService } from 'src/app/services/marque.service';
 
 @Component({
   selector: 'app-info-modele',
@@ -11,9 +13,13 @@ import { Modele } from 'src/app/entity/modele';
 export class InfoModeleComponent implements OnInit {
 
   modele :Modele ;
+  selectedMarque ='';
+  idSelectedMArque : number ;
+  resultat :Marque[] ;
   constructor(private modeleService : ModeleService,
               private router : Router,
-              private activatedRoute : ActivatedRoute) { }
+              private activatedRoute : ActivatedRoute,
+              private marqueService : MarqueService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
@@ -40,6 +46,21 @@ export class InfoModeleComponent implements OnInit {
       }
     );
 
+  }
+
+  selectMarque(selectedMarque) {
+    console.log(selectedMarque);
+    this.selectedMarque = selectedMarque.des_marque;
+    this.idSelectedMArque = selectedMarque.id_marque;
+    this.resultat = [];
+  }
+  chercherMarque(parametre) {
+    console.log(parametre);
+    this.marqueService.getMarqueParam(parametre).subscribe(
+      (marque: Marque[]) => {
+        this.resultat = marque;
+      }
+    );
   }
 
 }

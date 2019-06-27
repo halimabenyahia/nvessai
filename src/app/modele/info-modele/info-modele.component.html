@@ -13,6 +13,17 @@
 
             </div>
 
+            <!--   <div class="form-group col-md-3">
+                <label for="des_marque">marque:</label>
+                <input #inputmarque class="form-control" (keyup)="chercherMarque(inputmarque.value)" [(ngModel)]="modele.marque_m.des_marque" ngModel name="des_marque">
+                <input type="text" hidden name='id_marque' [(ngModel)]="idSelectedMArque" ngModel>
+                <ol class="list-group" #listSelectedMarque>
+                    <li class="list-group-item" (click)="selectMarque(marque)" *ngFor="let marque of resultat" value="{{marque?.id_marque}}">
+                        {{marque?.des_marque}}
+                    </li>
+                </ol>
+            </div>
+-->
         </div>
 
         <br>

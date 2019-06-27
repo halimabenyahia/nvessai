@@ -85,9 +85,10 @@ import { ListeCarburantComponent } from './depense/liste-carburant/liste-carbura
 import { EditDepensePieceComponent } from './depense/edit-depense-piece/edit-depense-piece.component';
 import { InfoDepensePieceComponent } from './depense/info-depense-piece/info-depense-piece.component';
 
+
 const routes: Routes = [
 
-  { path : '' , component : AuthentificationComponent} ,
+  { path : '' , component : AuthentificationComponent } ,
   { path : 'header' , component : HeaderComponent, canActivate :[GuardAuth] },
   { path : 'acceuil' , component : AcceuilComponent , canActivate :[GuardAuth]},
 
