@@ -28,8 +28,9 @@
                                 <div class="form-group col-md-3 ">
                                     <label for="id_modele">modele</label>
                                     <input type="text" class="form-control" #inputmodele name='des_modele' (keyup)="chercherModele(inputmodele.value)" [(ngModel)]="selectedModele">
+                                    <input type="text" hidden name='id_modele' [(ngModel)]="idSelectedModele" ngModel>
                                     <ol class="list-group" #listSelectedModele>
-                                        <li class="list-group-item" (click)="selectModele(listSelectedModele.value)" *ngFor="let modele of mod" value="{{modele?.id_modele}}">
+                                        <li class="list-group-item" (click)="selectModele(modele)" *ngFor="let modele of mod" value="{{modele?.id_modele}}">
                                             {{modele?.des_modele}}
                                         </li>
                                     </ol>

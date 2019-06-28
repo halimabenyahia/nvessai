@@ -252,8 +252,11 @@ export class VehiculInfoComponent implements OnInit {
 
     selectModele(selectedModele){
       console.log(selectedModele);
-      this.selectedModele = selectedModele ;
+      console.log("selectedModele" + selectedModele);
+      console.log("selectedModele designation" +selectedModele.des_modele);
+      this.selectedModele = selectedModele.des_modele ;
       this.idSelectedModele = selectedModele.id_modele ;
+      this.vehicule.modele_vehicule = selectedModele ;
       this.mod = [];
     }
     chercherModele(parametre){

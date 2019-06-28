@@ -65,8 +65,9 @@
                                     <div class="form-group col-md-3">
                                         <label for="des_modele">Modele</label>
                                         <input type="text" class="form-control" required #inputmodele name='des_modele' autocomplete="off" (keyup)="chercherModele(inputmodele.value)" [(ngModel)]="selectedModele">
+                                        <input type="text" hidden name='id_modele' [(ngModel)]="idSelectedModele" ngModel>
                                         <ol class="list-group" #listSelectedModele>
-                                            <li class="list-group-item" (click)="selectModele(listSelectedModele.value)" *ngFor="let modele of mod" value="{{modele?.id_modele}}">
+                                            <li class="list-group-item" (click)="selectModele(modele)" *ngFor="let modele of mod" value="{{modele?.id_modele}}">
                                                 {{modele?.des_modele}}
                                             </li>
                                         </ol>
@@ -83,7 +84,7 @@
 
                                     <div class="form-group col-md-3">
                                         <label for="num_moteur">Num moteur:</label>
-                                        <input type="text" class="form-control" ngModel name="num_moteur" autocomplete="off" id="num_moteur" #nummoteur="ngModel" pattern="[A-Za-z0-9]+ ">
+                                        <input type="text" class="form-control" ngModel name="num_moteur" autocomplete="off" id="num_moteur" #nummoteur="ngModel" pattern="[a-z0-9]+ ">
                                         <p *ngIf="nummoteur.invalid && nummoteur.touched " style="color:red" class="alert alert-light" role="alert">
                                             numero moteur invalide
                                         </p>

@@ -5,6 +5,7 @@ import { Affectation } from './affectation';
 import { Chauffeur } from './chauffeur';
 import { Assurance } from './assurance';
 import { Marque } from './marque';
+import { Modele } from './modele';
 
 
 export class Vehicule {
@@ -36,7 +37,7 @@ export class Vehicule {
     chauffeur_v : Chauffeur ;
     id_chauffeur: number;
     id_modele : number ;
-   // modele : number ;
+   
    id_typeBoite : number ;
    id_energie : number ;
    id_assurance : number ;
@@ -45,6 +46,7 @@ export class Vehicule {
    id_depense : number ;
    assurance_vehicule : Assurance ;
    marque_v : Marque ;
+   modele_vehicule : Modele ;
 
     constructor (id_vehicule=0,immatriculation='' , date_m_c,date_acq , cout_achat=0,compteur=0,num_moteur='',num_fab='',date_deb_taxe,
     date_fin_taxe,montant_taxe=0,date_deb_vig,date_fin_vig,montant_vig=0,date_deb_visit_tech,date_fin_visit_tech,date_deb_contrat ,
