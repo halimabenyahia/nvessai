@@ -1,14 +1,14 @@
 <br>
 <br>
 <div style="margin-left: 5%">
-    <form #formulaire="ngForm" *ngIf="depense">
+    <form #formulaire="ngForm" *ngIf="depenses">
         <h5 style="color:midnightblue">Modifier une dépense carburant</h5>
         <br>
         <div class="row">
 
             <div class="form-group col-sm-2 ">
                 <label for="immatriculation">Véhicule :</label>
-                <input type="text" class="form-control" #inputImmatricul ngModel name='immatriculation' autocomplete="off" (keyup)="chercherVehicule(inputImmatricul.value)" [(ngModel)]="depense.vehicule_dep.immatriculation">
+                <input type="text" class="form-control" #inputImmatricul ngModel name='immatriculation' autocomplete="off" (keyup)="chercherVehicule(inputImmatricul.value)" [(ngModel)]="depenses.vehicule_dep.immatriculation">
                 <input type="text" hidden name='id_vehicule' [(ngModel)]="idSelectedVehicule" ngModel>
                 <ol class="list-group" #listSelectedVehicule>
                     <li class="list-group-item" (click)="selectVehicule(vehicule)" *ngFor="let vehicule of vehicules" value="{{vehicule?.id_vehicule}}">
@@ -19,12 +19,12 @@
 
             <div class="form-group col-sm-2 ">
                 <label for="date_depense">Date de dépense :</label>
-                <input type="date" required class="form-control" id="date_depense" name="date_depense" [(ngModel)]="depense.date_depense" #datedepense="ngModel">
+                <input type="date" required class="form-control" id="date_depense" name="date_depense" [(ngModel)]="depenses.date_depense" #datedepense="ngModel">
             </div>
 
             <div class="form-group col-md-3">
                 <label for="montant_carburant">Montant carburant:</label>
-                <input type="text" pattern="[1-9]+ " required class="form-control" id="montant_carburant" name="montant_carburant" [(ngModel)]="depense.montant_carburant" #montantcarburant="ngModel">
+                <input type="text" pattern="[1-9]+ " required class="form-control" id="montant_carburant" name="montant_carburant" [(ngModel)]="depenses.montant_carburant" #montantcarburant="ngModel">
                 <div *ngIf="montantcarburant.invalid && montantcarburant.touched" style="color:red" class="alert alert-light" role="alert">
                     montant invalid
                 </div>
@@ -34,7 +34,7 @@
         <br>
         <div>
 
-            <button type="submit" (click)="update(depense)" class="btn btn-success">Enregistrer</button>
+            <button type="submit" (click)="update(depenses)" class="btn btn-success">Enregistrer</button>
         </div>
 
     </form>

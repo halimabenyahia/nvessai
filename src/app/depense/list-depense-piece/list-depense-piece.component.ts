@@ -57,8 +57,8 @@ export class ListDepensePieceComponent implements OnInit {
 
   }
 
-  gotoInfo(id_depense_piece){
-    this.router.navigate(['editDepensePiece/',id_depense_piece]);
+  gotoInfo(id_depense_piece,id_depense){
+    this.router.navigate(['editDepensePiece/',id_depense_piece,id_depense]);
   }
 
   gotoSumByMonth(){

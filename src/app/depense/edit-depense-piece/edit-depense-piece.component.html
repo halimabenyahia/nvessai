@@ -17,7 +17,7 @@
         <h5 style="color:midnightblue">Modifier une dépense</h5>
     </div>
     <div class="card-body">
-        <form #formulaire="ngForm" *ngIf="depense_piece">
+        <form #formulaire="ngForm" *ngIf="depenses">
             <div>
                 <div id="selectedDepense" class="row">
 
@@ -43,7 +43,7 @@
 
 
 
-                <div>
+                <div *ngIf="depense_piece">
                     <h5 style="color:midnightblue">Choisir la liste des pièces</h5>
                     <br>
                     <table class="table" #myTable>

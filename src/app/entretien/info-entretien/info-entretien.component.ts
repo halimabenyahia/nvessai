@@ -56,6 +56,7 @@ export class InfoEntretienComponent implements OnInit {
     console.log(selectedVehicule);
     this.selectedVehicule = selectedVehicule.immatriculation;
     this.idSelectedVehicule = selectedVehicule.id_vehicule;
+    this.entretien.vehicule_entretien = selectedVehicule ;
     this.vehicules = [];
   }
 

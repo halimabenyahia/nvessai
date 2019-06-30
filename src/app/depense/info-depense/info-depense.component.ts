@@ -12,7 +12,7 @@ import { Vehicule } from 'src/app/entity/vehicule';
 })
 export class InfoDepenseComponent implements OnInit {
 
-  depense : Depense ;
+  depenses : Depense ;
   vehicules : Vehicule[] ;
   idSelectedVehicule : number ;
   selectedVehicule='';
@@ -30,8 +30,8 @@ export class InfoDepenseComponent implements OnInit {
         this.depenseService.getDepensesById(params.id).subscribe(
           (depense : Depense) =>
           {
-            this.depense=depense ;
-            console.log(depense) ;
+            this.depenses=depense ;
+            console.log(this.depenses) ;
           }
 
         );

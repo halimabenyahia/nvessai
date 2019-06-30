@@ -64,13 +64,15 @@ export class EditDepensePieceComponent implements OnInit {
       (params) =>
       {
         console.log(params) ;
-       /* this.depenseService.getDepensesById(params.id).subscribe(
+        this.depenseService.getDepensesById(params.id2).subscribe(
           (depense : Depense) =>
           {
+            
             this.depenses = depense ;
             console.log(this.depenses);
+            
           }
-        );*/
+        );
         this.depensePieceService.getDepensePieceById(params.id).subscribe(
           (depensePiece : Depense_piece) =>
           {
@@ -110,6 +112,7 @@ export class EditDepensePieceComponent implements OnInit {
     console.log(selectedVehicule.immatriculation);
     this.selectedVehicule = selectedVehicule.immatriculation;
     this.idSelectedVehicule = selectedVehicule.id_vehicule;
+    this.depenses.vehicule_dep = selectedVehicule ;
     this.vehicules = [];
   }
 
@@ -171,6 +174,7 @@ export class EditDepensePieceComponent implements OnInit {
       this.total_ttc = this.depensePiece[index].ttc_dp + this.total_ttc;
       this.total_ht = this.depensePiece[index].hors_taxe + this.total_ht;
     }
+    this.depense_piece.piece_dep = selectedP ;
     this.pieces = [];
   }
 
@@ -186,6 +190,10 @@ export class EditDepensePieceComponent implements OnInit {
     console.log("ht changé : " + this.ht);
 
     this.depensePiece[index].ttc_dp = ((this.ht * (100 + this.tv) / 100));
+
+  //  this.depense_piece.qte = this.qt ;
+  //  this.depense_piece.hors_taxe = this.ht ;
+  //  this.depense_piece.ttc_dp = this.ttc ;
 
     this.total_ttc = 0;
     this.total_ht = 0;

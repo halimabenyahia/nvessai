@@ -103,7 +103,7 @@ const routes: Routes = [
   { path : 'sommeDepensePiece' , component : SumDepensePieceComponent , canActivate:[GuardAuth,GuardAdmin]},
   { path : 'listeCarburant' , component : ListeCarburantComponent ,canActivate:[GuardAuth,GuardAdmin] },
   { path : 'editDepense/:id' , component : InfoDepenseComponent,canActivate:[GuardAuth,GuardAdmin]},
-  { path : 'editDepensePiece/:id' , component : EditDepensePieceComponent ,canActivate:[GuardAuth,GuardAdmin] },
+  { path : 'editDepensePiece/:id/:id2' , component : EditDepensePieceComponent ,canActivate:[GuardAuth,GuardAdmin] },
   { path : 'detailDepensePiece/:id' , component : InfoDepensePieceComponent , canActivate:[GuardAuth,GuardAdmin]},
 
   { path: 'addVehicule', component: VehiculeComponent , canActivate :[GuardAuth] },
