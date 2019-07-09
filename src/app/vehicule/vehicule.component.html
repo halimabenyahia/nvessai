@@ -39,7 +39,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-3">
                                         <label for="immatriculation">Immatriculation:</label>
-                                        <input pattern='[1-9]+[t][u][1-9]+' required autocomplete="off" maxlength="9" title="immatriculation doit etre 111tu1111" type="text" autocomplete="off" class="form-control" ngModel name="immatriculation" #immatriculation="ngModel">
+                                        <input pattern='[0-9]+[t][u][0-9]+' required autocomplete="off" maxlength="9" title="immatriculation doit etre 111tu1111" type="text" autocomplete="off" class="form-control" ngModel name="immatriculation" #immatriculation="ngModel">
                                         <p *ngIf="immatriculation.invalid && immatriculation.touched" style="color:red" class="alert alert-light" role="alert">
                                             immatriculation incorrecte
                                         </p>
@@ -76,7 +76,7 @@
 
                                     <div class="form-group col-md-3">
                                         <label for="date_m_c">Date mise en circulation:</label>
-                                        <input type="date" max="2019-04-16" required class="form-control" ngModel name="date_m_c" id="date_m_c" #datemc="ngModel">
+                                        <input type="date" max="2019-07-11" required class="form-control" ngModel name="date_m_c" id="date_m_c" #datemc="ngModel">
                                         <p *ngIf="datemc.invalid && datemc.touched " style="color:red" class="alert alert-light" role="alert">
                                             date invalide
                                         </p>
@@ -85,14 +85,12 @@
                                     <div class="form-group col-md-3">
                                         <label for="num_moteur">Num moteur:</label>
                                         <input type="text" class="form-control" ngModel name="num_moteur" autocomplete="off" id="num_moteur" #nummoteur="ngModel" pattern="[a-z0-9]+ ">
-                                        <p *ngIf="nummoteur.invalid && nummoteur.touched " style="color:red" class="alert alert-light" role="alert">
-                                            numero moteur invalide
-                                        </p>
+
                                     </div>
 
                                     <div class="form-group col-md-3">
                                         <label for="date_acq">Date d'acquisition:</label>
-                                        <input type="date" required max="2019-04-16" class="form-control" ngModel name="date_acq" id="date_acq" #dateacq="ngModel">
+                                        <input type="date" required max="2019-07-13" class="form-control" ngModel name="date_acq" id="date_acq" #dateacq="ngModel">
                                         <p *ngIf="dateacq.invalid && dateacq.touched " style="color:red" class="alert alert-light" role="alert">
                                             date invalide
                                         </p>
@@ -100,10 +98,10 @@
 
                                     <div class="form-group col-md-3">
                                         <label for="cout_achat">Valeur d'acquisition:</label>
-                                        <input type="text" class="form-control" required #valeurAcq="ngModel" autocomplete="off" ngModel name="cout_achat" id="cout_achat" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
-                                        <p *ngIf="valeurAcq.invalid && valeurAcq.touched " style="color:red " class="alert alert-light " role="alert ">
-                                            date invalide
-                                        </p>
+                                        <input type="text" class="form-control" #valeurAcq="ngModel" maxlength=8 autocomplete="off" ngModel name="cout_achat" id="cout_achat" pattern="[0-9]+ ">
+                                        <!-- <p *ngIf="valeurAcq.invalid && valeurAcq.touched " style="color:red " class="alert alert-light " role="alert ">
+                                            valeur invalide
+                                        </p>-->
                                     </div>
 
 
@@ -180,18 +178,25 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="date_deb_contrat">Date debut contrat:</label>
-                                    <input type="date" min="2019-04-03" class="form-control" required ngModel name="date_deb_contrat" id="date_deb_contrat">
-
+                                    <input type="date" min="2019-04-03" #datedebContra="ngModel" class="form-control" required ngModel name="date_deb_contrat" id="date_deb_contrat">
+                                    <p *ngIf="datedebContra.invalid && datedebContra.touched " style="color:red" class="alert alert-light" role="alert">
+                                        date invalide
+                                    </p>
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label for="date_fin_contrat">Date fin contrat:</label>
-                                    <input type="date" min="2019-04-03" class="form-control" required ngModel name="date_fin_contrat" id="date_fin_contrat">
-
+                                    <input type="date" min="2019-04-03" class="form-control" #datefinContra="ngModel" required ngModel name="date_fin_contrat" id="date_fin_contrat">
+                                    <p *ngIf="datefinContra.invalid && datefinContra.touched " style="color:red" class="alert alert-light" role="alert">
+                                        date invalide
+                                    </p>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="montant_contratAss">Montant assurance:</label>
-                                    <input type="text" class="form-control" required ngModel name="montant_contratAss" autocomplete="off" id="montant_contratAss" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
+                                    <input type="text" class="form-control" #montantass="ngModel" required ngModel name="montant_contratAss" autocomplete="off" id="montant_contratAss" pattern="[1-9]+ ">
+                                    <!-- <p *ngIf="montantass.invalid && montantass.touched" style="color:red" class="alert alert-light" role="alert">
+                                        montant incorrecte
+                                    </p>-->
                                 </div>
 
                             </div>
@@ -200,16 +205,25 @@
                             <div class="row">
                                 <div class="form-group col-md-3">
                                     <label for="date_deb_visit_tech">Date debut visite technique:</label>
-                                    <input type="date" class="form-control" required min="2019-04-03" ngModel name="date_deb_visit_tech" id="date_deb_visit_tech">
+                                    <input type="date" class="form-control" required min="2019-04-03" #datedebvisisttech="ngModel" ngModel name="date_deb_visit_tech" id="date_deb_visit_tech">
+                                    <p *ngIf="datedebvisisttech.invalid && datedebvisisttech.touched " style="color:red" class="alert alert-light" role="alert">
+                                        date invalide
+                                    </p>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="date_fin_visit_tech">Date fin visite technique:</label>
-                                    <input type="date" class="form-control" required ngModel name="date_fin_visit_tech" id="date_fin_visit_tech">
+                                    <input type="date" class="form-control" required ngModel #datefinvisit="ngModel" name="date_fin_visit_tech" id="date_fin_visit_tech">
+                                    <p *ngIf="datefinvisit.invalid && datefinvisit.touched " style="color:red" class="alert alert-light" role="alert">
+                                        date invalide
+                                    </p>
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label for="montant_visit_tech">Montant visite technique:</label>
-                                    <input type="text" class="form-control" required ngModel name="montant_visit_tech" autocomplete="off" id="montant_visit_tech" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
+                                    <input type="text" class="form-control" #montantvisittech="ngModel" required ngModel name="montant_visit_tech" autocomplete="off" id="montant_visit_tech" pattern="[1-9]+ ">
+                                    <!--  <p *ngIf="montantvisittech.invalid && montantvisittech.touched" style="color:red" class="alert alert-light" role="alert">
+                                        montant incorrecte
+                                    </p>-->
                                 </div>
                             </div>
                             <h5 style="color:gray">Vignette</h5>
@@ -217,18 +231,24 @@
                             <div class="row">
                                 <div class="form-group col-md-3">
                                     <label for="date_deb_vig">Date debut vignette:</label>
-                                    <input type="date" class="form-control" required ngModel name="date_deb_vig" id="date_deb_vig">
-
+                                    <input type="date" class="form-control" required ngModel #datedebvig="ngModel" name="date_deb_vig" id="date_deb_vig">
+                                    <p *ngIf="datedebvig.invalid && datedebvig.touched " style="color:red" class="alert alert-light" role="alert">
+                                        date invalide
+                                    </p>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="date_fin_vig">Date fin vignette:</label>
-                                    <input type="date" class="form-control" required ngModel name="date_fin_vig" id="date_fin_vig">
-
+                                    <input type="date" class="form-control" required ngModel #datefinvig="ngModel" name="date_fin_vig" id="date_fin_vig">
+                                    <p *ngIf="datefinvig.invalid && datefinvig.touched " style="color:red" class="alert alert-light" role="alert">
+                                        date invalide
+                                    </p>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="montant_vig">Montant vignette:</label>
-                                    <input type="text" class="form-control" required ngModel name="montant_vig" autocomplete="off" id="montant_vig" (keyup)="inputValidator($event)" (change)="inputCleaner($event)">
-
+                                    <input type="text" maxlength=9 class="form-control" pattern="[1-9]+ " required ngModel #montantvig="ngModel" name="montant_vig" autocomplete="off" id="montant_vig">
+                                    <!-- <p *ngIf="montantvig.invalid && montantvig.touched" style="color:red" class="alert alert-light" role="alert">
+                                        montant incorrecte
+                                    </p>-->
                                 </div>
                             </div>
                             <div class="form-group col-md-2">

@@ -196,8 +196,8 @@ export class DepenseComponent implements OnInit {
       this.isSelectedPiece = true;
         this.iSelectPiece = true;
         this.depensePiece = [
-        new Depense_piece(),
-        new Depense_piece(),
+        new Depense_piece()
+        //new Depense_piece(),
        // new Depense_piece(),
        // new Depense_piece(),
        // new Depense_piece(),

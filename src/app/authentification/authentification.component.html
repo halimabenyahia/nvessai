@@ -48,7 +48,7 @@
 
                     <div class="wrap-input100 validate-input">
                         <span class="label-input100">Mot de passe</span>
-                        <input class="input100" type="password" autocomplete="off" ngModel name="password" pattern="[A-Za-z0-9]+" maxlength="10" minlength="1" #motdepasse="ngModel" placeholder="Tapez votre mot de passe">
+                        <input class="input100" type="password" autocomplete="off" ngModel name="password" pattern="[A-Za-z0-9]+" maxlength="10" minlength="2" #motdepasse="ngModel" placeholder="Tapez votre mot de passe">
                         <div *ngIf="motdepasse.invalid || motdepasse.touched && motdepasse.pristine" style="color:red"> veuillez vérifier mot de passe</div>
                         <span class="focus-input100 password"></span>
                     </div>

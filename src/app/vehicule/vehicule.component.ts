@@ -264,8 +264,10 @@ export class VehiculeComponent implements OnInit {
     }
   selectAssurance(selectedassurance){
       console.log(selectedassurance);
+      console.log("assurance " +selectedassurance.compagnie_ass);
       this.selectAssurance = selectedassurance.compagnie_ass ;
       this.idSelectedAssurance = selectedassurance.id_assurance;
+     // this.vehicule.assurance_vehicule = selectedassurance ;
       this.assur=[];
     }
 
